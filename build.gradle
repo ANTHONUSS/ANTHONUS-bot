@@ -22,7 +22,7 @@ dependencies {
         //LogBack
             implementation("ch.qos.logback:logback-classic:1.5.16")
         //LavaPlayer
-            implementation 'dev.arbjerg:lavaplayer:2.2.2'
+            //implementation 'dev.arbjerg:lavaplayer:2.2.2'
 
     //Requetes API
         implementation 'com.squareup.okhttp3:okhttp:4.12.0'
