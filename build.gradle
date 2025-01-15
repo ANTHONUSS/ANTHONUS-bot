@@ -1,0 +1,44 @@
+plugins {
+    id 'java'
+}
+
+group = 'fr.ANTHONUSApps'
+version = '1.0.0-PRE-RELEASE'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+
+    //DotEnv
+        implementation 'io.github.cdimascio:java-dotenv:5.2.2'
+
+    //JDA
+        implementation'net.dv8tion:JDA:5.2.2'
+        //LogBack
+            implementation("ch.qos.logback:logback-classic:1.5.16")
+        //LavaPlayer
+            implementation 'dev.arbjerg:lavaplayer:2.2.2'
+
+    //Requetes API
+        implementation 'com.squareup.okhttp3:okhttp:4.12.0'
+        implementation 'com.google.code.gson:gson:2.11.0'
+}
+
+//Compiler en .jar
+jar {
+    manifest {
+        attributes('Main-Class': 'fr.MusicBot.JMusicBot')
+    }
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+
+test {
+    useJUnitPlatform()
+}
