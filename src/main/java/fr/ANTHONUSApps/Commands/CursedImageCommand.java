@@ -24,7 +24,6 @@ public class CursedImageCommand {
     }
 
     public void run() {
-        currentEvent.getChannel().sendTyping().queue();
         try {
             String imageURL = getImageUrl();
             if (imageURL != null) {
