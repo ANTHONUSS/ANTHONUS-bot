@@ -33,7 +33,7 @@ public class CursedImageCommand {
                                 + "\nUser : @" + currentEvent.getUser().getEffectiveName()
                                 + "\nServeur : " + currentEvent.getGuild().getName()
                                 + "\nSalon : #" + currentEvent.getChannel().getName()
-                                + "\nImage: " + imageURL,
+                                + "\nImage : " + imageURL,
                         LOGs.LogType.CURSED);
             } else {
                 currentEvent.reply("Aucune image trouvée")

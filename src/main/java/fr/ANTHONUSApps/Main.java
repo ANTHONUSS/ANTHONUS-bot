@@ -6,8 +6,11 @@ import io.github.cdimascio.dotenv.Dotenv;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.interactions.commands.build.Commands;
+import net.dv8tion.jda.api.interactions.commands.build.OptionData;
 import net.dv8tion.jda.api.requests.GatewayIntent;
 import net.dv8tion.jda.api.requests.restaction.CommandListUpdateAction;
+
+import static net.dv8tion.jda.api.interactions.commands.OptionType.*;
 
 public class Main {
     //ChatGPT
@@ -46,7 +49,14 @@ public class Main {
         //Load the slash commands
         CommandListUpdateAction commands = jda.updateCommands();
         commands.addCommands(
-                Commands.slash("cursed-image", "Envoie une image \"cursed\" depuis le reddit r/blursedimages")
+                Commands.slash("cursed-image", "Envoie une image \"cursed\" depuis le reddit r/blursedimages"),
+                Commands.slash("translate", "Traduis le message en paramètre en mode \"UwU\" ou \"Brainrot\"")
+                        .addOptions(new OptionData(STRING, "mode", "Mode de traduction du message")
+                                .setRequired(true)
+                                .addChoice("UwU", "uwu")
+                                .addChoice("Brainrot", "brainrot")
+                        )
+                        .addOption(STRING, "message", "Message à traduire", true, false)
         );
         commands.queue();
     }
