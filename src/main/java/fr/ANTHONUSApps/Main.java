@@ -1,13 +1,16 @@
 package fr.ANTHONUSApps;
 
 import fr.ANTHONUSApps.Listeners.MessageListener;
+import fr.ANTHONUSApps.Listeners.SlashCommandListener;
 import io.github.cdimascio.dotenv.Dotenv;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
+import net.dv8tion.jda.api.interactions.commands.build.Commands;
 import net.dv8tion.jda.api.requests.GatewayIntent;
 import net.dv8tion.jda.api.requests.restaction.CommandListUpdateAction;
 
 public class Main {
+    //ChatGPT
     public static String tokenIA;
 
     public static void main(String[] args) throws InterruptedException {
@@ -34,6 +37,7 @@ public class Main {
                 .enableIntents(GatewayIntent.MESSAGE_CONTENT)
                 .enableIntents(GatewayIntent.GUILD_MESSAGES)
                 .addEventListeners(new MessageListener())
+                .addEventListeners(new SlashCommandListener())
                 .build();
 
         jda.awaitReady();
@@ -42,6 +46,7 @@ public class Main {
         //Load the slash commands
         CommandListUpdateAction commands = jda.updateCommands();
         commands.addCommands(
+                Commands.slash("cursed-image", "Envoie une image \"cursed\" depuis le reddit r/blursedimages")
         );
         commands.queue();
     }

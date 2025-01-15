@@ -4,14 +4,14 @@ public class LOGs {
     public static final String DEFAULT = "\u001B[0m";   //Reset the color
     public static final String RED = "\u001B[31m";      //Errors
     public static final String YELLOW = "\u001B[33m";   //Normal logs
-    public static final String GREEN = "\u001B[32m";
+    public static final String GREEN = "\u001B[32m";    //CursedImage
     public static final String PURPLE = "\u001B[35m";
     public static final String CYAN = "\u001B[36m";
     public static final String BLUE = "\u001B[34m";     //"feur" reply
     public static final String PINK = "\033[38;5;213m"; //Debug
 
     public enum LogType {
-        ERROR, NORMAL, FEUR, DEBUG
+        ERROR, NORMAL, CURSED, FEUR, DEBUG
     }
 
     public static void sendLog(String message, LogType logType) {
@@ -27,6 +27,10 @@ public class LOGs {
             case NORMAL -> {
                 color = YELLOW;
                 enterMessage = "LOG ==> ";
+            }
+            case CURSED -> {
+                color = GREEN;
+                enterMessage = "CURSED IMAGE ==> ";
             }
             case FEUR -> {
                 color = BLUE;
