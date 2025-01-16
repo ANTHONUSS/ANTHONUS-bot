@@ -2,8 +2,9 @@ package fr.ANTHONUSApps.Commands;
 
 
 import com.google.gson.*;
-import fr.ANTHONUSApps.Utils.APICall;
+import fr.ANTHONUSApps.Utils.APICalls.APICall;
 import fr.ANTHONUSApps.LOGs;
+import fr.ANTHONUSApps.Utils.APICalls.APICallReddit;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -22,42 +23,46 @@ public class CursedImageCommand {
 
     public CursedImageCommand(SlashCommandInteractionEvent event) {
         this.currentEvent = event;
+
+        LOGs.sendLog("CursedImage command initialisée", LOGs.LogType.COMMAND);
     }
 
     public void run() {
-        try {
-            String imageURL = getImageUrl();
-            if (imageURL != null) {
-                currentEvent.reply(imageURL).queue();
-                LOGs.sendLog("CursedImage générée"
-                                + "\nUser : @" + currentEvent.getUser().getEffectiveName()
-                                + "\nServeur : " + currentEvent.getGuild().getName()
-                                + "\nSalon : #" + currentEvent.getChannel().getName()
-                                + "\nImage : " + imageURL,
-                        LOGs.LogType.CURSED);
-            } else {
-                currentEvent.reply("Aucune image trouvée")
-                        .setEphemeral(true)
-                        .queue();
-                LOGs.sendLog("Erreur sur CursedImage"
-                                + "\nUser : @" + currentEvent.getUser().getEffectiveName()
-                                + "\nServeur : " + currentEvent.getGuild().getName()
-                                + "\nSalon : #" + currentEvent.getChannel().getName(),
-                        LOGs.LogType.ERROR);
-            }
-        } catch (Exception e) {
-            currentEvent.reply("Une erreur est survenue lors de la récupération de l'image" + e.getMessage()).queue();
-            e.printStackTrace();
-        }
+        currentEvent.deferReply().queue(
+                success -> {
+                    try {
+                        String imageURL = getImageUrl();
+                        if (imageURL != null) {
+                            currentEvent.getHook().editOriginal(imageURL).queue();
+                            LOGs.sendLog("CursedImage générée"
+                                            + "\nUser : @" + currentEvent.getUser().getEffectiveName()
+                                            + "\nServeur : " + currentEvent.getGuild().getName()
+                                            + "\nSalon : #" + currentEvent.getChannel().getName()
+                                            + "\nImage : " + imageURL,
+                                    LOGs.LogType.COMMAND);
+                        } else {
+                            currentEvent.getHook().editOriginal("Aucune image trouvée").queue();
+                            LOGs.sendLog("Erreur sur CursedImage"
+                                            + "\nUser : @" + currentEvent.getUser().getEffectiveName()
+                                            + "\nServeur : " + currentEvent.getGuild().getName()
+                                            + "\nSalon : #" + currentEvent.getChannel().getName(),
+                                    LOGs.LogType.ERROR);
+                        }
+                    } catch (Exception e) {
+                        currentEvent.getHook().editOriginal("Une erreur est survenue lors de la récupération de l'image" + e.getMessage()).queue();
+                        e.printStackTrace();
+                    }
+                },
+                failure -> {
+                    LOGs.sendLog("Erreur lors de l'envoi du deferReply", LOGs.LogType.ERROR);
+                }
+        );
+
     }
 
     private String getImageUrl() throws IOException {
-        Request request = new Request.Builder()
-                .url(REDDIT_URL)
-                .header("User-Agent", "ANTHONUS-Bot (https://github.com/ANTHONUSS/ANTHONUS-bot) by /u/Darkcp_YTB ")
-                .build();
+        APICallReddit redditRequest = new APICallReddit(REDDIT_URL, "User-Agent", "ANTHONUS-Bot (https://github.com/ANTHONUSS/ANTHONUS-bot) by /u/Darkcp_YTB");
 
-        APICall redditRequest = new APICall(request);
         JsonArray posts = redditRequest.call().getAsJsonObject("data").getAsJsonArray("children");
 
         Random random = new Random();
