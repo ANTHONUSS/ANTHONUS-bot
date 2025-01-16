@@ -10,7 +10,7 @@ public class SlashCommandListener extends ListenerAdapter {
     @Override
     public void onSlashCommandInteraction(SlashCommandInteractionEvent event) {
         switch (event.getName()){
-            case "cursed-image" -> {
+            case "cursed" -> {
                 CursedImageCommand currentCommand = new CursedImageCommand(event);
                 currentCommand.run();
             }

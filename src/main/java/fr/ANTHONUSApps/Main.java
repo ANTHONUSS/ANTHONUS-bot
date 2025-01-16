@@ -49,7 +49,7 @@ public class Main {
         //Load the slash commands
         CommandListUpdateAction commands = jda.updateCommands();
         commands.addCommands(
-                Commands.slash("cursed-image", "Envoie une image \"cursed\" depuis le reddit r/blursedimages"),
+                Commands.slash("cursed", "Envoie une image/vidéo (sans son) \"cursed\" depuis différents subreddits"),
                 Commands.slash("translate", "Traduis le message en paramètre en mode \"UwU\" ou \"Brainrot\"")
                         .addOptions(new OptionData(STRING, "mode", "Mode de traduction du message")
                                 .setRequired(true)

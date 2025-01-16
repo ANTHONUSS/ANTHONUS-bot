@@ -2,12 +2,10 @@ package fr.ANTHONUSApps.Commands;
 
 
 import com.google.gson.*;
-import fr.ANTHONUSApps.Utils.APICalls.APICall;
 import fr.ANTHONUSApps.LOGs;
 import fr.ANTHONUSApps.Utils.APICalls.APICallReddit;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import okhttp3.OkHttpClient;
-import okhttp3.Request;
 
 import java.io.IOException;
 import java.util.Random;
@@ -16,9 +14,15 @@ public class CursedImageCommand {
     private SlashCommandInteractionEvent currentEvent;
 
     private final OkHttpClient client = new OkHttpClient();
-    private final String SUBREDDIT = "blursedimages";
+    private final String[] SUBREDDITS = {
+            "blursedimages",
+            "blursed_videos",
+            "Cursed",
+            "Cursed_Images",
+            "cursedvideos"
+    };
     private final int postsLimit = 100;
-    private final String REDDIT_URL = "https://www.reddit.com/r/" + SUBREDDIT + "/hot.json?limit=" + postsLimit;
+    private String REDDIT_URL = "";
 
 
     public CursedImageCommand(SlashCommandInteractionEvent event) {
@@ -38,7 +42,7 @@ public class CursedImageCommand {
                                             + "\nUser : @" + currentEvent.getUser().getEffectiveName()
                                             + "\nServeur : " + currentEvent.getGuild().getName()
                                             + "\nSalon : #" + currentEvent.getChannel().getName()
-                                            + "\nImage : " + imageURL,
+                                            + "\nLien : " + imageURL,
                                     LOGs.LogType.COMMAND);
                         } else {
                             currentEvent.getHook().editOriginal("Aucune image trouvée").queue();
@@ -61,16 +65,26 @@ public class CursedImageCommand {
     }
 
     private String getImageUrl() throws IOException {
+        //
+        Random random = new Random();
+        int rand = random.nextInt(SUBREDDITS.length);
+        REDDIT_URL = "https://www.reddit.com/r/" + SUBREDDITS[rand] + "/hot.json?limit=" + postsLimit;
+
         APICallReddit redditRequest = new APICallReddit(REDDIT_URL, "User-Agent", "ANTHONUS-Bot (https://github.com/ANTHONUSS/ANTHONUS-bot) by /u/Darkcp_YTB");
 
         JsonArray posts = redditRequest.call().getAsJsonObject("data").getAsJsonArray("children");
 
-        Random random = new Random();
+
         JsonObject randomPost = posts.get(random.nextInt(posts.size()))
                 .getAsJsonObject()
                 .getAsJsonObject("data");
 
         if (randomPost.has("url")) {
+            if(randomPost.get("url").getAsString().contains("v.redd.it"))
+                return randomPost.get("media").getAsJsonObject()
+                        .get("reddit_video").getAsJsonObject()
+                        .get("fallback_url").getAsString();
+
             return randomPost.get("url").getAsString();
         }
         return null;
