@@ -2,7 +2,6 @@ package fr.ANTHONUSApps.Utils.APICalls;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import fr.ANTHONUSApps.Commands.TranslateCommand;
 import fr.ANTHONUSApps.LOGs;
 import fr.ANTHONUSApps.Main;
 import okhttp3.MediaType;
@@ -15,7 +14,7 @@ public class APICallGPT extends APICall {
         LOGs.sendLog("Création de la requête pour chatGPT", LOGs.LogType.API);
         JsonObject json = new JsonObject();
         json.addProperty("model", "gpt-4o-mini");
-        json.addProperty("max_tokens", 500);
+        json.addProperty("max_tokens", maxTokens);
 
         JsonArray messages = new JsonArray();
 

@@ -84,7 +84,7 @@ public class TranslateCommand {
                                     LOGs.LogType.COMMAND);
                         } else {
                             currentEvent.getHook().editOriginal("Erreur avec ChatGPT").queue();
-                            LOGs.sendLog("Erreur sur CursedImage"
+                            LOGs.sendLog("Erreur sur TranslateCommand"
                                             + "\nUser : @" + currentEvent.getUser().getEffectiveName()
                                             + "\nServeur : " + currentEvent.getGuild().getName()
                                             + "\nSalon : #" + currentEvent.getChannel().getName(),

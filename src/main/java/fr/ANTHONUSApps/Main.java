@@ -5,6 +5,7 @@ import fr.ANTHONUSApps.Listeners.SlashCommandListener;
 import io.github.cdimascio.dotenv.Dotenv;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
+import net.dv8tion.jda.api.interactions.commands.OptionType;
 import net.dv8tion.jda.api.interactions.commands.build.Commands;
 import net.dv8tion.jda.api.interactions.commands.build.OptionData;
 import net.dv8tion.jda.api.requests.GatewayIntent;
@@ -56,7 +57,10 @@ public class Main {
                                 .addChoice("UwU", "uwu")
                                 .addChoice("Brainrot", "brainrot")
                         )
-                        .addOption(STRING, "message", "Message à traduire", true, false)
+                        .addOption(STRING, "message", "Message à traduire", true, false),
+                Commands.slash("roast", "Permet de clash la personne mentionnée")
+                        .addOption(USER, "personne", "Personne à mentionner", true)
+                        .addOption(STRING, "contexte", "Contexte à préciser au bot (facultatif)", false, false)
         );
         commands.queue();
     }
