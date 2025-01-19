@@ -1,4 +1,4 @@
-package fr.ANTHONUSApps.Commands;
+package fr.ANTHONUSApps.Commands.SlashCommands;
 
 
 import com.google.gson.*;

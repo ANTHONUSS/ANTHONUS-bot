@@ -1,10 +1,9 @@
 package fr.ANTHONUSApps.Listeners;
 
-import fr.ANTHONUSApps.Commands.ComplimentCommand;
-import fr.ANTHONUSApps.Commands.CursedImageCommand;
-import fr.ANTHONUSApps.Commands.RoastCommand;
-import fr.ANTHONUSApps.Commands.TranslateCommand;
-import net.dv8tion.jda.api.entities.User;
+import fr.ANTHONUSApps.Commands.SlashCommands.ComplimentCommand;
+import fr.ANTHONUSApps.Commands.SlashCommands.CursedImageCommand;
+import fr.ANTHONUSApps.Commands.SlashCommands.RoastCommand;
+import fr.ANTHONUSApps.Commands.SlashCommands.TranslateCommand;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 

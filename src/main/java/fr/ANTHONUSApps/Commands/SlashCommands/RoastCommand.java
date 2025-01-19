@@ -1,21 +1,22 @@
-package fr.ANTHONUSApps.Commands;
+package fr.ANTHONUSApps.Commands.SlashCommands;
 
 import fr.ANTHONUSApps.LOGs;
 import fr.ANTHONUSApps.Utils.APICalls.APICallGPT;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 
-public class ComplimentCommand {
+public class RoastCommand {
     private SlashCommandInteractionEvent currentEvent;
     private String personne;
     private String contexte;
 
     private final String systemMessage = """
-            Tu est un bot discord, tu as été exécuté via la commande /compliment @mention et ton seul est unique but est de complimenter la personne qui as été mentionné.
-            Ton but sera de complimenter la personne le plus possible.
-            Tu prendra en compte dans le message de l'utilisateur le pseudo de la personne ainsi que le contexte pour le compliment dessus.
+            Tu est un bot discord, tu as été exécuté via la commande /roast @mention et ton seul est unique but est de clash la personne qui as été mentionné
+            Pas d'insultes vulgaires, mais ton but est de bien terminer la personne.
+            Le message restera bien évidemment respectueux, mais ton but sera de clash la personne le plus possible.
+            Tu prendra en compte dans le message de l'utilisateur le pseudo de la personne ainsi que le contexte pour le clash dessus.
             """;
 
-    public ComplimentCommand(SlashCommandInteractionEvent event, String personne, String contexte) {
+    public RoastCommand(SlashCommandInteractionEvent event, String personne, String contexte) {
         this.currentEvent = event;
         this.personne = personne;
         this.contexte = contexte;
