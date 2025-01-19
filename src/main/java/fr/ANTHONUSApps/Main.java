@@ -60,6 +60,9 @@ public class Main {
                         .addOption(STRING, "message", "Message à traduire", true, false),
                 Commands.slash("roast", "Permet de clash la personne mentionnée")
                         .addOption(USER, "personne", "Personne à mentionner", true)
+                        .addOption(STRING, "contexte", "Contexte à préciser au bot (facultatif)", false, false),
+                Commands.slash("compliment", "Permet de complimenter la personne mentionnée")
+                        .addOption(USER, "personne", "Personne à mentionner", true)
                         .addOption(STRING, "contexte", "Contexte à préciser au bot (facultatif)", false, false)
         );
         commands.queue();

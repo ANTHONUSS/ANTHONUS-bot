@@ -1,5 +1,6 @@
 package fr.ANTHONUSApps.Listeners;
 
+import fr.ANTHONUSApps.Commands.ComplimentCommand;
 import fr.ANTHONUSApps.Commands.CursedImageCommand;
 import fr.ANTHONUSApps.Commands.RoastCommand;
 import fr.ANTHONUSApps.Commands.TranslateCommand;
@@ -31,6 +32,16 @@ public class SlashCommandListener extends ListenerAdapter {
                 }
 
                 RoastCommand currentCommand = new RoastCommand(event, personne, contexte);
+                currentCommand.run();
+            }
+            case "compliment" -> {
+                String personne = event.getOption("personne").getAsUser().getEffectiveName();
+                String contexte = "";
+                if (event.getOption("contexte") != null) {
+                    contexte = event.getOption("contexte").getAsString();
+                }
+
+                ComplimentCommand currentCommand = new ComplimentCommand(event, personne, contexte);
                 currentCommand.run();
             }
         }
