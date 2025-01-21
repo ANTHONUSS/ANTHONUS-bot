@@ -30,7 +30,6 @@ public class MessageListener extends ListenerAdapter {
 
         //Verification pour RandomInteraction
         double rand = Math.random() * 100;
-        System.out.println(rand + " | " + prob);
         if (rand < prob) {
             InteractionCommand interactionCommand = new InteractionCommand(event);
             interactionCommand.run();

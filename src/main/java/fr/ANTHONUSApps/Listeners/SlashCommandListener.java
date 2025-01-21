@@ -1,6 +1,7 @@
 package fr.ANTHONUSApps.Listeners;
 
 import fr.ANTHONUSApps.Commands.SlashCommands.*;
+import fr.ANTHONUSApps.LOGs;
 import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
@@ -9,6 +10,15 @@ public class SlashCommandListener extends ListenerAdapter {
 
     @Override
     public void onSlashCommandInteraction(SlashCommandInteractionEvent event) {
+        if (!event.isFromGuild()) {
+            event.reply("Vous ne pouvez pas utiliser les commandes dans les mp du bot.").setEphemeral(true).queue();
+            LOGs.sendLog("Commande slash exécutée dans les mp du bot"
+                            + "\nUser : @" + event.getUser().getEffectiveName(),
+                    LOGs.LogType.ERROR);
+            return;
+        }
+
+
         switch (event.getName()) {
             case "cursed" -> {
                 CursedImageCommand cursedImageCommand = new CursedImageCommand(event);
