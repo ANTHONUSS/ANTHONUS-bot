@@ -7,7 +7,7 @@ import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 public class MessageListener extends ListenerAdapter {
-    private final int prob = 30;
+    private final int prob = 3;
 
     @Override
     public void onMessageReceived(MessageReceivedEvent event) {
@@ -25,14 +25,15 @@ public class MessageListener extends ListenerAdapter {
         //Verification pour FEUR
         if (message.toLowerCase().matches(".*\\bquoi\\s?\\p{Punct}*$")) {
             FeurCommand feurCommand = new FeurCommand(event);
-            feurCommand.feurReply();
+            feurCommand.run();
         }
 
         //Verification pour RandomInteraction
         double rand = Math.random() * 100;
+        System.out.println(rand + " | " + prob);
         if (rand < prob) {
             InteractionCommand interactionCommand = new InteractionCommand(event);
-            interactionCommand.randomInteraction();
+            interactionCommand.run();
         }
     }
 }

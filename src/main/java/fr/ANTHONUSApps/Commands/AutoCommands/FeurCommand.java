@@ -3,14 +3,14 @@ package fr.ANTHONUSApps.Commands.AutoCommands;
 import fr.ANTHONUSApps.LOGs;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
-public class FeurCommand {
-    private MessageReceivedEvent currentEvent;
+public class FeurCommand extends AutoCommand{
 
     public FeurCommand(MessageReceivedEvent event) {
-        this.currentEvent = event;
+        super(event);
     }
 
-    public void feurReply() {
+    @Override
+    public void run() {
         if (Math.random() >= 0.5) currentEvent.getMessage().reply("feur").queue();
         else currentEvent.getMessage().reply("coubeh").queue();
 

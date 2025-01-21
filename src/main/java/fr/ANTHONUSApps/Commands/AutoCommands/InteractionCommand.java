@@ -4,8 +4,7 @@ import fr.ANTHONUSApps.LOGs;
 import fr.ANTHONUSApps.Utils.APICalls.APICallGPT;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
-public class InteractionCommand {
-    private MessageReceivedEvent currentEvent;
+public class InteractionCommand extends AutoCommand{
     private final String roastInteractionSystemMessage = """
             Tu est un bot discord, tu as été exécuté aléatoirement sur un des messages du serveur et ton seul est unique but est de clash la personne qui as été mentionné
             Pas d'insultes vulgaires, mais ton but est de bien terminer la personne.
@@ -13,12 +12,13 @@ public class InteractionCommand {
             """;
 
     public InteractionCommand(MessageReceivedEvent event) {
-        this.currentEvent = event;
+        super(event);
 
         LOGs.sendLog("InteractionCommand initialisée", LOGs.LogType.AUTOCOMMAND);
     }
 
-    public void randomInteraction() {
+    @Override
+    public void run() {
         double rand = Math.random() * 100;
         if (rand <= 100) {
             roastInteraction();

@@ -14,10 +14,8 @@ public class CursedImageCommand extends Command{
     private final OkHttpClient client = new OkHttpClient();
     private final String[] SUBREDDITS = {
             "blursedimages",
-            "blursed_videos",
             "Cursed",
-            "Cursed_Images",
-            "cursedvideos"
+            "Cursed_Images"
     };
     private final int postsLimit = 100;
     private String REDDIT_URL = "";

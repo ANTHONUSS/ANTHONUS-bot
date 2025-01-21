@@ -11,15 +11,15 @@ public class SlashCommandListener extends ListenerAdapter {
     public void onSlashCommandInteraction(SlashCommandInteractionEvent event) {
         switch (event.getName()) {
             case "cursed" -> {
-                CursedImageCommand currentCommand = new CursedImageCommand(event);
-                currentCommand.run();
+                CursedImageCommand cursedImageCommand = new CursedImageCommand(event);
+                cursedImageCommand.run();
             }
             case "translate" -> {
                 String selectedMode = event.getOption("mode").getAsString();
                 String message = event.getOption("message").getAsString();
 
-                TranslateCommand currentCommand = new TranslateCommand(event, selectedMode, message);
-                currentCommand.run();
+                TranslateCommand translateCommand = new TranslateCommand(event, selectedMode, message);
+                translateCommand.run();
             }
             case "roast" -> {
                 String personne = event.getOption("personne").getAsUser().getEffectiveName();
@@ -28,8 +28,8 @@ public class SlashCommandListener extends ListenerAdapter {
                     contexte = event.getOption("contexte").getAsString();
                 }
 
-                RoastCommand currentCommand = new RoastCommand(event, personne, contexte);
-                currentCommand.run();
+                RoastCommand roastCommand = new RoastCommand(event, personne, contexte);
+                roastCommand.run();
             }
             case "compliment" -> {
                 String personne = event.getOption("personne").getAsUser().getEffectiveName();
@@ -38,15 +38,15 @@ public class SlashCommandListener extends ListenerAdapter {
                     contexte = event.getOption("contexte").getAsString();
                 }
 
-                ComplimentCommand currentCommand = new ComplimentCommand(event, personne, contexte);
-                currentCommand.run();
+                ComplimentCommand complimentCommand = new ComplimentCommand(event, personne, contexte);
+                complimentCommand.run();
             }
             case "private-send" -> {
                 User personne = event.getOption("personne").getAsUser();
                 String message = event.getOption("message").getAsString();
 
-                PrivateSendCommand currentCommand = new PrivateSendCommand(event, personne, message);
-                currentCommand.run();
+                PrivateSendCommand privateSendCommand = new PrivateSendCommand(event, personne, message);
+                privateSendCommand.run();
             }
         }
     }
