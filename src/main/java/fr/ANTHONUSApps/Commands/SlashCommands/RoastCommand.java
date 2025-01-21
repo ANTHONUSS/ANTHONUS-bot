@@ -4,8 +4,7 @@ import fr.ANTHONUSApps.LOGs;
 import fr.ANTHONUSApps.Utils.APICalls.APICallGPT;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 
-public class RoastCommand {
-    private SlashCommandInteractionEvent currentEvent;
+public class RoastCommand extends Command{
     private String personne;
     private String contexte;
 
@@ -17,13 +16,14 @@ public class RoastCommand {
             """;
 
     public RoastCommand(SlashCommandInteractionEvent event, String personne, String contexte) {
-        this.currentEvent = event;
+        super(event);
         this.personne = personne;
         this.contexte = contexte;
 
         LOGs.sendLog("Roast command initialisée.", LOGs.LogType.COMMAND);
     }
 
+    @Override
     public void run() {
         currentEvent.deferReply().queue(
                 success -> {

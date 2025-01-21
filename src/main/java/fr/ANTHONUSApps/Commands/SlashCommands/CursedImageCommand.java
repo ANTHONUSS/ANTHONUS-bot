@@ -10,9 +10,7 @@ import okhttp3.OkHttpClient;
 import java.io.IOException;
 import java.util.Random;
 
-public class CursedImageCommand {
-    private SlashCommandInteractionEvent currentEvent;
-
+public class CursedImageCommand extends Command{
     private final OkHttpClient client = new OkHttpClient();
     private final String[] SUBREDDITS = {
             "blursedimages",
@@ -26,11 +24,12 @@ public class CursedImageCommand {
 
 
     public CursedImageCommand(SlashCommandInteractionEvent event) {
-        this.currentEvent = event;
+        super(event);
 
         LOGs.sendLog("CursedImage command initialisée", LOGs.LogType.COMMAND);
     }
 
+    @Override
     public void run() {
         currentEvent.deferReply().queue(
                 success -> {

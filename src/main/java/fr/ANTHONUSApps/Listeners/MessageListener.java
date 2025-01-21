@@ -12,6 +12,13 @@ public class MessageListener extends ListenerAdapter {
     @Override
     public void onMessageReceived(MessageReceivedEvent event) {
         if (event.getAuthor().isBot()) return;
+        if (!event.isFromGuild()) {
+            LOGs.sendLog("Message envoyé dans les mp du bot"
+                            + "\nUser : @" + event.getAuthor().getEffectiveName()
+                            + "\nMessage : " + event.getMessage().getContentRaw(),
+                    LOGs.LogType.NORMAL);
+            return;
+        }
 
         String message = event.getMessage().getContentRaw();
 
@@ -22,8 +29,8 @@ public class MessageListener extends ListenerAdapter {
         }
 
         //Verification pour RandomInteraction
-        double rand = Math.random()*100;
-        if(rand < prob) {
+        double rand = Math.random() * 100;
+        if (rand < prob) {
             InteractionCommand interactionCommand = new InteractionCommand(event);
             interactionCommand.randomInteraction();
         }

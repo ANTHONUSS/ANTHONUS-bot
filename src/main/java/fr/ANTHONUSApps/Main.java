@@ -51,6 +51,7 @@ public class Main {
         CommandListUpdateAction commands = jda.updateCommands();
         commands.addCommands(
                 Commands.slash("cursed", "Envoie une image/vidéo (sans son) \"cursed\" depuis différents subreddits"),
+
                 Commands.slash("translate", "Traduis le message en paramètre en mode \"UwU\" ou \"Brainrot\"")
                         .addOptions(new OptionData(STRING, "mode", "Mode de traduction du message")
                                 .setRequired(true)
@@ -58,12 +59,18 @@ public class Main {
                                 .addChoice("Brainrot", "brainrot")
                         )
                         .addOption(STRING, "message", "Message à traduire", true, false),
+
                 Commands.slash("roast", "Permet de clash la personne mentionnée")
                         .addOption(USER, "personne", "Personne à mentionner", true)
                         .addOption(STRING, "contexte", "Contexte à préciser au bot (facultatif)", false, false),
+
                 Commands.slash("compliment", "Permet de complimenter la personne mentionnée")
                         .addOption(USER, "personne", "Personne à mentionner", true)
-                        .addOption(STRING, "contexte", "Contexte à préciser au bot (facultatif)", false, false)
+                        .addOption(STRING, "contexte", "Contexte à préciser au bot (facultatif)", false, false),
+
+                Commands.slash("private-send", "Envoie un message anonyme à un utilisateur en MP")
+                        .addOption(USER, "personne", "Personne à qui envoyer le message", true)
+                        .addOption(STRING, "message", "Message à envoyer", true)
         );
         commands.queue();
     }

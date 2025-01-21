@@ -4,8 +4,7 @@ import fr.ANTHONUSApps.LOGs;
 import fr.ANTHONUSApps.Utils.APICalls.APICallGPT;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 
-public class TranslateCommand {
-    private SlashCommandInteractionEvent currentEvent;
+public class TranslateCommand extends Command{
     private String userMessage;
     private String currentSystemMessage;
 
@@ -62,7 +61,7 @@ public class TranslateCommand {
             """;
 
     public TranslateCommand(SlashCommandInteractionEvent event, String mode, String message) {
-        this.currentEvent = event;
+        super(event);
         this.userMessage = message;
         if (mode.equals("uwu")) this.currentSystemMessage = gptSystemUwU;
         else if (mode.equals("brainrot")) this.currentSystemMessage = gptSystemBrainrot;
@@ -70,6 +69,7 @@ public class TranslateCommand {
         LOGs.sendLog("Translate command initialisée avec le mode " + mode + " et message \"" + message + "\"", LOGs.LogType.COMMAND);
     }
 
+    @Override
     public void run() {
         currentEvent.deferReply().queue(
                 success -> {
