@@ -5,6 +5,8 @@ import fr.ANTHONUSApps.LOGs;
 import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
+import net.dv8tion.jda.api.interactions.commands.OptionMapping;
+import net.dv8tion.jda.api.interactions.commands.OptionType;
 
 public class SlashCommandListener extends ListenerAdapter {
 
@@ -63,6 +65,10 @@ public class SlashCommandListener extends ListenerAdapter {
 
                 ClearCommand clearCommand = new ClearCommand(event, count);
                 clearCommand.run();
+            }
+            case "update-avatar" -> {
+                UpdateAvatarCommand updateAvatarCommand = new UpdateAvatarCommand(event);
+                updateAvatarCommand.run();
             }
         }
     }

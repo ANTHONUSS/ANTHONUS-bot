@@ -6,20 +6,28 @@ import io.github.cdimascio.dotenv.Dotenv;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.Permission;
+import net.dv8tion.jda.api.entities.Icon;
 import net.dv8tion.jda.api.interactions.commands.DefaultMemberPermissions;
-import net.dv8tion.jda.api.interactions.commands.OptionType;
 import net.dv8tion.jda.api.interactions.commands.build.Commands;
 import net.dv8tion.jda.api.interactions.commands.build.OptionData;
 import net.dv8tion.jda.api.requests.GatewayIntent;
 import net.dv8tion.jda.api.requests.restaction.CommandListUpdateAction;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
+import java.util.Arrays;
+
 import static net.dv8tion.jda.api.interactions.commands.OptionType.*;
+
+import java.security.MessageDigest;
 
 public class Main {
     //ChatGPT
     public static String tokenIA;
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException, IOException, NoSuchAlgorithmException {
         Dotenv dotenv = Dotenv.load();
 
         //Load ChatGPT api key
@@ -77,7 +85,10 @@ public class Main {
                 Commands.slash("clear", "Supprime un certain nombre de messages du salon.")
                         .addOptions(new OptionData(INTEGER, "nombre", "nombre de messages à supprimer", true)
                                 .setRequiredRange(1, 100))
-                        .setDefaultPermissions(DefaultMemberPermissions.enabledFor(Permission.MESSAGE_MANAGE))
+                        .setDefaultPermissions(DefaultMemberPermissions.enabledFor(Permission.MESSAGE_MANAGE)),
+
+                Commands.slash("update-avatar", "Met à jour l'avatar du bot.")
+                        .setDefaultPermissions(DefaultMemberPermissions.enabledFor(Permission.ADMINISTRATOR))
         );
         commands.queue();
     }

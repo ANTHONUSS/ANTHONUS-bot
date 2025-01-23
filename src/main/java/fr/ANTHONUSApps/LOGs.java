@@ -73,7 +73,7 @@ public class LOGs {
                 }
             }
             try (BufferedWriter writer = new BufferedWriter(new FileWriter(logFile, true))) {
-                writer.write(log);
+                writer.write(log+"\n");
                 writer.newLine();
             }
         } catch (IOException e) {

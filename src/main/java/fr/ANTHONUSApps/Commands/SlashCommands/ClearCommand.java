@@ -15,6 +15,7 @@ public class ClearCommand extends Command {
         LOGs.sendLog("Commande clear initialisée", LOGs.LogType.COMMAND);
     }
 
+    @Override
     public void run() {
         TextChannel channel = (TextChannel) currentEvent.getChannel();
         channel.getHistory().retrievePast(amount).queue(messages -> {

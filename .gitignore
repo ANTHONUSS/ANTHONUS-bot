@@ -26,3 +26,5 @@ replay_pid*
 ###CUSTOM###
 /.env
 /logs.txt
+/avatar.gif
+/avatar.png
