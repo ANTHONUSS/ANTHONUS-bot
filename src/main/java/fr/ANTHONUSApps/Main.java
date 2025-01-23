@@ -5,6 +5,8 @@ import fr.ANTHONUSApps.Listeners.SlashCommandListener;
 import io.github.cdimascio.dotenv.Dotenv;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
+import net.dv8tion.jda.api.Permission;
+import net.dv8tion.jda.api.interactions.commands.DefaultMemberPermissions;
 import net.dv8tion.jda.api.interactions.commands.OptionType;
 import net.dv8tion.jda.api.interactions.commands.build.Commands;
 import net.dv8tion.jda.api.interactions.commands.build.OptionData;
@@ -70,7 +72,12 @@ public class Main {
 
                 Commands.slash("private-send", "Envoie un message anonyme à un utilisateur en MP")
                         .addOption(USER, "personne", "Personne à qui envoyer le message", true)
-                        .addOption(STRING, "message", "Message à envoyer", true)
+                        .addOption(STRING, "message", "Message à envoyer", true),
+
+                Commands.slash("clear", "Supprime un certain nombre de messages du salon.")
+                        .addOptions(new OptionData(INTEGER, "nombre", "nombre de messages à supprimer", true)
+                                .setRequiredRange(1, 100))
+                        .setDefaultPermissions(DefaultMemberPermissions.enabledFor(Permission.MESSAGE_MANAGE))
         );
         commands.queue();
     }

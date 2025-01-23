@@ -58,6 +58,12 @@ public class SlashCommandListener extends ListenerAdapter {
                 PrivateSendCommand privateSendCommand = new PrivateSendCommand(event, personne, message);
                 privateSendCommand.run();
             }
+            case "clear" -> {
+                int count = event.getOption("nombre").getAsInt();
+
+                ClearCommand clearCommand = new ClearCommand(event, count);
+                clearCommand.run();
+            }
         }
     }
 }
