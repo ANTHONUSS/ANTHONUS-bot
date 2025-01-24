@@ -56,14 +56,6 @@ public class Main {
         commands.addCommands(
                 Commands.slash("cursed", "Envoie une image/vidéo (sans son) \"cursed\" depuis différents subreddits"),
 
-                Commands.slash("translate", "Traduis le message en paramètre en mode \"UwU\" ou \"Brainrot\"")
-                        .addOptions(new OptionData(STRING, "mode", "Mode de traduction du message")
-                                .setRequired(true)
-                                .addChoice("UwU", "uwu")
-                                .addChoice("Brainrot", "brainrot")
-                        )
-                        .addOption(STRING, "message", "Message à traduire", true, false),
-
                 Commands.slash("roast", "Permet de clash la personne mentionnée")
                         .addOption(USER, "personne", "Personne à mentionner", true)
                         .addOption(STRING, "contexte", "Contexte à préciser au bot (facultatif)", false, false),

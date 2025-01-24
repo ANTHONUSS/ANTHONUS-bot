@@ -24,13 +24,6 @@ public class SlashCommandListener extends ListenerAdapter {
                 CursedImageCommand cursedImageCommand = new CursedImageCommand(event);
                 cursedImageCommand.run();
             }
-            case "translate" -> {
-                String selectedMode = event.getOption("mode").getAsString();
-                String message = event.getOption("message").getAsString();
-
-                TranslateCommand translateCommand = new TranslateCommand(event, selectedMode, message);
-                translateCommand.run();
-            }
             case "roast" -> {
                 String personne = event.getOption("personne").getAsUser().getEffectiveName();
                 String contexte = "";
