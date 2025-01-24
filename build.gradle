@@ -3,11 +3,10 @@ plugins {
 }
 
 group = 'fr.ANTHONUSApps'
-version = '1.0.0-PRE-RELEASE'
+version = '1.2.0'
 
 repositories {
     mavenCentral()
-    jcenter()
 }
 
 dependencies {
@@ -32,7 +31,7 @@ dependencies {
 //Compiler en .jar
 jar {
     manifest {
-        attributes('Main-Class': 'fr.MusicBot.JMusicBot')
+        attributes('Main-Class': 'fr.ANTHONUSApps.Main')
     }
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
     from {

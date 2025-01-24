@@ -2,9 +2,7 @@ package fr.ANTHONUSApps.Commands.SlashCommands;
 
 import fr.ANTHONUSApps.LOGs;
 import net.dv8tion.jda.api.entities.Icon;
-import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
-import net.dv8tion.jda.api.interactions.commands.OptionMapping;
 
 import java.io.File;
 import java.io.IOException;

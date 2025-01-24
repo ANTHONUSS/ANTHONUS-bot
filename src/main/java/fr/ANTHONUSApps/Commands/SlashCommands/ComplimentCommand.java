@@ -4,7 +4,7 @@ import fr.ANTHONUSApps.LOGs;
 import fr.ANTHONUSApps.Utils.APICalls.APICallGPT;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 
-public class ComplimentCommand extends Command{
+public class ComplimentCommand extends Command {
     private String personne;
     private String contexte;
 
@@ -24,40 +24,52 @@ public class ComplimentCommand extends Command{
 
     @Override
     public void run() {
-        currentEvent.deferReply().queue(
-                success -> {
-                    try {
-                        String response = getGPTResponse();
-                        if (response != null) {
-                            currentEvent.getHook().editOriginal(response).queue();
-                            LOGs.sendLog("compliment envoyé"
-                                            + "\nUser : @" + currentEvent.getUser().getEffectiveName()
-                                            + "\nServeur : " + currentEvent.getGuild().getName()
-                                            + "\nSalon : #" + currentEvent.getChannel().getName()
-                                            + "\nPersonne : " + personne,
-                                    LOGs.LogType.COMMAND);
-                        } else {
-                            currentEvent.getHook().editOriginal("Erreur avec ChatGPT").queue();
-                            LOGs.sendLog("Erreur sur complimentCommand"
-                                            + "\nUser : @" + currentEvent.getUser().getEffectiveName()
-                                            + "\nServeur : " + currentEvent.getGuild().getName()
-                                            + "\nSalon : #" + currentEvent.getChannel().getName(),
-                                    LOGs.LogType.ERROR);
+        if (personne.equals(currentEvent.getUser().getEffectiveName())) {
+            RoastCommand roastCommand = new RoastCommand(currentEvent, personne, "Cette personne essaie de se complimenter elle même, trop nul quoi");
+            roastCommand.run();
+            LOGs.sendLog("AUTO COMPLMENT DÉTÉCTÉ !!"
+                            + "\nUser : @" + currentEvent.getUser().getEffectiveName()
+                            + "\nServeur : " + currentEvent.getGuild().getName()
+                            + "\nSalon : #" + currentEvent.getChannel().getName()
+                            + "\nContexte : " + contexte,
+                    LOGs.LogType.NORMAL);
+        } else {
+            currentEvent.deferReply().queue(
+                    success -> {
+                        try {
+                            String response = getGPTResponse();
+                            if (response != null) {
+                                currentEvent.getHook().editOriginal(response).queue();
+                                LOGs.sendLog("compliment envoyé"
+                                                + "\nUser : @" + currentEvent.getUser().getEffectiveName()
+                                                + "\nServeur : " + currentEvent.getGuild().getName()
+                                                + "\nSalon : #" + currentEvent.getChannel().getName()
+                                                + "\nPersonne : " + personne
+                                                + "\nContexte : " + contexte,
+                                        LOGs.LogType.COMMAND);
+                            } else {
+                                currentEvent.getHook().editOriginal("Erreur avec ChatGPT").queue();
+                                LOGs.sendLog("Erreur sur complimentCommand"
+                                                + "\nUser : @" + currentEvent.getUser().getEffectiveName()
+                                                + "\nServeur : " + currentEvent.getGuild().getName()
+                                                + "\nSalon : #" + currentEvent.getChannel().getName(),
+                                        LOGs.LogType.ERROR);
+                            }
+                        } catch (Exception e) {
+                            currentEvent.getHook().editOriginal("Une erreur est survenue lors de la communication avec ChatGPT" + e.getMessage()).queue();
+                            e.printStackTrace();
                         }
-                    } catch (Exception e) {
-                        currentEvent.getHook().editOriginal("Une erreur est survenue lors de la communication avec ChatGPT" + e.getMessage()).queue();
-                        e.printStackTrace();
+                    },
+                    failure -> {
+                        LOGs.sendLog("Erreur lors de l'envoi du deferReply", LOGs.LogType.ERROR);
                     }
-                },
-                failure -> {
-                    LOGs.sendLog("Erreur lors de l'envoi du deferReply", LOGs.LogType.ERROR);
-                }
-        );
+            );
+        }
     }
 
     private String getGPTResponse() {
         String userMessage = "Personne mentionnée : " + personne;
-        if(!contexte.isEmpty()) userMessage += "\nContexte : " + contexte;
+        if (!contexte.isEmpty()) userMessage += "\nContexte : " + contexte;
 
         APICallGPT gptRequest = new APICallGPT(300, systemMessage, userMessage);
 

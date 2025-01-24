@@ -4,7 +4,7 @@ import fr.ANTHONUSApps.LOGs;
 import fr.ANTHONUSApps.Utils.APICalls.APICallGPT;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 
-public class RoastCommand extends Command{
+public class RoastCommand extends Command {
     private String personne;
     private String contexte;
 
@@ -35,7 +35,8 @@ public class RoastCommand extends Command{
                                             + "\nUser : @" + currentEvent.getUser().getEffectiveName()
                                             + "\nServeur : " + currentEvent.getGuild().getName()
                                             + "\nSalon : #" + currentEvent.getChannel().getName()
-                                            + "\nPersonne : " + personne,
+                                            + "\nPersonne : " + personne
+                                            + "\nContexte : " + contexte,
                                     LOGs.LogType.COMMAND);
                         } else {
                             currentEvent.getHook().editOriginal("Erreur avec ChatGPT").queue();
@@ -58,7 +59,7 @@ public class RoastCommand extends Command{
 
     private String getGPTResponse() {
         String userMessage = "Personne mentionnée : " + personne;
-        if(!contexte.isEmpty()) userMessage += "\nContexte : " + contexte;
+        if (!contexte.isEmpty()) userMessage += "\nContexte : " + contexte;
 
         APICallGPT gptRequest = new APICallGPT(300, systemMessage, userMessage);
 
