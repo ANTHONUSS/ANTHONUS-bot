@@ -53,7 +53,7 @@ public class SlashCommandListener extends ListenerAdapter {
                 PrivateSendCommand privateSendCommand = new PrivateSendCommand(event, personne, message);
                 privateSendCommand.run();
             }
-            case "private-send-image" -> {
+            case "private-send-file" -> {
                 User personne = event.getOption("personne").getAsUser();
                 OptionMapping fichier = event.getOption("fichier");
 
