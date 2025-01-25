@@ -20,42 +20,49 @@ public class PrivateSendImageCommand extends Command {
 
     @Override
     public void run() {
-        if (fichier == null || fichier.getAsAttachment() == null) {
-            currentEvent.reply("Type du fichier invalide").setEphemeral(true).queue();
-            return;
-        }
+        currentEvent.deferReply().setEphemeral(true).queue(
+                deferSuccess -> {
+                    if (fichier == null || fichier.getAsAttachment() == null) {
+                        currentEvent.getHook().editOriginal("Type du fichier invalide").queue();
+                        return;
+                    }
 
-        Message.Attachment attachment = fichier.getAsAttachment();
+                    Message.Attachment attachment = fichier.getAsAttachment();
 
-        attachment.getProxy().download()
-                .thenAccept(inputStream -> {
-                    FileUpload fileUpload = FileUpload.fromData(inputStream, attachment.getFileName());
+                    attachment.getProxy().download()
+                            .thenAccept(inputStream -> {
+                                FileUpload fileUpload = FileUpload.fromData(inputStream, attachment.getFileName());
 
-                    personne.openPrivateChannel().queue(privateChannel -> {
-                        privateChannel.sendMessage("Vous avez reçu une image anonyme.")
-                                .addFiles(fileUpload)
-                                .queue(
-                                        success -> {
-                                            currentEvent.reply("Message envoyé avec succès !").setEphemeral(true).queue();
-                                            LOGs.sendLog("Message privé envoyé"
-                                                            + "\nUser : @" + currentEvent.getUser().getEffectiveName()
-                                                            + "\nServeur : " + currentEvent.getGuild().getName()
-                                                            + "\nPersonne : " + personne.getEffectiveName(),
-                                                    LOGs.LogType.COMMAND);
-                                        },
-                                        failure -> {
-                                            currentEvent.reply("Impossible d'envoyer le message à cet utilisateur.").setEphemeral(true).queue();
-                                            LOGs.sendLog("Erreur lors de l'envoi du message : " + failure.getMessage(),
-                                                    LOGs.LogType.ERROR);
-                                        }
-                                );
-                    });
-                }).exceptionally(error -> {
-                    currentEvent.reply("Erreur lors du téléchargement du fichier : " + error.getMessage())
-                            .setEphemeral(true)
-                            .queue();
-                    error.printStackTrace();
-                    return null;
-                });
+                                personne.openPrivateChannel().queue(privateChannel -> {
+                                    privateChannel.sendMessage("Vous avez reçu une image anonyme.")
+                                            .addFiles(fileUpload)
+                                            .queue(
+                                                    success -> {
+                                                        currentEvent.getHook().editOriginal("Message envoyé avec succès !").queue();
+                                                        LOGs.sendLog("Message privé envoyé"
+                                                                        + "\nUser : @" + currentEvent.getUser().getEffectiveName()
+                                                                        + "\nServeur : " + currentEvent.getGuild().getName()
+                                                                        + "\nPersonne : " + personne.getEffectiveName()
+                                                                        + "\nFichier : " + attachment.getUrl(),
+                                                                LOGs.LogType.COMMAND);
+                                                    },
+                                                    failure -> {
+                                                        currentEvent.getHook().editOriginal("Impossible d'envoyer le message à cet utilisateur.").queue();
+                                                        LOGs.sendLog("Erreur lors de l'envoi du message : " + failure.getMessage(),
+                                                                LOGs.LogType.ERROR);
+                                                    }
+                                            );
+                                });
+                            }).exceptionally(error -> {
+                                currentEvent.getHook().editOriginal("Erreur lors du téléchargement du fichier : " + error.getMessage()).queue();
+                                LOGs.sendLog("Erreur lors de l'envoi du message : " + error.getMessage(),
+                                        LOGs.LogType.ERROR);
+                                return null;
+                            });
+                },
+                failure -> {
+                    LOGs.sendLog("Erreur lors de l'envoi du deferReply", LOGs.LogType.ERROR);
+                }
+        );
     }
 }

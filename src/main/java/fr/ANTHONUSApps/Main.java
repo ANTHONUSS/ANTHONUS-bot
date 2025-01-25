@@ -68,9 +68,9 @@ public class Main {
                         .addOption(USER, "personne", "Personne à qui envoyer le message", true)
                         .addOption(STRING, "message", "Message à envoyer", true),
 
-                Commands.slash("private-send-image", "Envoie un message anonyme à un utilisateur en MP")
+                Commands.slash("private-send-file", "Envoie un fichier anonyme à un utilisateur en MP")
                         .addOption(USER, "personne", "Personne à qui envoyer le message", true)
-                        .addOption(ATTACHMENT, "fichier", "Image/vidéo à envoyer", true),
+                        .addOption(ATTACHMENT, "fichier", "Image/vidéo/fichier à envoyer", true),
 
                 Commands.slash("clear", "Supprime un certain nombre de messages du salon.")
                         .addOptions(new OptionData(INTEGER, "nombre", "nombre de messages à supprimer", true)
