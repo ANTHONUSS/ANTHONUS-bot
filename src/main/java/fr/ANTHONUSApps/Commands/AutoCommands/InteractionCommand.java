@@ -90,7 +90,7 @@ public class InteractionCommand extends AutoCommand {
         Random random = new Random();
         int rand = random.nextInt(3);
 
-        switch (rand) {
+        switch (2) {
             case 0 -> roastInteraction();
             case 1 -> bibleInteraction();
             case 2 -> {
@@ -153,13 +153,12 @@ public class InteractionCommand extends AutoCommand {
     }
 
     private void modifyInteraction(String gptContext, String mode) {
-        currentEvent.getMessage().delete().queue();
-
         try {
             String response = getGPTResponse(gptContext);
             if (response != null) {
                 WebhookMessage webhookMessage = new WebhookMessage(currentEvent, response);
                 webhookMessage.send();
+                currentEvent.getMessage().delete().queue();
 
                 LOGs.sendLog("modification de message effectuée aléatoirement"
                                 + "\nUser : @" + currentEvent.getMember().getEffectiveName()
@@ -178,7 +177,12 @@ public class InteractionCommand extends AutoCommand {
                         LOGs.LogType.ERROR);
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            LOGs.sendLog("Erreur sur modifyInteraction"
+                            + "\nUser : @" + currentEvent.getMember().getEffectiveName()
+                            + "\nServeur : " + currentEvent.getGuild().getName()
+                            + "\nSalon : #" + currentEvent.getChannel().getName()
+                            + "\nMessage originel : " + currentEvent.getMessage().getContentRaw(),
+                    LOGs.LogType.ERROR);
         }
 
 
