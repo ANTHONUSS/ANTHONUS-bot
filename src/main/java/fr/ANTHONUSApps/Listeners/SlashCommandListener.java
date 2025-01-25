@@ -5,6 +5,8 @@ import fr.ANTHONUSApps.LOGs;
 import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
+import net.dv8tion.jda.api.interactions.commands.OptionMapping;
+import net.dv8tion.jda.api.utils.AttachedFile;
 
 public class SlashCommandListener extends ListenerAdapter {
 
@@ -50,6 +52,13 @@ public class SlashCommandListener extends ListenerAdapter {
 
                 PrivateSendCommand privateSendCommand = new PrivateSendCommand(event, personne, message);
                 privateSendCommand.run();
+            }
+            case "private-send-image" -> {
+                User personne = event.getOption("personne").getAsUser();
+                OptionMapping fichier = event.getOption("fichier");
+
+                PrivateSendImageCommand privateSendimageCommand = new PrivateSendImageCommand(event, personne, fichier);
+                privateSendimageCommand.run();
             }
             case "clear" -> {
                 int count = event.getOption("nombre").getAsInt();

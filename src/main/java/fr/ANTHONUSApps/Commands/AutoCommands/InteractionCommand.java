@@ -90,7 +90,7 @@ public class InteractionCommand extends AutoCommand {
         Random random = new Random();
         int rand = random.nextInt(3);
 
-        switch (2) {
+        switch (rand) {
             case 0 -> roastInteraction();
             case 1 -> bibleInteraction();
             case 2 -> {
