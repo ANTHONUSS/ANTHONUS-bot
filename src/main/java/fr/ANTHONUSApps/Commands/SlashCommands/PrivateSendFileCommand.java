@@ -7,11 +7,11 @@ import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEve
 import net.dv8tion.jda.api.interactions.commands.OptionMapping;
 import net.dv8tion.jda.api.utils.FileUpload;
 
-public class PrivateSendImageCommand extends Command {
+public class PrivateSendFileCommand extends Command {
     private final User personne;
     private final OptionMapping fichier;
 
-    public PrivateSendImageCommand(SlashCommandInteractionEvent event, User personne, OptionMapping fichier) {
+    public PrivateSendFileCommand(SlashCommandInteractionEvent event, User personne, OptionMapping fichier) {
         super(event);
 
         this.personne = personne;
@@ -34,7 +34,7 @@ public class PrivateSendImageCommand extends Command {
                                 FileUpload fileUpload = FileUpload.fromData(inputStream, attachment.getFileName());
 
                                 personne.openPrivateChannel().queue(privateChannel -> {
-                                    privateChannel.sendMessage("Vous avez reçu une image anonyme.")
+                                    privateChannel.sendMessage("Vous avez reçu un fichier anonyme.")
                                             .addFiles(fileUpload)
                                             .queue(
                                                     success -> {
