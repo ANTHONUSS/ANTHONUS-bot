@@ -30,7 +30,7 @@ public class Main {
             LOGs.sendLog("Clé API ChatGPT non trouvé dans le fichier .env", LOGs.LogType.ERROR);
             return;
         } else {
-            System.out.println("Token ChatGPT chargé");
+            LOGs.sendLog("Token OpenAI chargé", LOGs.LogType.NORMAL);
         }
 
         //Load discord token
