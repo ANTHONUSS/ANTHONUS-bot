@@ -1,9 +1,9 @@
-package fr.ANTHONUSApps.Commands.SlashCommands;
+package fr.ANTHONUSApps.Default.Commands.SlashCommands;
 
 
 import com.google.gson.*;
 import fr.ANTHONUSApps.LOGs;
-import fr.ANTHONUSApps.Utils.APICalls.APICallReddit;
+import fr.ANTHONUSApps.Default.Utils.APICalls.APICallReddit;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import okhttp3.OkHttpClient;
 

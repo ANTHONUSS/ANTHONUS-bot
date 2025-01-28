@@ -1,4 +1,4 @@
-package fr.ANTHONUSApps.Commands.AutoCommands;
+package fr.ANTHONUSApps.Default.Commands.AutoCommands;
 
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 

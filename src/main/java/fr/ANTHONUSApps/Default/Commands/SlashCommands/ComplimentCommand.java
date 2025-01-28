@@ -1,7 +1,7 @@
-package fr.ANTHONUSApps.Commands.SlashCommands;
+package fr.ANTHONUSApps.Default.Commands.SlashCommands;
 
 import fr.ANTHONUSApps.LOGs;
-import fr.ANTHONUSApps.Utils.APICalls.APICallGPT;
+import fr.ANTHONUSApps.Default.Utils.APICalls.APICallGPT;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 
 public class ComplimentCommand extends Command {

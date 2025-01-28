@@ -1,4 +1,4 @@
-package fr.ANTHONUSApps.Utils.APICalls;
+package fr.ANTHONUSApps.Default.Utils.APICalls;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;

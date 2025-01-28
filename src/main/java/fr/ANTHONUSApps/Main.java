@@ -1,7 +1,7 @@
 package fr.ANTHONUSApps;
 
-import fr.ANTHONUSApps.Listeners.MessageListener;
-import fr.ANTHONUSApps.Listeners.SlashCommandListener;
+import fr.ANTHONUSApps.Default.Listeners.MessageListener;
+import fr.ANTHONUSApps.Default.Listeners.SlashCommandListener;
 import io.github.cdimascio.dotenv.Dotenv;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
@@ -54,6 +54,7 @@ public class Main {
         //Load the slash commands
         CommandListUpdateAction commands = jda.updateCommands();
         commands.addCommands(
+                //Commands Default
                 Commands.slash("cursed", "Envoie une image/vidéo (sans son) \"cursed\" depuis différents subreddits"),
 
                 Commands.slash("roast", "Permet de clash la personne mentionnée")
@@ -79,6 +80,10 @@ public class Main {
 
                 Commands.slash("update-avatar", "Met à jour l'avatar du bot.")
                         .setDefaultPermissions(DefaultMemberPermissions.enabledFor(Permission.ADMINISTRATOR))
+
+
+                //Commands Music
+
         );
         commands.queue();
     }

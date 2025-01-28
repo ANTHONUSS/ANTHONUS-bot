@@ -1,11 +1,11 @@
-package fr.ANTHONUSApps.Commands.SlashCommands;
+package fr.ANTHONUSApps.Music.Commands;
 
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 
-public abstract class Command {
+public abstract class MusicCommand {
     protected SlashCommandInteractionEvent currentEvent;
 
-    protected Command(SlashCommandInteractionEvent event) {
+    protected MusicCommand(SlashCommandInteractionEvent event) {
         currentEvent = event;
     }
 

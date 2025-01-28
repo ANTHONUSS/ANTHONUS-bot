@@ -1,8 +1,8 @@
-package fr.ANTHONUSApps.Commands.AutoCommands;
+package fr.ANTHONUSApps.Default.Commands.AutoCommands;
 
 import fr.ANTHONUSApps.LOGs;
-import fr.ANTHONUSApps.Utils.APICalls.APICallGPT;
-import fr.ANTHONUSApps.Utils.WebhookMessage;
+import fr.ANTHONUSApps.Default.Utils.APICalls.APICallGPT;
+import fr.ANTHONUSApps.Default.Utils.WebhookMessage;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 import java.util.Random;

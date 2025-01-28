@@ -1,4 +1,4 @@
-package fr.ANTHONUSApps.Commands.SlashCommands;
+package fr.ANTHONUSApps.Default.Commands.SlashCommands;
 
 import fr.ANTHONUSApps.LOGs;
 import net.dv8tion.jda.api.entities.Message;

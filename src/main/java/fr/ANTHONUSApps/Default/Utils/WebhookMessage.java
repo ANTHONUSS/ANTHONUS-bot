@@ -1,4 +1,4 @@
-package fr.ANTHONUSApps.Utils;
+package fr.ANTHONUSApps.Default.Utils;
 
 import club.minnced.discord.webhook.WebhookClient;
 import club.minnced.discord.webhook.send.WebhookMessageBuilder;

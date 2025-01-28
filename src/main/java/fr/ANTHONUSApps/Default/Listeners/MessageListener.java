@@ -1,7 +1,7 @@
-package fr.ANTHONUSApps.Listeners;
+package fr.ANTHONUSApps.Default.Listeners;
 
-import fr.ANTHONUSApps.Commands.AutoCommands.FeurCommand;
-import fr.ANTHONUSApps.Commands.AutoCommands.InteractionCommand;
+import fr.ANTHONUSApps.Default.Commands.AutoCommands.FeurCommand;
+import fr.ANTHONUSApps.Default.Commands.AutoCommands.InteractionCommand;
 import fr.ANTHONUSApps.LOGs;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;

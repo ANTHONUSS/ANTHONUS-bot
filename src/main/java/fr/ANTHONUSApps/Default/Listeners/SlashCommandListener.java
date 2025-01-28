@@ -1,6 +1,7 @@
-package fr.ANTHONUSApps.Listeners;
+package fr.ANTHONUSApps.Default.Listeners;
 
 import fr.ANTHONUSApps.Commands.SlashCommands.*;
+import fr.ANTHONUSApps.Default.Commands.SlashCommands.*;
 import fr.ANTHONUSApps.LOGs;
 import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
