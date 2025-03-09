@@ -33,7 +33,7 @@ public class APICallGPT extends APICall {
         RequestBody body = RequestBody.create(json.toString(), MediaType.parse("application/json"));
         Request request = new Request.Builder()
                 .url("https://api.openai.com/v1/chat/completions")
-                .addHeader("Authorization", "Bearer " + Main.tokenIA)
+                .addHeader("Authorization", "Bearer " + Main.tokenOpenAI)
                 .post(body)
                 .build();
 

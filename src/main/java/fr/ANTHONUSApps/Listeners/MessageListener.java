@@ -6,8 +6,10 @@ import fr.ANTHONUSApps.LOGs;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
+import static fr.ANTHONUSApps.Main.autocommandProb;
+
 public class MessageListener extends ListenerAdapter {
-    private final int prob = 3;
+    private final double prob = autocommandProb;
 
     @Override
     public void onMessageReceived(MessageReceivedEvent event) {

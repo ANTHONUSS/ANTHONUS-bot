@@ -18,16 +18,31 @@ import java.security.NoSuchAlgorithmException;
 import static net.dv8tion.jda.api.interactions.commands.OptionType.*;
 
 public class Main {
-    //ChatGPT
-    public static String tokenIA;
+    public static String tokenOpenAI;
+    public static double autocommandProb;
 
     public static void main(String[] args) throws InterruptedException, IOException, NoSuchAlgorithmException {
         Dotenv dotenv = Dotenv.load();
 
+        //Load configurations
+        String autocommandProbString = dotenv.get("AUTOCOMMAND_PROBABILITY");
+        if (autocommandProbString == null || autocommandProbString.isEmpty()) {
+            LOGs.sendLog("Paramètre \"AUTOCOMMAND_PROBABILITY\" non trouvé dans le fichier .env", LOGs.LogType.ERROR);
+            return;
+        } else {
+            try {
+                autocommandProb = Double.parseDouble(autocommandProbString);
+            } catch (NumberFormatException e) {
+                LOGs.sendLog("Paramètre \"AUTOCOMMAND_PROBABILITY\" non valide", LOGs.LogType.ERROR);
+                return;
+            }
+            LOGs.sendLog("Paramètre \"AUTOCOMMAND_PROBABILITY\" chargé", LOGs.LogType.NORMAL);
+        }
+
         //Load ChatGPT api key
-        tokenIA = dotenv.get("gpt");
-        if (tokenIA == null || tokenIA.isEmpty()) {
-            LOGs.sendLog("Clé API ChatGPT non trouvé dans le fichier .env", LOGs.LogType.ERROR);
+        tokenOpenAI = dotenv.get("OPENAI_TOKEN");
+        if (tokenOpenAI == null || tokenOpenAI.isEmpty()) {
+            LOGs.sendLog("Clé API OpenAI non trouvé dans le fichier .env", LOGs.LogType.ERROR);
             return;
         } else {
             LOGs.sendLog("Token OpenAI chargé", LOGs.LogType.NORMAL);
@@ -38,6 +53,8 @@ public class Main {
         if (tokenDiscord == null || tokenDiscord.isEmpty()) {
             LOGs.sendLog("Token Discord non trouvé dans le fichier .env", LOGs.LogType.ERROR);
             return;
+        } else {
+            LOGs.sendLog("Token Discord chargé", LOGs.LogType.NORMAL);
         }
 
         //Load the bot
