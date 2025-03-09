@@ -5,15 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dfcb65e1-a446-4a61-98f1-2e01dcdfd001" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/8.10/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.10/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/checksums/md5-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.10/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/checksums/sha1-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ANTHONUSApps/Listeners/MessageListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ANTHONUSApps/Listeners/MessageListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ANTHONUSApps/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ANTHONUSApps/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ANTHONUSApps/Utils/APICalls/APICallGPT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ANTHONUSApps/Utils/APICalls/APICallGPT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -179,7 +172,7 @@
       <workItem from="1741474152414" duration="64000" />
       <workItem from="1741474395715" duration="404000" />
       <workItem from="1741476628510" duration="671000" />
-      <workItem from="1741549576996" duration="1126000" />
+      <workItem from="1741549576996" duration="1559000" />
     </task>
     <servers />
   </component>
