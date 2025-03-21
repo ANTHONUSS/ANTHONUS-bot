@@ -12,7 +12,7 @@ public class UpdateAvatarCommand extends Command {
     public UpdateAvatarCommand(SlashCommandInteractionEvent event) {
         super(event);
 
-        LOGs.sendLog("Commande UpdateAvatar initialisée", LOGs.LogType.COMMAND);
+        LOGs.sendLog("Commande UpdateAvatar initialisée", "COMMAND");
     }
 
     @Override
@@ -25,14 +25,14 @@ public class UpdateAvatarCommand extends Command {
                 currentEvent.reply("Il n'y a pas de fichier avatar.gif ou avatar.png présent dans le serveur")
                         .setEphemeral(true)
                         .queue();
-                LOGs.sendLog("Le fichier n'existe pas dans " + avatarGif.getAbsolutePath(), LOGs.LogType.ERROR);
-                LOGs.sendLog("Le fichier n'existe pas dans " + avatarPng.getAbsolutePath(), LOGs.LogType.ERROR);
+                LOGs.sendLog("Le fichier n'existe pas dans " + avatarGif.getAbsolutePath(), "ERROR");
+                LOGs.sendLog("Le fichier n'existe pas dans " + avatarPng.getAbsolutePath(), "ERROR");
                 return;
             } else if (avatarGif.exists() && avatarPng.exists()){
                 currentEvent.reply("fichiers .png et .gif trouvés dans le serveur, veuillez n'en prendre qu'un seul sur les deux.")
                         .setEphemeral(true)
                         .queue();
-                LOGs.sendLog("fichiers .png et .gif trouvés dans le serveur.", LOGs.LogType.ERROR);
+                LOGs.sendLog("fichiers .png et .gif trouvés dans le serveur.", "ERROR");
                 return;
             } else if (avatarGif.exists() && !avatarPng.exists()){
                 newIcon = Icon.from(avatarGif);
@@ -45,20 +45,20 @@ public class UpdateAvatarCommand extends Command {
                         currentEvent.reply("Avatar du bot mis à jour.")
                                 .setEphemeral(true)
                                 .queue();
-                        LOGs.sendLog("Avatar du bot mis à jour.", LOGs.LogType.NORMAL);
+                        LOGs.sendLog("Avatar du bot mis à jour.", "DEFAULT");
                     },
                     failure -> {
                         currentEvent.reply("Erreur lors de la mise à jour de l'avatar du bot")
                                 .setEphemeral(true)
                                 .queue();
-                        LOGs.sendLog("Erreur lors de la mise à jour de l'avatar du bot", LOGs.LogType.ERROR);
+                        LOGs.sendLog("Erreur lors de la mise à jour de l'avatar du bot", "ERROR");
                     }
             );
         } catch (IOException e) {
             currentEvent.reply("Erreur lors de la mise à jour de l'avatar du bot")
                     .setEphemeral(true)
                     .queue();
-            LOGs.sendLog("Erreur lors de la mise à jour de l'avatar du bot", LOGs.LogType.ERROR);
+            LOGs.sendLog("Erreur lors de la mise à jour de l'avatar du bot", "ERROR");
         }
     }
 }

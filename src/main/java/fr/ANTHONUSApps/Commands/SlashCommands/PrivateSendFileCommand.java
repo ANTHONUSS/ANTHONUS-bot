@@ -44,24 +44,24 @@ public class PrivateSendFileCommand extends Command {
                                                                         + "\nServeur : " + currentEvent.getGuild().getName()
                                                                         + "\nPersonne : " + personne.getEffectiveName()
                                                                         + "\nFichier : " + attachment.getUrl(),
-                                                                LOGs.LogType.COMMAND);
+                                                                "COMMAND");
                                                     },
                                                     failure -> {
                                                         currentEvent.getHook().editOriginal("Impossible d'envoyer le message à cet utilisateur.").queue();
                                                         LOGs.sendLog("Erreur lors de l'envoi du message : " + failure.getMessage(),
-                                                                LOGs.LogType.ERROR);
+                                                                "ERROR");
                                                     }
                                             );
                                 });
                             }).exceptionally(error -> {
                                 currentEvent.getHook().editOriginal("Erreur lors du téléchargement du fichier : " + error.getMessage()).queue();
                                 LOGs.sendLog("Erreur lors de l'envoi du message : " + error.getMessage(),
-                                        LOGs.LogType.ERROR);
+                                        "ERROR");
                                 return null;
                             });
                 },
                 failure -> {
-                    LOGs.sendLog("Erreur lors de l'envoi du deferReply", LOGs.LogType.ERROR);
+                    LOGs.sendLog("Erreur lors de l'envoi du deferReply", "ERROR");
                 }
         );
     }

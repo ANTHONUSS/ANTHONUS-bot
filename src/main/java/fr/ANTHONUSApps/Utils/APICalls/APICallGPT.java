@@ -11,7 +11,7 @@ import okhttp3.RequestBody;
 public class APICallGPT extends APICall {
 
     public APICallGPT(int maxTokens, String systemMessage, String userMessage) {
-        LOGs.sendLog("Création de la requête pour chatGPT", LOGs.LogType.API);
+        LOGs.sendLog("Création de la requête pour chatGPT", "API");
         JsonObject json = new JsonObject();
         json.addProperty("model", "gpt-4o-mini");
         json.addProperty("max_tokens", maxTokens);
@@ -37,7 +37,7 @@ public class APICallGPT extends APICall {
                 .post(body)
                 .build();
 
-        LOGs.sendLog("requête pour ChatGPT créée", LOGs.LogType.API);
+        LOGs.sendLog("requête pour ChatGPT créée", "API");
 
         currentRequest = request;
     }

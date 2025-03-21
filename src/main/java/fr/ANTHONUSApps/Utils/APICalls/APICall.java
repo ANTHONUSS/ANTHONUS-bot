@@ -14,14 +14,14 @@ public abstract class APICall {
     protected final OkHttpClient client = new OkHttpClient();
 
     protected JsonObject call() {
-        LOGs.sendLog("Envoi de la requête", LOGs.LogType.API);
+        LOGs.sendLog("Envoi de la requête", "API");
 
         try (Response response = client.newCall(currentRequest).execute()) {
             if (!response.isSuccessful()) {
                 throw new IOException("Unexpected code " + response);
             }
 
-            LOGs.sendLog("Requête recue", LOGs.LogType.API);
+            LOGs.sendLog("Requête recue", "API");
 
             String jsonData = response.body().string();
 

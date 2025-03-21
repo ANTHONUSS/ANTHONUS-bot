@@ -24,37 +24,41 @@ public class Main {
     public static void main(String[] args) throws InterruptedException, IOException, NoSuchAlgorithmException {
         Dotenv dotenv = Dotenv.load();
 
+        LOGs.addLogType("COMMAND", 255, 172, 53);
+        LOGs.addLogType("AUTOCOMMAND", 193, 92, 255);
+        LOGs.addLogType("API", 53, 255, 255);
+
         //Load configurations
         String autocommandProbString = dotenv.get("AUTOCOMMAND_PROBABILITY");
         if (autocommandProbString == null || autocommandProbString.isEmpty()) {
-            LOGs.sendLog("Paramètre \"AUTOCOMMAND_PROBABILITY\" non trouvé dans le fichier .env", LOGs.LogType.ERROR);
+            LOGs.sendLog("Paramètre \"AUTOCOMMAND_PROBABILITY\" non trouvé dans le fichier .env", "ERROR");
             return;
         } else {
             try {
                 autocommandProb = Double.parseDouble(autocommandProbString);
             } catch (NumberFormatException e) {
-                LOGs.sendLog("Paramètre \"AUTOCOMMAND_PROBABILITY\" non valide", LOGs.LogType.ERROR);
+                LOGs.sendLog("Paramètre \"AUTOCOMMAND_PROBABILITY\" non valide", "ERROR");
                 return;
             }
-            LOGs.sendLog("Paramètre \"AUTOCOMMAND_PROBABILITY\" chargé", LOGs.LogType.NORMAL);
+            LOGs.sendLog("Paramètre \"AUTOCOMMAND_PROBABILITY\" chargé", "DEFAULT");
         }
 
         //Load ChatGPT api key
         tokenOpenAI = dotenv.get("OPENAI_TOKEN");
         if (tokenOpenAI == null || tokenOpenAI.isEmpty()) {
-            LOGs.sendLog("Clé API OpenAI non trouvé dans le fichier .env", LOGs.LogType.ERROR);
+            LOGs.sendLog("Clé API OpenAI non trouvé dans le fichier .env", "ERROR");
             return;
         } else {
-            LOGs.sendLog("Token OpenAI chargé", LOGs.LogType.NORMAL);
+            LOGs.sendLog("Token OpenAI chargé", "DEFAULT");
         }
 
         //Load discord token
         String tokenDiscord = dotenv.get("DISCORD_TOKEN");
         if (tokenDiscord == null || tokenDiscord.isEmpty()) {
-            LOGs.sendLog("Token Discord non trouvé dans le fichier .env", LOGs.LogType.ERROR);
+            LOGs.sendLog("Token Discord non trouvé dans le fichier .env", "DEFAULT");
             return;
         } else {
-            LOGs.sendLog("Token Discord chargé", LOGs.LogType.NORMAL);
+            LOGs.sendLog("Token Discord chargé", "DEFAULT");
         }
 
         //Load the bot
@@ -66,7 +70,7 @@ public class Main {
                 .build();
 
         jda.awaitReady();
-        LOGs.sendLog("Bot démarré", LOGs.LogType.NORMAL);
+        LOGs.sendLog("Bot démarré", "DEFAULT");
 
         //Load the slash commands
         CommandListUpdateAction commands = jda.updateCommands();

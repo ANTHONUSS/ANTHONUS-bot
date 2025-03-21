@@ -24,7 +24,7 @@ public class CursedImageCommand extends Command{
     public CursedImageCommand(SlashCommandInteractionEvent event) {
         super(event);
 
-        LOGs.sendLog("CursedImage command initialisée", LOGs.LogType.COMMAND);
+        LOGs.sendLog("CursedImage command initialisée", "COMMAND");
     }
 
     @Override
@@ -40,14 +40,14 @@ public class CursedImageCommand extends Command{
                                             + "\nServeur : " + currentEvent.getGuild().getName()
                                             + "\nSalon : #" + currentEvent.getChannel().getName()
                                             + "\nLien : " + imageURL,
-                                    LOGs.LogType.COMMAND);
+                                    "COMMAND");
                         } else {
                             currentEvent.getHook().editOriginal("Aucune image trouvée").queue();
                             LOGs.sendLog("Erreur sur CursedImage"
                                             + "\nUser : @" + currentEvent.getUser().getEffectiveName()
                                             + "\nServeur : " + currentEvent.getGuild().getName()
                                             + "\nSalon : #" + currentEvent.getChannel().getName(),
-                                    LOGs.LogType.ERROR);
+                                    "ERROR");
                         }
                     } catch (Exception e) {
                         currentEvent.getHook().editOriginal("Une erreur est survenue lors de la récupération de l'image" + e.getMessage()).queue();
@@ -55,7 +55,7 @@ public class CursedImageCommand extends Command{
                     }
                 },
                 failure -> {
-                    LOGs.sendLog("Erreur lors de l'envoi du deferReply", LOGs.LogType.ERROR);
+                    LOGs.sendLog("Erreur lors de l'envoi du deferReply", "ERROR");
                 }
         );
 

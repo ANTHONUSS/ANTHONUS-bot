@@ -18,6 +18,6 @@ public class FeurCommand extends AutoCommand{
                         + "\nUser : @" + currentEvent.getAuthor().getName()
                         + "\nServeur : " + currentEvent.getGuild().getName()
                         + "\nSalon : #" + currentEvent.getChannel().getName(),
-                LOGs.LogType.AUTOCOMMAND);
+                "AUTOCOMMAND");
     }
 }

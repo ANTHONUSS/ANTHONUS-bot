@@ -82,7 +82,7 @@ public class InteractionCommand extends AutoCommand {
     public InteractionCommand(MessageReceivedEvent event) {
         super(event);
 
-        LOGs.sendLog("InteractionCommand initialisée", LOGs.LogType.AUTOCOMMAND);
+        LOGs.sendLog("InteractionCommand initialisée", "AUTOCOMMAND");
     }
 
     @Override
@@ -117,13 +117,13 @@ public class InteractionCommand extends AutoCommand {
                                 + "\nUser : @" + currentEvent.getMember().getEffectiveName()
                                 + "\nServeur : " + currentEvent.getGuild().getName()
                                 + "\nSalon : #" + currentEvent.getChannel().getName(),
-                        LOGs.LogType.AUTOCOMMAND);
+                        "AUTOCOMMAND");
             } else {
                 LOGs.sendLog("Erreur sur roastAutoCommand"
                                 + "\nUser : @" + currentEvent.getMember().getEffectiveName()
                                 + "\nServeur : " + currentEvent.getGuild().getName()
                                 + "\nSalon : #" + currentEvent.getChannel().getName(),
-                        LOGs.LogType.ERROR);
+                        "ERROR");
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -139,13 +139,13 @@ public class InteractionCommand extends AutoCommand {
                                 + "\nUser : @" + currentEvent.getMember().getEffectiveName()
                                 + "\nServeur : " + currentEvent.getGuild().getName()
                                 + "\nSalon : #" + currentEvent.getChannel().getName(),
-                        LOGs.LogType.AUTOCOMMAND);
+                        "AUTOCOMMAND");
             } else {
                 LOGs.sendLog("Erreur sur bibleAutoCommand"
                                 + "\nUser : @" + currentEvent.getMember().getEffectiveName()
                                 + "\nServeur : " + currentEvent.getGuild().getName()
                                 + "\nSalon : #" + currentEvent.getChannel().getName(),
-                        LOGs.LogType.ERROR);
+                        "ERROR");
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -167,14 +167,14 @@ public class InteractionCommand extends AutoCommand {
                                 + "\nMessage originel : " + currentEvent.getMessage().getContentRaw()
                                 + "\nMessage modifié : " + response
                                 + "\nMode : " + mode,
-                        LOGs.LogType.AUTOCOMMAND);
+                        "AUTOCOMMAND");
             } else {
                 LOGs.sendLog("Erreur sur modifyInteraction"
                                 + "\nUser : @" + currentEvent.getMember().getEffectiveName()
                                 + "\nServeur : " + currentEvent.getGuild().getName()
                                 + "\nSalon : #" + currentEvent.getChannel().getName()
                                 + "\nMessage originel : " + currentEvent.getMessage().getContentRaw(),
-                        LOGs.LogType.ERROR);
+                        "ERROR");
             }
         } catch (Exception e) {
             LOGs.sendLog("Erreur sur modifyInteraction"
@@ -182,7 +182,7 @@ public class InteractionCommand extends AutoCommand {
                             + "\nServeur : " + currentEvent.getGuild().getName()
                             + "\nSalon : #" + currentEvent.getChannel().getName()
                             + "\nMessage originel : " + currentEvent.getMessage().getContentRaw(),
-                    LOGs.LogType.ERROR);
+                    "ERROR");
         }
 
 

@@ -26,7 +26,7 @@ public class PrivateSendCommand extends Command {
                                                 + "\nServeur : " + currentEvent.getGuild().getName()
                                                 + "\nPersonne : " + personne.getEffectiveName()
                                                 + "\nMessage : " + message,
-                                        LOGs.LogType.COMMAND);
+                                        "COMMAND");
                             },
                             failure -> {
                                 currentEvent.reply("Impossible d'envoyer le message à cet utilisateur.").setEphemeral(true).queue();
@@ -36,7 +36,7 @@ public class PrivateSendCommand extends Command {
                                                 + "\nPersonne : " + personne.getEffectiveName()
                                                 + "\nMessage : " + message
                                                 + "\nRaison : " + failure.getMessage(),
-                                        LOGs.LogType.ERROR);
+                                        "ERROR");
                             }
                     );
                 }

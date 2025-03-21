@@ -18,7 +18,7 @@ public class MessageListener extends ListenerAdapter {
             LOGs.sendLog("Message envoyé dans les mp du bot"
                             + "\nUser : @" + event.getAuthor().getEffectiveName()
                             + "\nMessage : " + event.getMessage().getContentRaw(),
-                    LOGs.LogType.NORMAL);
+                    "DEFAULT");
             return;
         }
 

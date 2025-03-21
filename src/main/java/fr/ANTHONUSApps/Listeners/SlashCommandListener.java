@@ -15,7 +15,7 @@ public class SlashCommandListener extends ListenerAdapter {
             event.reply("Vous ne pouvez pas utiliser les commandes dans les mp du bot.").setEphemeral(true).queue();
             LOGs.sendLog("Commande slash exécutée dans les mp du bot"
                             + "\nUser : @" + event.getUser().getEffectiveName(),
-                    LOGs.LogType.ERROR);
+                    "ERROR");
             return;
         }
 
