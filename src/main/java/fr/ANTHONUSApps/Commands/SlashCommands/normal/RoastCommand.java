@@ -1,5 +1,6 @@
-package fr.ANTHONUSApps.Commands.SlashCommands;
+package fr.ANTHONUSApps.Commands.SlashCommands.normal;
 
+import fr.ANTHONUSApps.Commands.SlashCommands.Command;
 import fr.ANTHONUSApps.LOGs;
 import fr.ANTHONUSApps.Utils.APICalls.APICallGPT;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;

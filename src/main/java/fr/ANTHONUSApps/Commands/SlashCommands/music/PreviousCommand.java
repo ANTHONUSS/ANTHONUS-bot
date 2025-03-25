@@ -1,0 +1,23 @@
+package fr.ANTHONUSApps.Commands.SlashCommands.music;
+
+import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
+import fr.ANTHONUSApps.Commands.SlashCommands.Command;
+import fr.ANTHONUSApps.Utils.Music.MusicManager;
+import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
+
+public class PreviousCommand extends Command {
+    public PreviousCommand(SlashCommandInteractionEvent event) {
+        super(event);
+    }
+
+    @Override
+    public void run() {
+        AudioTrack previousTrack = MusicManager.players.get(currentEvent.getGuild().getIdLong()).getPreviousTrack();
+        if (previousTrack == null)  previousTrack = MusicManager.players.get(currentEvent.getGuild().getIdLong()).getCurrentTrack();
+
+        MusicManager.players.get(currentEvent.getGuild().getIdLong()).getAudioPlayer().startTrack(previousTrack.makeClone(), false);
+        MusicManager.players.get(currentEvent.getGuild().getIdLong()).setCurrentTrack(previousTrack);
+
+        currentEvent.reply("Musique précédente lancée").queue();
+    }
+}

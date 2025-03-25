@@ -9,5 +9,5 @@ public abstract class Command {
         currentEvent = event;
     }
 
-    protected abstract void run();
+    public abstract void run();
 }

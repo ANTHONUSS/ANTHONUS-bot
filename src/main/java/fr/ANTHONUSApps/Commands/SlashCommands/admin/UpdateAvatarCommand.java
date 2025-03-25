@@ -1,5 +1,6 @@
-package fr.ANTHONUSApps.Commands.SlashCommands;
+package fr.ANTHONUSApps.Commands.SlashCommands.admin;
 
+import fr.ANTHONUSApps.Commands.SlashCommands.Command;
 import fr.ANTHONUSApps.LOGs;
 import net.dv8tion.jda.api.entities.Icon;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;

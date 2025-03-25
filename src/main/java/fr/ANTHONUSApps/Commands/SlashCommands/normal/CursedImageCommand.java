@@ -1,7 +1,8 @@
-package fr.ANTHONUSApps.Commands.SlashCommands;
+package fr.ANTHONUSApps.Commands.SlashCommands.normal;
 
 
 import com.google.gson.*;
+import fr.ANTHONUSApps.Commands.SlashCommands.Command;
 import fr.ANTHONUSApps.LOGs;
 import fr.ANTHONUSApps.Utils.APICalls.APICallReddit;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
@@ -10,7 +11,7 @@ import okhttp3.OkHttpClient;
 import java.io.IOException;
 import java.util.Random;
 
-public class CursedImageCommand extends Command{
+public class CursedImageCommand extends Command {
     private final OkHttpClient client = new OkHttpClient();
     private final String[] SUBREDDITS = {
             "blursedimages",
