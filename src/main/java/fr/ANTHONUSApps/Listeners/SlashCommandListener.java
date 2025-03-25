@@ -168,7 +168,12 @@ public class SlashCommandListener extends ListenerAdapter {
                 LOGs.sendLog("Commande terminée", "COMMAND");
             }
             case "download" -> {
+                String url = event.getOption("url", OptionMapping::getAsString);
 
+                DownloadCommand downloadCommand = new DownloadCommand(event, url);
+                downloadCommand.run();
+
+                LOGs.sendLog("Commande terminée", "COMMAND");
             }
         }
     }

@@ -34,7 +34,7 @@ public class RemoveCommand extends Command {
 
         for (int i = 0; i < queue.size(); i++) {
             if (MusicManager.getFileName(queue.get(i).getInfo().uri).equals(selectedMusic)) {
-                currentEvent.reply("## ✅ Musique " + MusicManager.getFileName(queue.get(i).getInfo().uri) + "retirée de la playlist").queue();
+                currentEvent.reply("## ✅ Musique `" + MusicManager.getFileName(queue.get(i).getInfo().uri) + "` retirée de la playlist").queue();
                 queue.remove(i);
                 return;
             }

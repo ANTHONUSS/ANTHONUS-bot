@@ -26,6 +26,7 @@ public class Main {
         LOGs.addLogType("AUTOCOMMAND", 193, 92, 255);
         LOGs.addLogType("COMMAND", 255, 172, 53);
         LOGs.addLogType("API", 53, 255, 255);
+        LOGs.addLogType("DOWNLOAD", 141, 255, 252);
         LOGs.addLogType("WARNING", 255, 255, 0);
         LOGs.addLogType("DEBUG", 255, 171, 247);
 
@@ -154,5 +155,6 @@ public class Main {
                         .addOption(STRING, "url", "URL de la vidéo Youtube", true)
         );
         commands.queue();
+        LOGs.sendLog("Commandes chargées", "LOADING");
     }
 }
