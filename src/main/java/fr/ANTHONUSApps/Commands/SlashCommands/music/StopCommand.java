@@ -16,9 +16,9 @@ public class StopCommand extends Command {
         if (audioManager.isConnected()) {
             audioManager.closeAudioConnection();
             MusicManager.players.get(currentEvent.getGuild().getIdLong()).setCurrentTrack(null);
-            currentEvent.reply("Musique arrêtée").queue();
+            currentEvent.reply("## ✅ Musique arrêtée").queue();
         } else {
-            currentEvent.reply("Le bot ne joue actuellement pas de musique").queue();
+            currentEvent.reply("## :warning: Le bot ne joue actuellement pas de musique").queue();
         }
     }
 }

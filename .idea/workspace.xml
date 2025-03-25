@@ -6,9 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="dfcb65e1-a446-4a61-98f1-2e01dcdfd001" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.10/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.10/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/checksums/md5-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.10/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/checksums/sha1-checksums.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.bin" afterDir="false" />
@@ -16,36 +13,31 @@
       <change beforePath="$PROJECT_DIR$/.gradle/8.10/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/APICall.class.uniqueId2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/APICallGPT.class.uniqueId8" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/APICallReddit.class.uniqueId10" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/ClearCommand.class.uniqueId11" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/ComplimentCommand.class.uniqueId13" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/CursedImageCommand.class.uniqueId0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/FeurCommand.class.uniqueId16" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/InteractionCommand.class.uniqueId3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/LOGs$1.class.uniqueId7" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/LOGs$LogType.class.uniqueId9" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/LOGs.class.uniqueId5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/Main.class.uniqueId1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/MessageListener.class.uniqueId15" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/PrivateSendCommand.class.uniqueId14" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/PrivateSendFileCommand.class.uniqueId17" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/RoastCommand.class.uniqueId6" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/SlashCommandListener.class.uniqueId4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/UpdateAvatarCommand.class.uniqueId12" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/NextCommand.class.uniqueId0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/SlashCommandListener.class.uniqueId1" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ANTHONUSApps/Commands/SlashCommands/ClearCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ANTHONUSApps/Commands/SlashCommands/admin/ClearCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ANTHONUSApps/Commands/SlashCommands/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ANTHONUSApps/Commands/SlashCommands/Command.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ANTHONUSApps/Commands/SlashCommands/ComplimentCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ANTHONUSApps/Commands/SlashCommands/normal/ComplimentCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ANTHONUSApps/Commands/SlashCommands/CursedImageCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ANTHONUSApps/Commands/SlashCommands/normal/CursedImageCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ANTHONUSApps/Commands/SlashCommands/PrivateSendCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ANTHONUSApps/Commands/SlashCommands/normal/PrivateSendCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ANTHONUSApps/Commands/SlashCommands/PrivateSendFileCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ANTHONUSApps/Commands/SlashCommands/normal/PrivateSendFileCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ANTHONUSApps/Commands/SlashCommands/RoastCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ANTHONUSApps/Commands/SlashCommands/normal/RoastCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ANTHONUSApps/Commands/SlashCommands/UpdateAvatarCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ANTHONUSApps/Commands/SlashCommands/admin/UpdateAvatarCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ANTHONUSApps/Commands/AutoCommands/FeurCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ANTHONUSApps/Commands/AutoCommands/FeurCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ANTHONUSApps/Commands/AutoCommands/InteractionCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ANTHONUSApps/Commands/AutoCommands/InteractionCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ANTHONUSApps/Commands/SlashCommands/admin/ClearCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ANTHONUSApps/Commands/SlashCommands/admin/ClearCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ANTHONUSApps/Commands/SlashCommands/admin/UpdateAvatarCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ANTHONUSApps/Commands/SlashCommands/admin/UpdateAvatarCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ANTHONUSApps/Commands/SlashCommands/music/AddCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ANTHONUSApps/Commands/SlashCommands/music/AddCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ANTHONUSApps/Commands/SlashCommands/music/ClearPlaylistCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ANTHONUSApps/Commands/SlashCommands/music/ClearPlaylistCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ANTHONUSApps/Commands/SlashCommands/music/ListQueueCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ANTHONUSApps/Commands/SlashCommands/music/ListQueueCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ANTHONUSApps/Commands/SlashCommands/music/LoopCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ANTHONUSApps/Commands/SlashCommands/music/LoopCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ANTHONUSApps/Commands/SlashCommands/music/NextCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ANTHONUSApps/Commands/SlashCommands/music/NextCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ANTHONUSApps/Commands/SlashCommands/music/PlayCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ANTHONUSApps/Commands/SlashCommands/music/PlayCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ANTHONUSApps/Commands/SlashCommands/music/PreviousCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ANTHONUSApps/Commands/SlashCommands/music/PreviousCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ANTHONUSApps/Commands/SlashCommands/music/RemoveCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ANTHONUSApps/Commands/SlashCommands/music/RemoveCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ANTHONUSApps/Commands/SlashCommands/music/ShuffleCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ANTHONUSApps/Commands/SlashCommands/music/ShuffleCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ANTHONUSApps/Commands/SlashCommands/music/StopCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ANTHONUSApps/Commands/SlashCommands/music/StopCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ANTHONUSApps/Commands/SlashCommands/normal/ComplimentCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ANTHONUSApps/Commands/SlashCommands/normal/ComplimentCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ANTHONUSApps/Commands/SlashCommands/normal/CursedImageCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ANTHONUSApps/Commands/SlashCommands/normal/CursedImageCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ANTHONUSApps/Commands/SlashCommands/normal/PrivateSendCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ANTHONUSApps/Commands/SlashCommands/normal/PrivateSendCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ANTHONUSApps/Commands/SlashCommands/normal/PrivateSendFileCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ANTHONUSApps/Commands/SlashCommands/normal/PrivateSendFileCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ANTHONUSApps/Commands/SlashCommands/normal/RoastCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ANTHONUSApps/Commands/SlashCommands/normal/RoastCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fr/ANTHONUSApps/Listeners/SlashCommandListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ANTHONUSApps/Listeners/SlashCommandListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fr/ANTHONUSApps/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ANTHONUSApps/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/ANTHONUSApps/Utils/Music/MusicManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/ANTHONUSApps/Utils/Music/MusicManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +98,7 @@
     "git-widget-placeholder": "music",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "G:/Mon Drive/Programmation/Java/Discord/ANTHONUS-bot",
+    "last_opened_file_path": "G:/Mon Drive/Programmation/Java/Discord/Alyxyos-bot",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -230,7 +222,9 @@
       <workItem from="1742831500078" duration="3146000" />
       <workItem from="1742896555009" duration="5463000" />
       <workItem from="1742903021573" duration="2372000" />
-      <workItem from="1742915311375" duration="8642000" />
+      <workItem from="1742915311375" duration="8793000" />
+      <workItem from="1742932590064" duration="34000" />
+      <workItem from="1742934361854" duration="3251000" />
     </task>
     <servers />
   </component>

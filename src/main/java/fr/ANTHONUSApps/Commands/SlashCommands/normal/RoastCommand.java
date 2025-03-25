@@ -21,7 +21,7 @@ public class RoastCommand extends Command {
         this.personne = personne;
         this.contexte = contexte;
 
-        LOGs.sendLog("Roast command initialisée.", "COMMAND");
+        LOGs.sendLog("commande /roast initialisée.", "COMMAND");
     }
 
     @Override
@@ -48,12 +48,12 @@ public class RoastCommand extends Command {
                                     "ERROR");
                         }
                     } catch (Exception e) {
-                        currentEvent.getHook().editOriginal("Une erreur est survenue lors de la communication avec ChatGPT" + e.getMessage()).queue();
+                        currentEvent.getHook().editOriginal("## :x: Une erreur est survenue lors de la communication avec ChatGPT" + e.getMessage()).queue();
                         e.printStackTrace();
                     }
                 },
                 failure -> {
-                    LOGs.sendLog("Erreur lors de l'envoi du deferReply", "ERROR");
+                    LOGs.sendLog("## :x: Erreur lors de l'envoi du deferReply", "ERROR");
                 }
         );
     }

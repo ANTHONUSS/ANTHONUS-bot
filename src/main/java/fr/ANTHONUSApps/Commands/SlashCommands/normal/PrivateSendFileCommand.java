@@ -17,6 +17,8 @@ public class PrivateSendFileCommand extends Command {
 
         this.personne = personne;
         this.fichier = fichier;
+
+        LOGs.sendLog("Commande /private-send-file initialisée", "COMMAND");
     }
 
     @Override
@@ -24,7 +26,7 @@ public class PrivateSendFileCommand extends Command {
         currentEvent.deferReply().setEphemeral(true).queue(
                 deferSuccess -> {
                     if (fichier == null || fichier.getAsAttachment() == null) {
-                        currentEvent.getHook().editOriginal("Type du fichier invalide").queue();
+                        currentEvent.getHook().editOriginal("## :x: Type du fichier invalide").queue();
                         return;
                     }
 
@@ -35,11 +37,11 @@ public class PrivateSendFileCommand extends Command {
                                 FileUpload fileUpload = FileUpload.fromData(inputStream, attachment.getFileName());
 
                                 personne.openPrivateChannel().queue(privateChannel -> {
-                                    privateChannel.sendMessage("Vous avez reçu un fichier anonyme.")
+                                    privateChannel.sendMessage("## Vous avez reçu un fichier anonyme.")
                                             .addFiles(fileUpload)
                                             .queue(
                                                     success -> {
-                                                        currentEvent.getHook().editOriginal("Message envoyé avec succès !").queue();
+                                                        currentEvent.getHook().editOriginal("## ✅ Message envoyé avec succès !").queue();
                                                         LOGs.sendLog("Message privé envoyé"
                                                                         + "\nUser : @" + currentEvent.getUser().getEffectiveName()
                                                                         + "\nServeur : " + currentEvent.getGuild().getName()
@@ -48,14 +50,14 @@ public class PrivateSendFileCommand extends Command {
                                                                 "COMMAND");
                                                     },
                                                     failure -> {
-                                                        currentEvent.getHook().editOriginal("Impossible d'envoyer le message à cet utilisateur.").queue();
+                                                        currentEvent.getHook().editOriginal("## :x: Impossible d'envoyer le message à cet utilisateur.").queue();
                                                         LOGs.sendLog("Erreur lors de l'envoi du message : " + failure.getMessage(),
                                                                 "ERROR");
                                                     }
                                             );
                                 });
                             }).exceptionally(error -> {
-                                currentEvent.getHook().editOriginal("Erreur lors du téléchargement du fichier : " + error.getMessage()).queue();
+                                currentEvent.getHook().editOriginal("## :x: Erreur lors du téléchargement du fichier : " + error.getMessage()).queue();
                                 LOGs.sendLog("Erreur lors de l'envoi du message : " + error.getMessage(),
                                         "ERROR");
                                 return null;

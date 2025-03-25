@@ -20,7 +20,7 @@ public class ComplimentCommand extends Command {
         this.personne = personne;
         this.contexte = contexte;
 
-        LOGs.sendLog("Compliment command initialisée.", "COMMAND");
+        LOGs.sendLog("Commande /compliment initialisée.", "COMMAND");
     }
 
     @Override
@@ -33,7 +33,7 @@ public class ComplimentCommand extends Command {
                             + "\nServeur : " + currentEvent.getGuild().getName()
                             + "\nSalon : #" + currentEvent.getChannel().getName()
                             + "\nContexte : " + contexte,
-                    "DEFAULT");
+                    "COMMAND");
         } else {
             currentEvent.deferReply().queue(
                     success -> {
@@ -57,12 +57,12 @@ public class ComplimentCommand extends Command {
                                         "ERROR");
                             }
                         } catch (Exception e) {
-                            currentEvent.getHook().editOriginal("Une erreur est survenue lors de la communication avec ChatGPT" + e.getMessage()).queue();
+                            currentEvent.getHook().editOriginal("## :x: Une erreur est survenue lors de la communication avec ChatGPT" + e.getMessage()).queue();
                             e.printStackTrace();
                         }
                     },
                     failure -> {
-                        LOGs.sendLog("Erreur lors de l'envoi du deferReply", "ERROR");
+                        LOGs.sendLog("## :x: Erreur lors de l'envoi du deferReply", "ERROR");
                     }
             );
         }

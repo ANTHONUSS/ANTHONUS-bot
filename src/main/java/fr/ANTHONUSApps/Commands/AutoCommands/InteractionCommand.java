@@ -82,7 +82,7 @@ public class InteractionCommand extends AutoCommand {
     public InteractionCommand(MessageReceivedEvent event) {
         super(event);
 
-        LOGs.sendLog("InteractionCommand initialisée", "AUTOCOMMAND");
+        LOGs.sendLog("AutoCommande d'interaction initialisée", "AUTOCOMMAND");
     }
 
     @Override

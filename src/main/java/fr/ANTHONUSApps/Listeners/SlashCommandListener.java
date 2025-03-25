@@ -1,6 +1,5 @@
 package fr.ANTHONUSApps.Listeners;
 
-import com.sedmelluq.discord.lavaplayer.player.AudioPlayerManager;
 import fr.ANTHONUSApps.Commands.SlashCommands.admin.ClearCommand;
 import fr.ANTHONUSApps.Commands.SlashCommands.admin.UpdateAvatarCommand;
 import fr.ANTHONUSApps.Commands.SlashCommands.music.*;
@@ -35,6 +34,8 @@ public class SlashCommandListener extends ListenerAdapter {
             case "cursed" -> {
                 CursedImageCommand cursedImageCommand = new CursedImageCommand(event);
                 cursedImageCommand.run();
+
+                LOGs.sendLog("Commande terminée", "COMMAND");
             }
             case "roast" -> {
                 String personne = event.getOption("personne").getAsUser().getEffectiveName();
@@ -45,6 +46,8 @@ public class SlashCommandListener extends ListenerAdapter {
 
                 RoastCommand roastCommand = new RoastCommand(event, personne, contexte);
                 roastCommand.run();
+
+                LOGs.sendLog("Commande terminée", "COMMAND");
             }
             case "compliment" -> {
                 String personne = event.getOption("personne").getAsUser().getEffectiveName();
@@ -55,6 +58,8 @@ public class SlashCommandListener extends ListenerAdapter {
 
                 ComplimentCommand complimentCommand = new ComplimentCommand(event, personne, contexte);
                 complimentCommand.run();
+
+                LOGs.sendLog("Commande terminée", "COMMAND");
             }
             case "private-send" -> {
                 User personne = event.getOption("personne").getAsUser();
@@ -62,6 +67,8 @@ public class SlashCommandListener extends ListenerAdapter {
 
                 PrivateSendCommand privateSendCommand = new PrivateSendCommand(event, personne, message);
                 privateSendCommand.run();
+
+                LOGs.sendLog("Commande terminée", "COMMAND");
             }
             case "private-send-file" -> {
                 User personne = event.getOption("personne").getAsUser();
@@ -69,6 +76,8 @@ public class SlashCommandListener extends ListenerAdapter {
 
                 PrivateSendFileCommand privateSendFileCommand = new PrivateSendFileCommand(event, personne, fichier);
                 privateSendFileCommand.run();
+
+                LOGs.sendLog("Commande terminée", "COMMAND");
             }
 
             // ADMIN COMMANDS
@@ -77,10 +86,14 @@ public class SlashCommandListener extends ListenerAdapter {
 
                 ClearCommand clearCommand = new ClearCommand(event, count);
                 clearCommand.run();
+
+                LOGs.sendLog("Commande terminée", "COMMAND");
             }
             case "update-avatar" -> {
                 UpdateAvatarCommand updateAvatarCommand = new UpdateAvatarCommand(event);
                 updateAvatarCommand.run();
+
+                LOGs.sendLog("Commande terminée", "COMMAND");
             }
 
             // MUSIC COMMANDS
@@ -89,48 +102,70 @@ public class SlashCommandListener extends ListenerAdapter {
 
                 AddCommand addCommand = new AddCommand(event, selectedMusic);
                 addCommand.run();
+
+                LOGs.sendLog("Commande terminée", "COMMAND");
             }
             case "remove" -> {
                 String selectedMusic = event.getOption("playlist-music", OptionMapping::getAsString);
 
                 RemoveCommand removeCommand = new RemoveCommand(event, selectedMusic);
                 removeCommand.run();
+
+                LOGs.sendLog("Commande terminée", "COMMAND");
             }
             case "clear-playlist" -> {
                 ClearPlaylistCommand clearPlaylistCommand = new ClearPlaylistCommand(event);
                 clearPlaylistCommand.run();
+
+                LOGs.sendLog("Commande terminée", "COMMAND");
             }
             case "list" -> {
                 ListCommand listCommand = new ListCommand(event);
                 listCommand.run();
+
+                LOGs.sendLog("Commande terminée", "COMMAND");
             }
             case "list-queue" -> {
                 ListQueueCommand listQueueCommand = new ListQueueCommand(event);
                 listQueueCommand.run();
+
+                LOGs.sendLog("Commande terminée", "COMMAND");
             }
             case "play" -> {
                 PlayCommand playCommand = new PlayCommand(event);
                 playCommand.run();
+
+                LOGs.sendLog("Commande terminée", "COMMAND");
             }
             case "stop" -> {
                 StopCommand stopCommand = new StopCommand(event);
                 stopCommand.run();
+
+                LOGs.sendLog("Commande terminée", "COMMAND");
             }
             case "next" -> {
                 NextCommand nextCommand = new NextCommand(event);
                 nextCommand.run();
+
+                LOGs.sendLog("Commande terminée", "COMMAND");
             }
             case "previous" -> {
                 PreviousCommand previousCommand = new PreviousCommand(event);
                 previousCommand.run();
+
+                LOGs.sendLog("Commande terminée", "COMMAND");
             }
             case "loop" -> {
                 LoopCommand loopCommand = new LoopCommand(event);
                 loopCommand.run();
+
+                LOGs.sendLog("Commande terminée", "COMMAND");
             }
             case "shuffle" -> {
                 ShuffleCommand shuffleCommand = new ShuffleCommand(event);
                 shuffleCommand.run();
+
+                LOGs.sendLog("Commande terminée", "COMMAND");
             }
             case "download" -> {
 

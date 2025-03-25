@@ -14,14 +14,16 @@ public class PrivateSendCommand extends Command {
 
         this.personne = personne;
         this.message = message;
+
+        LOGs.sendLog("Commande /private-send initialisée", "COMMAND");
     }
 
     @Override
     public void run() {
         personne.openPrivateChannel().queue(privateChannel -> {
-                    privateChannel.sendMessage("Vous avez reçu un message anonyme :\n\n" + message).queue(
+                    privateChannel.sendMessage("## Vous avez reçu un message anonyme :\n\n" + message).queue(
                             success -> {
-                                currentEvent.reply("Message envoyé avec succès !").setEphemeral(true).queue();
+                                currentEvent.reply("## ✅ Message envoyé avec succès !").setEphemeral(true).queue();
                                 LOGs.sendLog("Message privé envoyé"
                                                 + "\nUser : @" + currentEvent.getUser().getEffectiveName()
                                                 + "\nServeur : " + currentEvent.getGuild().getName()
@@ -30,7 +32,7 @@ public class PrivateSendCommand extends Command {
                                         "COMMAND");
                             },
                             failure -> {
-                                currentEvent.reply("Impossible d'envoyer le message à cet utilisateur.").setEphemeral(true).queue();
+                                currentEvent.reply("## :x: Impossible d'envoyer le message à cet utilisateur.").setEphemeral(true).queue();
                                 LOGs.sendLog("Message privé envoyé"
                                                 + "\nUser : @" + currentEvent.getUser().getEffectiveName()
                                                 + "\nServeur : " + currentEvent.getGuild().getName()

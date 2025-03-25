@@ -13,17 +13,17 @@ public class UpdateAvatarCommand extends Command {
     public UpdateAvatarCommand(SlashCommandInteractionEvent event) {
         super(event);
 
-        LOGs.sendLog("Commande UpdateAvatar initialisée", "COMMAND");
+        LOGs.sendLog("Commande /update-avatar initialisée", "COMMAND");
     }
 
     @Override
     public void run() {
         try {
-            File avatarGif = new File("avatar.gif");
-            File avatarPng = new File("avatar.png");
+            File avatarGif = new File("conf/avatar.gif");
+            File avatarPng = new File("conf/avatar.png");
             Icon newIcon = null;
             if (!avatarGif.exists() && !avatarPng.exists()) {
-                currentEvent.reply("Il n'y a pas de fichier avatar.gif ou avatar.png présent dans le serveur")
+                currentEvent.reply("Il n'y a pas de fichier avatar.gif ou avatar.png présent dans les fichiers du bot")
                         .setEphemeral(true)
                         .queue();
                 LOGs.sendLog("Le fichier n'existe pas dans " + avatarGif.getAbsolutePath(), "ERROR");
@@ -33,7 +33,7 @@ public class UpdateAvatarCommand extends Command {
                 currentEvent.reply("fichiers .png et .gif trouvés dans le serveur, veuillez n'en prendre qu'un seul sur les deux.")
                         .setEphemeral(true)
                         .queue();
-                LOGs.sendLog("fichiers .png et .gif trouvés dans le serveur.", "ERROR");
+                LOGs.sendLog("Fichiers .png et .gif trouvés dans le serveur.", "ERROR");
                 return;
             } else if (avatarGif.exists() && !avatarPng.exists()){
                 newIcon = Icon.from(avatarGif);

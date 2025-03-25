@@ -12,30 +12,33 @@ import net.dv8tion.jda.api.interactions.commands.build.OptionData;
 import net.dv8tion.jda.api.requests.GatewayIntent;
 import net.dv8tion.jda.api.requests.restaction.CommandListUpdateAction;
 
-import java.io.IOException;
-import java.security.NoSuchAlgorithmException;
-
 import static net.dv8tion.jda.api.interactions.commands.OptionType.*;
 
 public class Main {
+    private static String tokenDiscord;
     public static String tokenOpenAI;
     public static double autocommandProb;
     public static JDA jda;
 
-    public static void main(String[] args) throws InterruptedException, IOException, NoSuchAlgorithmException {
-        Dotenv dotenv = Dotenv.load();
-
-        LOGs.addLogType("COMMAND", 255, 172, 53);
-        LOGs.addLogType("AUTOCOMMAND", 193, 92, 255);
-        LOGs.addLogType("API", 53, 255, 255);
+    public static void main(String[] args) throws InterruptedException {
+        // Load logs
         LOGs.addLogType("LOADING", 53, 74, 255);
+        LOGs.addLogType("AUTOCOMMAND", 193, 92, 255);
+        LOGs.addLogType("COMMAND", 255, 172, 53);
+        LOGs.addLogType("API", 53, 255, 255);
+        LOGs.addLogType("WARNING", 255, 255, 0);
         LOGs.addLogType("DEBUG", 255, 171, 247);
 
         LOGs.sendLog("Chargement des musiques...", "LOADING");
         MusicManager.updateMusicsList();
         LOGs.sendLog("Chargement des musiques terminé", "LOADING");
 
+        Dotenv dotenv = Dotenv.configure()
+                .directory("conf")
+                .load();
+
         //Load configurations
+        LOGs.sendLog("Chargement des configurations...", "LOADING");
         String autocommandProbString = dotenv.get("AUTOCOMMAND_PROBABILITY");
         if (autocommandProbString == null || autocommandProbString.isEmpty()) {
             LOGs.sendLog("Paramètre \"AUTOCOMMAND_PROBABILITY\" non trouvé dans le fichier .env", "ERROR");
@@ -51,6 +54,7 @@ public class Main {
         }
 
         //Load ChatGPT api key
+        LOGs.sendLog("Chargement du token ChatGPT...", "LOADING");
         tokenOpenAI = dotenv.get("OPENAI_TOKEN");
         if (tokenOpenAI == null || tokenOpenAI.isEmpty()) {
             LOGs.sendLog("Clé API OpenAI non trouvé dans le fichier .env", "ERROR");
@@ -60,7 +64,8 @@ public class Main {
         }
 
         //Load discord token
-        String tokenDiscord = dotenv.get("DISCORD_TOKEN");
+        LOGs.sendLog("Chargement du token Discord...", "LOADING");
+        tokenDiscord = dotenv.get("DISCORD_TOKEN");
         if (tokenDiscord == null || tokenDiscord.isEmpty()) {
             LOGs.sendLog("Token Discord non trouvé dans le fichier .env", "ERROR");
             return;
@@ -68,6 +73,11 @@ public class Main {
             LOGs.sendLog("Token Discord chargé", "LOADING");
         }
 
+        LOGs.sendLog("Chargement du bot...", "LOADING");
+        initBot();
+    }
+
+    private static void initBot() throws InterruptedException {
         //Load the bot
         jda = JDABuilder.createDefault(tokenDiscord)
                 .enableIntents(GatewayIntent.MESSAGE_CONTENT)
@@ -83,6 +93,7 @@ public class Main {
         LOGs.sendLog("Bot démarré", "LOADING");
 
         //Load the slash commands
+        LOGs.sendLog("Chargement des commandes...", "LOADING");
         CommandListUpdateAction commands = jda.updateCommands();
         commands.addCommands(
                 // USER COMMANDS

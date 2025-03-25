@@ -2,6 +2,7 @@ package fr.ANTHONUSApps.Commands.SlashCommands.music;
 
 import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
 import fr.ANTHONUSApps.Commands.SlashCommands.Command;
+import fr.ANTHONUSApps.LOGs;
 import fr.ANTHONUSApps.Utils.Music.MusicManager;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 
@@ -10,6 +11,8 @@ import java.util.ArrayList;
 public class ShuffleCommand extends Command {
     public ShuffleCommand(SlashCommandInteractionEvent event) {
         super(event);
+
+        LOGs.sendLog("Commande /shuffle initialisée", "COMMAND");
     }
 
     @Override
@@ -17,7 +20,7 @@ public class ShuffleCommand extends Command {
         ArrayList<AudioTrack> queue = MusicManager.players.get(currentEvent.getGuild().getIdLong()).getQueue();
 
         if (queue.isEmpty()) {
-            currentEvent.reply("La file d'attente est vide").setEphemeral(true).queue();
+            currentEvent.reply("## :warning: La file d'attente est vide").setEphemeral(true).queue();
             return;
         }
 
@@ -28,8 +31,6 @@ public class ShuffleCommand extends Command {
             queue.set(randomIndex, temp);
         }
 
-        currentEvent.reply("Playlist mélangée").queue();
-
-
+        currentEvent.reply("## ✅ Playlist mélangée").queue();
     }
 }

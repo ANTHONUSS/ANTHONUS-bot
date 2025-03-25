@@ -13,7 +13,7 @@ public class ClearCommand extends Command {
         super(event);
         this.amount = amount;
 
-        LOGs.sendLog("Commande clear initialisée", "COMMAND");
+        LOGs.sendLog("Commande /clear initialisée", "COMMAND");
     }
 
     @Override
@@ -22,18 +22,18 @@ public class ClearCommand extends Command {
         channel.getHistory().retrievePast(amount).queue(messages -> {
             channel.deleteMessages(messages).queue(
                     success -> {
-                        currentEvent.reply(amount + " messages ont été supprimés").setEphemeral(true).queue();
+                        currentEvent.reply("## ✅ " + amount + " messages ont été supprimés").setEphemeral(true).queue();
                         LOGs.sendLog("Clear effectué"
-                                            + "\nUser : @" + currentEvent.getUser().getEffectiveName()
+                                            + "\nUser : @" + currentEvent.getUser().getName()
                                             + "\nServeur : " + currentEvent.getGuild().getName()
                                             + "\nSalon : #" + currentEvent.getChannel().getName()
                                             + "\nAmount : " + amount,
                                     "COMMAND");
                     },
                     failure -> {
-                        currentEvent.reply("Impossible de supprimer les messages : " + failure.getMessage()).setEphemeral(true).queue();
+                        currentEvent.reply("## ❌ Impossible de supprimer les messages : " + failure.getMessage()).setEphemeral(true).queue();
                         LOGs.sendLog("Erreur sur la commande clear"
-                                            + "\nUser : @" + currentEvent.getUser().getEffectiveName()
+                                            + "\nUser : @" + currentEvent.getUser().getName()
                                             + "\nServeur : " + currentEvent.getGuild().getName()
                                             + "\nSalon : #" + currentEvent.getChannel().getName()
                                             + "\nAmount : " + amount,

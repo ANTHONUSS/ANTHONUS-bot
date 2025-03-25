@@ -7,6 +7,8 @@ public class FeurCommand extends AutoCommand{
 
     public FeurCommand(MessageReceivedEvent event) {
         super(event);
+
+        LOGs.sendLog("AutoCommande feur intilisaliée", "AUTOCOMMAND");
     }
 
     @Override

@@ -23,24 +23,24 @@ public class RemoveCommand extends Command {
         ArrayList<AudioTrack> queue = MusicManager.players.get(currentEvent.getGuild().getIdLong()).getQueue();
 
         if (queue.isEmpty()) {
-            currentEvent.reply("La file d'attente est vide").setEphemeral(true).queue();
+            currentEvent.reply("## :warning: La file d'attente est vide").setEphemeral(true).queue();
             return;
         }
 
         if (MusicManager.players.get(currentEvent.getGuild().getIdLong()).getCurrentTrack() != null && MusicManager.getFileName(MusicManager.players.get(currentEvent.getGuild().getIdLong()).getCurrentTrack().getInfo().uri).equals(selectedMusic)) {
-            currentEvent.reply("Impossible de retirer la musique en cours de lecture").setEphemeral(true).queue();
+            currentEvent.reply("## :warning: Impossible de retirer la musique en cours de lecture").setEphemeral(true).queue();
             return;
         }
 
         for (int i = 0; i < queue.size(); i++) {
             if (MusicManager.getFileName(queue.get(i).getInfo().uri).equals(selectedMusic)) {
-                currentEvent.reply("Musique " + MusicManager.getFileName(queue.get(i).getInfo().uri) + "retirée de la playlist").queue();
+                currentEvent.reply("## ✅ Musique " + MusicManager.getFileName(queue.get(i).getInfo().uri) + "retirée de la playlist").queue();
                 queue.remove(i);
                 return;
             }
         }
 
-        LOGs.sendLog("Musique " + selectedMusic + " non trouvée dans la playlist", "ERROR");
+        LOGs.sendLog("## :warning: Musique " + selectedMusic + " non trouvée dans la playlist", "ERROR");
 
     }
 }

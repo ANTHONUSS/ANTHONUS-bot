@@ -17,14 +17,14 @@ public class ListQueueCommand extends Command {
     public ListQueueCommand(SlashCommandInteractionEvent event) {
         super(event);
 
-        LOGs.sendLog("Commande /list initialisée", "COMMAND");
+        LOGs.sendLog("Commande /list-queue initialisée", "COMMAND");
     }
 
     @Override
     public void run() {
 
         if (MusicManager.players.get(currentEvent.getGuild().getIdLong()).getQueue().isEmpty()) {
-            currentEvent.reply("La queue est vide").setEphemeral(true).queue();
+            currentEvent.reply("## :warning: La queue est vide").setEphemeral(true).queue();
             return;
         }
 

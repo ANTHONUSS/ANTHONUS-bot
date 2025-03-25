@@ -25,7 +25,7 @@ public class CursedImageCommand extends Command {
     public CursedImageCommand(SlashCommandInteractionEvent event) {
         super(event);
 
-        LOGs.sendLog("CursedImage command initialisée", "COMMAND");
+        LOGs.sendLog("Commande /cursed initialisée", "COMMAND");
     }
 
     @Override
