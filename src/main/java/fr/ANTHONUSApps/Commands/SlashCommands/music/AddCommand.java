@@ -29,6 +29,9 @@ public class AddCommand extends Command {
                 return;
             }
         }
+
+        currentEvent.reply("## :x: La musique `" + selectedMusic + "` n'existe pas dans la liste").setEphemeral(true).queue();
+        LOGs.sendLog("Musique " + selectedMusic + " non trouvée dans la liste", "ERROR");
     }
 
 }

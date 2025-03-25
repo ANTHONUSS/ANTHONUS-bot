@@ -40,7 +40,8 @@ public class RemoveCommand extends Command {
             }
         }
 
-        LOGs.sendLog("## :warning: Musique " + selectedMusic + " non trouvée dans la playlist", "ERROR");
+        currentEvent.reply("## :x: La musique `" + selectedMusic + "` n'est pas dans la playlist").setEphemeral(true).queue();
+        LOGs.sendLog("Musique " + selectedMusic + " non trouvée dans la playlist", "ERROR");
 
     }
 }
