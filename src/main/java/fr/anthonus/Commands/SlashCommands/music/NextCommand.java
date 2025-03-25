@@ -18,6 +18,7 @@ public class NextCommand extends Command {
         AudioTrack nextTrack = MusicManager.players.get(currentEvent.getGuild().getIdLong()).getNextTrack();
         if (nextTrack == null) {
             currentEvent.getGuild().getAudioManager().closeAudioConnection();
+            currentEvent.reply("## :warning: Plus de musiques dans la playlist - Bot déconnecté").queue();
             return;
         }
 
