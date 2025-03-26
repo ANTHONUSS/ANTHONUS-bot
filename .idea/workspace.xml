@@ -5,7 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dfcb65e1-a446-4a61-98f1-2e01dcdfd001" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/Commands/SlashCommands/music/RemoveCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/anthonus/Commands/SlashCommands/music/RemoveCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +98,7 @@
       <command value="gradle build" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Gradle.ANTHONUS-bot [build]">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="fr.anthonus.Main" />
       <module name="ANTHONUS-bot.main" />
@@ -196,7 +200,7 @@
       <workItem from="1742934361854" duration="6603000" />
       <workItem from="1743016851610" duration="1628000" />
       <workItem from="1743020340797" duration="3842000" />
-      <workItem from="1743024890963" duration="32000" />
+      <workItem from="1743024890963" duration="99000" />
     </task>
     <servers />
   </component>
