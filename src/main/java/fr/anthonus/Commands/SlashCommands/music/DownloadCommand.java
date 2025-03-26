@@ -2,6 +2,7 @@ package fr.anthonus.Commands.SlashCommands.music;
 
 import fr.anthonus.Commands.SlashCommands.Command;
 import fr.anthonus.LOGs;
+import fr.anthonus.Utils.Music.MusicManager;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 
 import java.io.BufferedReader;
@@ -80,6 +81,9 @@ public class DownloadCommand extends Command {
                     LOGs.sendLog("Musique téléchargée"
                             + "\nNom : " + musicName
                             + "\nUser : " + currentEvent.getUser().getName(), "DOWNLOAD");
+
+                    MusicManager.addTrackToList("Music/" + musicName + ".mp3");
+                    LOGs.sendLog("Musique ajoutée à la liste", "DOWNLOAD");
                 } else {
                     currentEvent.getHook().editOriginal("## :x: Une erreur est survenue lors du téléchargement")
                             .queue();
