@@ -18,13 +18,14 @@ public class ListQueueCommand extends Command {
 
     @Override
     public void run() {
+        long guildID = currentEvent.getGuild().getIdLong();
 
-        if (MusicManager.players.get(currentEvent.getGuild().getIdLong()).getQueue().isEmpty()) {
+        if (MusicManager.players.get(guildID).getQueue().isEmpty()) {
             currentEvent.reply("## :warning: La queue est vide").setEphemeral(true).queue();
             return;
         }
 
-        List<AudioTrack> queue = MusicManager.players.get(currentEvent.getGuild().getIdLong()).getQueue();
+        List<AudioTrack> queue = MusicManager.players.get(guildID).getQueue();
         StringBuilder queueString = new StringBuilder();
         queueString.append("# Playlist actuelle :\n");
         for (int i = 0; i < queue.size(); i++) {

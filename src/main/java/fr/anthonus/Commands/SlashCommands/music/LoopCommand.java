@@ -15,7 +15,9 @@ public class LoopCommand extends Command {
 
     @Override
     public void run() {
-        MusicPlayerManager playerManager = MusicManager.players.get(currentEvent.getGuild().getIdLong());
+        long guildID = currentEvent.getGuild().getIdLong();
+
+        MusicPlayerManager playerManager = MusicManager.players.get(guildID);
         if (playerManager.isLooping()) {
             playerManager.setLooping(false);
             currentEvent.reply("## :repeat:❌ La playlist ne sera plus lue en boucle.").queue();

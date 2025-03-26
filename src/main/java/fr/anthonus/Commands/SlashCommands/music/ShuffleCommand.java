@@ -17,7 +17,9 @@ public class ShuffleCommand extends Command {
 
     @Override
     public void run() {
-        ArrayList<AudioTrack> queue = MusicManager.players.get(currentEvent.getGuild().getIdLong()).getQueue();
+        long guildID = currentEvent.getGuild().getIdLong();
+
+        ArrayList<AudioTrack> queue = MusicManager.players.get(guildID).getQueue();
 
         if (queue.isEmpty()) {
             currentEvent.reply("## :warning: La file d'attente est vide").setEphemeral(true).queue();

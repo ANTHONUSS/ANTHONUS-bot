@@ -15,15 +15,17 @@ public class NextCommand extends Command {
 
     @Override
     public void run() {
-        AudioTrack nextTrack = MusicManager.players.get(currentEvent.getGuild().getIdLong()).getNextTrack();
+        long guildID = currentEvent.getGuild().getIdLong();
+
+        AudioTrack nextTrack = MusicManager.players.get(guildID).getNextTrack();
         if (nextTrack == null) {
             currentEvent.getGuild().getAudioManager().closeAudioConnection();
             currentEvent.reply("## :warning: Plus de musiques dans la playlist - Bot déconnecté").queue();
             return;
         }
 
-        MusicManager.players.get(currentEvent.getGuild().getIdLong()).getAudioPlayer().startTrack(nextTrack.makeClone(), false);
-        MusicManager.players.get(currentEvent.getGuild().getIdLong()).setCurrentTrack(nextTrack);
+        MusicManager.players.get(guildID).getAudioPlayer().startTrack(nextTrack.makeClone(), false);
+        MusicManager.players.get(guildID).setCurrentTrack(nextTrack);
 
         currentEvent.reply("## :arrow_right: Musique suivante lancée").queue();
     }

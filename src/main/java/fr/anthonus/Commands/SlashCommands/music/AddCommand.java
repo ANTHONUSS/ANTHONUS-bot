@@ -19,7 +19,9 @@ public class AddCommand extends Command {
 
     @Override
     public void run() {
-        MusicPlayerManager playerManager = MusicManager.players.get(currentEvent.getGuild().getIdLong());
+        long guildID = currentEvent.getGuild().getIdLong();
+
+        MusicPlayerManager playerManager = MusicManager.players.get(guildID);
 
         for (AudioTrack track : MusicManager.musicsList){
             if (MusicManager.getFileName(track.getInfo().uri).equals(selectedMusic)){

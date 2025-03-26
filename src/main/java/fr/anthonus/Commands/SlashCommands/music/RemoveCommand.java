@@ -20,14 +20,16 @@ public class RemoveCommand extends Command {
 
     @Override
     public void run() {
-        ArrayList<AudioTrack> queue = MusicManager.players.get(currentEvent.getGuild().getIdLong()).getQueue();
+        long guildID = currentEvent.getGuild().getIdLong();
+
+        ArrayList<AudioTrack> queue = MusicManager.players.get(guildID).getQueue();
 
         if (queue.isEmpty()) {
             currentEvent.reply("## :warning: La file d'attente est vide").setEphemeral(true).queue();
             return;
         }
 
-        if (MusicManager.players.get(currentEvent.getGuild().getIdLong()).getCurrentTrack() != null && MusicManager.getFileName(MusicManager.players.get(currentEvent.getGuild().getIdLong()).getCurrentTrack().getInfo().uri).equals(selectedMusic)) {
+        if (MusicManager.players.get(guildID).getCurrentTrack() != null && MusicManager.getFileName(MusicManager.players.get(guildID).getCurrentTrack().getInfo().uri).equals(selectedMusic)) {
             currentEvent.reply("## :warning: Impossible de retirer la musique en cours de lecture").setEphemeral(true).queue();
             return;
         }

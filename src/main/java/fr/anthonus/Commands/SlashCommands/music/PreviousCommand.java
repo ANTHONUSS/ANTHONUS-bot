@@ -15,11 +15,13 @@ public class PreviousCommand extends Command {
 
     @Override
     public void run() {
-        AudioTrack previousTrack = MusicManager.players.get(currentEvent.getGuild().getIdLong()).getPreviousTrack();
-        if (previousTrack == null)  previousTrack = MusicManager.players.get(currentEvent.getGuild().getIdLong()).getCurrentTrack();
+        long guildID = currentEvent.getGuild().getIdLong();
 
-        MusicManager.players.get(currentEvent.getGuild().getIdLong()).getAudioPlayer().startTrack(previousTrack.makeClone(), false);
-        MusicManager.players.get(currentEvent.getGuild().getIdLong()).setCurrentTrack(previousTrack);
+        AudioTrack previousTrack = MusicManager.players.get(guildID).getPreviousTrack();
+        if (previousTrack == null)  previousTrack = MusicManager.players.get(guildID).getCurrentTrack();
+
+        MusicManager.players.get(guildID).getAudioPlayer().startTrack(previousTrack.makeClone(), false);
+        MusicManager.players.get(guildID).setCurrentTrack(previousTrack);
 
         currentEvent.reply("## :arrow_left: Musique précédente lancée").queue();
     }

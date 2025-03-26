@@ -15,7 +15,11 @@ public class ClearPlaylistCommand extends Command {
 
     @Override
     public void run() {
-        MusicManager.players.get(currentEvent.getGuild().getIdLong()).getQueue().clear();
+        long guildID = currentEvent.getGuild().getIdLong();
+
+        MusicManager.players.get(guildID).getQueue().clear();
+
         currentEvent.reply("## ✅ Playlist vidée").queue();
+        LOGs.sendLog("Playlist vidée", "COMMAND");
     }
 }

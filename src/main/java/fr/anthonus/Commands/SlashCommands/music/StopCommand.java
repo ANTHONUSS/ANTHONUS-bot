@@ -12,10 +12,12 @@ public class StopCommand extends Command {
 
     @Override
     public void run() {
+        long guildID = currentEvent.getGuild().getIdLong();
+
         AudioManager audioManager = currentEvent.getGuild().getAudioManager();
         if (audioManager.isConnected()) {
             audioManager.closeAudioConnection();
-            MusicManager.players.get(currentEvent.getGuild().getIdLong()).setCurrentTrack(null);
+            MusicManager.players.get(guildID).setCurrentTrack(null);
             currentEvent.reply("## ✅ Musique arrêtée").queue();
         } else {
             currentEvent.reply("## :warning: Le bot ne joue actuellement pas de musique").queue();

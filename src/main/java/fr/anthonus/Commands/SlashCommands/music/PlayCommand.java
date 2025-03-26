@@ -21,8 +21,10 @@ public class PlayCommand extends Command {
 
     @Override
     public void run() {
-        AudioPlayer audioPlayer = MusicManager.players.get(currentEvent.getGuild().getIdLong()).getAudioPlayer();
-        ArrayList<AudioTrack> queue = MusicManager.players.get(currentEvent.getGuild().getIdLong()).getQueue();
+        long guildID = currentEvent.getGuild().getIdLong();
+
+        AudioPlayer audioPlayer = MusicManager.players.get(guildID).getAudioPlayer();
+        ArrayList<AudioTrack> queue = MusicManager.players.get(guildID).getQueue();
 
         if (queue.isEmpty()) {
             currentEvent.reply("## :warning: La file d'attente est vide.").setEphemeral(true).queue();
@@ -44,11 +46,11 @@ public class PlayCommand extends Command {
             if (member != null && member.getVoiceState() != null && member.getVoiceState().inAudioChannel()) {
                 audioManager.openAudioConnection(member.getVoiceState().getChannel());
 
-                currentEvent.reply("## ✅ Playlist jouée dans " + member.getVoiceState().getChannel().getName()).queue();
+                currentEvent.reply("## ✅ Playlist jouée dans `" + member.getVoiceState().getChannel().getName() + "`").queue();
 
                 audioPlayer.startTrack(currentTrack.makeClone(), false);
 
-                MusicManager.players.get(currentEvent.getGuild().getIdLong()).setCurrentTrack(currentTrack);
+                MusicManager.players.get(guildID).setCurrentTrack(currentTrack);
 
             } else {
                 currentEvent.reply("## :warning: Vous devez être connecté à un salon vocal pour utiliser cette commande.").setEphemeral(true).queue();
