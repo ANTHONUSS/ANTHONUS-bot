@@ -37,11 +37,11 @@ public class RemoveCommand extends Command {
 
         for (int i = 0; i < queue.size(); i++) {
             if (MusicManager.getFileName(queue.get(i).getInfo().uri).equals(selectedMusic)) {
-                queue.remove(i);
-
                 MusicManager.players.get(guildID).setLastModified(Instant.now());
 
                 currentEvent.reply("## ✅ Musique `" + MusicManager.getFileName(queue.get(i).getInfo().uri) + "` retirée de la playlist").queue();
+
+                queue.remove(i);
                 return;
             }
         }
