@@ -22,11 +22,11 @@ public class TrackScheduler extends AudioEventAdapter {
             AudioTrack nextTrack = MusicManager.players.get(guildId).getNextTrack();
             if (nextTrack == null) {
                 jda.getGuildById(guildId).getAudioManager().closeAudioConnection();
+                MusicManager.players.get(guildId).setCurrentTrack(null);
                 return;
             }
             audioPlayer.startTrack(nextTrack.makeClone(), false);
             MusicManager.players.get(guildId).setCurrentTrack(nextTrack);
-            MusicManager.players.get(guildId).setCurrentTrack(null);
         }
     }
 }

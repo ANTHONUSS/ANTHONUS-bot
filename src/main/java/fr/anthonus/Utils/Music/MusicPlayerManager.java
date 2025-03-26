@@ -24,10 +24,6 @@ public class MusicPlayerManager {
         this.audioPlayer.addListener(new TrackScheduler(this.audioPlayer, this.guildId));
     }
 
-    public Long getGuildId() {
-        return this.guildId;
-    }
-
     public boolean isLooping() {
         return this.looping;
     }

@@ -5,6 +5,7 @@ import fr.anthonus.Commands.SlashCommands.Command;
 import fr.anthonus.LOGs;
 import fr.anthonus.Utils.Music.MusicManager;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
+import net.dv8tion.jda.api.managers.AudioManager;
 
 public class NextCommand extends Command {
     public NextCommand(SlashCommandInteractionEvent event) {
@@ -16,10 +17,16 @@ public class NextCommand extends Command {
     @Override
     public void run() {
         long guildID = currentEvent.getGuild().getIdLong();
+        AudioManager audioManager = currentEvent.getGuild().getAudioManager();
+
+        if (!audioManager.isConnected()) {
+            currentEvent.reply("## :warning: Le bot n'est pas connecté à un salon vocal").setEphemeral(true).queue();
+            return;
+        }
 
         AudioTrack nextTrack = MusicManager.players.get(guildID).getNextTrack();
         if (nextTrack == null) {
-            currentEvent.getGuild().getAudioManager().closeAudioConnection();
+            audioManager.closeAudioConnection();
             currentEvent.reply("## :warning: Plus de musiques dans la playlist - Bot déconnecté").queue();
             return;
         }
