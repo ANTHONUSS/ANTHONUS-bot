@@ -6,6 +6,7 @@ import fr.anthonus.LOGs;
 import fr.anthonus.Utils.Music.MusicManager;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 
+import java.time.Instant;
 import java.util.ArrayList;
 
 public class RemoveCommand extends Command {
@@ -36,8 +37,11 @@ public class RemoveCommand extends Command {
 
         for (int i = 0; i < queue.size(); i++) {
             if (MusicManager.getFileName(queue.get(i).getInfo().uri).equals(selectedMusic)) {
-                currentEvent.reply("## ✅ Musique `" + MusicManager.getFileName(queue.get(i).getInfo().uri) + "` retirée de la playlist").queue();
                 queue.remove(i);
+
+                MusicManager.players.get(guildID).setLastModified(Instant.now());
+
+                currentEvent.reply("## ✅ Musique `" + MusicManager.getFileName(queue.get(i).getInfo().uri) + "` retirée de la playlist").queue();
                 return;
             }
         }

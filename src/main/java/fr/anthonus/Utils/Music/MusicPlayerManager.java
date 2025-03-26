@@ -3,6 +3,7 @@ package fr.anthonus.Utils.Music;
 import com.sedmelluq.discord.lavaplayer.player.AudioPlayer;
 import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
 
+import java.time.Instant;
 import java.util.ArrayList;
 
 public class MusicPlayerManager {
@@ -12,6 +13,7 @@ public class MusicPlayerManager {
     private final ArrayList<AudioTrack> queue;
     private AudioTrack currentTrack;
     private boolean looping;
+    private Instant lastModified;
 
     public MusicPlayerManager(Long guildId) {
         this.guildId = guildId;
@@ -70,6 +72,11 @@ public class MusicPlayerManager {
         return null;
     }
 
+    public Instant getLastModified() {return this.lastModified;}
+    public void setLastModified(Instant lastModified) {
+        this.lastModified = lastModified;
+    }
+
     public AudioPlayer getAudioPlayer() {
         return audioPlayer;
     }
@@ -77,7 +84,6 @@ public class MusicPlayerManager {
     public ArrayList<AudioTrack> getQueue() {
         return queue;
     }
-
     public void addTrackToQueue(AudioTrack track) {
         queue.add(track);
     }

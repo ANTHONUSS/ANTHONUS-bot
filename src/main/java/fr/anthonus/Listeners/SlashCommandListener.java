@@ -12,6 +12,9 @@ import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEve
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.interactions.commands.OptionMapping;
 
+import java.time.Duration;
+import java.time.Instant;
+
 public class SlashCommandListener extends ListenerAdapter {
 
     @Override
@@ -27,6 +30,15 @@ public class SlashCommandListener extends ListenerAdapter {
         if (!MusicManager.players.containsKey(event.getGuild().getIdLong())) {
             MusicManager.players.put(event.getGuild().getIdLong(), new MusicPlayerManager(event.getGuild().getIdLong()));
             LOGs.sendLog("Nouveau MusicPlayerManager initialisé pour le serveur " + event.getGuild().getName(), "DEFAULT");
+        }
+
+        MusicPlayerManager player = MusicManager.players.get(event.getGuild().getIdLong());
+        if (player.getLastModified() != null) {
+            Instant lastModified = MusicManager.players.get(event.getGuild().getIdLong()).getLastModified();
+            if (Duration.between(lastModified, Instant.now()).toHours() >= 4) {
+                player.getQueue().clear();
+                player.setLastModified(null);
+            }
         }
 
         switch (event.getName()) {

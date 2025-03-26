@@ -18,11 +18,14 @@ public class ClearPlaylistCommand extends Command {
         long guildID = currentEvent.getGuild().getIdLong();
 
         if (MusicManager.players.get(guildID).getCurrentTrack() != null) {
+
             currentEvent.reply("## ❌ Impossible de vider la playlist pendant la lecture d'une musique").setEphemeral(true).queue();
             return;
         }
 
         MusicManager.players.get(guildID).getQueue().clear();
+
+        MusicManager.players.get(guildID).setLastModified(null);
 
         currentEvent.reply("## ✅ Playlist vidée").queue();
         LOGs.sendLog("Playlist vidée", "COMMAND");
