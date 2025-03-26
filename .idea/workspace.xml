@@ -6,24 +6,16 @@
   <component name="ChangeListManager">
     <list default="true" id="dfcb65e1-a446-4a61-98f1-2e01dcdfd001" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.gradle/8.10/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.10/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/DownloadCommand.class.uniqueId0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/SlashCommandListener.class.uniqueId1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/NextCommand.class.uniqueId0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/PreviousCommand.class.uniqueId3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/compileTransaction/stash-dir/StopCommand.class.uniqueId1" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/Commands/SlashCommands/music/ClearPlaylistCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/anthonus/Commands/SlashCommands/music/ClearPlaylistCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/Commands/SlashCommands/music/NextCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/anthonus/Commands/SlashCommands/music/NextCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/Commands/SlashCommands/music/PreviousCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/anthonus/Commands/SlashCommands/music/PreviousCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/Commands/SlashCommands/music/StopCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/anthonus/Commands/SlashCommands/music/StopCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/Utils/Music/MusicPlayerManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/anthonus/Utils/Music/MusicPlayerManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/Utils/Music/TrackScheduler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/anthonus/Utils/Music/TrackScheduler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/Commands/SlashCommands/music/DownloadCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/anthonus/Commands/SlashCommands/music/DownloadCommand.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -213,7 +205,7 @@
       <workItem from="1742932590064" duration="34000" />
       <workItem from="1742934361854" duration="6603000" />
       <workItem from="1743016851610" duration="1628000" />
-      <workItem from="1743020340797" duration="981000" />
+      <workItem from="1743020340797" duration="2036000" />
     </task>
     <servers />
   </component>

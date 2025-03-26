@@ -7,7 +7,16 @@ import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEve
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.IOException;
 import java.io.InputStreamReader;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.attribute.BasicFileAttributes;
+import java.nio.file.attribute.FileTime;
+import java.util.Comparator;
+import java.util.Optional;
+import java.util.stream.Stream;
 
 public class DownloadCommand extends Command {
     private final String url;
@@ -75,15 +84,18 @@ public class DownloadCommand extends Command {
                 int exitCode = process.waitFor();
 
                 if (exitCode == 0) {
+
+                    musicName = getMostRecentFile().replace(".mp3", "");
+
+                    MusicManager.addTrackToList("Music/" + musicName + ".mp3");
+                    LOGs.sendLog("Musique ajoutée à la liste", "DOWNLOAD");
+
                     currentEvent.getHook().deleteOriginal().queue();
                     currentEvent.getChannel().sendMessage("## ✅ La musique `" + musicName + "` à été téléchargée.")
                             .queue();
                     LOGs.sendLog("Musique téléchargée"
                             + "\nNom : " + musicName
                             + "\nUser : " + currentEvent.getUser().getName(), "DOWNLOAD");
-
-                    MusicManager.addTrackToList("Music/" + musicName + ".mp3");
-                    LOGs.sendLog("Musique ajoutée à la liste", "DOWNLOAD");
                 } else {
                     currentEvent.getHook().editOriginal("## :x: Une erreur est survenue lors du téléchargement")
                             .queue();
@@ -95,6 +107,32 @@ public class DownloadCommand extends Command {
         });
 
         downloadThread.start();
+    }
+
+    private String getMostRecentFile() {
+        Path foderPath = Paths.get("Music");
+
+        try (Stream<Path> files = Files.list(foderPath)) {
+            Optional<Path> latestFile = files
+                    .filter(Files::isRegularFile)
+                    .max(Comparator.comparing(this::getCreationTime));
+
+            return latestFile.get().getFileName().toString();
+
+        } catch (IOException e){
+            LOGs.sendLog(e.getMessage(), "ERROR");
+        }
+
+        return null;
+    }
+
+    private FileTime getCreationTime(Path path) {
+        try {
+            return Files.readAttributes(path, BasicFileAttributes.class).creationTime();
+        } catch (IOException e) {
+            LOGs.sendLog(e.getMessage(), "ERROR");
+            return FileTime.fromMillis(0);
+        }
     }
 
     private String getMusicNameFromURL(){
