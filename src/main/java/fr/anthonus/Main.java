@@ -147,12 +147,17 @@ public class Main {
 
                 Commands.slash("previous", "Rejoue la musique précédente dans la playlist"),
 
+                Commands.slash("jump", "Joue une musique de la playlist")
+                        .addOption(STRING, "playlist-music", "Position de la musique dans la playlist", true, true),
+
                 Commands.slash("loop", "Active ou désactive la répétition de la musique en cours"),
 
                 Commands.slash("shuffle", "Mélange la playlist"),
 
                 Commands.slash("download", "Télécharge une musique depuis un URL Youtube")
-                        .addOption(STRING, "url", "URL de la vidéo Youtube", true)
+                        .addOption(STRING, "url", "URL de la vidéo Youtube", true),
+
+                Commands.slash("reload-musics", "Recharge la liste des musiques disponibles")
         );
         commands.queue();
         LOGs.sendLog("Commandes chargées", "LOADING");

@@ -167,6 +167,14 @@ public class SlashCommandListener extends ListenerAdapter {
 
                 LOGs.sendLog("Commande terminée", "COMMAND");
             }
+            case "jump" -> {
+                String selectedMusic = event.getOption("playlist-music", OptionMapping::getAsString);
+
+                JumpCommand jumpCommand = new JumpCommand(event, selectedMusic);
+                jumpCommand.run();
+
+                LOGs.sendLog("Commande terminée", "COMMAND");
+            }
             case "loop" -> {
                 LoopCommand loopCommand = new LoopCommand(event);
                 loopCommand.run();
@@ -184,6 +192,12 @@ public class SlashCommandListener extends ListenerAdapter {
 
                 DownloadCommand downloadCommand = new DownloadCommand(event, url);
                 downloadCommand.run();
+
+                LOGs.sendLog("Commande terminée", "COMMAND");
+            }
+            case "reload-musics" -> {
+                ReloadMusicsCommand reloadMusicsCommand = new ReloadMusicsCommand(event);
+                reloadMusicsCommand.run();
 
                 LOGs.sendLog("Commande terminée", "COMMAND");
             }
