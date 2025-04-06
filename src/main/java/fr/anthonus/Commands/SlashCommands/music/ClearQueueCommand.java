@@ -5,9 +5,9 @@ import fr.anthonus.LOGs;
 import fr.anthonus.Utils.Music.MusicManager;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 
-public class ClearPlaylistCommand extends Command {
+public class ClearQueueCommand extends Command {
 
-    public ClearPlaylistCommand(SlashCommandInteractionEvent event) {
+    public ClearQueueCommand(SlashCommandInteractionEvent event) {
         super(event);
 
         LOGs.sendLog("Commande /clear-playlist initialisée", "COMMAND");

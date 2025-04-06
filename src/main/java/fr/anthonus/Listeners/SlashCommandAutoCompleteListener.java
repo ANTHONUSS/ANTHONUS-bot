@@ -28,7 +28,7 @@ public class SlashCommandAutoCompleteListener extends ListenerAdapter {
 
                 event.replyChoices(choices).queue();
             }
-            case "playlist-music" -> {
+            case "queue-music" -> {
                 List<String> musicsQueue = new ArrayList<>();
                 for (AudioTrack track : MusicManager.players.get(event.getGuild().getIdLong()).getQueue()) musicsQueue.add(MusicManager.getFileName(track.getInfo().uri));
 

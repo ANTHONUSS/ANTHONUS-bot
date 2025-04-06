@@ -46,17 +46,19 @@ public class DownloadCommand extends Command {
         currentEvent.deferReply(true).queue();
 
         downloadMusic();
+        currentEvent.getHook().sendMessage("## :arrow_down: Téléchargement de la musique en cours...")
+                .setEphemeral(true)
+                .queue();
+        LOGs.sendLog("Début du téléchargement de la musique...", "DOWNLOAD");
     }
 
     private void downloadMusic() {
         Thread downloadThread = new Thread(() -> {
             String musicName = getMusicNameFromURL();
 
-            currentEvent.getHook().sendMessage("## :arrow_down: Téléchargement de `" + musicName + "` en cours...")
-                    .setEphemeral(true)
+            currentEvent.getHook().editOriginal("## :arrow_down: Téléchargement de `" + musicName + "` en cours...")
                     .queue();
             LOGs.sendLog("Musique " + musicName + " en cours de téléchargement par @" + currentEvent.getUser().getName(), "DOWNLOAD");
-
             ProcessBuilder processBuilder = new ProcessBuilder(
                     "yt-dlp.exe",
                     "-x",
@@ -99,10 +101,12 @@ public class DownloadCommand extends Command {
                 } else {
                     currentEvent.getHook().editOriginal("## :x: Une erreur est survenue lors du téléchargement")
                             .queue();
+                    LOGs.sendLog("Erreur lors du téléchargement", "ERROR");
                 }
             } catch (Exception e) {
                 currentEvent.getHook().editOriginal("## :x: Une erreur est survenue lors du téléchargement : " + e.getMessage())
                         .queue();
+                LOGs.sendLog("Erreur lors du téléchargement " + e.getMessage(), "ERROR");
             }
         });
 
@@ -142,6 +146,7 @@ public class DownloadCommand extends Command {
             ProcessBuilder titleProcessBuilder = new ProcessBuilder(
                     "yt-dlp.exe",
                     "--get-title",
+                    "--no-playlist",
                     url
             );
             Process titleProcess = titleProcessBuilder.start();
@@ -154,9 +159,9 @@ public class DownloadCommand extends Command {
 
             return musicName;
         } catch (Exception e) {
-            currentEvent.getHook().sendMessage("## :x: Impossible de récupérer le nom de la musique.")
-                    .setEphemeral(true)
+            currentEvent.getHook().editOriginal("## :x: Impossible de récupérer le nom de la musique.")
                     .queue();
+            LOGs.sendLog("Impossible de récupérer le nom de la musique", "ERROR");
             return null;
         }
     }

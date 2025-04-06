@@ -118,16 +118,16 @@ public class SlashCommandListener extends ListenerAdapter {
                 LOGs.sendLog("Commande terminée", "COMMAND");
             }
             case "remove" -> {
-                String selectedMusic = event.getOption("playlist-music", OptionMapping::getAsString);
+                String selectedMusic = event.getOption("queue-music", OptionMapping::getAsString);
 
                 RemoveCommand removeCommand = new RemoveCommand(event, selectedMusic);
                 removeCommand.run();
 
                 LOGs.sendLog("Commande terminée", "COMMAND");
             }
-            case "clear-playlist" -> {
-                ClearPlaylistCommand clearPlaylistCommand = new ClearPlaylistCommand(event);
-                clearPlaylistCommand.run();
+            case "clear-queue" -> {
+                ClearQueueCommand clearQueueCommand = new ClearQueueCommand(event);
+                clearQueueCommand.run();
 
                 LOGs.sendLog("Commande terminée", "COMMAND");
             }
@@ -168,7 +168,7 @@ public class SlashCommandListener extends ListenerAdapter {
                 LOGs.sendLog("Commande terminée", "COMMAND");
             }
             case "jump" -> {
-                String selectedMusic = event.getOption("playlist-music", OptionMapping::getAsString);
+                String selectedMusic = event.getOption("queue-music", OptionMapping::getAsString);
 
                 JumpCommand jumpCommand = new JumpCommand(event, selectedMusic);
                 jumpCommand.run();

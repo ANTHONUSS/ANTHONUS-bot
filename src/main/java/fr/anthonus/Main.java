@@ -127,32 +127,32 @@ public class Main {
                         .setDefaultPermissions(DefaultMemberPermissions.enabledFor(Permission.ADMINISTRATOR)),
 
                 // MUSIC COMMANDS
-                Commands.slash("add", "Ajoute une musique à la playlist")
+                Commands.slash("add", "Ajoute une musique à la file d'attente")
                         .addOption(STRING, "musique", "Nom de la musique à jouer", true, true),
 
-                Commands.slash("remove", "Enlève une musique de la playlist")
-                        .addOption(STRING, "playlist-music", "Nom de la musique à supprimer", true, true),
+                Commands.slash("remove", "Enlève une musique de la file d'attente")
+                        .addOption(STRING, "queue-music", "Nom de la musique à supprimer", true, true),
 
-                Commands.slash("clear-playlist", "Vide la playlist"),
+                Commands.slash("clear-queue", "Vide la file d'attente"),
 
                 Commands.slash("list", "Liste toutes les musiques disponibles"),
 
-                Commands.slash("list-queue", "Liste toutes les musiques de la playlist"),
+                Commands.slash("list-queue", "Liste toutes les musiques de la file d'attente"),
 
-                Commands.slash("play", "Joue la playlist dans l'ordre d'ajout"),
+                Commands.slash("play", "Joue la file d'attente dans l'ordre d'ajout"),
 
                 Commands.slash("stop", "Arrête la musique et déconnecte le bot"),
 
-                Commands.slash("next", "Joue la prochaine musique dans la playlist"),
+                Commands.slash("next", "Joue la prochaine musique dans la file d'attente"),
 
-                Commands.slash("previous", "Rejoue la musique précédente dans la playlist"),
+                Commands.slash("previous", "Rejoue la musique précédente dans la file d'attente"),
 
-                Commands.slash("jump", "Joue une musique de la playlist")
-                        .addOption(STRING, "playlist-music", "Position de la musique dans la playlist", true, true),
+                Commands.slash("jump", "Joue une musique de la file d'attente")
+                        .addOption(STRING, "queue-music", "Position de la musique dans la file d'attente", true, true),
 
                 Commands.slash("loop", "Active ou désactive la répétition de la musique en cours"),
 
-                Commands.slash("shuffle", "Mélange la playlist"),
+                Commands.slash("shuffle", "Mélange la file d'attente"),
 
                 Commands.slash("download", "Télécharge une musique depuis un URL Youtube")
                         .addOption(STRING, "url", "URL de la vidéo Youtube", true),
