@@ -115,7 +115,7 @@
       <command value="gradle clean jlink" />
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.ANTHONUS-bot [build]">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="fr.anthonus.Main" />
       <module name="ANTHONUS-bot.main" />
