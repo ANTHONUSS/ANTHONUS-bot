@@ -7,7 +7,7 @@ import fr.anthonus.LOGs;
 import java.io.*;
 
 public class SettingJson {
-    private long serverID;
+    private final long serverID;
     private Settings settings = new Settings();
 
     public SettingJson(long serverID) {

@@ -31,7 +31,8 @@ public class SlashCommandListener extends ListenerAdapter {
         Server player = ServerManager.servers.get(guildId);
         if (player.getLastModified() != null) {
             Instant lastModified = ServerManager.servers.get(guildId).getLastModified();
-            if (Duration.between(lastModified, Instant.now()).toHours() >= 4) {
+            if (Duration.between(lastModified, Instant.now()).toHours() >= ServerManager.servers.get(guildId).getSettings().getSettings().timeBeforeResetQueue) {
+                LOGs.sendLog("Réinitialisation automatique de la file d'attente du bot", "DEFAULT");
                 player.getQueue().clear();
                 player.setLastModified(null);
                 player.setLooping(false);
