@@ -1,11 +1,13 @@
 package fr.anthonus;
 
-import fr.anthonus.Listeners.*;
-import fr.anthonus.Utils.Music.MusicManager;
+import fr.anthonus.listeners.*;
+import fr.anthonus.utils.Server;
+import fr.anthonus.utils.ServerManager;
 import io.github.cdimascio.dotenv.Dotenv;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.Permission;
+import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.interactions.commands.DefaultMemberPermissions;
 import net.dv8tion.jda.api.interactions.commands.build.Commands;
 import net.dv8tion.jda.api.interactions.commands.build.OptionData;
@@ -17,7 +19,6 @@ import static net.dv8tion.jda.api.interactions.commands.OptionType.*;
 public class Main {
     private static String tokenDiscord;
     public static String tokenOpenAI;
-    public static double autocommandProb;
     public static JDA jda;
 
     public static void main(String[] args) throws InterruptedException {
@@ -31,28 +32,12 @@ public class Main {
         LOGs.addLogType("DEBUG", 255, 171, 247);
 
         LOGs.sendLog("Chargement des musiques...", "LOADING");
-        MusicManager.updateMusicsList();
+        ServerManager.updateMusicsList();
         LOGs.sendLog("Chargement des musiques terminé", "LOADING");
 
         Dotenv dotenv = Dotenv.configure()
                 .directory("conf")
                 .load();
-
-        //Load configurations
-        LOGs.sendLog("Chargement des configurations...", "LOADING");
-        String autocommandProbString = dotenv.get("AUTOCOMMAND_PROBABILITY");
-        if (autocommandProbString == null || autocommandProbString.isEmpty()) {
-            LOGs.sendLog("Paramètre \"AUTOCOMMAND_PROBABILITY\" non trouvé dans le fichier .env", "ERROR");
-            return;
-        } else {
-            try {
-                autocommandProb = Double.parseDouble(autocommandProbString);
-            } catch (NumberFormatException e) {
-                LOGs.sendLog("Paramètre \"AUTOCOMMAND_PROBABILITY\" non valide", "ERROR");
-                return;
-            }
-            LOGs.sendLog("Paramètre \"AUTOCOMMAND_PROBABILITY\" chargé", "LOADING");
-        }
 
         //Load ChatGPT api key
         LOGs.sendLog("Chargement du token ChatGPT...", "LOADING");
@@ -92,6 +77,11 @@ public class Main {
 
         jda.awaitReady();
         LOGs.sendLog("Bot démarré", "LOADING");
+
+        for (Guild guild : jda.getGuilds()) {
+            ServerManager.servers.put(guild.getIdLong(), new Server(guild.getIdLong()));
+            LOGs.sendLog("Nouveau Server initialisé : " + guild.getName() , "LOADING");
+        }
 
         //Load the slash commands
         LOGs.sendLog("Chargement des commandes...", "LOADING");
