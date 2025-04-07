@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dfcb65e1-a446-4a61-98f1-2e01dcdfd001" name="Changes" comment="" />
+    <list default="true" id="dfcb65e1-a446-4a61-98f1-2e01dcdfd001" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/AutoCommands/AutoCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/autoCommands/AutoCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/AutoCommands/FeurCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/autoCommands/FeurCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/AutoCommands/InteractionCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/autoCommands/InteractionCommand.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

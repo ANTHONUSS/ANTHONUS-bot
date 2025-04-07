@@ -4,7 +4,7 @@ import fr.anthonus.LOGs;
 import fr.anthonus.utils.ServerManager;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
-public class FeurCommand extends AutoCommand{
+public class FeurCommand extends AutoCommand {
 
     public FeurCommand(MessageReceivedEvent event) {
         super(event);
