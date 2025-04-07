@@ -8,9 +8,6 @@ Bot discord personnel pour faire diverses actions sur mes serveurs
 
 # Models API keys
     OPENAI_TOKEN=[Token OpenAI]
-
-# Config
-    AUTOCOMMAND_PROBABILITY=[Probabilité de déclenchement d'une interaction (double entre 0 (désactiver) et 100)]
 ```
 **ATTENTION : Mal mettre l'une de ces valeurs déclenchera une erreur lors du démarrage du bot !**
 

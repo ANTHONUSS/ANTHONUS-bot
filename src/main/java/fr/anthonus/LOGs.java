@@ -1,8 +1,8 @@
 package fr.anthonus;
 
-import fr.anthonus.Exceptions.LOGs.LogTypeAlreadyExistsException;
-import fr.anthonus.Exceptions.LOGs.LogTypeDoesntExistsException;
-import fr.anthonus.Exceptions.LOGs.RVBFormatException;
+import fr.anthonus.exceptions.LOGs.LogTypeAlreadyExistsException;
+import fr.anthonus.exceptions.LOGs.LogTypeDoesntExistsException;
+import fr.anthonus.exceptions.LOGs.RVBFormatException;
 
 import java.io.BufferedWriter;
 import java.io.File;
