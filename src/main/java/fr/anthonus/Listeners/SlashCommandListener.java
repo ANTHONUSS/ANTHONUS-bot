@@ -38,6 +38,7 @@ public class SlashCommandListener extends ListenerAdapter {
             if (Duration.between(lastModified, Instant.now()).toHours() >= 4) {
                 player.getQueue().clear();
                 player.setLastModified(null);
+                player.setLooping(false);
             }
         }
 
