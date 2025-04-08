@@ -2,6 +2,7 @@ package fr.anthonus.listeners;
 
 import fr.anthonus.commands.slashCommands.admin.ClearCommand;
 import fr.anthonus.commands.slashCommands.admin.UpdateAvatarCommand;
+import fr.anthonus.commands.slashCommands.config.GetConfigCommand;
 import fr.anthonus.commands.slashCommands.config.ReloadConfigCommand;
 import fr.anthonus.commands.slashCommands.music.*;
 import fr.anthonus.commands.slashCommands.normal.*;
@@ -110,6 +111,12 @@ public class SlashCommandListener extends ListenerAdapter {
                 case "reload-config" -> {
                     ReloadConfigCommand reloadConfigCommand = new ReloadConfigCommand(event);
                     reloadConfigCommand.run();
+
+                    LOGs.sendLog("Commande terminée", "COMMAND");
+                }
+                case "get-config" -> {
+                    GetConfigCommand getConfigCommand = new GetConfigCommand(event);
+                    getConfigCommand.run();
 
                     LOGs.sendLog("Commande terminée", "COMMAND");
                 }

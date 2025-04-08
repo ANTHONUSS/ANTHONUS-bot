@@ -72,6 +72,19 @@ public class SettingJson {
         }
     }
 
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder("# Configuration pour le serveur " + serverName + " :\n");
+
+        sb.append("- **Probabilité de commande automatique :** ").append(settings.autoCommandProbability).append("%\n");
+        sb.append("- **Autoriser les réponses feur :** ").append(settings.allowFeur ? "oui" : "non").append("\n");
+        sb.append("- **Autoriser les réponses par ChatGPT :** ").append(settings.allowReply ? "oui" : "non").append("\n");
+        sb.append("- **Autoriser les modifications par ChatGPT :** ").append(settings.allowModify ? "oui" : "non").append("\n");
+        sb.append("- **Temps avant réinitialisation de la file d'attente :** ").append(settings.timeBeforeResetQueue).append(" heures\n");
+
+        return sb.toString();
+    }
+
     public Settings getSettings() {
         return settings;
     }
