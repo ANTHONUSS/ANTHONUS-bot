@@ -29,7 +29,7 @@ public class MessageListener extends ListenerAdapter {
         }
 
         //Verification pour RandomInteraction
-        double prob = ServerManager.servers.get(event.getGuild().getIdLong()).getSettingJson().getSettings().autoCommandProbability;
+        double prob = ServerManager.servers.get(event.getGuild().getIdLong()).getSettingJson().getAutoCommandProbability();
         double rand = Math.random() * 100;
         if (rand < prob) {
             InteractionCommand interactionCommand = new InteractionCommand(event);

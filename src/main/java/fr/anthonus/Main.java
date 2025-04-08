@@ -124,6 +124,11 @@ public class Main {
                     Commands.slash("get-config", "Affiche la configuration du serveur")
                                     .setDefaultPermissions(DefaultMemberPermissions.enabledFor(Permission.ADMINISTRATOR)),
 
+                    Commands.slash("set-config", "Modifie la configuration d'un paramètre du serveur")
+                            .addOption(STRING, "paramètre", "Paramètre à modifier", true, true)
+                            .addOption(STRING, "valeur", "Valeur du paramètre à modifier", true, true)
+                                    .setDefaultPermissions(DefaultMemberPermissions.enabledFor(Permission.ADMINISTRATOR)),
+
                 // MUSIC COMMANDS
                 Commands.slash("add", "Ajoute une musique à la file d'attente")
                         .addOption(STRING, "musique", "Nom de la musique à jouer", true, true),

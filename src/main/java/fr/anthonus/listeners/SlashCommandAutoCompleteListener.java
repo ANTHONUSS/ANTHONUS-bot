@@ -40,6 +40,44 @@ public class SlashCommandAutoCompleteListener extends ListenerAdapter {
 
                 event.replyChoices(choices).queue();
             }
+
+            case "paramètre" -> {
+                List<String> settingsList = ServerManager.servers.get(event.getGuild().getIdLong()).getSettingJson().getSettingsList();
+                List<String> prettySettingsList = ServerManager.servers.get(event.getGuild().getIdLong()).getSettingJson().getSettingsListPretty();
+
+                List<Command.Choice> choices = new ArrayList<>();
+                for (int i = 0; i < settingsList.size(); i++) {
+                    choices.add(new Command.Choice(prettySettingsList.get(i), settingsList.get(i)));
+                }
+
+                event.replyChoices(choices).queue();
+            }
+            case "valeur" -> {
+                String setting = event.getOption("paramètre").getAsString();
+
+                List<Command.Choice> choices = new ArrayList<>();
+
+                switch (setting) {
+                    case "autoCommandProbability" -> {
+                        for (int i = 0; i < 25; i++)
+                            choices.add(new Command.Choice(i + " %", String.valueOf(i)));
+                    }
+                    case "timeBeforeResetQueue" -> {
+                        choices.add(new Command.Choice("1 heure", "1"));
+                        for (int i = 2; i < 11; i++)
+                            choices.add(new Command.Choice(i + " heures", String.valueOf(i)));
+                    }
+                    case "allowFeur", "allowReply", "allowModify" -> {
+                        choices.add(new Command.Choice("oui", "true"));
+                        choices.add(new Command.Choice("non", "false"));
+                    }
+                    default -> {
+                        return;
+                    }
+                }
+
+                event.replyChoices(choices).queue();
+            }
         }
     }
 }

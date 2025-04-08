@@ -6,6 +6,7 @@ import fr.anthonus.LOGs;
 import fr.anthonus.Main;
 
 import java.io.*;
+import java.util.List;
 
 public class SettingJson {
     private final long serverID;
@@ -85,15 +86,63 @@ public class SettingJson {
         return sb.toString();
     }
 
-    public Settings getSettings() {
-        return settings;
+    public List<String> getSettingsList() {
+        return List.of(
+                "autoCommandProbability",
+                "allowFeur",
+                "allowReply",
+                "allowModify",
+                "timeBeforeResetQueue"
+        );
     }
 
-    public class Settings {
+    public List<String> getSettingsListPretty() {
+        return List.of(
+                "Probabilité de commande automatique",
+                "Autoriser les réponses feur",
+                "Autoriser les réponses par ChatGPT",
+                "Autoriser les modifications par ChatGPT",
+                "Temps avant réinitialisation de la file d'attente"
+        );
+    }
+
+    private class Settings {
         public long autoCommandProbability;
         public boolean allowFeur;
         public boolean allowReply;
         public boolean allowModify;
         public int timeBeforeResetQueue;
+    }
+
+    public boolean isAllowFeur() {
+        return settings.allowFeur;
+    }
+    public long getAutoCommandProbability() {
+        return settings.autoCommandProbability;
+    }
+    public boolean isAllowReply() {
+        return settings.allowReply;
+    }
+    public boolean isAllowModify() {
+        return settings.allowModify;
+    }
+    public int getTimeBeforeResetQueue() {
+        return settings.timeBeforeResetQueue;
+    }
+
+    public void setAutoCommandProbability(long autoCommandProbability) {
+        settings.autoCommandProbability = autoCommandProbability;
+    }
+    public void setAllowFeur(boolean allowFeur) {
+        settings.allowFeur = allowFeur;
+    }
+    public void setAllowReply(boolean allowReply) {
+        settings.allowReply = allowReply;
+    }
+    public void setAllowModify(boolean allowModify) {
+        settings.allowModify = allowModify;
+    }
+    public void setTimeBeforeResetQueue(int timeBeforeResetQueue) {
+        settings.timeBeforeResetQueue = timeBeforeResetQueue;
     }
 }

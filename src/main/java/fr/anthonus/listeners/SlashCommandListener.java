@@ -4,6 +4,7 @@ import fr.anthonus.commands.slashCommands.admin.ClearCommand;
 import fr.anthonus.commands.slashCommands.admin.UpdateAvatarCommand;
 import fr.anthonus.commands.slashCommands.config.GetConfigCommand;
 import fr.anthonus.commands.slashCommands.config.ReloadConfigCommand;
+import fr.anthonus.commands.slashCommands.config.SetConfigCommand;
 import fr.anthonus.commands.slashCommands.music.*;
 import fr.anthonus.commands.slashCommands.normal.*;
 import fr.anthonus.LOGs;
@@ -33,7 +34,7 @@ public class SlashCommandListener extends ListenerAdapter {
         Server player = ServerManager.servers.get(guildId);
         if (player.getLastModified() != null) {
             Instant lastModified = ServerManager.servers.get(guildId).getLastModified();
-            if (Duration.between(lastModified, Instant.now()).toHours() >= ServerManager.servers.get(guildId).getSettingJson().getSettings().timeBeforeResetQueue) {
+            if (Duration.between(lastModified, Instant.now()).toHours() >= ServerManager.servers.get(guildId).getSettingJson().getTimeBeforeResetQueue()) {
                 LOGs.sendLog("Réinitialisation automatique de la file d'attente du bot", "DEFAULT");
                 player.getQueue().clear();
                 player.setLastModified(null);
@@ -117,6 +118,15 @@ public class SlashCommandListener extends ListenerAdapter {
                 case "get-config" -> {
                     GetConfigCommand getConfigCommand = new GetConfigCommand(event);
                     getConfigCommand.run();
+
+                    LOGs.sendLog("Commande terminée", "COMMAND");
+                }
+                case "set-config" -> {
+                    String parametre = event.getOption("paramètre").getAsString();
+                    String valeur = event.getOption("valeur").getAsString();
+
+                    SetConfigCommand setConfigCommand = new SetConfigCommand(event, parametre, valeur);
+                    setConfigCommand.run();
 
                     LOGs.sendLog("Commande terminée", "COMMAND");
                 }
