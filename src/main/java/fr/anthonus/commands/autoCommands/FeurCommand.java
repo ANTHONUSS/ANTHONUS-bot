@@ -15,7 +15,7 @@ public class FeurCommand extends AutoCommand {
     @Override
     public void run() {
 
-        if (!ServerManager.servers.get(currentEvent.getGuild().getIdLong()).getSettings().getSettings().allowFeur) {
+        if (!ServerManager.servers.get(currentEvent.getGuild().getIdLong()).getSettingJson().getSettings().allowFeur) {
             LOGs.sendLog("AutoCommande feur désactivée", "AUTOCOMMAND");
             return;
         }

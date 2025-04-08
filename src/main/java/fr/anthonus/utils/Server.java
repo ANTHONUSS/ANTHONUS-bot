@@ -4,7 +4,6 @@ import com.sedmelluq.discord.lavaplayer.player.AudioPlayer;
 import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
 import fr.anthonus.utils.json.SettingJson;
 import fr.anthonus.utils.music.TrackScheduler;
-import okhttp3.internal.http2.Settings;
 
 import java.time.Instant;
 import java.util.ArrayList;
@@ -95,7 +94,7 @@ public class Server {
         queue.add(track);
     }
 
-    public SettingJson getSettings() {
+    public SettingJson getSettingJson() {
         return this.settingJson;
     }
 }

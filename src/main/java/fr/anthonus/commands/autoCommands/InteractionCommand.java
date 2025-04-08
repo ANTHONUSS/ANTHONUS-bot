@@ -92,7 +92,7 @@ public class InteractionCommand extends AutoCommand {
         int rand = random.nextInt(3);
 
         if (rand != 2) {
-            if (!ServerManager.servers.get(currentEvent.getGuild().getIdLong()).getSettings().getSettings().allowReply) {
+            if (!ServerManager.servers.get(currentEvent.getGuild().getIdLong()).getSettingJson().getSettings().allowReply) {
                 LOGs.sendLog("AutoCommande reply désactivée", "AUTOCOMMAND");
                 return;
             }
@@ -103,7 +103,7 @@ public class InteractionCommand extends AutoCommand {
             }
 
         } else {
-            if (!ServerManager.servers.get(currentEvent.getGuild().getIdLong()).getSettings().getSettings().allowModify) {
+            if (!ServerManager.servers.get(currentEvent.getGuild().getIdLong()).getSettingJson().getSettings().allowModify) {
                 LOGs.sendLog("AutoCommande modify désactivée", "AUTOCOMMAND");
                 return;
             }

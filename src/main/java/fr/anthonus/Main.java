@@ -24,6 +24,7 @@ public class Main {
     public static void main(String[] args) throws InterruptedException {
         // Load logs
         LOGs.addLogType("LOADING", 53, 74, 255);
+        LOGs.addLogType("FILE_LOADING", 130, 0, 255);
         LOGs.addLogType("AUTOCOMMAND", 193, 92, 255);
         LOGs.addLogType("COMMAND", 255, 172, 53);
         LOGs.addLogType("API", 53, 255, 255);
@@ -115,6 +116,10 @@ public class Main {
 
                 Commands.slash("update-avatar", "Met à jour l'avatar du bot.")
                         .setDefaultPermissions(DefaultMemberPermissions.enabledFor(Permission.ADMINISTRATOR)),
+
+                    //CONFIGURATION COMMANDS
+                    Commands.slash("reload-config", "Recharge la configuration du serveur")
+                                    .setDefaultPermissions(DefaultMemberPermissions.enabledFor(Permission.ADMINISTRATOR)),
 
                 // MUSIC COMMANDS
                 Commands.slash("add", "Ajoute une musique à la file d'attente")

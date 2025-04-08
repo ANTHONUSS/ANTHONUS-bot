@@ -2,6 +2,7 @@ package fr.anthonus.listeners;
 
 import fr.anthonus.commands.slashCommands.admin.ClearCommand;
 import fr.anthonus.commands.slashCommands.admin.UpdateAvatarCommand;
+import fr.anthonus.commands.slashCommands.config.ReloadConfigCommand;
 import fr.anthonus.commands.slashCommands.music.*;
 import fr.anthonus.commands.slashCommands.normal.*;
 import fr.anthonus.LOGs;
@@ -31,7 +32,7 @@ public class SlashCommandListener extends ListenerAdapter {
         Server player = ServerManager.servers.get(guildId);
         if (player.getLastModified() != null) {
             Instant lastModified = ServerManager.servers.get(guildId).getLastModified();
-            if (Duration.between(lastModified, Instant.now()).toHours() >= ServerManager.servers.get(guildId).getSettings().getSettings().timeBeforeResetQueue) {
+            if (Duration.between(lastModified, Instant.now()).toHours() >= ServerManager.servers.get(guildId).getSettingJson().getSettings().timeBeforeResetQueue) {
                 LOGs.sendLog("Réinitialisation automatique de la file d'attente du bot", "DEFAULT");
                 player.getQueue().clear();
                 player.setLastModified(null);
@@ -105,6 +106,13 @@ public class SlashCommandListener extends ListenerAdapter {
 
                 LOGs.sendLog("Commande terminée", "COMMAND");
             }
+                // CONFIGURATION COMMANDS
+                case "reload-config" -> {
+                    ReloadConfigCommand reloadConfigCommand = new ReloadConfigCommand(event);
+                    reloadConfigCommand.run();
+
+                    LOGs.sendLog("Commande terminée", "COMMAND");
+                }
 
             // MUSIC COMMANDS
             case "add" -> {
