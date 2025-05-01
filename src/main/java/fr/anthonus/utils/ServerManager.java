@@ -32,7 +32,7 @@ public class ServerManager {
             for (File file : musicsFolder.listFiles()) {
                 if (file.isFile() && file.getName().endsWith(".mp3")) {
                     addTrackToList(file.getAbsolutePath());
-                    LOGs.sendLog("Chargement de " + file.getName(), "LOADING");
+                    LOGs.sendLog("Chargement de " + file.getName(), "FILE_LOADING");
                 }
             }
         }

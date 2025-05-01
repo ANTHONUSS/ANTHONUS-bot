@@ -108,28 +108,29 @@ public class SlashCommandListener extends ListenerAdapter {
 
                 LOGs.sendLog("Commande terminée", "COMMAND");
             }
-                // CONFIGURATION COMMANDS
-                case "reload-config" -> {
-                    ReloadConfigCommand reloadConfigCommand = new ReloadConfigCommand(event);
-                    reloadConfigCommand.run();
 
-                    LOGs.sendLog("Commande terminée", "COMMAND");
-                }
-                case "get-config" -> {
-                    GetConfigCommand getConfigCommand = new GetConfigCommand(event);
-                    getConfigCommand.run();
+            // CONFIGURATION COMMANDS
+            case "reload-config" -> {
+                ReloadConfigCommand reloadConfigCommand = new ReloadConfigCommand(event);
+                reloadConfigCommand.run();
 
-                    LOGs.sendLog("Commande terminée", "COMMAND");
-                }
-                case "set-config" -> {
-                    String parametre = event.getOption("paramètre").getAsString();
-                    String valeur = event.getOption("valeur").getAsString();
+                LOGs.sendLog("Commande terminée", "COMMAND");
+            }
+            case "get-config" -> {
+                GetConfigCommand getConfigCommand = new GetConfigCommand(event);
+                getConfigCommand.run();
 
-                    SetConfigCommand setConfigCommand = new SetConfigCommand(event, parametre, valeur);
-                    setConfigCommand.run();
+                LOGs.sendLog("Commande terminée", "COMMAND");
+            }
+            case "set-config" -> {
+                String parametre = event.getOption("paramètre").getAsString();
+                String valeur = event.getOption("valeur").getAsString();
 
-                    LOGs.sendLog("Commande terminée", "COMMAND");
-                }
+                SetConfigCommand setConfigCommand = new SetConfigCommand(event, parametre, valeur);
+                setConfigCommand.run();
+
+                LOGs.sendLog("Commande terminée", "COMMAND");
+            }
 
             // MUSIC COMMANDS
             case "add" -> {
