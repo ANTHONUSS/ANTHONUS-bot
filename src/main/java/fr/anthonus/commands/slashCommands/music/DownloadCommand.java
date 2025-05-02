@@ -1,7 +1,9 @@
 package fr.anthonus.commands.slashCommands.music;
 
 import fr.anthonus.commands.slashCommands.Command;
-import fr.anthonus.LOGs;
+import fr.anthonus.logs.LOGs;
+import fr.anthonus.logs.logTypes.CustomLogType;
+import fr.anthonus.logs.logTypes.DefaultLogType;
 import fr.anthonus.utils.ServerManager;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 
@@ -26,7 +28,7 @@ public class DownloadCommand extends Command {
 
         this.url = url;
 
-        LOGs.sendLog("Commande /download initialisée", "COMMAND");
+        LOGs.sendLog("Commande /download initialisée", CustomLogType.COMMAND);
     }
 
     @Override
@@ -35,10 +37,10 @@ public class DownloadCommand extends Command {
 
         if (!musicFolder.exists()) {
             if(musicFolder.mkdir()) {
-                LOGs.sendLog("Dossier de musique créé", "COMMAND");
+                LOGs.sendLog("Dossier de musique créé", CustomLogType.COMMAND);
             } else {
                 currentEvent.reply("## :x: Erreur lors de la création du dossier de musique.").queue();
-                LOGs.sendLog("Erreur lors de la création du dossier de musique", "ERROR");
+                LOGs.sendLog("Erreur lors de la création du dossier de musique", DefaultLogType.ERROR);
                 return;
             }
         }
@@ -49,7 +51,7 @@ public class DownloadCommand extends Command {
         currentEvent.getHook().sendMessage("## :arrow_down: Téléchargement de la musique en cours...")
                 .setEphemeral(true)
                 .queue();
-        LOGs.sendLog("Début du téléchargement de la musique...", "DOWNLOAD");
+        LOGs.sendLog("Début du téléchargement de la musique...", CustomLogType.DOWNLOAD);
     }
 
     private void downloadMusic() {
@@ -58,7 +60,7 @@ public class DownloadCommand extends Command {
 
             currentEvent.getHook().editOriginal("## :arrow_down: Téléchargement de `" + musicName + "` en cours...")
                     .queue();
-            LOGs.sendLog("Musique " + musicName + " en cours de téléchargement par @" + currentEvent.getUser().getName(), "DOWNLOAD");
+            LOGs.sendLog("Musique " + musicName + " en cours de téléchargement par @" + currentEvent.getUser().getName(), CustomLogType.DOWNLOAD);
             ProcessBuilder processBuilder = new ProcessBuilder(
                     "yt-dlp.exe",
                     "-x",
@@ -76,11 +78,11 @@ public class DownloadCommand extends Command {
                 String line;
 
                 while ((line = reader.readLine()) != null) {
-                    LOGs.sendLog(line, "DOWNLOAD");
+                    LOGs.sendLog(line, CustomLogType.DOWNLOAD);
                 }
 
                 while ((line = errorReader.readLine()) != null) {
-                    LOGs.sendLog(line, "ERROR");
+                    LOGs.sendLog(line, DefaultLogType.ERROR);
                 }
 
                 int exitCode = process.waitFor();
@@ -90,23 +92,23 @@ public class DownloadCommand extends Command {
                     musicName = getMostRecentFile().replace(".mp3", "");
 
                     ServerManager.addTrackToList("Music/" + musicName + ".mp3");
-                    LOGs.sendLog("Musique ajoutée à la liste", "DOWNLOAD");
+                    LOGs.sendLog("Musique ajoutée à la liste", CustomLogType.DOWNLOAD);
 
                     currentEvent.getHook().deleteOriginal().queue();
                     currentEvent.getChannel().sendMessage("## ✅ La musique `" + musicName + "` à été téléchargée.")
                             .queue();
                     LOGs.sendLog("Musique téléchargée"
                             + "\nNom : " + musicName
-                            + "\nUser : " + currentEvent.getUser().getName(), "DOWNLOAD");
+                            + "\nUser : " + currentEvent.getUser().getName(), CustomLogType.DOWNLOAD);
                 } else {
                     currentEvent.getHook().editOriginal("## :x: Une erreur est survenue lors du téléchargement")
                             .queue();
-                    LOGs.sendLog("Erreur lors du téléchargement", "ERROR");
+                    LOGs.sendLog("Erreur lors du téléchargement", DefaultLogType.ERROR);
                 }
             } catch (Exception e) {
                 currentEvent.getHook().editOriginal("## :x: Une erreur est survenue lors du téléchargement : " + e.getMessage())
                         .queue();
-                LOGs.sendLog("Erreur lors du téléchargement " + e.getMessage(), "ERROR");
+                LOGs.sendLog("Erreur lors du téléchargement " + e.getMessage(), DefaultLogType.ERROR);
             }
         });
 
@@ -124,7 +126,7 @@ public class DownloadCommand extends Command {
             return latestFile.get().getFileName().toString();
 
         } catch (IOException e){
-            LOGs.sendLog(e.getMessage(), "ERROR");
+            LOGs.sendLog(e.getMessage(), DefaultLogType.ERROR);
         }
 
         return null;
@@ -134,7 +136,7 @@ public class DownloadCommand extends Command {
         try {
             return Files.readAttributes(path, BasicFileAttributes.class).creationTime();
         } catch (IOException e) {
-            LOGs.sendLog(e.getMessage(), "ERROR");
+            LOGs.sendLog(e.getMessage(), DefaultLogType.ERROR);
             return FileTime.fromMillis(0);
         }
     }
@@ -161,7 +163,7 @@ public class DownloadCommand extends Command {
         } catch (Exception e) {
             currentEvent.getHook().editOriginal("## :x: Impossible de récupérer le nom de la musique.")
                     .queue();
-            LOGs.sendLog("Impossible de récupérer le nom de la musique", "ERROR");
+            LOGs.sendLog("Impossible de récupérer le nom de la musique", DefaultLogType.ERROR);
             return null;
         }
     }

@@ -2,7 +2,9 @@ package fr.anthonus.commands.slashCommands.music;
 
 import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
 import fr.anthonus.commands.slashCommands.Command;
-import fr.anthonus.LOGs;
+import fr.anthonus.logs.LOGs;
+import fr.anthonus.logs.logTypes.CustomLogType;
+import fr.anthonus.logs.logTypes.DefaultLogType;
 import fr.anthonus.utils.ServerManager;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.managers.AudioManager;
@@ -17,7 +19,7 @@ public class JumpCommand extends Command {
 
         this.selectedMusic = selectedMusic;
 
-        LOGs.sendLog("Commande /jump initialisée", "COMMAND");
+        LOGs.sendLog("Commande /jump initialisée", CustomLogType.COMMAND);
     }
 
     @Override
@@ -48,6 +50,6 @@ public class JumpCommand extends Command {
         }
 
         currentEvent.reply("## :x: La musique `" + selectedMusic + "` n'est pas dans la playlist").setEphemeral(true).queue();
-        LOGs.sendLog("Musique " + selectedMusic + " non trouvée dans la playlist", "ERROR");
+        LOGs.sendLog("Musique " + selectedMusic + " non trouvée dans la playlist", DefaultLogType.ERROR);
     }
 }

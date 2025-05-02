@@ -2,7 +2,8 @@ package fr.anthonus.commands.slashCommands.music;
 
 import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
 import fr.anthonus.commands.slashCommands.Command;
-import fr.anthonus.LOGs;
+import fr.anthonus.logs.LOGs;
+import fr.anthonus.logs.logTypes.CustomLogType;
 import fr.anthonus.utils.ServerManager;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.interactions.components.buttons.Button;
@@ -16,13 +17,13 @@ public class ListCommand extends Command {
     public ListCommand(SlashCommandInteractionEvent event) {
         super(event);
 
-        LOGs.sendLog("Commande /list initialisée", "COMMAND");
+        LOGs.sendLog("Commande /list initialisée", CustomLogType.COMMAND);
     }
 
     public ListCommand() {
         super(null);
 
-        LOGs.sendLog("Sous-commande /list initialisée", "COMMAND");
+        LOGs.sendLog("Sous-commande /list initialisée", CustomLogType.COMMAND);
     }
 
     @Override
@@ -46,7 +47,7 @@ public class ListCommand extends Command {
     }
 
     public String makeList(int page) {
-        LOGs.sendLog("Création de la liste...", "COMMAND");
+        LOGs.sendLog("Création de la liste...", CustomLogType.COMMAND);
         List<AudioTrack> tracks = new ArrayList<>();
         tracks.addAll(ServerManager.musicsList);
 
@@ -63,7 +64,7 @@ public class ListCommand extends Command {
         }
         pageString.append("\n");
 
-        LOGs.sendLog("Liste créée", "COMMAND");
+        LOGs.sendLog("Liste créée", CustomLogType.COMMAND);
 
         return pageString.toString();
     }

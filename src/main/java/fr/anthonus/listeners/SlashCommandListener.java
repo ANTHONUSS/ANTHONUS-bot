@@ -7,7 +7,9 @@ import fr.anthonus.commands.slashCommands.config.ReloadConfigCommand;
 import fr.anthonus.commands.slashCommands.config.SetConfigCommand;
 import fr.anthonus.commands.slashCommands.music.*;
 import fr.anthonus.commands.slashCommands.normal.*;
-import fr.anthonus.LOGs;
+import fr.anthonus.logs.LOGs;
+import fr.anthonus.logs.logTypes.CustomLogType;
+import fr.anthonus.logs.logTypes.DefaultLogType;
 import fr.anthonus.utils.ServerManager;
 import fr.anthonus.utils.Server;
 import net.dv8tion.jda.api.entities.User;
@@ -26,7 +28,7 @@ public class SlashCommandListener extends ListenerAdapter {
             event.reply("Vous ne pouvez pas utiliser les commandes dans les mp du bot.").setEphemeral(true).queue();
             LOGs.sendLog("Commande slash exécutée dans les mp du bot"
                             + "\nUser : @" + event.getUser().getEffectiveName(),
-                    "ERROR");
+                    DefaultLogType.ERROR);
             return;
         }
 
@@ -35,7 +37,7 @@ public class SlashCommandListener extends ListenerAdapter {
         if (player.getLastModified() != null) {
             Instant lastModified = ServerManager.servers.get(guildId).getLastModified();
             if (Duration.between(lastModified, Instant.now()).toHours() >= ServerManager.servers.get(guildId).getSettingJson().getTimeBeforeResetQueue()) {
-                LOGs.sendLog("Réinitialisation automatique de la file d'attente du bot", "DEFAULT");
+                LOGs.sendLog("Réinitialisation automatique de la file d'attente du bot", DefaultLogType.DEFAULT);
                 player.getQueue().clear();
                 player.setLastModified(null);
                 player.setLooping(false);
@@ -47,8 +49,6 @@ public class SlashCommandListener extends ListenerAdapter {
             case "cursed" -> {
                 CursedImageCommand cursedImageCommand = new CursedImageCommand(event);
                 cursedImageCommand.run();
-
-                LOGs.sendLog("Commande terminée", "COMMAND");
             }
             case "roast" -> {
                 String personne = event.getOption("personne").getAsUser().getEffectiveName();
@@ -59,8 +59,6 @@ public class SlashCommandListener extends ListenerAdapter {
 
                 RoastCommand roastCommand = new RoastCommand(event, personne, contexte);
                 roastCommand.run();
-
-                LOGs.sendLog("Commande terminée", "COMMAND");
             }
             case "compliment" -> {
                 String personne = event.getOption("personne").getAsUser().getEffectiveName();
@@ -71,8 +69,6 @@ public class SlashCommandListener extends ListenerAdapter {
 
                 ComplimentCommand complimentCommand = new ComplimentCommand(event, personne, contexte);
                 complimentCommand.run();
-
-                LOGs.sendLog("Commande terminée", "COMMAND");
             }
             case "private-send" -> {
                 User personne = event.getOption("personne").getAsUser();
@@ -80,8 +76,6 @@ public class SlashCommandListener extends ListenerAdapter {
 
                 PrivateSendCommand privateSendCommand = new PrivateSendCommand(event, personne, message);
                 privateSendCommand.run();
-
-                LOGs.sendLog("Commande terminée", "COMMAND");
             }
             case "private-send-file" -> {
                 User personne = event.getOption("personne").getAsUser();
@@ -89,8 +83,6 @@ public class SlashCommandListener extends ListenerAdapter {
 
                 PrivateSendFileCommand privateSendFileCommand = new PrivateSendFileCommand(event, personne, fichier);
                 privateSendFileCommand.run();
-
-                LOGs.sendLog("Commande terminée", "COMMAND");
             }
 
             // ADMIN COMMANDS
@@ -99,28 +91,20 @@ public class SlashCommandListener extends ListenerAdapter {
 
                 ClearCommand clearCommand = new ClearCommand(event, count);
                 clearCommand.run();
-
-                LOGs.sendLog("Commande terminée", "COMMAND");
             }
             case "update-avatar" -> {
                 UpdateAvatarCommand updateAvatarCommand = new UpdateAvatarCommand(event);
                 updateAvatarCommand.run();
-
-                LOGs.sendLog("Commande terminée", "COMMAND");
             }
 
             // CONFIGURATION COMMANDS
             case "reload-config" -> {
                 ReloadConfigCommand reloadConfigCommand = new ReloadConfigCommand(event);
                 reloadConfigCommand.run();
-
-                LOGs.sendLog("Commande terminée", "COMMAND");
             }
             case "get-config" -> {
                 GetConfigCommand getConfigCommand = new GetConfigCommand(event);
                 getConfigCommand.run();
-
-                LOGs.sendLog("Commande terminée", "COMMAND");
             }
             case "set-config" -> {
                 String parametre = event.getOption("paramètre").getAsString();
@@ -128,8 +112,6 @@ public class SlashCommandListener extends ListenerAdapter {
 
                 SetConfigCommand setConfigCommand = new SetConfigCommand(event, parametre, valeur);
                 setConfigCommand.run();
-
-                LOGs.sendLog("Commande terminée", "COMMAND");
             }
 
             // MUSIC COMMANDS
@@ -138,93 +120,66 @@ public class SlashCommandListener extends ListenerAdapter {
 
                 AddCommand addCommand = new AddCommand(event, selectedMusic);
                 addCommand.run();
-
-                LOGs.sendLog("Commande terminée", "COMMAND");
             }
             case "remove" -> {
                 String selectedMusic = event.getOption("queue-music", OptionMapping::getAsString);
 
                 RemoveCommand removeCommand = new RemoveCommand(event, selectedMusic);
                 removeCommand.run();
-
-                LOGs.sendLog("Commande terminée", "COMMAND");
             }
             case "clear-queue" -> {
                 ClearQueueCommand clearQueueCommand = new ClearQueueCommand(event);
                 clearQueueCommand.run();
-
-                LOGs.sendLog("Commande terminée", "COMMAND");
             }
             case "list" -> {
                 ListCommand listCommand = new ListCommand(event);
                 listCommand.run();
-
-                LOGs.sendLog("Commande terminée", "COMMAND");
             }
             case "list-queue" -> {
                 ListQueueCommand listQueueCommand = new ListQueueCommand(event);
                 listQueueCommand.run();
-
-                LOGs.sendLog("Commande terminée", "COMMAND");
             }
             case "play" -> {
                 PlayCommand playCommand = new PlayCommand(event);
                 playCommand.run();
-
-                LOGs.sendLog("Commande terminée", "COMMAND");
             }
             case "stop" -> {
                 StopCommand stopCommand = new StopCommand(event);
                 stopCommand.run();
-
-                LOGs.sendLog("Commande terminée", "COMMAND");
             }
             case "next" -> {
                 NextCommand nextCommand = new NextCommand(event);
                 nextCommand.run();
-
-                LOGs.sendLog("Commande terminée", "COMMAND");
             }
             case "previous" -> {
                 PreviousCommand previousCommand = new PreviousCommand(event);
                 previousCommand.run();
-
-                LOGs.sendLog("Commande terminée", "COMMAND");
             }
             case "jump" -> {
                 String selectedMusic = event.getOption("queue-music", OptionMapping::getAsString);
 
                 JumpCommand jumpCommand = new JumpCommand(event, selectedMusic);
                 jumpCommand.run();
-
-                LOGs.sendLog("Commande terminée", "COMMAND");
             }
             case "loop" -> {
                 LoopCommand loopCommand = new LoopCommand(event);
                 loopCommand.run();
-
-                LOGs.sendLog("Commande terminée", "COMMAND");
             }
             case "shuffle" -> {
                 ShuffleCommand shuffleCommand = new ShuffleCommand(event);
                 shuffleCommand.run();
-
-                LOGs.sendLog("Commande terminée", "COMMAND");
             }
             case "download" -> {
                 String url = event.getOption("url", OptionMapping::getAsString);
 
                 DownloadCommand downloadCommand = new DownloadCommand(event, url);
                 downloadCommand.run();
-
-                LOGs.sendLog("Commande terminée", "COMMAND");
             }
             case "reload-musics" -> {
                 ReloadMusicsCommand reloadMusicsCommand = new ReloadMusicsCommand(event);
                 reloadMusicsCommand.run();
-
-                LOGs.sendLog("Commande terminée", "COMMAND");
             }
         }
+        LOGs.sendLog("Commande terminée", CustomLogType.COMMAND);
     }
 }

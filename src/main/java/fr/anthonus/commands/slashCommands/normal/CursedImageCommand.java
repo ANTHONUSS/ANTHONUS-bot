@@ -3,7 +3,9 @@ package fr.anthonus.commands.slashCommands.normal;
 
 import com.google.gson.*;
 import fr.anthonus.commands.slashCommands.Command;
-import fr.anthonus.LOGs;
+import fr.anthonus.logs.LOGs;
+import fr.anthonus.logs.logTypes.CustomLogType;
+import fr.anthonus.logs.logTypes.DefaultLogType;
 import fr.anthonus.utils.APICalls.APICallReddit;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import okhttp3.OkHttpClient;
@@ -25,7 +27,7 @@ public class CursedImageCommand extends Command {
     public CursedImageCommand(SlashCommandInteractionEvent event) {
         super(event);
 
-        LOGs.sendLog("Commande /cursed initialisée", "COMMAND");
+        LOGs.sendLog("Commande /cursed initialisée", CustomLogType.COMMAND);
     }
 
     @Override
@@ -41,14 +43,14 @@ public class CursedImageCommand extends Command {
                                             + "\nServeur : " + currentEvent.getGuild().getName()
                                             + "\nSalon : #" + currentEvent.getChannel().getName()
                                             + "\nLien : " + imageURL,
-                                    "COMMAND");
+                                    CustomLogType.COMMAND);
                         } else {
                             currentEvent.getHook().editOriginal("Aucune image trouvée").queue();
                             LOGs.sendLog("Erreur sur CursedImage"
                                             + "\nUser : @" + currentEvent.getUser().getEffectiveName()
                                             + "\nServeur : " + currentEvent.getGuild().getName()
                                             + "\nSalon : #" + currentEvent.getChannel().getName(),
-                                    "ERROR");
+                                    DefaultLogType.ERROR);
                         }
                     } catch (Exception e) {
                         currentEvent.getHook().editOriginal("Une erreur est survenue lors de la récupération de l'image" + e.getMessage()).queue();
@@ -56,7 +58,7 @@ public class CursedImageCommand extends Command {
                     }
                 },
                 failure -> {
-                    LOGs.sendLog("Erreur lors de l'envoi du deferReply", "ERROR");
+                    LOGs.sendLog("Erreur lors de l'envoi du deferReply", DefaultLogType.ERROR);
                 }
         );
 

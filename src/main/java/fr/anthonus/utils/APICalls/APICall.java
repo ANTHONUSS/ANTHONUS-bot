@@ -2,7 +2,8 @@ package fr.anthonus.utils.APICalls;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import fr.anthonus.LOGs;
+import fr.anthonus.logs.LOGs;
+import fr.anthonus.logs.logTypes.CustomLogType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -14,14 +15,14 @@ public abstract class APICall {
     protected final OkHttpClient client = new OkHttpClient();
 
     protected JsonObject call() {
-        LOGs.sendLog("Envoi de la requête", "API");
+        LOGs.sendLog("Envoi de la requête", CustomLogType.API);
 
         try (Response response = client.newCall(currentRequest).execute()) {
             if (!response.isSuccessful()) {
                 throw new IOException("Unexpected code " + response);
             }
 
-            LOGs.sendLog("Requête recue", "API");
+            LOGs.sendLog("Requête recue", CustomLogType.API);
 
             String jsonData = response.body().string();
 

@@ -2,7 +2,9 @@ package fr.anthonus.commands.slashCommands.music;
 
 import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
 import fr.anthonus.commands.slashCommands.Command;
-import fr.anthonus.LOGs;
+import fr.anthonus.logs.LOGs;
+import fr.anthonus.logs.logTypes.CustomLogType;
+import fr.anthonus.logs.logTypes.DefaultLogType;
 import fr.anthonus.utils.ServerManager;
 import fr.anthonus.utils.Server;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
@@ -16,7 +18,7 @@ public class AddCommand extends Command {
         super(event);
         this.selectedMusic = selectedMusic;
 
-        LOGs.sendLog("Commande /add initialisée", "COMMAND");
+        LOGs.sendLog("Commande /add initialisée", CustomLogType.COMMAND);
     }
 
     @Override
@@ -32,13 +34,13 @@ public class AddCommand extends Command {
                 playerManager.setLastModified(Instant.now());
 
                 currentEvent.reply("## ✅ Musique `" + selectedMusic + "` ajoutée à la queue").queue();
-                LOGs.sendLog("Musique " + selectedMusic + " ajoutée à la queue pour le serveur " + currentEvent.getGuild().getName(), "COMMAND");
+                LOGs.sendLog("Musique " + selectedMusic + " ajoutée à la queue pour le serveur " + currentEvent.getGuild().getName(), CustomLogType.COMMAND);
                 return;
             }
         }
 
         currentEvent.reply("## :x: La musique `" + selectedMusic + "` n'existe pas dans la liste").setEphemeral(true).queue();
-        LOGs.sendLog("Musique " + selectedMusic + " non trouvée dans la liste", "ERROR");
+        LOGs.sendLog("Musique " + selectedMusic + " non trouvée dans la liste", DefaultLogType.ERROR);
     }
 
 }

@@ -1,6 +1,9 @@
 package fr.anthonus;
 
 import fr.anthonus.listeners.*;
+import fr.anthonus.logs.LOGs;
+import fr.anthonus.logs.logTypes.CustomLogType;
+import fr.anthonus.logs.logTypes.DefaultLogType;
 import fr.anthonus.utils.Server;
 import fr.anthonus.utils.ServerManager;
 import io.github.cdimascio.dotenv.Dotenv;
@@ -22,45 +25,35 @@ public class Main {
     public static JDA jda;
 
     public static void main(String[] args) throws InterruptedException {
-        // Load logs
-        LOGs.addLogType("LOADING", 53, 74, 255);
-        LOGs.addLogType("FILE_LOADING", 130, 0, 255);
-        LOGs.addLogType("AUTOCOMMAND", 193, 92, 255);
-        LOGs.addLogType("COMMAND", 255, 172, 53);
-        LOGs.addLogType("API", 53, 255, 255);
-        LOGs.addLogType("DOWNLOAD", 141, 255, 252);
-        LOGs.addLogType("WARNING", 255, 255, 0);
-        LOGs.addLogType("DEBUG", 255, 171, 247);
-
-        LOGs.sendLog("Chargement des musiques...", "LOADING");
+        LOGs.sendLog("Chargement des musiques...", CustomLogType.LOADING);
         ServerManager.updateMusicsList();
-        LOGs.sendLog("Chargement des musiques terminé", "LOADING");
+        LOGs.sendLog("Chargement des musiques terminé", CustomLogType.LOADING);
 
         Dotenv dotenv = Dotenv.configure()
                 .directory("conf")
                 .load();
 
         //Load ChatGPT api key
-        LOGs.sendLog("Chargement du token ChatGPT...", "LOADING");
+        LOGs.sendLog("Chargement du token ChatGPT...", CustomLogType.LOADING);
         tokenOpenAI = dotenv.get("OPENAI_TOKEN");
         if (tokenOpenAI == null || tokenOpenAI.isEmpty()) {
-            LOGs.sendLog("Clé API OpenAI non trouvé dans le fichier .env", "ERROR");
+            LOGs.sendLog("Clé API OpenAI non trouvé dans le fichier .env", CustomLogType.LOADING);
             return;
         } else {
-            LOGs.sendLog("Token OpenAI chargé", "LOADING");
+            LOGs.sendLog("Token OpenAI chargé", CustomLogType.LOADING);
         }
 
         //Load discord token
-        LOGs.sendLog("Chargement du token Discord...", "LOADING");
+        LOGs.sendLog("Chargement du token Discord...", CustomLogType.LOADING);
         tokenDiscord = dotenv.get("DISCORD_TOKEN");
         if (tokenDiscord == null || tokenDiscord.isEmpty()) {
-            LOGs.sendLog("Token Discord non trouvé dans le fichier .env", "ERROR");
+            LOGs.sendLog("Token Discord non trouvé dans le fichier .env", DefaultLogType.ERROR);
             return;
         } else {
-            LOGs.sendLog("Token Discord chargé", "LOADING");
+            LOGs.sendLog("Token Discord chargé", CustomLogType.LOADING);
         }
 
-        LOGs.sendLog("Chargement du bot...", "LOADING");
+        LOGs.sendLog("Chargement du bot...", CustomLogType.LOADING);
         initBot();
     }
 
@@ -77,15 +70,15 @@ public class Main {
                 .build();
 
         jda.awaitReady();
-        LOGs.sendLog("Bot démarré", "LOADING");
+        LOGs.sendLog("Bot démarré", CustomLogType.LOADING);
 
         for (Guild guild : jda.getGuilds()) {
             ServerManager.servers.put(guild.getIdLong(), new Server(guild.getIdLong()));
-            LOGs.sendLog("Nouveau Server initialisé : " + guild.getName() , "LOADING");
+            LOGs.sendLog("Nouveau Server initialisé : " + guild.getName() , CustomLogType.LOADING);
         }
 
         //Load the slash commands
-        LOGs.sendLog("Chargement des commandes...", "LOADING");
+        LOGs.sendLog("Chargement des commandes...", CustomLogType.LOADING);
         CommandListUpdateAction commands = jda.updateCommands();
         commands.addCommands(
                 // USER COMMANDS
@@ -163,6 +156,6 @@ public class Main {
                 Commands.slash("reload-musics", "Recharge la liste des musiques disponibles")
         );
         commands.queue();
-        LOGs.sendLog("Commandes chargées", "LOADING");
+        LOGs.sendLog("Commandes chargées", CustomLogType.LOADING);
     }
 }

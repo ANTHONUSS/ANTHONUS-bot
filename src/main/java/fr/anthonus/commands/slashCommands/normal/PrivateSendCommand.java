@@ -1,7 +1,9 @@
 package fr.anthonus.commands.slashCommands.normal;
 
 import fr.anthonus.commands.slashCommands.Command;
-import fr.anthonus.LOGs;
+import fr.anthonus.logs.LOGs;
+import fr.anthonus.logs.logTypes.CustomLogType;
+import fr.anthonus.logs.logTypes.DefaultLogType;
 import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 
@@ -15,7 +17,7 @@ public class PrivateSendCommand extends Command {
         this.personne = personne;
         this.message = message;
 
-        LOGs.sendLog("Commande /private-send initialisée", "COMMAND");
+        LOGs.sendLog("Commande /private-send initialisée", CustomLogType.COMMAND);
     }
 
     @Override
@@ -29,7 +31,7 @@ public class PrivateSendCommand extends Command {
                                                 + "\nServeur : " + currentEvent.getGuild().getName()
                                                 + "\nPersonne : " + personne.getEffectiveName()
                                                 + "\nMessage : " + message,
-                                        "COMMAND");
+                                        CustomLogType.COMMAND);
                             },
                             failure -> {
                                 currentEvent.reply("## :x: Impossible d'envoyer le message à cet utilisateur.").setEphemeral(true).queue();
@@ -39,7 +41,7 @@ public class PrivateSendCommand extends Command {
                                                 + "\nPersonne : " + personne.getEffectiveName()
                                                 + "\nMessage : " + message
                                                 + "\nRaison : " + failure.getMessage(),
-                                        "ERROR");
+                                        DefaultLogType.ERROR);
                             }
                     );
                 }

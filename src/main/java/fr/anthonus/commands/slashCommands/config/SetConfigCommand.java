@@ -1,7 +1,9 @@
 package fr.anthonus.commands.slashCommands.config;
 
-import fr.anthonus.LOGs;
+import fr.anthonus.logs.LOGs;
 import fr.anthonus.commands.slashCommands.Command;
+import fr.anthonus.logs.logTypes.CustomLogType;
+import fr.anthonus.logs.logTypes.DefaultLogType;
 import fr.anthonus.utils.ServerManager;
 import fr.anthonus.utils.json.SettingJson;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
@@ -15,7 +17,7 @@ public class SetConfigCommand extends Command {
         this.parametre = parametre;
         this.valeur = valeur;
 
-        LOGs.sendLog("Commande /set-config initialisée", "COMMAND");
+        LOGs.sendLog("Commande /set-config initialisée", CustomLogType.COMMAND);
     }
 
     @Override
@@ -23,13 +25,13 @@ public class SetConfigCommand extends Command {
 
         if (!parametreValide()) {
             currentEvent.reply("## :x: Le paramètre entré n'existe pas.").setEphemeral(true).queue();
-            LOGs.sendLog("Paramètre invalide : " + parametre, "ERROR");
+            LOGs.sendLog("Paramètre invalide : " + parametre, DefaultLogType.ERROR);
             return;
         }
 
         if (!valeurValide()) {
             currentEvent.reply("## :x: La valeur entrée pour le paramètre n'est pas valide.").setEphemeral(true).queue();
-            LOGs.sendLog("valeur invalide : " + parametre, "ERROR");
+            LOGs.sendLog("valeur invalide : " + parametre, DefaultLogType.ERROR);
             return;
         }
 
@@ -60,7 +62,7 @@ public class SetConfigCommand extends Command {
         settingJson.saveJson();
 
         currentEvent.reply("## :white_check_mark: Le paramètre a bien été changé et enregistré").queue();
-        LOGs.sendLog("Paramètre " + parametre + " changé en " + valeur + " pour le serveur " + currentEvent.getGuild().getName(), "FILE_LOADING");
+        LOGs.sendLog("Paramètre " + parametre + " changé en " + valeur + " pour le serveur " + currentEvent.getGuild().getName(), CustomLogType.FILE_LOADING);
     }
 
     private boolean parametreValide() {

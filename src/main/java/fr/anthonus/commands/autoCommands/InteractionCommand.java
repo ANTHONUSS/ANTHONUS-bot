@@ -1,6 +1,8 @@
 package fr.anthonus.commands.autoCommands;
 
-import fr.anthonus.LOGs;
+import fr.anthonus.logs.LOGs;
+import fr.anthonus.logs.logTypes.CustomLogType;
+import fr.anthonus.logs.logTypes.DefaultLogType;
 import fr.anthonus.utils.APICalls.APICallGPT;
 import fr.anthonus.utils.ServerManager;
 import fr.anthonus.utils.WebhookMessage;
@@ -83,7 +85,7 @@ public class InteractionCommand extends AutoCommand {
     public InteractionCommand(MessageReceivedEvent event) {
         super(event);
 
-        LOGs.sendLog("AutoCommande d'interaction initialisée", "AUTOCOMMAND");
+        LOGs.sendLog("AutoCommande d'interaction initialisée", CustomLogType.AUTOCOMMAND);
     }
 
     @Override
@@ -93,7 +95,7 @@ public class InteractionCommand extends AutoCommand {
 
         if (rand != 2) {
             if (!ServerManager.servers.get(currentEvent.getGuild().getIdLong()).getSettingJson().isAllowReply()) {
-                LOGs.sendLog("AutoCommande reply désactivée", "AUTOCOMMAND");
+                LOGs.sendLog("AutoCommande reply désactivée", CustomLogType.AUTOCOMMAND);
                 return;
             }
 
@@ -104,7 +106,7 @@ public class InteractionCommand extends AutoCommand {
 
         } else {
             if (!ServerManager.servers.get(currentEvent.getGuild().getIdLong()).getSettingJson().isAllowModify()) {
-                LOGs.sendLog("AutoCommande modify désactivée", "AUTOCOMMAND");
+                LOGs.sendLog("AutoCommande modify désactivée", CustomLogType.AUTOCOMMAND);
                 return;
             }
 
@@ -130,13 +132,13 @@ public class InteractionCommand extends AutoCommand {
                                 + "\nUser : @" + currentEvent.getMember().getEffectiveName()
                                 + "\nServeur : " + currentEvent.getGuild().getName()
                                 + "\nSalon : #" + currentEvent.getChannel().getName(),
-                        "AUTOCOMMAND");
+                        CustomLogType.AUTOCOMMAND);
             } else {
                 LOGs.sendLog("Erreur sur roastAutoCommand"
                                 + "\nUser : @" + currentEvent.getMember().getEffectiveName()
                                 + "\nServeur : " + currentEvent.getGuild().getName()
                                 + "\nSalon : #" + currentEvent.getChannel().getName(),
-                        "ERROR");
+                        DefaultLogType.ERROR);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -152,13 +154,13 @@ public class InteractionCommand extends AutoCommand {
                                 + "\nUser : @" + currentEvent.getMember().getEffectiveName()
                                 + "\nServeur : " + currentEvent.getGuild().getName()
                                 + "\nSalon : #" + currentEvent.getChannel().getName(),
-                        "AUTOCOMMAND");
+                        CustomLogType.AUTOCOMMAND);
             } else {
                 LOGs.sendLog("Erreur sur bibleAutoCommand"
                                 + "\nUser : @" + currentEvent.getMember().getEffectiveName()
                                 + "\nServeur : " + currentEvent.getGuild().getName()
                                 + "\nSalon : #" + currentEvent.getChannel().getName(),
-                        "ERROR");
+                        DefaultLogType.ERROR);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -180,14 +182,14 @@ public class InteractionCommand extends AutoCommand {
                                 + "\nMessage originel : " + currentEvent.getMessage().getContentRaw()
                                 + "\nMessage modifié : " + response
                                 + "\nMode : " + mode,
-                        "AUTOCOMMAND");
+                        CustomLogType.AUTOCOMMAND);
             } else {
                 LOGs.sendLog("Erreur sur modifyInteraction"
                                 + "\nUser : @" + currentEvent.getMember().getEffectiveName()
                                 + "\nServeur : " + currentEvent.getGuild().getName()
                                 + "\nSalon : #" + currentEvent.getChannel().getName()
                                 + "\nMessage originel : " + currentEvent.getMessage().getContentRaw(),
-                        "ERROR");
+                        DefaultLogType.ERROR);
             }
         } catch (Exception e) {
             LOGs.sendLog("Erreur sur modifyInteraction"
@@ -195,7 +197,7 @@ public class InteractionCommand extends AutoCommand {
                             + "\nServeur : " + currentEvent.getGuild().getName()
                             + "\nSalon : #" + currentEvent.getChannel().getName()
                             + "\nMessage originel : " + currentEvent.getMessage().getContentRaw(),
-                    "ERROR");
+                    DefaultLogType.ERROR);
         }
 
 

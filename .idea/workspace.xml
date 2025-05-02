@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dfcb65e1-a446-4a61-98f1-2e01dcdfd001" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/8.10/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/checksums/checksums.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.bin" afterDir="false" />
@@ -13,11 +12,42 @@
       <change beforePath="$PROJECT_DIR$/.gradle/8.10/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/LOGs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/anthonus/logs/LOGs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/anthonus/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/autoCommands/FeurCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/autoCommands/FeurCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/autoCommands/InteractionCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/autoCommands/InteractionCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/admin/ClearCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/admin/ClearCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/admin/UpdateAvatarCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/admin/UpdateAvatarCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/config/GetConfigCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/config/GetConfigCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/config/ReloadConfigCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/config/ReloadConfigCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/config/SetConfigCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/config/SetConfigCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/music/AddCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/music/AddCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/music/ClearQueueCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/music/ClearQueueCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/music/DownloadCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/music/DownloadCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/music/JumpCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/music/JumpCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/music/ListCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/music/ListCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/music/ListQueueCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/music/ListQueueCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/music/LoopCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/music/LoopCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/music/NextCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/music/NextCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/music/PlayCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/music/PlayCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/music/PreviousCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/music/PreviousCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/music/ReloadMusicsCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/music/ReloadMusicsCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/music/RemoveCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/music/RemoveCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/music/ShuffleCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/music/ShuffleCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/normal/ComplimentCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/normal/ComplimentCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/normal/CursedImageCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/normal/CursedImageCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/normal/PrivateSendCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/normal/PrivateSendCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/normal/PrivateSendFileCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/normal/PrivateSendFileCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/normal/RoastCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/normal/RoastCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/listeners/MessageListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/anthonus/listeners/MessageListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/listeners/SlashCommandListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/anthonus/listeners/SlashCommandListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/utils/APICalls/APICall.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/anthonus/utils/APICalls/APICall.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/utils/APICalls/APICallGPT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/anthonus/utils/APICalls/APICallGPT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/utils/APICalls/APICallReddit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/anthonus/utils/APICalls/APICallReddit.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/utils/ServerManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/anthonus/utils/ServerManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/utils/json/SettingJson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/anthonus/utils/json/SettingJson.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,6 +94,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -95,7 +126,7 @@
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "G:/Mon Drive/Programmation/Java/Discord/ANTHONUS-bot",
+    "last_opened_file_path": "G:/Mon Drive/Programmation/Java/Discord/ANTHONUS-bot/src/main/java/fr/anthonus/logs",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -109,6 +140,9 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="G:\Mon Drive\Programmation\Java\Discord\ANTHONUS-bot\src\main\java\fr\anthonus\logs" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="fr.ANTHONUSApps.Commands.SlashCommands.music" />
       <recent name="fr.ANTHONUSApps.Listeners" />
@@ -124,13 +158,13 @@
       <command value="gradle clean jlink" />
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.ANTHONUS-bot [build]">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="fr.anthonus.Main" />
       <module name="ANTHONUS-bot.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="fr.anthonus.*" />
+          <option name="PATTERN" value="fr.anthonus.logs.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -247,7 +281,9 @@
       <workItem from="1745788521797" duration="2861000" />
       <workItem from="1745836537281" duration="1246000" />
       <workItem from="1745883172861" duration="603000" />
-      <workItem from="1746097913822" duration="255000" />
+      <workItem from="1746097913822" duration="412000" />
+      <workItem from="1746178839867" duration="8000" />
+      <workItem from="1746189481675" duration="1496000" />
     </task>
     <servers />
   </component>

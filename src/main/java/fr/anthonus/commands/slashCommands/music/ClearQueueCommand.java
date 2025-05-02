@@ -1,7 +1,8 @@
 package fr.anthonus.commands.slashCommands.music;
 
 import fr.anthonus.commands.slashCommands.Command;
-import fr.anthonus.LOGs;
+import fr.anthonus.logs.LOGs;
+import fr.anthonus.logs.logTypes.CustomLogType;
 import fr.anthonus.utils.ServerManager;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 
@@ -10,7 +11,7 @@ public class ClearQueueCommand extends Command {
     public ClearQueueCommand(SlashCommandInteractionEvent event) {
         super(event);
 
-        LOGs.sendLog("Commande /clear-playlist initialisée", "COMMAND");
+        LOGs.sendLog("Commande /clear-playlist initialisée", CustomLogType.COMMAND);
     }
 
     @Override
@@ -28,6 +29,6 @@ public class ClearQueueCommand extends Command {
         ServerManager.servers.get(guildID).setLastModified(null);
 
         currentEvent.reply("## ✅ Playlist vidée").queue();
-        LOGs.sendLog("Playlist vidée", "COMMAND");
+        LOGs.sendLog("Playlist vidée", CustomLogType.COMMAND);
     }
 }

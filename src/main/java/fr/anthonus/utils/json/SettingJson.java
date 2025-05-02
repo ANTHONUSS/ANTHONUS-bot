@@ -2,8 +2,10 @@ package fr.anthonus.utils.json;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import fr.anthonus.LOGs;
+import fr.anthonus.logs.LOGs;
 import fr.anthonus.Main;
+import fr.anthonus.logs.logTypes.CustomLogType;
+import fr.anthonus.logs.logTypes.DefaultLogType;
 
 import java.io.*;
 import java.util.List;
@@ -26,13 +28,13 @@ public class SettingJson {
 
     private void firstLoadJson(){
         if (!file.exists()) {
-            LOGs.sendLog("Aucun fichier JSON trouvé pour le serveur " + serverName + ", création d'un nouveau fichier...", "FILE_LOADING");
+            LOGs.sendLog("Aucun fichier JSON trouvé pour le serveur " + serverName + ", création d'un nouveau fichier...", CustomLogType.FILE_LOADING);
 
             try {
                 file.createNewFile();
-                LOGs.sendLog("Fichier JSON créé avec succès pour le serveur " + serverName, "FILE_LOADING");
+                LOGs.sendLog("Fichier JSON créé avec succès pour le serveur " + serverName, CustomLogType.FILE_LOADING);
             } catch (IOException e) {
-                LOGs.sendLog("Erreur lors de la création du fichier JSON : " + e.getMessage(), "ERROR");
+                LOGs.sendLog("Erreur lors de la création du fichier JSON : " + e.getMessage(), DefaultLogType.ERROR);
                 return;
             }
 
@@ -55,10 +57,10 @@ public class SettingJson {
                 gson.toJson(settings, writer);
             }
 
-            LOGs.sendLog("Fichier JSON sauvegardé avec succès pour le serveur " + serverName, "FILE_LOADING");
+            LOGs.sendLog("Fichier JSON sauvegardé avec succès pour le serveur " + serverName, CustomLogType.FILE_LOADING);
 
         } catch (IOException e) {
-            LOGs.sendLog("Erreur lors de l'écriture du JSON : " + e.getMessage(), "ERROR");
+            LOGs.sendLog("Erreur lors de l'écriture du JSON : " + e.getMessage(), DefaultLogType.ERROR);
         }
     }
 
@@ -67,9 +69,9 @@ public class SettingJson {
             Gson gson = new Gson();
             settings = gson.fromJson(reader, Settings.class);
 
-            LOGs.sendLog("Fichier JSON chargé avec succès pour le serveur " + serverName, "FILE_LOADING");
+            LOGs.sendLog("Fichier JSON chargé avec succès pour le serveur " + serverName, CustomLogType.FILE_LOADING);
         } catch (IOException e) {
-            LOGs.sendLog("Erreur lors de la lecture du fichier JSON : " + e.getMessage(), "ERROR");
+            LOGs.sendLog("Erreur lors de la lecture du fichier JSON : " + e.getMessage(), DefaultLogType.ERROR);
         }
     }
 

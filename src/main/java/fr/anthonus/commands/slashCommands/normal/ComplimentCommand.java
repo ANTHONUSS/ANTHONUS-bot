@@ -1,7 +1,9 @@
 package fr.anthonus.commands.slashCommands.normal;
 
 import fr.anthonus.commands.slashCommands.Command;
-import fr.anthonus.LOGs;
+import fr.anthonus.logs.LOGs;
+import fr.anthonus.logs.logTypes.CustomLogType;
+import fr.anthonus.logs.logTypes.DefaultLogType;
 import fr.anthonus.utils.APICalls.APICallGPT;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 
@@ -20,7 +22,7 @@ public class ComplimentCommand extends Command {
         this.personne = personne;
         this.contexte = contexte;
 
-        LOGs.sendLog("Commande /compliment initialisée.", "COMMAND");
+        LOGs.sendLog("Commande /compliment initialisée.", CustomLogType.COMMAND);
     }
 
     @Override
@@ -33,7 +35,7 @@ public class ComplimentCommand extends Command {
                             + "\nServeur : " + currentEvent.getGuild().getName()
                             + "\nSalon : #" + currentEvent.getChannel().getName()
                             + "\nContexte : " + contexte,
-                    "COMMAND");
+                    CustomLogType.COMMAND);
         } else {
             currentEvent.deferReply().queue(
                     success -> {
@@ -47,14 +49,14 @@ public class ComplimentCommand extends Command {
                                                 + "\nSalon : #" + currentEvent.getChannel().getName()
                                                 + "\nPersonne : " + personne
                                                 + "\nContexte : " + contexte,
-                                        "COMMAND");
+                                        CustomLogType.COMMAND);
                             } else {
                                 currentEvent.getHook().editOriginal("Erreur avec ChatGPT").queue();
                                 LOGs.sendLog("Erreur sur complimentCommand"
                                                 + "\nUser : @" + currentEvent.getUser().getEffectiveName()
                                                 + "\nServeur : " + currentEvent.getGuild().getName()
                                                 + "\nSalon : #" + currentEvent.getChannel().getName(),
-                                        "ERROR");
+                                        DefaultLogType.ERROR);
                             }
                         } catch (Exception e) {
                             currentEvent.getHook().editOriginal("## :x: Une erreur est survenue lors de la communication avec ChatGPT" + e.getMessage()).queue();
@@ -62,7 +64,7 @@ public class ComplimentCommand extends Command {
                         }
                     },
                     failure -> {
-                        LOGs.sendLog("## :x: Erreur lors de l'envoi du deferReply", "ERROR");
+                        LOGs.sendLog("## :x: Erreur lors de l'envoi du deferReply", DefaultLogType.ERROR);
                     }
             );
         }

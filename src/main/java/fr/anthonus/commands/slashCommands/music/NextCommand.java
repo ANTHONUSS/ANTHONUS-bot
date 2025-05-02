@@ -2,7 +2,8 @@ package fr.anthonus.commands.slashCommands.music;
 
 import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
 import fr.anthonus.commands.slashCommands.Command;
-import fr.anthonus.LOGs;
+import fr.anthonus.logs.LOGs;
+import fr.anthonus.logs.logTypes.CustomLogType;
 import fr.anthonus.utils.ServerManager;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.managers.AudioManager;
@@ -11,7 +12,7 @@ public class NextCommand extends Command {
     public NextCommand(SlashCommandInteractionEvent event) {
         super(event);
 
-        LOGs.sendLog("Commande /next initialisée", "COMMAND");
+        LOGs.sendLog("Commande /next initialisée", CustomLogType.COMMAND);
     }
 
     @Override

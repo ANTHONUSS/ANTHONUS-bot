@@ -2,7 +2,8 @@ package fr.anthonus.listeners;
 
 import fr.anthonus.commands.autoCommands.FeurCommand;
 import fr.anthonus.commands.autoCommands.InteractionCommand;
-import fr.anthonus.LOGs;
+import fr.anthonus.logs.LOGs;
+import fr.anthonus.logs.logTypes.DefaultLogType;
 import fr.anthonus.utils.ServerManager;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
@@ -15,7 +16,7 @@ public class MessageListener extends ListenerAdapter {
             LOGs.sendLog("Message envoyé dans les mp du bot"
                             + "\nUser : @" + event.getAuthor().getEffectiveName()
                             + "\nMessage : " + event.getMessage().getContentRaw(),
-                    "DEFAULT");
+                    DefaultLogType.DEFAULT);
             return;
         }
 
