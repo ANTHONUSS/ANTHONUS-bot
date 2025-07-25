@@ -8,7 +8,6 @@ import com.sedmelluq.discord.lavaplayer.tools.FriendlyException;
 import com.sedmelluq.discord.lavaplayer.track.AudioPlaylist;
 import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
 import fr.anthonus.logs.LOGs;
-import fr.anthonus.logs.logTypes.CustomLogType;
 import fr.anthonus.logs.logTypes.DefaultLogType;
 
 import java.io.File;
@@ -34,7 +33,7 @@ public class ServerManager {
             for (File file : musicsFolder.listFiles()) {
                 if (file.isFile() && file.getName().endsWith(".mp3")) {
                     addTrackToList(file.getAbsolutePath());
-                    LOGs.sendLog("Chargement de " + file.getName(), CustomLogType.FILE_LOADING);
+                    LOGs.sendLog("Chargement de " + file.getName(), DefaultLogType.FILE_LOADING);
                 }
             }
         }

@@ -2,7 +2,6 @@ package fr.anthonus.commands.slashCommands.normal;
 
 import fr.anthonus.commands.slashCommands.Command;
 import fr.anthonus.logs.LOGs;
-import fr.anthonus.logs.logTypes.CustomLogType;
 import fr.anthonus.logs.logTypes.DefaultLogType;
 import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;

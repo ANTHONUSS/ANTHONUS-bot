@@ -3,7 +3,6 @@ package fr.anthonus.commands.slashCommands.music;
 import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
 import fr.anthonus.commands.slashCommands.Command;
 import fr.anthonus.logs.LOGs;
-import fr.anthonus.logs.logTypes.CustomLogType;
 import fr.anthonus.utils.ServerManager;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.managers.AudioManager;

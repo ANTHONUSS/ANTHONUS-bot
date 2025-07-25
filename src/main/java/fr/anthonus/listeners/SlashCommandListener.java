@@ -8,7 +8,6 @@ import fr.anthonus.commands.slashCommands.config.SetConfigCommand;
 import fr.anthonus.commands.slashCommands.music.*;
 import fr.anthonus.commands.slashCommands.normal.*;
 import fr.anthonus.logs.LOGs;
-import fr.anthonus.logs.logTypes.CustomLogType;
 import fr.anthonus.logs.logTypes.DefaultLogType;
 import fr.anthonus.utils.ServerManager;
 import fr.anthonus.utils.Server;

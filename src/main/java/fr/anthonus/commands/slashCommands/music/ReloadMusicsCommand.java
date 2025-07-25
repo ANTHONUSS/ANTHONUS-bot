@@ -2,7 +2,6 @@ package fr.anthonus.commands.slashCommands.music;
 
 import fr.anthonus.commands.slashCommands.Command;
 import fr.anthonus.logs.LOGs;
-import fr.anthonus.logs.logTypes.CustomLogType;
 import fr.anthonus.utils.ServerManager;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 

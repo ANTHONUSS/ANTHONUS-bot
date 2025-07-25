@@ -2,7 +2,6 @@ package fr.anthonus.commands.slashCommands.config;
 
 import fr.anthonus.logs.LOGs;
 import fr.anthonus.commands.slashCommands.Command;
-import fr.anthonus.logs.logTypes.CustomLogType;
 import fr.anthonus.logs.logTypes.DefaultLogType;
 import fr.anthonus.utils.ServerManager;
 import fr.anthonus.utils.json.SettingJson;
@@ -17,7 +16,7 @@ public class SetConfigCommand extends Command {
         this.parametre = parametre;
         this.valeur = valeur;
 
-        LOGs.sendLog("Commande /set-config initialisée", CustomLogType.COMMAND);
+        LOGs.sendLog("Commande /set-config initialisée", DefaultLogType.COMMAND);
     }
 
     @Override
@@ -62,7 +61,7 @@ public class SetConfigCommand extends Command {
         settingJson.saveJson();
 
         currentEvent.reply("## :white_check_mark: Le paramètre a bien été changé et enregistré").queue();
-        LOGs.sendLog("Paramètre " + parametre + " changé en " + valeur + " pour le serveur " + currentEvent.getGuild().getName(), CustomLogType.FILE_LOADING);
+        LOGs.sendLog("Paramètre " + parametre + " changé en " + valeur + " pour le serveur " + currentEvent.getGuild().getName(), DefaultLogType.FILE_LOADING);
     }
 
     private boolean parametreValide() {

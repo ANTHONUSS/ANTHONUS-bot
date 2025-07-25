@@ -4,7 +4,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import fr.anthonus.logs.LOGs;
 import fr.anthonus.Main;
-import fr.anthonus.logs.logTypes.CustomLogType;
+import fr.anthonus.logs.logTypes.DefaultLogType;
 import okhttp3.MediaType;
 import okhttp3.Request;
 import okhttp3.RequestBody;
@@ -12,7 +12,7 @@ import okhttp3.RequestBody;
 public class APICallGPT extends APICall {
 
     public APICallGPT(int maxTokens, String systemMessage, String userMessage) {
-        LOGs.sendLog("Création de la requête pour chatGPT", CustomLogType.API);
+        LOGs.sendLog("Création de la requête pour chatGPT", DefaultLogType.API);
         JsonObject json = new JsonObject();
         json.addProperty("model", "gpt-4o-mini");
         json.addProperty("max_tokens", maxTokens);
@@ -38,7 +38,7 @@ public class APICallGPT extends APICall {
                 .post(body)
                 .build();
 
-        LOGs.sendLog("requête pour ChatGPT créée", CustomLogType.API);
+        LOGs.sendLog("requête pour ChatGPT créée", DefaultLogType.API);
 
         currentRequest = request;
     }

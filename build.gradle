@@ -21,7 +21,7 @@ dependencies {
         //LogBack
             implementation("ch.qos.logback:logback-classic:1.5.18")
         //LavaPlayer
-            implementation("com.sedmelluq:lavaplayer:1.3.73")
+            implementation 'dev.arbjerg:lavaplayer:2.2.3'
         //Webhooks
             implementation("club.minnced:discord-webhooks:0.8.4")
 
