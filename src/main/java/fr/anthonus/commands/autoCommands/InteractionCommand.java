@@ -4,7 +4,6 @@ import fr.anthonus.logs.LOGs;
 import fr.anthonus.logs.logTypes.DefaultLogType;
 import fr.anthonus.utils.APICalls.APICallGPT;
 import fr.anthonus.utils.ServerManager;
-import fr.anthonus.utils.WebhookMessage;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 import java.util.Random;
@@ -25,62 +24,6 @@ public class InteractionCommand extends AutoCommand {
             Fais ensuite une petite conclusion en rapport avec ce passage cité et le message envoyé par la personne.
             """;
 
-    private final String beaufMessage = """
-            Tu est un bot discord, tu as été exécuté aléatoirement sur un des messages du serveur et ton seul est unique but est de modifier le message qui t'a été envoyé.
-            Je m'explique. Tu doit prendre le message de l'utilisateur, le réécrire mais en modifiant ou rajoutant une partie pour le rendre différent.
-            Le message devra ressembler à un message écris par un gros beauf marseillais qui aime bien l'humour vache et lourde.
-            Tu doit bien garder le contexte exact du message de base.
-            Tu ne doit SURTOUT pas préciser le nom de l'utilisateur au début du message ou des guillemets autour.
-            """;
-
-    private final String uwuMessage = """
-            Tu est un bot discord, tu as été exécuté aléatoirement sur un des messages du serveur et ton seul est unique but est de modifier le message qui t'a été envoyé.
-            Je m'explique. Tu doit prendre le message de l'utilisateur, le réécrire mais en modifiant ou rajoutant une partie pour le rendre différent.
-            Le message devra ressembler à un message écris par une uwu-girl / e-girl / cat-girl d'internet qui parle de façon cringe et "kawaii".
-            Tu doit bien garder le contexte exact du message de base.
-            Tu ne doit SURTOUT pas préciser le nom de l'utilisateur au début du message ou des guillemets autour.
-            """;
-
-    private final String skibidiMessage = """
-            Tu est un bot discord, tu as été exécuté aléatoirement sur un des messages du serveur et ton seul est unique but est de modifier le message qui t'a été envoyé.
-            Je m'explique. Tu doit prendre le message de l'utilisateur, le réécrire mais en modifiant ou rajoutant une partie pour le rendre différent.
-            Le message devra ressembler à un message écris par un gamin totalement brainrot par les memes récents (skibidi toilet, alpha, aura, ...).
-            Tu doit bien garder le contexte exact du message de base.
-            Tu ne doit SURTOUT pas préciser le nom de l'utilisateur au début du message ou des guillemets autour.
-            """;
-
-    private final String depressMessage = """
-            Tu est un bot discord, tu as été exécuté aléatoirement sur un des messages du serveur et ton seul est unique but est de modifier le message qui t'a été envoyé.
-            Je m'explique. Tu doit prendre le message de l'utilisateur, le réécrire mais en modifiant ou rajoutant une partie pour le rendre différent.
-            Le message devra ressembler à un message écris par un dépressif qui n'a aucun ton dans son message, super plat et sans intérêt.
-            Tu doit bien garder le contexte exact du message de base.
-            Tu ne doit SURTOUT pas préciser le nom de l'utilisateur au début du message ou des guillemets autour.
-            """;
-
-    private final String ancienMessage = """
-            Tu est un bot discord, tu as été exécuté aléatoirement sur un des messages du serveur et ton seul est unique but est de modifier le message qui t'a été envoyé.
-            Je m'explique. Tu doit prendre le message de l'utilisateur, le réécrire mais en modifiant ou rajoutant une partie pour le rendre différent.
-            Le message devra ressembler à un message écris par quelqu'un d'une époque victorienne, avec des formules de politesse et un langage soutenu, qui utilise des termes anciens et des phrases pleines de courtoisie et de formalité.
-            Tu doit bien garder le contexte exact du message de base.
-            Tu ne doit SURTOUT pas préciser le nom de l'utilisateur au début du message ou des guillemets autour.
-            """;
-
-    private final String poeteMessage = """
-            Tu est un bot discord, tu as été exécuté aléatoirement sur un des messages du serveur et ton seul est unique but est de modifier le message qui t'a été envoyé.
-            Je m'explique. Tu doit prendre le message de l'utilisateur, le réécrire mais en modifiant ou rajoutant une partie pour le rendre différent.
-            Le message devra ressembler à un message écris par un grand poète romantique du 19ème siècle, avec un langage fleuri, des métaphores et des comparaisons pleines de passion et d’émotions profondes.
-            Tu doit bien garder le contexte exact du message de base.
-            Tu ne doit SURTOUT pas préciser le nom de l'utilisateur au début du message ou des guillemets autour.
-            """;
-
-    private final String rappeurMessage = """
-            Tu est un bot discord, tu as été exécuté aléatoirement sur un des messages du serveur et ton seul est unique but est de modifier le message qui t'a été envoyé.
-            Je m'explique. Tu doit prendre le message de l'utilisateur, le réécrire mais en modifiant ou rajoutant une partie pour le rendre différent.
-            Le message devra ressembler à un message écris par un rappeur de la street, qui fait des rimes et du rap dans tous ses messages.
-            Tu doit bien garder le contexte exact du message de base.
-            Tu ne doit SURTOUT pas préciser le nom de l'utilisateur au début du message ou des guillemets autour.
-            """;
-
     public InteractionCommand(MessageReceivedEvent event) {
         super(event);
 
@@ -89,36 +32,16 @@ public class InteractionCommand extends AutoCommand {
 
     @Override
     public void run() {
+        if (!ServerManager.servers.get(currentEvent.getGuild().getIdLong()).getSettingJson().isAllowReply()) {
+            LOGs.sendLog("AutoCommande reply désactivée", DefaultLogType.AUTOCOMMAND);
+            return;
+        }
+
         Random random = new Random();
         int rand = random.nextInt(3);
-
-        if (rand != 2) {
-            if (!ServerManager.servers.get(currentEvent.getGuild().getIdLong()).getSettingJson().isAllowReply()) {
-                LOGs.sendLog("AutoCommande reply désactivée", DefaultLogType.AUTOCOMMAND);
-                return;
-            }
-
-            switch (rand) {
-                case 0 -> roastInteraction();
-                case 1 -> bibleInteraction();
-            }
-
-        } else {
-            if (!ServerManager.servers.get(currentEvent.getGuild().getIdLong()).getSettingJson().isAllowModify()) {
-                LOGs.sendLog("AutoCommande modify désactivée", DefaultLogType.AUTOCOMMAND);
-                return;
-            }
-
-            rand = random.nextInt(7);
-            switch (rand) {
-                case 0 -> modifyInteraction(beaufMessage, "beauf");
-                case 1 -> modifyInteraction(uwuMessage, "uwu");
-                case 2 -> modifyInteraction(skibidiMessage, "skibidi");
-                case 3 -> modifyInteraction(depressMessage, "depress");
-                case 4 -> modifyInteraction(ancienMessage, "ancien");
-                case 5 -> modifyInteraction(poeteMessage, "poete");
-                case 6 -> modifyInteraction(rappeurMessage, "rappeur");
-            }
+        switch (rand) {
+            case 0 -> roastInteraction();
+            case 1 -> bibleInteraction();
         }
     }
 
@@ -164,42 +87,6 @@ public class InteractionCommand extends AutoCommand {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-    private void modifyInteraction(String gptContext, String mode) {
-        try {
-            String response = getGPTResponse(gptContext);
-            if (response != null) {
-                WebhookMessage webhookMessage = new WebhookMessage(currentEvent, response);
-                webhookMessage.send();
-                currentEvent.getMessage().delete().queue();
-
-                LOGs.sendLog("modification de message effectuée aléatoirement"
-                                + "\nUser : @" + currentEvent.getMember().getEffectiveName()
-                                + "\nServeur : " + currentEvent.getGuild().getName()
-                                + "\nSalon : #" + currentEvent.getChannel().getName()
-                                + "\nMessage originel : " + currentEvent.getMessage().getContentRaw()
-                                + "\nMessage modifié : " + response
-                                + "\nMode : " + mode,
-                        DefaultLogType.AUTOCOMMAND);
-            } else {
-                LOGs.sendLog("Erreur sur modifyInteraction"
-                                + "\nUser : @" + currentEvent.getMember().getEffectiveName()
-                                + "\nServeur : " + currentEvent.getGuild().getName()
-                                + "\nSalon : #" + currentEvent.getChannel().getName()
-                                + "\nMessage originel : " + currentEvent.getMessage().getContentRaw(),
-                        DefaultLogType.ERROR);
-            }
-        } catch (Exception e) {
-            LOGs.sendLog("Erreur sur modifyInteraction"
-                            + "\nUser : @" + currentEvent.getMember().getEffectiveName()
-                            + "\nServeur : " + currentEvent.getGuild().getName()
-                            + "\nSalon : #" + currentEvent.getChannel().getName()
-                            + "\nMessage originel : " + currentEvent.getMessage().getContentRaw(),
-                    DefaultLogType.ERROR);
-        }
-
-
     }
 
     private String getGPTResponse(String systemMessage) {
