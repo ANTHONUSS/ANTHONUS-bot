@@ -28,6 +28,9 @@ dependencies {
     //Requetes API
         implementation ("com.squareup.okhttp3:okhttp:4.12.0")
         implementation("com.google.code.gson:gson:2.13.1")
+
+    //Base de données
+    implementation 'org.xerial:sqlite-jdbc:3.50.1.0'
 }
 
 //Compiler en .jar
