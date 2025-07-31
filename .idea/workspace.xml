@@ -5,8 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4d9ead09-8dcf-4048-9e41-03e3d569a957" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/anthonus/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/utils/SettingsLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/anthonus/utils/SettingsLoader.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,6 +20,23 @@
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="ANTHONUS-bot" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -52,11 +72,12 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Gradle.rework [:fr.anthonus.Main.main()].executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
     "git-widget-placeholder": "rework",
-    "last_opened_file_path": "C:/Users/ANTHONUS/MyFolder/Projets/Discord/ANTHONUS-bot/rework/src/main/resources",
+    "last_opened_file_path": "C:/Users/ANTHONUS/MyFolder/Projets/Discord/ANTHONUS-bot/rework",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -65,14 +86,40 @@
     "onboarding.tips.debug.path": "C:/Users/ANTHONUS/MyFolder/Projets/Discord/ANTHONUS-bot/ANTHONUS-bot/src/main/java/fr/anthonus/Main.java",
     "settings.editor.selected.configurable": "code-screenshots",
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "sqlite"
+    ]
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\ANTHONUS\MyFolder\Projets\Discord\ANTHONUS-bot\rework" />
+      <recent name="C:\Users\ANTHONUS\MyFolder\Projets\Discord\ANTHONUS-bot\rework\src\main\java\fr\anthonus" />
       <recent name="C:\Users\ANTHONUS\MyFolder\Projets\Discord\ANTHONUS-bot\rework\src\main\resources" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ANTHONUS\MyFolder\Projets\Discord\ANTHONUS-bot\rework\data" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="fr.anthonus.commands" />
     </key>
   </component>
   <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="fr.anthonus.Main" />
+      <module name="ANTHONUS-bot.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="fr.anthonus.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <module name="rework" />
       <method v="2">
@@ -84,6 +131,11 @@
       <option name="filePath" />
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -102,7 +154,7 @@
       <updated>1750514268169</updated>
       <workItem from="1750514269704" duration="1211000" />
       <workItem from="1753959781543" duration="30000" />
-      <workItem from="1753959852248" duration="716000" />
+      <workItem from="1753959852248" duration="7469000" />
     </task>
     <servers />
   </component>
