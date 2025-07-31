@@ -1,6 +1,8 @@
 package fr.anthonus.utils.servers;
 
 import fr.anthonus.Main;
+import fr.anthonus.logs.LOGs;
+import fr.anthonus.logs.logTypes.DefaultLogType;
 
 public class Server {
     private final long guildId;
@@ -36,6 +38,7 @@ public class Server {
     }
     public void setServerName(String serverName) {
         this.serverName = serverName;
+        LOGs.sendLog("Le nom du serveur a été mis à jour : " + serverName, DefaultLogType.MEMORY_LOADING);
     }
 
     public int getAutoCommandProbability() {
@@ -43,6 +46,7 @@ public class Server {
     }
     public void setAutoCommandProbability(int autoCommandProbability) {
         this.autoCommandProbability = autoCommandProbability;
+        LOGs.sendLog("La probabilité de commandes automatiques a été mise à jour : " + autoCommandProbability + "%", DefaultLogType.MEMORY_LOADING);
     }
 
     public boolean isAllowFeur() {
@@ -50,6 +54,7 @@ public class Server {
     }
     public void setAllowFeur(boolean allowFeur) {
         this.allowFeur = allowFeur;
+        LOGs.sendLog("L'autorisation de Feur a été mise à jour : " + allowFeur, DefaultLogType.MEMORY_LOADING);
     }
 
     public boolean isAllowReply() {
@@ -57,6 +62,7 @@ public class Server {
     }
     public void setAllowReply(boolean allowReply) {
         this.allowReply = allowReply;
+        LOGs.sendLog("L'autorisation de réponse a été mise à jour : " + allowReply, DefaultLogType.MEMORY_LOADING);
     }
 
     @Override

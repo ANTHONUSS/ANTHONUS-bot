@@ -21,6 +21,7 @@ public class ServerManager {
 
     public static void addServer(Server server) {
         servers.put(server.getGuildId(), server);
+        LOGs.sendLog("Nouveau serveur ajouté ou mis à jour en mémoire : " + server.getServerName(), DefaultLogType.MEMORY_LOADING);
     }
 
     public static void loadServers() {
@@ -32,15 +33,13 @@ public class ServerManager {
                 server = new Server(serverId);
                 servers.put(server.getGuildId(), server);
                 DataBaseManager.saveServer(server);
-                LOGs.sendLog("Nouveau serveur ajouté en mémoire : " + guild.getName(), DefaultLogType.FILE_LOADING);
             } else {
                 servers.put(serverId, server);
                 if (!server.getServerName().equals(guild.getName())) {
                     server.setServerName(guild.getName());
                     DataBaseManager.saveServer(server);
-                    LOGs.sendLog("Nom du serveur mis à jour : " + server.getServerName(), DefaultLogType.FILE_LOADING);
                 }
-                LOGs.sendLog("Nouveau serveur ajouté en mémoire : " + guild.getName(), DefaultLogType.FILE_LOADING);
+                LOGs.sendLog("Nouveau serveur ajouté en mémoire : " + guild.getName(), DefaultLogType.MEMORY_LOADING);
             }
         }
     }

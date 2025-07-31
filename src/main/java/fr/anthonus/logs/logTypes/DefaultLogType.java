@@ -17,11 +17,11 @@ public enum DefaultLogType implements LogType {
     WARNING("WARNING", LOGs.createAnsiCode(Color.YELLOW, false, false, false)),
     LOADING("LOADING", LOGs.createAnsiCode(53, 74, 255, false, false, false)),
     FILE_LOADING("FILE_LOADING", LOGs.createAnsiCode(0, 0, 0, 130, 0, 255, false, false, false)),
-    DATABASE("DATABASE", LOGs.createAnsiCode(128, 128, 128, false, false, false)),
+    DATABASE_LOADING("DATABASE_LOADING", LOGs.createAnsiCode(128, 128, 128, false, false, false)),
+    MEMORY_LOADING("MEMORY_LOADING", LOGs.createAnsiCode(255, 255, 255, 128, 128, 128, false, false, false)),
     AUTOCOMMAND("AUTOCOMMAND", LOGs.createAnsiCode(193, 92, 255, false, false, false)),
     COMMAND("COMMAND", LOGs.createAnsiCode(255, 172, 53, false, false, false)),
     API("API", LOGs.createAnsiCode(53, 255, 255, false, false, false)),
-    DOWNLOAD("DOWNLOAD", LOGs.createAnsiCode(0, 0, 0, 141, 255, 252, false, false, false)),
     DEBUG("DEBUG", LOGs.createAnsiCode(255, 171, 247, false, false, false)),;
 
     private final String name;

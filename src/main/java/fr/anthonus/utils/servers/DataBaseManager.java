@@ -19,7 +19,7 @@ public class DataBaseManager {
                     ");";
 
             conn.createStatement().execute(createServersQuery);
-            LOGs.sendLog("Table Servers initialisée avec succès !", DefaultLogType.DATABASE);
+            LOGs.sendLog("Table Servers initialisée avec succès !", DefaultLogType.DATABASE_LOADING);
 
         } catch (SQLException e) {
             throw new RuntimeException("Erreur lors du chargement de la base de données : " + e);
@@ -27,9 +27,9 @@ public class DataBaseManager {
     }
 
     public static void loadDataBase() {
-        LOGs.sendLog("Chargement des serveurs", DefaultLogType.DATABASE);
+        LOGs.sendLog("Chargement des serveurs", DefaultLogType.DATABASE_LOADING);
         ServerManager.loadServers();
-        LOGs.sendLog("Serveurs chargés avec succès !", DefaultLogType.DATABASE);
+        LOGs.sendLog("Serveurs chargés avec succès !", DefaultLogType.DATABASE_LOADING);
     }
 
     public static void saveServer(Server server) {
@@ -47,7 +47,7 @@ public class DataBaseManager {
 
             preparedStatement.executeUpdate();
 
-            LOGs.sendLog("Serveur sauvegardé avec succès : " + server.getServerName(), DefaultLogType.DATABASE);
+            LOGs.sendLog("Serveur sauvegardé avec succès : " + server.getServerName(), DefaultLogType.DATABASE_LOADING);
 
         } catch (SQLException e) {
             throw new RuntimeException("Erreur lors de la sauvegarde du serveur : " + e);
@@ -62,7 +62,7 @@ public class DataBaseManager {
 
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
-                LOGs.sendLog("Serveur chargé avec succès : " + resultSet.getString("serverName"), DefaultLogType.DATABASE);
+                LOGs.sendLog("Serveur chargé avec succès : " + resultSet.getString("serverName"), DefaultLogType.DATABASE_LOADING);
                 return new Server(
                         resultSet.getLong("serverId"),
                         resultSet.getString("serverName"),
@@ -72,7 +72,7 @@ public class DataBaseManager {
                 );
 
             } else {
-                LOGs.sendLog("Aucun serveur trouvé avec l'ID : " + guildId, DefaultLogType.DATABASE);
+                LOGs.sendLog("Aucun serveur trouvé avec l'ID : " + guildId, DefaultLogType.DATABASE_LOADING);
 
                 return null; // Server not found
             }

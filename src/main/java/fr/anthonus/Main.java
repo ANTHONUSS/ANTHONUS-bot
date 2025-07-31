@@ -8,10 +8,15 @@ import fr.anthonus.utils.SettingsLoader;
 import fr.anthonus.utils.servers.DataBaseManager;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
+import net.dv8tion.jda.api.Permission;
+import net.dv8tion.jda.api.interactions.commands.DefaultMemberPermissions;
 import net.dv8tion.jda.api.interactions.commands.build.Commands;
+import net.dv8tion.jda.api.interactions.commands.build.OptionData;
 import net.dv8tion.jda.api.interactions.commands.build.SubcommandData;
 import net.dv8tion.jda.api.requests.GatewayIntent;
 import net.dv8tion.jda.api.requests.restaction.CommandListUpdateAction;
+
+import static net.dv8tion.jda.api.interactions.commands.OptionType.*;
 
 public class Main {
     public static JDA jda;
@@ -54,7 +59,24 @@ public class Main {
         CommandListUpdateAction commands = jda.updateCommands();
         commands.addCommands(
                 // USER COMMANDS
-                Commands.slash("info", "Affiche les informations du bot")
+                Commands.slash("info", "Affiche les informations du bot"),
+
+                // SETTINGS COMMANDS
+                Commands.slash("settings", "Commande relative aux paramètres du bot")
+                        .addSubcommands(
+                                new SubcommandData("autocommandprobability", "Change la probabilité de commandes automatiques")
+                                        .addOptions(new OptionData(INTEGER, "probability", "La probabilité de commandes automatiques (0-100)", true)
+                                                .setMinValue(0)
+                                                .setMaxValue(100)
+                                        ),
+
+                                new SubcommandData("allowfeur", "Active ou désactive les réponses feur")
+                                        .addOption(BOOLEAN, "valeur", "La valeur à définir", true),
+
+                                new SubcommandData("allowreply", "Active ou désactive les réponses par ChatGPT")
+                                        .addOption(BOOLEAN, "valeur", "La valeur à définir", true)
+                        )
+                        .setDefaultPermissions(DefaultMemberPermissions.enabledFor(Permission.ADMINISTRATOR))
         );
         commands.queue();
         LOGs.sendLog("Commandes chargées", DefaultLogType.LOADING);
