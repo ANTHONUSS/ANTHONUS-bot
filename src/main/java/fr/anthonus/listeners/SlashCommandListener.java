@@ -1,6 +1,7 @@
 package fr.anthonus.listeners;
 
 import fr.anthonus.commands.InfoCommand;
+import fr.anthonus.commands.admin.ClearCommand;
 import fr.anthonus.commands.settings.AllowFeurCommand;
 import fr.anthonus.commands.settings.AllowReplyCommand;
 import fr.anthonus.commands.settings.AutoCommandProbabilityCommand;
@@ -44,6 +45,13 @@ public class SlashCommandListener extends ListenerAdapter {
 
                     }
                 }
+            }
+
+            // ADMIN COMMANDS
+            case "clear" -> {
+                int count = event.getOption("nombre").getAsInt();
+
+                new ClearCommand(event, count).run();
             }
         }
 

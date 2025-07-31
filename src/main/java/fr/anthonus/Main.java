@@ -76,7 +76,13 @@ public class Main {
                                 new SubcommandData("allowreply", "Active ou désactive les réponses par ChatGPT")
                                         .addOption(BOOLEAN, "valeur", "La valeur à définir", true)
                         )
-                        .setDefaultPermissions(DefaultMemberPermissions.enabledFor(Permission.ADMINISTRATOR))
+                        .setDefaultPermissions(DefaultMemberPermissions.enabledFor(Permission.ADMINISTRATOR)),
+
+                // ADMIN COMMANDS
+                Commands.slash("clear", "Supprime un certain nombre de messages du salon.")
+                        .addOptions(new OptionData(INTEGER, "nombre", "nombre de messages à supprimer", true)
+                                .setRequiredRange(1, 100))
+                        .setDefaultPermissions(DefaultMemberPermissions.enabledFor(Permission.MESSAGE_MANAGE))
         );
         commands.queue();
         LOGs.sendLog("Commandes chargées", DefaultLogType.LOADING);
