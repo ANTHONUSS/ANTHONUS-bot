@@ -46,7 +46,10 @@ public class Main {
     private static void initBot() throws InterruptedException {
         //Load the bot
         jda = JDABuilder.createDefault(SettingsLoader.getTokenDiscord())
-                .enableIntents(GatewayIntent.MESSAGE_CONTENT)
+                .enableIntents(
+                        GatewayIntent.MESSAGE_CONTENT,
+                        GatewayIntent.GUILD_MESSAGES
+                )
                 .addEventListeners(
                         new SlashCommandListener(),
                         new GuildNameChangeListener(),
