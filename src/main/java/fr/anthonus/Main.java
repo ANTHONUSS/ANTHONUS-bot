@@ -9,6 +9,7 @@ import fr.anthonus.utils.servers.DataBaseManager;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.Permission;
+import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.interactions.commands.DefaultMemberPermissions;
 import net.dv8tion.jda.api.interactions.commands.build.Commands;
 import net.dv8tion.jda.api.interactions.commands.build.OptionData;
@@ -60,6 +61,11 @@ public class Main {
         commands.addCommands(
                 // USER COMMANDS
                 Commands.slash("info", "Affiche les informations du bot"),
+
+                Commands.slash("send", "Envoie un message dans les mp de quelqu'un du serveur")
+                        .addOption(USER, "user", "L'utilisateur à qui envoyer le message", true)
+                        .addOption(STRING, "message", "Le message à envoyer")
+                        .addOption(ATTACHMENT, "attachment", "Le fichier à envoyer"),
 
                 // SETTINGS COMMANDS
                 Commands.slash("settings", "Commande relative aux paramètres du bot")

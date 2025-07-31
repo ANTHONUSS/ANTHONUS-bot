@@ -1,5 +1,6 @@
-package fr.anthonus.commands;
+package fr.anthonus.commands.user;
 
+import fr.anthonus.commands.Command;
 import fr.anthonus.logs.LOGs;
 import fr.anthonus.logs.logTypes.DefaultLogType;
 import fr.anthonus.utils.SettingsLoader;
