@@ -5,93 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4d9ead09-8dcf-4048-9e41-03e3d569a957" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.10/checksums/checksums.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.10/checksums/md5-checksums.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.10/checksums/sha1-checksums.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.10/dependencies-accessors/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.10/expanded/expanded.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.10/fileChanges/last-build.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.10/fileHashes/resourceHashesCache.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.10/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ed34dfc7-a7a7-4a40-99cf-c5c8b05ef1b8.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ed34dfc7-a7a7-4a40-99cf-c5c8b05ef1b8/storage_v2/_src_/schema/main.uQUzAA.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/ANTHONUS-bot.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/anthonus/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/autoCommands/AutoCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/autoCommands/FeurCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/autoCommands/InteractionCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/Command.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/admin/ClearCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/admin/UpdateAvatarCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/config/GetConfigCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/config/ReloadConfigCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/config/SetConfigCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/music/AddCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/music/ClearQueueCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/music/DownloadCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/music/JumpCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/music/ListCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/music/ListQueueCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/music/LoopCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/music/NextCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/music/PlayCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/music/PreviousCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/music/ReloadMusicsCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/music/RemoveCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/music/ShuffleCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/music/StopCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/normal/ComplimentCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/normal/CursedImageCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/normal/PrivateSendCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/normal/PrivateSendFileCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/normal/RoastCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/exceptions/LOGs/LogTypeAlreadyExistsException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/exceptions/LOGs/LogTypeDoesntExistsException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/exceptions/LOGs/RVBFormatException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/listeners/ButtonInteractionListener.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/listeners/MessageListener.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/listeners/SelectionMenuListener.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/listeners/SlashCommandAutoCompleteListener.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/listeners/SlashCommandListener.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/logs/LOGs.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/logs/exceptions/LogTypeNameException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/logs/exceptions/RVBFormatException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/logs/logTypes/DefaultLogType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/logs/logTypes/LogType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/utils/APICalls/APICall.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/utils/APICalls/APICallGPT.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/utils/APICalls/APICallReddit.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/utils/Server.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/utils/ServerManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/utils/WebhookMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/utils/database/DatabaseManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/utils/music/AudioPlayerSendHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/utils/music/TrackScheduler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/utils/settings/Setting.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/utils/settings/SettingsManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/logback.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/yt-dlp.exe" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,6 +17,13 @@
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -122,6 +44,9 @@
   &quot;associatedIndex&quot;: 4
 }</component>
   <component name="ProjectId" id="30daCGbYS6dHwxwdViPSImBmGT2" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
@@ -130,14 +55,23 @@
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
-    "git-widget-placeholder": "refactor",
-    "last_opened_file_path": "C:/Users/ANTHONUS/MyFolder/Projets/Discord/ANTHONUS-bot/rework",
+    "git-widget-placeholder": "rework",
+    "last_opened_file_path": "C:/Users/ANTHONUS/MyFolder/Projets/Discord/ANTHONUS-bot/rework/src/main/resources",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "onboarding.tips.debug.path": "C:/Users/ANTHONUS/MyFolder/Projets/Discord/ANTHONUS-bot/ANTHONUS-bot/src/main/java/fr/anthonus/Main.java",
     "settings.editor.selected.configurable": "code-screenshots",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\ANTHONUS\MyFolder\Projets\Discord\ANTHONUS-bot\rework\src\main\resources" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="rework" />
@@ -168,7 +102,7 @@
       <updated>1750514268169</updated>
       <workItem from="1750514269704" duration="1211000" />
       <workItem from="1753959781543" duration="30000" />
-      <workItem from="1753959852248" duration="21000" />
+      <workItem from="1753959852248" duration="716000" />
     </task>
     <servers />
   </component>
