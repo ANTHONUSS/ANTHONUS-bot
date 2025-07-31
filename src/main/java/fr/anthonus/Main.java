@@ -1,6 +1,7 @@
 package fr.anthonus;
 
 import fr.anthonus.listeners.GuildNameChangeListener;
+import fr.anthonus.listeners.MessageListener;
 import fr.anthonus.listeners.SlashCommandListener;
 import fr.anthonus.logs.LOGs;
 import fr.anthonus.logs.logTypes.DefaultLogType;
@@ -48,7 +49,8 @@ public class Main {
                 .enableIntents(GatewayIntent.MESSAGE_CONTENT)
                 .addEventListeners(
                         new SlashCommandListener(),
-                        new GuildNameChangeListener()
+                        new GuildNameChangeListener(),
+                        new MessageListener()
                 )
                 .build();
 
@@ -88,7 +90,11 @@ public class Main {
                 Commands.slash("clear", "Supprime un certain nombre de messages du salon.")
                         .addOptions(new OptionData(INTEGER, "nombre", "nombre de messages à supprimer", true)
                                 .setRequiredRange(1, 100))
-                        .setDefaultPermissions(DefaultMemberPermissions.enabledFor(Permission.MESSAGE_MANAGE))
+                        .setDefaultPermissions(DefaultMemberPermissions.enabledFor(Permission.MESSAGE_MANAGE)),
+
+                // MUSIC COMMANDS
+                Commands.slash("music", "Commandes relatives à la musique")
+                        .addSubcommands()
         );
         commands.queue();
         LOGs.sendLog("Commandes chargées", DefaultLogType.LOADING);

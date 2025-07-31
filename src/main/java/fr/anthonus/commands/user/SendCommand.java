@@ -30,12 +30,14 @@ public class SendCommand extends Command {
     public void run() {
         currentEvent.deferReply().setEphemeral(true).queue();
 
+
         FileUpload fileUpload;
         if (attachment != null) {
             fileUpload = FileUpload.fromData(attachment.getProxy().download().join(), attachment.getFileName());
         } else {
             fileUpload = null;
         }
+
 
         user.openPrivateChannel().queue(privateChannel -> {
             if (message != null && attachment != null) {
@@ -47,18 +49,37 @@ public class SendCommand extends Command {
             }
         });
 
+
         EmbedBuilder embed = new EmbedBuilder();
 
         embed.setTitle(":incoming_envelope: Message envoyé :incoming_envelope:");
         embed.setDescription("Votre message a été envoyé avec succès à " + user.getAsMention() + ".");
+
         if (message != null) {
             embed.addField("Message", "`" + message + "`", false);
         }
         if (attachment != null) {
-            embed.addField("Fichier joint", "`" +  attachment.getFileName() + "`", false);
+            embed.addField("Fichier joint", "[lien](" +  attachment.getUrl() + ")", false);
         }
-        embed.setColor(Color.GREEN);
-        currentEvent.getHook().sendMessageEmbeds(embed.build()).setEphemeral(true).queue();
-    }
 
+        embed.setColor(Color.GREEN);
+
+        currentEvent.getHook().sendMessageEmbeds(embed.build()).setEphemeral(true).queue();
+
+
+        StringBuilder logMessage = new StringBuilder();
+
+        logMessage.append("informations :")
+                .append("\nUser : @").append(currentEvent.getUser().getEffectiveName())
+                .append("\nDestinataire : @").append(user.getEffectiveName());
+
+        if (message != null) {
+            logMessage.append("\nMessage : ").append(message);
+        }
+        if (attachment != null) {
+            logMessage.append("\nFichier joint : ").append(attachment.getUrl());
+        }
+
+        LOGs.sendLog(logMessage.toString(), DefaultLogType.COMMAND);
+    }
 }
