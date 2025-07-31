@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4d9ead09-8dcf-4048-9e41-03e3d569a957" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/anthonus/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/InfoCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/InfoCommand.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,7 +153,7 @@
       <updated>1750514268169</updated>
       <workItem from="1750514269704" duration="1211000" />
       <workItem from="1753959781543" duration="30000" />
-      <workItem from="1753959852248" duration="8089000" />
+      <workItem from="1753959852248" duration="8993000" />
     </task>
     <servers />
   </component>

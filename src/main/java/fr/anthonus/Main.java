@@ -6,12 +6,10 @@ import fr.anthonus.logs.LOGs;
 import fr.anthonus.logs.logTypes.DefaultLogType;
 import fr.anthonus.utils.SettingsLoader;
 import fr.anthonus.utils.servers.DataBaseManager;
-import fr.anthonus.utils.servers.Server;
-import fr.anthonus.utils.servers.ServerManager;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
-import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.interactions.commands.build.Commands;
+import net.dv8tion.jda.api.interactions.commands.build.SubcommandData;
 import net.dv8tion.jda.api.requests.GatewayIntent;
 import net.dv8tion.jda.api.requests.restaction.CommandListUpdateAction;
 
