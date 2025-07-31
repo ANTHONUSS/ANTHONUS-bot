@@ -3,7 +3,7 @@ plugins {
 }
 
 group = 'fr.anthonus'
-version = '1.5.4'
+version = '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
@@ -12,36 +12,6 @@ repositories {
 dependencies {
     testImplementation platform('org.junit:junit-bom:5.10.0')
     testImplementation 'org.junit.jupiter:junit-jupiter'
-
-    //DotEnv
-        implementation("io.github.cdimascio:dotenv-java:3.2.0")
-
-    //JDA
-        implementation("net.dv8tion:JDA:5.6.1")
-        //LogBack
-            implementation("ch.qos.logback:logback-classic:1.5.18")
-        //LavaPlayer
-            implementation 'dev.arbjerg:lavaplayer:2.2.3'
-        //Webhooks
-            implementation("club.minnced:discord-webhooks:0.8.4")
-
-    //Requetes API
-        implementation ("com.squareup.okhttp3:okhttp:4.12.0")
-        implementation("com.google.code.gson:gson:2.13.1")
-
-    //Base de données
-    implementation 'org.xerial:sqlite-jdbc:3.50.1.0'
-}
-
-//Compiler en .jar
-jar {
-    manifest {
-        attributes('Main-Class': 'fr.anthonus.Main')
-    }
-    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
-    from {
-        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
-    }
 }
 
 test {

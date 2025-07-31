@@ -4,16 +4,94 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dfcb65e1-a446-4a61-98f1-2e01dcdfd001" name="Changes" comment="">
+    <list default="true" id="4d9ead09-8dcf-4048-9e41-03e3d569a957" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.10/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.10/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/checksums/md5-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.10/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/checksums/sha1-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10/checksums/checksums.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10/checksums/md5-checksums.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10/checksums/sha1-checksums.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10/dependencies-accessors/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10/executionHistory/executionHistory.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10/expanded/expanded.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10/fileChanges/last-build.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10/fileHashes/fileHashes.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10/fileHashes/resourceHashesCache.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ed34dfc7-a7a7-4a40-99cf-c5c8b05ef1b8.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ed34dfc7-a7a7-4a40-99cf-c5c8b05ef1b8/storage_v2/_src_/schema/main.uQUzAA.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/ANTHONUS-bot.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/utils/json/SettingJson.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/anthonus/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/autoCommands/AutoCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/autoCommands/FeurCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/autoCommands/InteractionCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/Command.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/admin/ClearCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/admin/UpdateAvatarCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/config/GetConfigCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/config/ReloadConfigCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/config/SetConfigCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/music/AddCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/music/ClearQueueCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/music/DownloadCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/music/JumpCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/music/ListCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/music/ListQueueCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/music/LoopCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/music/NextCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/music/PlayCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/music/PreviousCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/music/ReloadMusicsCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/music/RemoveCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/music/ShuffleCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/music/StopCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/normal/ComplimentCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/normal/CursedImageCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/normal/PrivateSendCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/normal/PrivateSendFileCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/slashCommands/normal/RoastCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/exceptions/LOGs/LogTypeAlreadyExistsException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/exceptions/LOGs/LogTypeDoesntExistsException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/exceptions/LOGs/RVBFormatException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/listeners/ButtonInteractionListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/listeners/MessageListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/listeners/SelectionMenuListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/listeners/SlashCommandAutoCompleteListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/listeners/SlashCommandListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/logs/LOGs.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/logs/exceptions/LogTypeNameException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/logs/exceptions/RVBFormatException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/logs/logTypes/DefaultLogType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/logs/logTypes/LogType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/utils/APICalls/APICall.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/utils/APICalls/APICallGPT.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/utils/APICalls/APICallReddit.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/utils/Server.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/utils/ServerManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/utils/WebhookMessage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/utils/database/DatabaseManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/utils/music/AudioPlayerSendHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/utils/music/TrackScheduler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/utils/settings/Setting.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/utils/settings/SettingsManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/logback.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yt-dlp.exe" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,45 +102,6 @@
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
-  </component>
-  <component name="ExternalProjectsManager">
-    <system id="GRADLE">
-      <state>
-        <task path="$PROJECT_DIR$">
-          <activation />
-        </task>
-        <projects_view>
-          <tree_state>
-            <expand>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="ANTHONUS-bot" type="f1a62948:ProjectNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="ANTHONUS-bot" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="ANTHONUS-bot" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="build" type="c8890929:TasksNode$1" />
-              </path>
-            </expand>
-            <select />
-          </tree_state>
-        </projects_view>
-      </state>
-    </system>
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Enum" />
-        <option value="Class" />
-      </list>
-    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -80,116 +119,37 @@
   }
 }]]></component>
   <component name="ProjectColorInfo">{
-  &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 4
 }</component>
-  <component name="ProjectId" id="2rfut9EWzoM4dAuFyOvR78C9WxG" />
-  <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="1" id="Add" />
-  </component>
+  <component name="ProjectId" id="30daCGbYS6dHwxwdViPSImBmGT2" />
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Gradle.ANTHONUS-bot [:fr.ANTHONUSApps.Main.main()].executor": "Run",
-    "Gradle.ANTHONUS-bot [:fr.anthonus.Main.main()].executor": "Run",
-    "Gradle.ANTHONUS-bot [build].executor": "Run",
-    "Gradle.ANTHONUS-bot [clean jlink].executor": "Run",
-    "Gradle.ANTHONUS-bot [jlink].executor": "Run",
-    "Gradle.Build ANTHONUS-bot.executor": "Run",
-    "Gradle.Download Sources.executor": "Run",
-    "Gradle.Load Gradle Dependencies.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
-    "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "refactor",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/ANTHONUS/MyFolder/Projets/Discord/ANTHONUS-bot",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
+    "last_opened_file_path": "C:/Users/ANTHONUS/MyFolder/Projets/Discord/ANTHONUS-bot/rework",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "onboarding.tips.debug.path": "C:/Users/ANTHONUS/MyFolder/Projets/Discord/ANTHONUS-bot/ANTHONUS-bot/src/main/java/fr/anthonus/Main.java",
+    "settings.editor.selected.configurable": "code-screenshots",
     "vue.rearranger.settings.migration": "true"
-  },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "sqlite"
-    ]
   }
 }]]></component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="G:\Mon Drive\Programmation\Java\Discord\ANTHONUS-bot\src\main\java\fr\anthonus\logs" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="fr.ANTHONUSApps.Commands.SlashCommands.music" />
-      <recent name="fr.ANTHONUSApps.Listeners" />
-      <recent name="fr.ANTHONUSApps.Exceptions.LOGs" />
-      <recent name="fr.ANTHONUSApps.Exceptions" />
-      <recent name="fr.ANTHONUSApps.Commands.SlashCommands" />
-    </key>
-  </component>
-  <component name="RunAnythingCache">
-    <option name="myCommands">
-      <command value="gradle build" />
-      <command value="gradle jlink" />
-      <command value="gradle clean jlink" />
-    </option>
-  </component>
-  <component name="RunManager" selected="Application.Main">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="fr.anthonus.Main" />
-      <module name="ANTHONUS-bot.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="fr.anthonus.logs.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="rework" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ANTHONUS-bot [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="build" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="rework" />
+      <option name="filePath" />
       <method v="2" />
     </configuration>
-    <list>
-      <item itemvalue="Application.Main" />
-      <item itemvalue="Gradle.ANTHONUS-bot [build]" />
-    </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Gradle.ANTHONUS-bot [build]" />
-        <item itemvalue="Application.Main" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -199,104 +159,20 @@
       </set>
     </attachedChunks>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="dfcb65e1-a446-4a61-98f1-2e01dcdfd001" name="Changes" comment="" />
-      <created>1736962663965</created>
+      <changelist id="4d9ead09-8dcf-4048-9e41-03e3d569a957" name="Changes" comment="" />
+      <created>1750514268169</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1736962663965</updated>
-      <workItem from="1736962665657" duration="12238000" />
-      <workItem from="1737032572839" duration="7450000" />
-      <workItem from="1737063720274" duration="1316000" />
-      <workItem from="1737295023098" duration="6118000" />
-      <workItem from="1737317779615" duration="4779000" />
-      <workItem from="1737392692122" duration="1703000" />
-      <workItem from="1737476733229" duration="5793000" />
-      <workItem from="1737584871287" duration="7000" />
-      <workItem from="1737636063981" duration="9323000" />
-      <workItem from="1737645566199" duration="55000" />
-      <workItem from="1737746312013" duration="8714000" />
-      <workItem from="1737800817052" duration="2606000" />
-      <workItem from="1737803801909" duration="588000" />
-      <workItem from="1737838644163" duration="122000" />
-      <workItem from="1737849858896" duration="247000" />
-      <workItem from="1737993052479" duration="253000" />
-      <workItem from="1739818922041" duration="15000" />
-      <workItem from="1739823316729" duration="11000" />
-      <workItem from="1740230723991" duration="243000" />
-      <workItem from="1741460519560" duration="2969000" />
-      <workItem from="1741474152414" duration="64000" />
-      <workItem from="1741474395715" duration="404000" />
-      <workItem from="1741476628510" duration="671000" />
-      <workItem from="1741549576996" duration="1856000" />
-      <workItem from="1741556030156" duration="58000" />
-      <workItem from="1741572570269" duration="8000" />
-      <workItem from="1741572663046" duration="37000" />
-      <workItem from="1741572957388" duration="521000" />
-      <workItem from="1741628492029" duration="1672000" />
-      <workItem from="1741680345879" duration="7000" />
-      <workItem from="1741681474059" duration="615000" />
-      <workItem from="1741684803760" duration="44000" />
-      <workItem from="1741876805814" duration="81000" />
-      <workItem from="1742072078878" duration="32000" />
-      <workItem from="1742563183724" duration="941000" />
-      <workItem from="1742831500078" duration="3146000" />
-      <workItem from="1742896555009" duration="5463000" />
-      <workItem from="1742903021573" duration="2372000" />
-      <workItem from="1742915311375" duration="8793000" />
-      <workItem from="1742932590064" duration="34000" />
-      <workItem from="1742934361854" duration="6603000" />
-      <workItem from="1743016851610" duration="1628000" />
-      <workItem from="1743020340797" duration="3842000" />
-      <workItem from="1743024890963" duration="353000" />
-      <workItem from="1743095647957" duration="1701000" />
-      <workItem from="1743460858008" duration="52000" />
-      <workItem from="1743938511253" duration="1213000" />
-      <workItem from="1744009448167" duration="1811000" />
-      <workItem from="1744012400132" duration="1022000" />
-      <workItem from="1744109628310" duration="7134000" />
-      <workItem from="1744269369371" duration="120000" />
-      <workItem from="1745143855425" duration="35000" />
-      <workItem from="1745147127554" duration="37000" />
-      <workItem from="1745430106966" duration="4331000" />
-      <workItem from="1745753594279" duration="14000" />
-      <workItem from="1745781239386" duration="1079000" />
-      <workItem from="1745788424979" duration="33000" />
-      <workItem from="1745788521797" duration="2861000" />
-      <workItem from="1745836537281" duration="1246000" />
-      <workItem from="1745883172861" duration="603000" />
-      <workItem from="1746097913822" duration="412000" />
-      <workItem from="1746178839867" duration="8000" />
-      <workItem from="1746189481675" duration="1496000" />
-      <workItem from="1746191064476" duration="75000" />
-      <workItem from="1746223315397" duration="121000" />
-      <workItem from="1747398499829" duration="45000" />
-      <workItem from="1747519255843" duration="38000" />
-      <workItem from="1747523517324" duration="2998000" />
-      <workItem from="1748541658038" duration="803000" />
-      <workItem from="1749992581389" duration="854000" />
-      <workItem from="1753440772157" duration="2905000" />
+      <updated>1750514268169</updated>
+      <workItem from="1750514269704" duration="1211000" />
+      <workItem from="1753959781543" duration="30000" />
+      <workItem from="1753959852248" duration="21000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="UnknownFeatures">
-    <option featureType="com.intellij.fileTypeFactory" implementationName="*.db" />
-    <option featureType="com.intellij.fileTypeFactory" implementationName=".env" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
   </component>
 </project>
