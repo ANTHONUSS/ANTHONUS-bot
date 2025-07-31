@@ -12,6 +12,8 @@ public class SettingsLoader {
     private static String tokenDiscord;
     private static String tokenOpenAI;
 
+    private static String fastTalkPersonnality;
+
     public static boolean loadEnv() {
         Dotenv dotenv = Dotenv.configure()
                 .directory("conf")
@@ -47,6 +49,15 @@ public class SettingsLoader {
             }
         } catch (IOException ignored) {}
         return "unknown";
+    }
+
+    public static String getFastTalkPersonnality(){
+        try (InputStream in = SettingsLoader.class.getClassLoader().getResourceAsStream("chatGPT/fastTalkPersonnality.txt")) {
+            if (in != null) {
+                return new String(in.readAllBytes(), StandardCharsets.UTF_8).trim();
+            }
+        } catch (IOException ignored) {}
+        return null;
     }
 
     public static String getTokenDiscord() {
