@@ -20,7 +20,7 @@ public class Server {
         this.allowFeur = allowFeur;
         this.looping = looping;
 
-        this.playerManager = new PlayerManager();
+        this.playerManager = new PlayerManager(this);
     }
 
     public Server(long guildId) {
@@ -30,7 +30,7 @@ public class Server {
         this.allowFeur = true;
         this.looping = false;
 
-        this.playerManager = new PlayerManager();
+        this.playerManager = new PlayerManager(this);
     }
 
     public long getGuildId() {

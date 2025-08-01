@@ -9,11 +9,11 @@ import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEve
 
 import java.awt.*;
 
-public class ClearCommand extends Command {
+public class AdminClearCommand extends Command {
     private int amount;
 
 
-    public ClearCommand(SlashCommandInteractionEvent event, int amount) {
+    public AdminClearCommand(SlashCommandInteractionEvent event, int amount) {
         super(event);
         this.amount = amount;
 

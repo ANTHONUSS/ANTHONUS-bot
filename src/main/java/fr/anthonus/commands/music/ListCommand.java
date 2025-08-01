@@ -21,35 +21,23 @@ public class ListCommand extends Command {
 
     @Override
     public void run() {
+        if (isQueueEmpty()) return;
+
         long guildID = currentEvent.getGuild().getIdLong();
-        List<AudioTrack> tracks = ServerManager.getServer(guildID).getPlayerManager().getQueue();
-
-        if (tracks.isEmpty()) {
-            EmbedBuilder embed = new EmbedBuilder();
-            embed.setTitle(":warning: Aucune musique dans la liste :warning:");
-            embed.setDescription("La liste des musiques est vide.");
-
-            embed.setColor(Color.YELLOW);
-
-            embed.setFooter("\uD83D\uDCA1 Ajoutez des musiques avec la commande /add", null);
-
-            currentEvent.replyEmbeds(embed.build()).setEphemeral(true).queue();
-            LOGs.sendLog("Aucune musique dans la liste pour le serveur " + currentEvent.getGuild().getName(), DefaultLogType.WARNING);
-            return;
-        }
+        List<AudioTrack> queue = ServerManager.getServer(guildID).getPlayerManager().getQueue();
 
         EmbedBuilder embed = new EmbedBuilder();
         embed.setTitle(":scroll: File d'attente :scroll:");
 
         StringBuilder trackList = new StringBuilder();
         int i = 1;
-        for (AudioTrack track : tracks) {
+        for (AudioTrack track : queue) {
             trackList.append("**"+i+".** `").append(track.getInfo().title).append("`\n");
             i++;
         }
         embed.setDescription(trackList.toString());
 
-        embed.setFooter("Total : " + tracks.size() + (tracks.size() == 1 ? " musique" : " musiques"), null);
+        embed.setFooter("Total : " + queue.size() + (queue.size() == 1 ? " musique" : " musiques"), null);
 
         embed.setColor(Color.CYAN);
 

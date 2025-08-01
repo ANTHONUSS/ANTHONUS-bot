@@ -36,6 +36,8 @@ public class InfoCommand extends Command {
         Server currentServer = ServerManager.getServer(guildId);
         settings.append("- Autorise les réponses feur : `")
                 .append(currentServer.isAllowFeur() ? "Oui" : "Non").append("`").append("\n");
+        settings.append("- Loop activé : `")
+                .append(currentServer.isLooping() ? "Oui" : "Non").append("`").append("\n");
 
         embed.addField("Paramètres du serveur", settings.toString(), false);
 

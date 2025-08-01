@@ -1,6 +1,6 @@
 package fr.anthonus.listeners;
 
-import fr.anthonus.commands.admin.*;
+import fr.anthonus.commands.admin.AdminClearCommand;
 import fr.anthonus.commands.music.*;
 import fr.anthonus.commands.settings.*;
 import fr.anthonus.commands.user.*;
@@ -70,7 +70,7 @@ public class SlashCommandListener extends ListenerAdapter {
             case "clear" -> {
                 int count = event.getOption("nombre").getAsInt();
 
-                new ClearCommand(event, count).run();
+                new AdminClearCommand(event, count).run();
             }
 
             // MUSIC COMMANDS
@@ -85,8 +85,36 @@ public class SlashCommandListener extends ListenerAdapter {
                         String musicName = event.getOption("music").getAsString();
                         new RemoveCommand(event, musicName).run();
                     }
+                    case "clear" -> {
+                        new ClearCommand(event).run();
+                    }
                     case "list" -> {
                         new ListCommand(event).run();
+                    }
+                    case "shuffle" -> {
+                        new ShuffleCommand(event).run();
+                    }
+                    case "loop" -> {
+                        new LoopCommand(event).run();
+                    }
+                    case "track" -> {
+                        new TrackCommand(event).run();
+                    }
+                    case "play" -> {
+                        new PlayCommand(event).run();
+                    }
+                    case "stop" -> {
+                        new StopCommand(event).run();
+                    }
+                    case "next" -> {
+                        //new NextCommand(event).run();
+                    }
+                    case "previous" -> {
+                        //new PreviousCommand(event).run();
+                    }
+                    case "jump" -> {
+                        //String musicName = event.getOption("music").getAsString();
+                        //new JumpCommand(event, musicName).run();
                     }
                 }
             }

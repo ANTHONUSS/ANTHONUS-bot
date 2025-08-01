@@ -102,6 +102,12 @@ public class Main {
 
                                 new SubcommandData("list", "Affiche la liste des pistes audio dans la file d'attente"),
 
+                                new SubcommandData("shuffle", "Mélange la file d'attente"),
+
+                                new SubcommandData("loop", "Active ou désactive la répétition de la file d'attente"),
+
+                                new SubcommandData("track", "Affiche la piste audio en cours de lecture"),
+
                                 new SubcommandData("play", "Joue la première piste audio de la file d'attente"),
 
                                 new SubcommandData("stop", "Arrête la musique et déconnecte le bot"),
@@ -111,13 +117,7 @@ public class Main {
                                 new SubcommandData("previous", "Rejoue la piste audio précédente dans la file d'attente"),
 
                                 new SubcommandData("jump", "Joue une piste audio spécifique de la file d'attente")
-                                        .addOption(STRING, "music", "Nom de la musique à jouer", true, true),
-
-                                new SubcommandData("loop", "Active ou désactive la répétition de la file d'attente"),
-
-                                new SubcommandData("shuffle", "Mélange la file d'attente"),
-
-                                new SubcommandData("track", "Affiche la piste audio en cours de lecture")
+                                        .addOption(STRING, "music", "Nom de la musique à jouer", true, true)
 
                         )
         );

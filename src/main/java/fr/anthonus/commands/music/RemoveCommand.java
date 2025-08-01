@@ -25,19 +25,22 @@ public class RemoveCommand extends Command {
 
     @Override
     public void run() {
+        if (isQueueEmpty()) return;
+
         long guildID = currentEvent.getGuild().getIdLong();
         PlayerManager playerManager = ServerManager.getServer(guildID).getPlayerManager();
 
         List<AudioTrack> queue = playerManager.getQueue();
 
-        if (queue.isEmpty()) {
-            currentEvent.reply("## :warning: La file d'attente est vide").setEphemeral(true).queue();
-            return;
-        }
-
         AudioTrack currentTrack = playerManager.getCurrentTrack();
         if (currentTrack != null && currentTrack.getInfo().title.equalsIgnoreCase(selectedMusic)) {
-            currentEvent.reply("## :warning: Impossible de retirer la musique en cours de lecture").setEphemeral(true).queue();
+            EmbedBuilder embed = new EmbedBuilder();
+            embed.setTitle(":warning: Musique en cours de lecture :warning:");
+            embed.setDescription("Impossible de retirer la musique en cours de lecture : `" + currentTrack.getInfo().title + "`");
+
+            embed.setColor(Color.YELLOW);
+
+            currentEvent.replyEmbeds(embed.build()).setEphemeral(true).queue();
             return;
         }
 
@@ -67,6 +70,7 @@ public class RemoveCommand extends Command {
         EmbedBuilder embed = new EmbedBuilder();
         embed.setTitle(":warning: Musique non trouvée :warning:");
         embed.setDescription("La musique `" + selectedMusic + "` n'est pas dans la file d'attente");
+
         embed.setColor(Color.YELLOW);
 
         currentEvent.replyEmbeds(embed.build()).setEphemeral(true).queue();
