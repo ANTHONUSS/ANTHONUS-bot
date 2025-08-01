@@ -26,10 +26,33 @@ public class Main {
     public static JDA jda;
 
     public static void main(String[] args) throws InterruptedException {
+        init();
+
+        Scanner scanner = new Scanner(System.in);
+        while(true) {
+            String input = scanner.nextLine();
+            switch (input) {
+                case "exit" -> {
+                    LOGs.sendLog("Arrêt du bot...", DefaultLogType.LOADING);
+                    jda.shutdownNow();
+
+                    System.exit(0);
+                }
+                case "reload" -> {
+                    LOGs.sendLog("Rechargement du bot...", DefaultLogType.LOADING);
+                    jda.shutdown();
+
+                    init();
+                    LOGs.sendLog("Bot rechargé", DefaultLogType.LOADING);
+                }
+            }
+        }
+    }
+
+    private static void init() throws InterruptedException {
         LOGs.sendLog("Chargement des paramètres...", DefaultLogType.LOADING);
         if (!SettingsLoader.loadEnv()) {
-            LOGs.sendLog("Erreur lors du chargement des paramètres", DefaultLogType.ERROR);
-            return;
+            throw new RuntimeException("Erreur lors du chargement des paramètres");
         }
         LOGs.sendLog("Paramètres chargés", DefaultLogType.LOADING);
 
@@ -43,17 +66,6 @@ public class Main {
         LOGs.sendLog("Chargement de la base de donnée", DefaultLogType.LOADING);
         DataBaseManager.loadDataBase();
         LOGs.sendLog("Base de donnée chargée", DefaultLogType.LOADING);
-
-        Scanner scanner = new Scanner(System.in);
-        while(true) {
-            String input = scanner.nextLine();
-            if (input.equalsIgnoreCase("exit")) {
-                LOGs.sendLog("Arrêt du bot...", DefaultLogType.LOADING);
-                jda.shutdownNow();
-                LOGs.sendLog("Bot arrêté", DefaultLogType.LOADING);
-                break;
-            }
-        }
     }
 
     private static void initBot() throws InterruptedException {
