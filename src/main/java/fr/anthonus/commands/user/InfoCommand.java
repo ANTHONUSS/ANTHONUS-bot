@@ -34,13 +34,8 @@ public class InfoCommand extends Command {
         StringBuilder settings = new StringBuilder();
         long guildId = currentEvent.getGuild().getIdLong();
         Server currentServer = ServerManager.getServer(guildId);
-        settings.append("- Probabilité de commandes automatiques : `")
-                .append(currentServer.getAutoCommandProbability())
-                .append("%`").append("\n");
         settings.append("- Autorise les réponses feur : `")
                 .append(currentServer.isAllowFeur() ? "Oui" : "Non").append("`").append("\n");
-        settings.append("- Autorise les réponses par ChatGPT : `")
-                .append(currentServer.isAllowReply() ? "Oui" : "Non").append("`").append("\n");
 
         embed.addField("Paramètres du serveur", settings.toString(), false);
 

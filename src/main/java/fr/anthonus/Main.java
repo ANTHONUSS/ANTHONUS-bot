@@ -76,16 +76,7 @@ public class Main {
                 // SETTINGS COMMANDS
                 Commands.slash("settings", "Commande relative aux paramètres du bot")
                         .addSubcommands(
-                                new SubcommandData("autocommandprobability", "Change la probabilité de commandes automatiques")
-                                        .addOptions(new OptionData(INTEGER, "probability", "La probabilité de commandes automatiques (0-100)", true)
-                                                .setMinValue(0)
-                                                .setMaxValue(100)
-                                        ),
-
                                 new SubcommandData("allowfeur", "Active ou désactive les réponses feur")
-                                        .addOption(BOOLEAN, "valeur", "La valeur à définir", true),
-
-                                new SubcommandData("allowreply", "Active ou désactive les réponses par ChatGPT")
                                         .addOption(BOOLEAN, "valeur", "La valeur à définir", true)
                         )
                         .setDefaultPermissions(DefaultMemberPermissions.enabledFor(Permission.ADMINISTRATOR)),

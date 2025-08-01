@@ -13,9 +13,7 @@ public class DataBaseManager {
             String createServersQuery = "CREATE TABLE IF NOT EXISTS Servers (" +
                     "serverId INTEGER PRIMARY KEY," +
                     "serverName STRING NOT NULL," +
-                    "autoCommandProbability INTEGER NOT NULL," +
-                    "allowFeur BOOLEAN NOT NULL," +
-                    "allowReply BOOLEAN NOT NULL" +
+                    "allowFeur BOOLEAN NOT NULL" +
                     ");";
 
             conn.createStatement().execute(createServersQuery);
@@ -34,16 +32,14 @@ public class DataBaseManager {
 
     public static void saveServer(Server server) {
         try (Connection conn = DriverManager.getConnection(DB_URL)) {
-            String insertQuery = "INSERT OR REPLACE INTO Servers (serverId, serverName, autoCommandProbability, allowFeur, allowReply) " +
-                    "VALUES (?, ?, ?, ?, ?)";
+            String insertQuery = "INSERT OR REPLACE INTO Servers (serverId, serverName, allowFeur) " +
+                    "VALUES (?, ?, ?)";
 
             PreparedStatement preparedStatement = conn.prepareStatement(insertQuery);
 
             preparedStatement.setLong(1, server.getGuildId());
             preparedStatement.setString(2, server.getServerName());
-            preparedStatement.setInt(3, server.getAutoCommandProbability());
-            preparedStatement.setBoolean(4, server.isAllowFeur());
-            preparedStatement.setBoolean(5, server.isAllowReply());
+            preparedStatement.setBoolean(3, server.isAllowFeur());
 
             preparedStatement.executeUpdate();
 
@@ -66,9 +62,7 @@ public class DataBaseManager {
                 return new Server(
                         resultSet.getLong("serverId"),
                         resultSet.getString("serverName"),
-                        resultSet.getInt("autoCommandProbability"),
-                        resultSet.getBoolean("allowFeur"),
-                        resultSet.getBoolean("allowReply")
+                        resultSet.getBoolean("allowFeur")
                 );
 
             } else {

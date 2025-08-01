@@ -4,8 +4,6 @@ import fr.anthonus.commands.user.CursedCommand;
 import fr.anthonus.commands.user.InfoCommand;
 import fr.anthonus.commands.admin.ClearCommand;
 import fr.anthonus.commands.settings.AllowFeurCommand;
-import fr.anthonus.commands.settings.AllowReplyCommand;
-import fr.anthonus.commands.settings.AutoCommandProbabilityCommand;
 import fr.anthonus.commands.user.SendCommand;
 import fr.anthonus.logs.LOGs;
 import fr.anthonus.logs.logTypes.DefaultLogType;
@@ -61,19 +59,9 @@ public class SlashCommandListener extends ListenerAdapter {
             case "settings" -> {
                 String subCommand = event.getSubcommandName();
                 switch (subCommand) {
-                    case "autocommandprobability" -> {
-                        int probability = event.getOption("probability").getAsInt();
-                        new AutoCommandProbabilityCommand(event, probability).run();
-
-                    }
                     case "allowfeur" -> {
                         boolean allowFeur = event.getOption("valeur").getAsBoolean();
                         new AllowFeurCommand(event, allowFeur).run();
-
-                    }
-                    case "allowreply" -> {
-                        boolean allowReply = event.getOption("valeur").getAsBoolean();
-                        new AllowReplyCommand(event, allowReply).run();
 
                     }
                 }
