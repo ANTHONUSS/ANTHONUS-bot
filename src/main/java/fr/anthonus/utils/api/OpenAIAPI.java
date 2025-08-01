@@ -19,6 +19,7 @@ public class OpenAIAPI {
     }
 
     public static String getChatGPTResponse(String personality, String message) {
+        LOGs.sendLog("Création de la requête pour OpenAI", DefaultLogType.API);
         ResponseCreateParams params = ResponseCreateParams.builder()
                 .model(ChatModel.GPT_4_1_NANO)
                 .maxOutputTokens(512)
