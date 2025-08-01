@@ -13,12 +13,12 @@ public class PlayerManager {
     private final AudioPlayer player;
     private AudioTrack currentTrack;
 
-    private final List<AudioTrack> tracks;
+    private final List<AudioTrack> queue;
 
     public PlayerManager() {
         manager = new DefaultAudioPlayerManager();
         player = manager.createPlayer();
-        tracks = new ArrayList<>();
+        queue = new ArrayList<>();
     }
 
     public AudioPlayerManager getManager() {
@@ -36,16 +36,16 @@ public class PlayerManager {
         currentTrack = track;
     }
 
-    public List<AudioTrack> getTracks() {
-        return tracks;
+    public List<AudioTrack> getQueue() {
+        return queue;
     }
     public void addTrack(AudioTrack track) {
-        tracks.add(track);
+        queue.add(track);
     }
     public void clearTracks() {
-        tracks.clear();
+        queue.clear();
     }
     public void removeTrack(AudioTrack track) {
-        tracks.remove(track);
+        queue.remove(track);
     }
 }

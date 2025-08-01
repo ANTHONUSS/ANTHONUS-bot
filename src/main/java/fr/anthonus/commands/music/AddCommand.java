@@ -1,7 +1,6 @@
 package fr.anthonus.commands.music;
 
 import com.sedmelluq.discord.lavaplayer.player.AudioLoadResultHandler;
-import com.sedmelluq.discord.lavaplayer.player.AudioPlayer;
 import com.sedmelluq.discord.lavaplayer.player.AudioPlayerManager;
 import com.sedmelluq.discord.lavaplayer.source.AudioSourceManagers;
 import com.sedmelluq.discord.lavaplayer.tools.FriendlyException;
@@ -9,7 +8,6 @@ import com.sedmelluq.discord.lavaplayer.track.AudioPlaylist;
 import com.sedmelluq.discord.lavaplayer.track.AudioTrack;
 import dev.lavalink.youtube.YoutubeAudioSourceManager;
 import dev.lavalink.youtube.track.YoutubeAudioTrack;
-import fr.anthonus.Main;
 import fr.anthonus.commands.Command;
 import fr.anthonus.logs.LOGs;
 import fr.anthonus.logs.logTypes.DefaultLogType;
@@ -17,7 +15,6 @@ import fr.anthonus.utils.music.PlayerManager;
 import fr.anthonus.utils.servers.ServerManager;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
-import net.dv8tion.jda.api.managers.AudioManager;
 
 import java.awt.*;
 import java.util.List;
@@ -53,7 +50,7 @@ public class AddCommand extends Command {
         }
 
         long guildID = currentEvent.getGuild().getIdLong();
-        List<AudioTrack> tracks = ServerManager.getServer(guildID).getPlayerManager().getTracks();
+        List<AudioTrack> tracks = ServerManager.getServer(guildID).getPlayerManager().getQueue();
 
         if (tracks.size() >= 25) {
             EmbedBuilder embed = new EmbedBuilder();

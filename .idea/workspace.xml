@@ -8,11 +8,10 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/anthonus/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/listeners/GuildNameChangeListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/anthonus/listeners/GuildNameChangeListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/music/AddCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/music/AddCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/music/ListCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/music/ListCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/listeners/SlashCommandListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/anthonus/listeners/SlashCommandListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/utils/servers/DataBaseManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/anthonus/utils/servers/DataBaseManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/utils/servers/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/anthonus/utils/servers/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/utils/servers/ServerManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/utils/music/PlayerManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/anthonus/utils/music/PlayerManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,6 +117,7 @@
       <recent name="C:\Users\ANTHONUS\MyFolder\Projets\Discord\ANTHONUS-bot\rework\data" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="fr.anthonus.listeners" />
       <recent name="fr.anthonus.utils.music" />
       <recent name="fr.anthonus.commands" />
     </key>
@@ -171,7 +171,7 @@
       <workItem from="1750514269704" duration="1211000" />
       <workItem from="1753959781543" duration="30000" />
       <workItem from="1753959852248" duration="33685000" />
-      <workItem from="1754050614341" duration="16939000" />
+      <workItem from="1754050614341" duration="17791000" />
     </task>
     <servers />
   </component>

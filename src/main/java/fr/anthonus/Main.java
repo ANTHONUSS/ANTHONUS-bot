@@ -2,6 +2,7 @@ package fr.anthonus;
 
 import fr.anthonus.listeners.GuildNameChangeListener;
 import fr.anthonus.listeners.MessageListener;
+import fr.anthonus.listeners.SlashCommandAutoCompleteListener;
 import fr.anthonus.listeners.SlashCommandListener;
 import fr.anthonus.logs.LOGs;
 import fr.anthonus.logs.logTypes.DefaultLogType;
@@ -52,7 +53,8 @@ public class Main {
                 .addEventListeners(
                         new SlashCommandListener(),
                         new GuildNameChangeListener(),
-                        new MessageListener()
+                        new MessageListener(),
+                        new SlashCommandAutoCompleteListener()
                 )
                 .build();
 

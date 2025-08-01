@@ -81,6 +81,10 @@ public class SlashCommandListener extends ListenerAdapter {
                         String url = event.getOption("url").getAsString();
                         new AddCommand(event, url).run();
                     }
+                    case "remove" -> {
+                        String musicName = event.getOption("music").getAsString();
+                        new RemoveCommand(event, musicName).run();
+                    }
                     case "list" -> {
                         new ListCommand(event).run();
                     }

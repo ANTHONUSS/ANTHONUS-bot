@@ -22,7 +22,7 @@ public class ListCommand extends Command {
     @Override
     public void run() {
         long guildID = currentEvent.getGuild().getIdLong();
-        List<AudioTrack> tracks = ServerManager.getServer(guildID).getPlayerManager().getTracks();
+        List<AudioTrack> tracks = ServerManager.getServer(guildID).getPlayerManager().getQueue();
 
         if (tracks.isEmpty()) {
             EmbedBuilder embed = new EmbedBuilder();
