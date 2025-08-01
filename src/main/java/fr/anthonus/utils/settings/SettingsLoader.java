@@ -15,6 +15,8 @@ public class SettingsLoader {
     private static String redditClientId;
     private static String redditClientSecret;
 
+    private static String youtubeApiKey;
+
     public static boolean loadEnv() {
         Dotenv dotenv = Dotenv.configure()
                 .directory("conf")
@@ -60,6 +62,16 @@ public class SettingsLoader {
             LOGs.sendLog("Client secret Reddit chargé", DefaultLogType.FILE_LOADING);
         }
 
+        //load Youtube API Key
+        LOGs.sendLog("Chargement du token Youtube...", DefaultLogType.FILE_LOADING);
+        youtubeApiKey = dotenv.get("TOUTUBE_API_KEY");
+        if (youtubeApiKey == null || youtubeApiKey.isEmpty()) {
+            LOGs.sendLog("Token Youtube non trouvé dans le fichier .env", DefaultLogType.ERROR);
+            return false;
+        } else {
+            LOGs.sendLog("Token Youtube chargé", DefaultLogType.FILE_LOADING);
+        }
+
         return true;
     }
 
@@ -95,4 +107,9 @@ public class SettingsLoader {
     public static String getRedditClientSecret() {
         return redditClientSecret;
     }
+
+    public static String getYoutubeApiKey() {
+        return youtubeApiKey;
+    }
+
 }

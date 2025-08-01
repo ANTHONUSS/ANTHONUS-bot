@@ -116,6 +116,11 @@ public class SlashCommandListener extends ListenerAdapter {
                         String musicName = event.getOption("music").getAsString();
                         new JumpCommand(event, musicName).run();
                     }
+                    case "search" -> {
+                        String query = event.getOption("query").getAsString();
+                        boolean addDirectly = event.getOption("ajout-direct") != null && event.getOption("ajout-direct").getAsBoolean();
+                        new SearchCommand(event, query, addDirectly).run();
+                    }
                 }
             }
         }
