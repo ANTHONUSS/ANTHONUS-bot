@@ -107,14 +107,14 @@ public class SlashCommandListener extends ListenerAdapter {
                         new StopCommand(event).run();
                     }
                     case "next" -> {
-                        //new NextCommand(event).run();
+                        new NextCommand(event).run();
                     }
                     case "previous" -> {
-                        //new PreviousCommand(event).run();
+                        new PreviousCommand(event).run();
                     }
                     case "jump" -> {
-                        //String musicName = event.getOption("music").getAsString();
-                        //new JumpCommand(event, musicName).run();
+                        String musicName = event.getOption("music").getAsString();
+                        new JumpCommand(event, musicName).run();
                     }
                 }
             }

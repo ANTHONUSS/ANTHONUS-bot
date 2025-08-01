@@ -50,9 +50,6 @@ public class PlayerManager {
     public void clearTracks() {
         queue.clear();
     }
-    public void removeTrack(AudioTrack track) {
-        queue.remove(track);
-    }
 
     public AudioTrack getNextTrack() {
         for (int i = 0; i < queue.size(); i++) {
