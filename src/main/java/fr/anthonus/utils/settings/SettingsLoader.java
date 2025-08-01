@@ -1,4 +1,4 @@
-package fr.anthonus.utils;
+package fr.anthonus.utils.settings;
 
 import fr.anthonus.logs.LOGs;
 import fr.anthonus.logs.logTypes.DefaultLogType;

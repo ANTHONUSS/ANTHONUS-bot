@@ -1,17 +1,21 @@
 package fr.anthonus.listeners;
 
+import fr.anthonus.Main;
 import fr.anthonus.logs.LOGs;
 import fr.anthonus.logs.logTypes.DefaultLogType;
-import fr.anthonus.utils.SettingsLoader;
+import fr.anthonus.utils.Utils;
+import fr.anthonus.utils.settings.SettingsLoader;
 import fr.anthonus.utils.api.OpenAIAPI;
 import fr.anthonus.utils.servers.ServerManager;
-import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.entities.MessageReference;
+import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
-import java.awt.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class MessageListener extends ListenerAdapter {
 
@@ -27,7 +31,6 @@ public class MessageListener extends ListenerAdapter {
         }
 
         String botPing = event.getJDA().getSelfUser().getAsMention();
-
         if (message.startsWith(botPing)) {
             handleFastTalk(event);
         }
@@ -49,7 +52,12 @@ public class MessageListener extends ListenerAdapter {
 
     private void handleFastTalk(MessageReceivedEvent event) {
         Message message = event.getMessage();
-        String messageContent = "[MESSAGE PRINCIPAL] Message de " + message.getAuthor().getEffectiveName() + " : " + message.getContentRaw();
+        String rawMessage = message.getContentRaw();
+        Guild guild = event.getGuild();
+
+        rawMessage = Utils.replaceIDsByNickname(guild, rawMessage);
+
+        String messageContent = "[MESSAGE PRINCIPAL] Message de " + message.getAuthor().getEffectiveName() + " : " + rawMessage;
 
         MessageReference ref = message.getMessageReference();
         if (ref != null) {
@@ -61,18 +69,8 @@ public class MessageListener extends ListenerAdapter {
 
         String response = OpenAIAPI.getChatGPTResponse(personality, messageContent);
 
-        if (response == null) {
-            EmbedBuilder embed = new EmbedBuilder();
-
-            embed.setTitle(":x: ERREUR :x:");
-            embed.setDescription("La personnalité de FastTalk n'est pas définie dans le fichier .txt");
-
-            embed.setColor(Color.RED);
-
-            message.replyEmbeds(embed.build()).queue();
-            return;
-        }
-
         message.reply(response).queue();
     }
+
+
 }

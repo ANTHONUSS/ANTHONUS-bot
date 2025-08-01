@@ -7,8 +7,11 @@
     <list default="true" id="4d9ead09-8dcf-4048-9e41-03e3d569a957" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/anthonus/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/user/InfoCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/anthonus/commands/user/InfoCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/listeners/MessageListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/anthonus/listeners/MessageListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/utils/SettingsLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/anthonus/utils/SettingsLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/utils/SettingsLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/anthonus/utils/settings/SettingsLoader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/fr/anthonus/utils/api/OpenAIAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/fr/anthonus/utils/api/OpenAIAPI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,18 +50,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "ANTHONUSS"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;ANTHONUSS&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/ANTHONUSS/ANTHONUS-bot.git",
-    "accountId": "7ee66fb4-9103-47bb-8268-9fb5b024e382"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/ANTHONUSS/ANTHONUS-bot.git&quot;,
+    &quot;accountId&quot;: &quot;7ee66fb4-9103-47bb-8268-9fb5b024e382&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
 }</component>
@@ -76,6 +79,7 @@
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "rework",
     "last_opened_file_path": "C:/Users/ANTHONUS/MyFolder/Projets/Discord/ANTHONUS-bot/rework",
     "node.js.detected.package.eslint": "true",
@@ -154,7 +158,8 @@
       <updated>1750514268169</updated>
       <workItem from="1750514269704" duration="1211000" />
       <workItem from="1753959781543" duration="30000" />
-      <workItem from="1753959852248" duration="32605000" />
+      <workItem from="1753959852248" duration="33685000" />
+      <workItem from="1754050614341" duration="1627000" />
     </task>
     <servers />
   </component>

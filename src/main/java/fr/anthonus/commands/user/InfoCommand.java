@@ -3,7 +3,7 @@ package fr.anthonus.commands.user;
 import fr.anthonus.commands.Command;
 import fr.anthonus.logs.LOGs;
 import fr.anthonus.logs.logTypes.DefaultLogType;
-import fr.anthonus.utils.SettingsLoader;
+import fr.anthonus.utils.settings.SettingsLoader;
 import fr.anthonus.utils.servers.Server;
 import fr.anthonus.utils.servers.ServerManager;
 import net.dv8tion.jda.api.EmbedBuilder;

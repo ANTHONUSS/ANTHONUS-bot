@@ -7,7 +7,7 @@ import com.openai.models.responses.Response;
 import com.openai.models.responses.ResponseCreateParams;
 import fr.anthonus.logs.LOGs;
 import fr.anthonus.logs.logTypes.DefaultLogType;
-import fr.anthonus.utils.SettingsLoader;
+import fr.anthonus.utils.settings.SettingsLoader;
 
 public class OpenAIAPI {
     private static final OpenAIClient client;
