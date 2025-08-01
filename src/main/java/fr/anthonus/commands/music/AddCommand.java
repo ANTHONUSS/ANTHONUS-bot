@@ -87,7 +87,7 @@ public class AddCommand extends Command {
                         DefaultLogType.COMMAND);
 
                 EmbedBuilder embed = new EmbedBuilder();
-                embed.setTitle(":minidisc: Musique ajoutée à la file d'attente : `" + track.getInfo().title + "`:minidisc:");
+                embed.setTitle(":cd::white_check_mark: Musique ajoutée à la file d'attente : `" + track.getInfo().title + "`:white_check_mark::cd:");
 
                 if (track instanceof YoutubeAudioTrack) {
                     String videoId = track.getIdentifier();
