@@ -18,6 +18,8 @@ import net.dv8tion.jda.api.interactions.commands.build.SubcommandData;
 import net.dv8tion.jda.api.requests.GatewayIntent;
 import net.dv8tion.jda.api.requests.restaction.CommandListUpdateAction;
 
+import java.util.Scanner;
+
 import static net.dv8tion.jda.api.interactions.commands.OptionType.*;
 
 public class Main {
@@ -41,6 +43,17 @@ public class Main {
         LOGs.sendLog("Chargement de la base de donnée", DefaultLogType.LOADING);
         DataBaseManager.loadDataBase();
         LOGs.sendLog("Base de donnée chargée", DefaultLogType.LOADING);
+
+        Scanner scanner = new Scanner(System.in);
+        while(true) {
+            String input = scanner.nextLine();
+            if (input.equalsIgnoreCase("exit")) {
+                LOGs.sendLog("Arrêt du bot...", DefaultLogType.LOADING);
+                jda.shutdownNow();
+                LOGs.sendLog("Bot arrêté", DefaultLogType.LOADING);
+                break;
+            }
+        }
     }
 
     private static void initBot() throws InterruptedException {
