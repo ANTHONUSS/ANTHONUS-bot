@@ -10,6 +10,9 @@ repositories {
     maven {
         url = "https://maven.lavalink.dev/releases"
     }
+    maven {
+        url = "https://jitpack.io"
+    }
 }
 
 dependencies {
@@ -35,6 +38,8 @@ dependencies {
 
     // https://mvnrepository.com/artifact/org.xerial/sqlite-jdbc
     implementation 'org.xerial:sqlite-jdbc:3.50.3.0'
+
+    implementation 'com.github.masecla22:Reddit4J:master-SNAPSHOT'
 
 
     testImplementation platform('org.junit:junit-bom:5.10.0')

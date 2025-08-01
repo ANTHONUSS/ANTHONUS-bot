@@ -71,6 +71,8 @@ public class Main {
                         .addOption(STRING, "message", "Le message à envoyer")
                         .addOption(ATTACHMENT, "attachment", "Le fichier à envoyer"),
 
+                Commands.slash("cursed", "Envoie une image bizarre aléatoire venant de reddit"),
+
                 // SETTINGS COMMANDS
                 Commands.slash("settings", "Commande relative aux paramètres du bot")
                         .addSubcommands(

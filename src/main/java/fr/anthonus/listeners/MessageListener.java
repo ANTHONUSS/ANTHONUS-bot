@@ -70,5 +70,4 @@ public class MessageListener extends ListenerAdapter {
         message.reply(response).queue();
     }
 
-
 }

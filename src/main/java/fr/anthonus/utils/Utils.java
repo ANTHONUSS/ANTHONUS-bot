@@ -1,7 +1,11 @@
 package fr.anthonus.utils;
 
 import net.dv8tion.jda.api.entities.Guild;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
+import java.io.IOException;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -37,5 +41,21 @@ public class Utils {
         }
 
         return result;
+    }
+
+    public static byte[] downloadImageToByteArray(String imgURL) throws IOException {
+        OkHttpClient client = new OkHttpClient();
+        Request request = new Request.Builder()
+                .url(imgURL)
+                .build();
+
+        try (Response response = client.newCall(request).execute()) {
+            if (!response.isSuccessful()) {
+                throw new IOException("Erreur lors du téléchargment " + response);
+            }
+
+            return response.body().bytes();
+        }
+
     }
 }

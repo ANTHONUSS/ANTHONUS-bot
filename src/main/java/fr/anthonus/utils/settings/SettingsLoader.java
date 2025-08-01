@@ -12,7 +12,8 @@ public class SettingsLoader {
     private static String tokenDiscord;
     private static String tokenOpenAI;
 
-    private static String fastTalkPersonnality;
+    private static String redditClientId;
+    private static String redditClientSecret;
 
     public static boolean loadEnv() {
         Dotenv dotenv = Dotenv.configure()
@@ -39,6 +40,26 @@ public class SettingsLoader {
             LOGs.sendLog("Token Discord chargé", DefaultLogType.FILE_LOADING);
         }
 
+        //load reddit clien id
+        LOGs.sendLog("Chargement du client id Reddit...", DefaultLogType.FILE_LOADING);
+        redditClientId = dotenv.get("REDDIT_CLIENT_ID");
+        if (redditClientId == null || redditClientId.isEmpty()) {
+            LOGs.sendLog("Client id Reddit non trouvé dans le fichier .env", DefaultLogType.ERROR);
+            return false;
+        } else {
+            LOGs.sendLog("Client id Reddit chargé", DefaultLogType.FILE_LOADING);
+        }
+
+        //load reddit clien secret
+        LOGs.sendLog("Chargement du client secret Reddit...", DefaultLogType.FILE_LOADING);
+        redditClientSecret = dotenv.get("REDDIT_CLIENT_SECRET");
+        if (redditClientSecret == null || redditClientSecret.isEmpty()) {
+            LOGs.sendLog("Client secret Reddit non trouvé dans le fichier .env", DefaultLogType.ERROR);
+            return false;
+        } else {
+            LOGs.sendLog("Client secret Reddit chargé", DefaultLogType.FILE_LOADING);
+        }
+
         return true;
     }
 
@@ -51,7 +72,7 @@ public class SettingsLoader {
         return "unknown";
     }
 
-    public static String getFastTalkPersonnality(){
+    public static String getFastTalkPersonnality() {
         try (InputStream in = SettingsLoader.class.getClassLoader().getResourceAsStream("chatGPT/fastTalkPersonnality.txt")) {
             if (in != null) {
                 return new String(in.readAllBytes(), StandardCharsets.UTF_8).trim();
@@ -66,5 +87,12 @@ public class SettingsLoader {
 
     public static String getTokenOpenAI() {
         return tokenOpenAI;
+    }
+
+    public static String getRedditClientId() {
+        return redditClientId;
+    }
+    public static String getRedditClientSecret() {
+        return redditClientSecret;
     }
 }

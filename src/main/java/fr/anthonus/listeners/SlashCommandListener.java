@@ -1,5 +1,6 @@
 package fr.anthonus.listeners;
 
+import fr.anthonus.commands.user.CursedCommand;
 import fr.anthonus.commands.user.InfoCommand;
 import fr.anthonus.commands.admin.ClearCommand;
 import fr.anthonus.commands.settings.AllowFeurCommand;
@@ -51,6 +52,9 @@ public class SlashCommandListener extends ListenerAdapter {
                 }
 
                 new SendCommand(event, userID, message, attachment).run();
+            }
+            case "cursed" -> {
+                new CursedCommand(event).run();
             }
 
             //SETTINGS COMMANDS
