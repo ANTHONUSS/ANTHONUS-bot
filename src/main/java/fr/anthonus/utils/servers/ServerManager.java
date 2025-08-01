@@ -11,14 +11,6 @@ import java.util.concurrent.ConcurrentHashMap;
 public class ServerManager {
     private static final Map<Long, Server> servers = new ConcurrentHashMap<>();
 
-    public static Map<Long, Server> getServerList() {
-        return servers;
-    }
-
-    public static Server getServer(long guildId) {
-        return servers.get(guildId);
-    }
-
     public static void addServer(Server server) {
         servers.put(server.getGuildId(), server);
         LOGs.sendLog("Nouveau serveur ajouté ou mis à jour en mémoire : " + server.getServerName(), DefaultLogType.MEMORY_LOADING);
@@ -39,8 +31,16 @@ public class ServerManager {
                     server.setServerName(guild.getName());
                     DataBaseManager.saveServer(server);
                 }
-                LOGs.sendLog("Nouveau serveur ajouté en mémoire : " + guild.getName(), DefaultLogType.MEMORY_LOADING);
             }
+            LOGs.sendLog("Nouveau serveur ajouté en mémoire : " + guild.getName(), DefaultLogType.MEMORY_LOADING);
         }
+    }
+
+    public static Map<Long, Server> getServerList() {
+        return servers;
+    }
+
+    public static Server getServer(long guildId) {
+        return servers.get(guildId);
     }
 }

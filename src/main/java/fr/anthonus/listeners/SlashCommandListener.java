@@ -1,10 +1,9 @@
 package fr.anthonus.listeners;
 
-import fr.anthonus.commands.user.CursedCommand;
-import fr.anthonus.commands.user.InfoCommand;
-import fr.anthonus.commands.admin.ClearCommand;
-import fr.anthonus.commands.settings.AllowFeurCommand;
-import fr.anthonus.commands.user.SendCommand;
+import fr.anthonus.commands.admin.*;
+import fr.anthonus.commands.music.*;
+import fr.anthonus.commands.settings.*;
+import fr.anthonus.commands.user.*;
 import fr.anthonus.logs.LOGs;
 import fr.anthonus.logs.logTypes.DefaultLogType;
 import net.dv8tion.jda.api.EmbedBuilder;
@@ -72,6 +71,20 @@ public class SlashCommandListener extends ListenerAdapter {
                 int count = event.getOption("nombre").getAsInt();
 
                 new ClearCommand(event, count).run();
+            }
+
+            // MUSIC COMMANDS
+            case "music" -> {
+                String subCommand = event.getSubcommandName();
+                switch (subCommand) {
+                    case "add" -> {
+                        String url = event.getOption("url").getAsString();
+                        new AddCommand(event, url).run();
+                    }
+                    case "list" -> {
+                        new ListCommand(event).run();
+                    }
+                }
             }
         }
 

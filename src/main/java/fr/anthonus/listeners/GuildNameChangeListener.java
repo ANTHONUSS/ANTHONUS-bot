@@ -16,7 +16,7 @@ public class GuildNameChangeListener extends ListenerAdapter {
         String newName = event.getNewName();
         long guildId = event.getGuild().getIdLong();
         Server server = ServerManager.getServer(guildId);
-        Server newServer = new Server(guildId, newName, server.isAllowFeur());
+        Server newServer = new Server(guildId, newName, server.isAllowFeur(), server.isLooping());
 
         ServerManager.addServer(newServer);
         DataBaseManager.saveServer(newServer);

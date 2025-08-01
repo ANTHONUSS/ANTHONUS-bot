@@ -13,7 +13,8 @@ public class DataBaseManager {
             String createServersQuery = "CREATE TABLE IF NOT EXISTS Servers (" +
                     "serverId INTEGER PRIMARY KEY," +
                     "serverName STRING NOT NULL," +
-                    "allowFeur BOOLEAN NOT NULL" +
+                    "allowFeur BOOLEAN NOT NULL DEFAULT 1," +
+                    "looping BOOLEAN NOT NULL DEFAULT 0" +
                     ");";
 
             conn.createStatement().execute(createServersQuery);
@@ -32,14 +33,15 @@ public class DataBaseManager {
 
     public static void saveServer(Server server) {
         try (Connection conn = DriverManager.getConnection(DB_URL)) {
-            String insertQuery = "INSERT OR REPLACE INTO Servers (serverId, serverName, allowFeur) " +
-                    "VALUES (?, ?, ?)";
+            String insertQuery = "INSERT OR REPLACE INTO Servers (serverId, serverName, allowFeur, looping) " +
+                    "VALUES (?, ?, ?, ?)";
 
             PreparedStatement preparedStatement = conn.prepareStatement(insertQuery);
 
             preparedStatement.setLong(1, server.getGuildId());
             preparedStatement.setString(2, server.getServerName());
             preparedStatement.setBoolean(3, server.isAllowFeur());
+            preparedStatement.setBoolean(4, server.isLooping());
 
             preparedStatement.executeUpdate();
 
@@ -62,7 +64,8 @@ public class DataBaseManager {
                 return new Server(
                         resultSet.getLong("serverId"),
                         resultSet.getString("serverName"),
-                        resultSet.getBoolean("allowFeur")
+                        resultSet.getBoolean("allowFeur"),
+                        resultSet.getBoolean("looping")
                 );
 
             } else {

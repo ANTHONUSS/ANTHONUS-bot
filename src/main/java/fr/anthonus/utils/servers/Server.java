@@ -3,17 +3,24 @@ package fr.anthonus.utils.servers;
 import fr.anthonus.Main;
 import fr.anthonus.logs.LOGs;
 import fr.anthonus.logs.logTypes.DefaultLogType;
+import fr.anthonus.utils.music.PlayerManager;
 
 public class Server {
     private final long guildId;
     private String serverName;
     private boolean allowFeur;
 
-    public Server(long guildId, String serverName, boolean allowFeur) {
+    private PlayerManager playerManager;
+    private boolean looping;
+
+    public Server(long guildId, String serverName, boolean allowFeur, boolean looping) {
         this.guildId = guildId;
 
         this.serverName = serverName;
         this.allowFeur = allowFeur;
+        this.looping = looping;
+
+        this.playerManager = new PlayerManager();
     }
 
     public Server(long guildId) {
@@ -21,6 +28,9 @@ public class Server {
         this.serverName = Main.jda.getGuildById(guildId).getName();
 
         this.allowFeur = true;
+        this.looping = false;
+
+        this.playerManager = new PlayerManager();
     }
 
     public long getGuildId() {
@@ -43,6 +53,12 @@ public class Server {
         LOGs.sendLog("L'autorisation de Feur a été mise à jour : " + allowFeur, DefaultLogType.MEMORY_LOADING);
     }
 
+    public PlayerManager getPlayerManager() {return playerManager;}
+
+    public boolean isLooping() {return looping;}
+    public void setLooping(boolean looping) {
+        this.looping = looping;
+    }
 
     @Override
     public String toString() {

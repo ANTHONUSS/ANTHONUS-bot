@@ -89,7 +89,35 @@ public class Main {
 
                 // MUSIC COMMANDS
                 Commands.slash("music", "Commandes relatives à la musique")
-                        .addSubcommands()
+                        .addSubcommands(
+                                new SubcommandData("add", "Ajoute une piste audio à la file d'attente")
+                                        .addOption(STRING, "url", "URL de la vidéo YouTube", true),
+
+                                new SubcommandData("remove", "Supprime une piste audio de la file d'attente")
+                                        .addOption(STRING, "music", "Nom de la musique à supprimer", true, true),
+
+                                new SubcommandData("clear", "Vide la file d'attente"),
+
+                                new SubcommandData("list", "Affiche la liste des pistes audio dans la file d'attente"),
+
+                                new SubcommandData("play", "Joue la première piste audio de la file d'attente"),
+
+                                new SubcommandData("stop", "Arrête la musique et déconnecte le bot"),
+
+                                new SubcommandData("next", "Joue la piste audio suivante dans la file d'attente"),
+
+                                new SubcommandData("previous", "Rejoue la piste audio précédente dans la file d'attente"),
+
+                                new SubcommandData("jump", "Joue une piste audio spécifique de la file d'attente")
+                                        .addOption(STRING, "music", "Nom de la musique à jouer", true, true),
+
+                                new SubcommandData("loop", "Active ou désactive la répétition de la file d'attente"),
+
+                                new SubcommandData("shuffle", "Mélange la file d'attente"),
+
+                                new SubcommandData("track", "Affiche la piste audio en cours de lecture")
+
+                        )
         );
         commands.queue();
         LOGs.sendLog("Commandes chargées", DefaultLogType.LOADING);
