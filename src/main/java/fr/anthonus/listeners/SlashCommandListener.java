@@ -118,8 +118,7 @@ public class SlashCommandListener extends ListenerAdapter {
                     }
                     case "search" -> {
                         String query = event.getOption("query").getAsString();
-                        boolean addDirectly = event.getOption("ajout-direct") != null && event.getOption("ajout-direct").getAsBoolean();
-                        new SearchCommand(event, query, addDirectly).run();
+                        new SearchCommand(event, query).run();
                     }
                 }
             }

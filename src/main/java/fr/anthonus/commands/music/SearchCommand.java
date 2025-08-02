@@ -12,25 +12,17 @@ import java.util.List;
 
 public class SearchCommand extends Command {
     private String query;
-    private boolean addDirectly;
 
-    public SearchCommand(SlashCommandInteractionEvent event, String query, boolean addDirectly) {
+    public SearchCommand(SlashCommandInteractionEvent event, String query) {
         super(event);
         this.query = query;
-        this.addDirectly = addDirectly;
 
         LOGs.sendLog("Commande /music search initialisée avec la query " + query, DefaultLogType.COMMAND);
     }
 
     @Override
     public void run() {
-        int maxResults;
-        if (addDirectly) {
-            maxResults = 1;
-        } else {
-            maxResults = 10;
-        }
-        List<String> videoURLs = YoutubeAPI.getVideoURL(query, maxResults);
+        List<String> videoURLs = YoutubeAPI.getVideoURL(query, 1);
 
         if (videoURLs.isEmpty()) {
             EmbedBuilder embed = new EmbedBuilder();
@@ -43,27 +35,9 @@ public class SearchCommand extends Command {
             return;
         }
 
-        if (addDirectly) {
-            String videoURL = videoURLs.get(0);
+        String videoURL = videoURLs.get(0);
 
-            new AddCommand(currentEvent, videoURL).run();
-        } else {
-            EmbedBuilder embed = new EmbedBuilder();
-            embed.setTitle(":mag: Résultats de la recherche pour : `" + query + "` :mag:");
-
-            StringBuilder description = new StringBuilder();
-            for (int i = 0; i < videoURLs.size(); i++) {
-                String videoURL = videoURLs.get(i);
-                description.append("**").append(i + 1).append("**. ").append(videoURL).append("\n");
-            }
-            embed.setDescription(description.toString());
-
-            embed.setColor(Color.RED);
-
-            currentEvent.replyEmbeds(embed.build()).setEphemeral(true).queue();
-        }
-
-
+        new AddCommand(currentEvent, videoURL).run();
 
     }
 }

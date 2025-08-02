@@ -144,9 +144,8 @@ public class Main {
                                 new SubcommandData("jump", "Joue une piste audio spécifique de la file d'attente")
                                         .addOption(STRING, "music", "Nom de la musique à jouer", true, true),
 
-                                new SubcommandData("search", "Rechercher une vidéo sur Youtube")
+                                new SubcommandData("search", "Recherche une vidéo sur Youtube et l'ajoute à la file d'attente")
                                         .addOption(STRING, "query", "Contenu de la recherche", true)
-                                        .addOption(BOOLEAN, "ajout-direct", "Ajoute la vidéo directement à la file d'attente", false)
 
                         )
         );
