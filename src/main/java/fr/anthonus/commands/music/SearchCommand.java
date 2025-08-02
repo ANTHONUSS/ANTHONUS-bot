@@ -11,13 +11,13 @@ import java.awt.*;
 import java.util.List;
 
 public class SearchCommand extends Command {
-    private String query;
+    private final String query;
 
     public SearchCommand(SlashCommandInteractionEvent event, String query) {
         super(event);
         this.query = query;
 
-        LOGs.sendLog("Commande /music search initialisée avec la query " + query, DefaultLogType.COMMAND);
+        LOGs.sendLog("Commande /add-search initialisée avec la query " + query, DefaultLogType.COMMAND);
     }
 
     @Override

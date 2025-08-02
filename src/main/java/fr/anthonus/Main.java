@@ -120,7 +120,7 @@ public class Main {
                                 new SubcommandData("add", "Ajoute une piste audio à la file d'attente")
                                         .addOption(STRING, "url", "URL de la vidéo YouTube", true),
 
-                                new SubcommandData("addsearch", "Recherche une vidéo sur Youtube et l'ajoute à la file d'attente")
+                                new SubcommandData("add-search", "Recherche une vidéo sur Youtube et l'ajoute à la file d'attente")
                                         .addOption(STRING, "query", "Contenu de la recherche", true),
 
                                 new SubcommandData("remove", "Supprime une piste audio de la file d'attente")

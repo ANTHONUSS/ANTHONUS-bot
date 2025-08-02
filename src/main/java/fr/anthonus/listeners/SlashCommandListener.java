@@ -81,6 +81,10 @@ public class SlashCommandListener extends ListenerAdapter {
                         String url = event.getOption("url").getAsString();
                         new AddCommand(event, url).run();
                     }
+                    case "add-search" -> {
+                        String query = event.getOption("query").getAsString();
+                        new SearchCommand(event, query).run();
+                    }
                     case "remove" -> {
                         String musicName = event.getOption("music").getAsString();
                         new RemoveCommand(event, musicName).run();
@@ -115,10 +119,6 @@ public class SlashCommandListener extends ListenerAdapter {
                     case "jump" -> {
                         String musicName = event.getOption("music").getAsString();
                         new JumpCommand(event, musicName).run();
-                    }
-                    case "search" -> {
-                        String query = event.getOption("query").getAsString();
-                        new SearchCommand(event, query).run();
                     }
                 }
             }
