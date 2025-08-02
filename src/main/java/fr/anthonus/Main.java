@@ -120,6 +120,9 @@ public class Main {
                                 new SubcommandData("add", "Ajoute une piste audio à la file d'attente")
                                         .addOption(STRING, "url", "URL de la vidéo YouTube", true),
 
+                                new SubcommandData("addsearch", "Recherche une vidéo sur Youtube et l'ajoute à la file d'attente")
+                                        .addOption(STRING, "query", "Contenu de la recherche", true),
+
                                 new SubcommandData("remove", "Supprime une piste audio de la file d'attente")
                                         .addOption(STRING, "music", "Nom de la musique à supprimer", true, true),
 
@@ -142,10 +145,7 @@ public class Main {
                                 new SubcommandData("previous", "Rejoue la piste audio précédente dans la file d'attente"),
 
                                 new SubcommandData("jump", "Joue une piste audio spécifique de la file d'attente")
-                                        .addOption(STRING, "music", "Nom de la musique à jouer", true, true),
-
-                                new SubcommandData("search", "Recherche une vidéo sur Youtube et l'ajoute à la file d'attente")
-                                        .addOption(STRING, "query", "Contenu de la recherche", true)
+                                        .addOption(STRING, "music", "Nom de la musique à jouer", true, true)
 
                         )
         );
