@@ -4,9 +4,11 @@ import fr.anthonus.logs.LOGs;
 import fr.anthonus.logs.logTypes.DefaultLogType;
 import io.github.cdimascio.dotenv.Dotenv;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Path;
 
 public class SettingsLoader {
     private static String tokenDiscord;
@@ -16,6 +18,9 @@ public class SettingsLoader {
     private static String redditClientSecret;
 
     private static String youtubeApiKey;
+
+    private static String sharingDirectory;
+    private static String sharingURL;
 
     public static boolean loadEnv() {
         Dotenv dotenv = Dotenv.configure()
@@ -72,6 +77,31 @@ public class SettingsLoader {
             LOGs.sendLog("Token Youtube chargé", DefaultLogType.FILE_LOADING);
         }
 
+        //load nas sharing url Key
+        LOGs.sendLog("Chargement du chemin de partage...", DefaultLogType.FILE_LOADING);
+        sharingDirectory = dotenv.get("SHARING_DIRECTORY");
+        if (sharingDirectory == null || sharingDirectory.isEmpty()) {
+            LOGs.sendLog("Chemin de partage non trouvé dans le fichier .env", DefaultLogType.ERROR);
+            return false;
+        } else {
+            File chemin = new File(sharingDirectory);
+            if (!chemin.exists() || !chemin.isDirectory()) {
+                LOGs.sendLog("Le chemin de partage n'existe pas : " + sharingDirectory, DefaultLogType.ERROR);
+                return false;
+            }
+            LOGs.sendLog("Chemin de partage chargé", DefaultLogType.FILE_LOADING);
+        }
+
+        //load nas sharing url Key
+        LOGs.sendLog("Chargement du lien de partage...", DefaultLogType.FILE_LOADING);
+        sharingURL = dotenv.get("SHARING_URL");
+        if (sharingURL == null || sharingURL.isEmpty()) {
+            LOGs.sendLog("Chemin de partage non trouvé dans le fichier .env", DefaultLogType.ERROR);
+            return false;
+        } else {
+            LOGs.sendLog("Chemin de partage chargé", DefaultLogType.FILE_LOADING);
+        }
+
         return true;
     }
 
@@ -110,6 +140,13 @@ public class SettingsLoader {
 
     public static String getYoutubeApiKey() {
         return youtubeApiKey;
+    }
+
+    public static String getSharingDirectory() {
+        return sharingDirectory;
+    }
+    public static String getSharingURL() {
+        return sharingURL;
     }
 
 }

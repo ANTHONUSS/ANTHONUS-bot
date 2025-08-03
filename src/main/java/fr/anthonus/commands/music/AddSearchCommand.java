@@ -10,10 +10,10 @@ import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEve
 import java.awt.*;
 import java.util.List;
 
-public class SearchCommand extends Command {
+public class AddSearchCommand extends Command {
     private final String query;
 
-    public SearchCommand(SlashCommandInteractionEvent event, String query) {
+    public AddSearchCommand(SlashCommandInteractionEvent event, String query) {
         super(event);
         this.query = query;
 

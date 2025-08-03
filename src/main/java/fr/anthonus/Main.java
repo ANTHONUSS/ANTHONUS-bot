@@ -29,7 +29,7 @@ public class Main {
         init();
 
         Scanner scanner = new Scanner(System.in);
-        while(true) {
+        while (true) {
             String input = scanner.nextLine();
             switch (input) {
                 case "exit" -> {
@@ -99,6 +99,10 @@ public class Main {
                         .addOption(ATTACHMENT, "attachment", "Le fichier à envoyer"),
 
                 Commands.slash("cursed", "Envoie une image bizarre aléatoire venant de reddit"),
+
+                Commands.slash("download", "Télécharge une vidéo Youtube sur le serveur et renvoie un lien téléchargeable")
+                        .addOption(STRING, "lien", "Lien de la vidéo Youtube (mp4)", true)
+                        .addOption(BOOLEAN, "musique", "Télécharger en musique ? (mp3)"),
 
                 // SETTINGS COMMANDS
                 Commands.slash("settings", "Commande relative aux paramètres du bot")

@@ -53,6 +53,12 @@ public class SlashCommandListener extends ListenerAdapter {
             case "cursed" -> {
                 new CursedCommand(event).run();
             }
+            case "download" -> {
+                String lien = event.getOption("lien").getAsString();
+                boolean isMusic = event.getOption("musique") != null && event.getOption("musique").getAsBoolean();
+
+                new DownloadCommand(event, lien, isMusic).run();
+            }
 
             //SETTINGS COMMANDS
             case "settings" -> {
@@ -61,7 +67,6 @@ public class SlashCommandListener extends ListenerAdapter {
                     case "allowfeur" -> {
                         boolean allowFeur = event.getOption("valeur").getAsBoolean();
                         new AllowFeurCommand(event, allowFeur).run();
-
                     }
                 }
             }
@@ -83,7 +88,7 @@ public class SlashCommandListener extends ListenerAdapter {
                     }
                     case "add-search" -> {
                         String query = event.getOption("query").getAsString();
-                        new SearchCommand(event, query).run();
+                        new AddSearchCommand(event, query).run();
                     }
                     case "remove" -> {
                         String musicName = event.getOption("music").getAsString();

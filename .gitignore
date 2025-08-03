@@ -44,3 +44,4 @@ bin/
 ### CUSTOM ###
 /conf/
 /data/
+/temp/
