@@ -3,25 +3,22 @@ package fr.anthonus.listeners;
 import fr.anthonus.logs.LOGs;
 import fr.anthonus.logs.logTypes.DefaultLogType;
 import fr.anthonus.utils.Utils;
+import fr.anthonus.utils.servers.Server;
 import fr.anthonus.utils.settings.SettingsLoader;
 import fr.anthonus.utils.api.OpenAIAPI;
 import fr.anthonus.utils.servers.ServerManager;
-import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.entities.MessageReference;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class MessageListener extends ListenerAdapter {
-    private static final List<String> messageHistory = new ArrayList<>();
-
     @Override
     public void onMessageReceived(MessageReceivedEvent event) {
         Message message = event.getMessage();
         String messageString = message.getContentRaw();
+        Server server = ServerManager.getServer(event.getGuild().getIdLong());
 
         String messageToAdd = "[MESSAGE DE " + message.getAuthor().getEffectiveName() + "] " + messageString;
         MessageReference ref = message.getMessageReference();
@@ -31,10 +28,7 @@ public class MessageListener extends ListenerAdapter {
         }
         messageToAdd = Utils.replaceIDsByNickname(event.getGuild(), messageToAdd);
 
-        messageHistory.add(messageToAdd);
-        if (messageHistory.size() > 20) {
-            messageHistory.remove(0);
-        }
+        server.addMessageToHistory(messageToAdd);
 
         if (event.getAuthor().isBot()) return;
         if (!event.isFromGuild()) return;
@@ -65,11 +59,12 @@ public class MessageListener extends ListenerAdapter {
 
     private void handleFastTalk(MessageReceivedEvent event) {
         event.getChannel().sendTyping().queue();
+        Server server = ServerManager.getServer(event.getGuild().getIdLong());
 
         String personality = SettingsLoader.getFastTalkPersonnality();
 
         event.getChannel().sendTyping().queue();
-        String response = OpenAIAPI.getChatGPTResponse(personality, messageHistory);
+        String response = OpenAIAPI.getChatGPTResponse(personality, server.getMessageHistory());
 
         if (response.length() > 2000) {
             String ending = "\n-#(Message tronqué car trop long)";

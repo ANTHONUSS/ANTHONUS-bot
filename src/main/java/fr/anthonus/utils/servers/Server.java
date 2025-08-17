@@ -5,6 +5,9 @@ import fr.anthonus.logs.LOGs;
 import fr.anthonus.logs.logTypes.DefaultLogType;
 import fr.anthonus.utils.music.PlayerManager;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Server {
     private final long guildId;
     private String serverName;
@@ -12,6 +15,8 @@ public class Server {
 
     private PlayerManager playerManager;
     private boolean looping;
+
+    private final List<String> messageHistory = new ArrayList<>();
 
     public Server(long guildId, String serverName, boolean allowFeur, boolean looping) {
         this.guildId = guildId;
@@ -58,6 +63,16 @@ public class Server {
     public boolean isLooping() {return looping;}
     public void setLooping(boolean looping) {
         this.looping = looping;
+    }
+
+    public List<String> getMessageHistory() {
+        return messageHistory;
+    }
+    public void addMessageToHistory(String message) {
+        messageHistory.add(message);
+        if (messageHistory.size() > 20) {
+            messageHistory.remove(0);
+        }
     }
 
     @Override
