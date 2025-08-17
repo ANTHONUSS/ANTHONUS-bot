@@ -12,10 +12,9 @@ import java.nio.file.Path;
 
 public class SettingsLoader {
     private static String tokenDiscord;
-    private static String tokenOpenAI;
 
-    private static String redditClientId;
-    private static String redditClientSecret;
+    private static String tokenOpenAI;
+    private static String tokenGemini;
 
     private static String youtubeApiKey;
 
@@ -27,16 +26,6 @@ public class SettingsLoader {
                 .directory("conf")
                 .load();
 
-        //Load ChatGPT api key
-        LOGs.sendLog("Chargement du token ChatGPT...", DefaultLogType.FILE_LOADING);
-        tokenOpenAI = dotenv.get("OPENAI_TOKEN");
-        if (tokenOpenAI == null || tokenOpenAI.isEmpty()) {
-            LOGs.sendLog("Clé API OpenAI non trouvé dans le fichier .env", DefaultLogType.ERROR);
-            return false;
-        } else {
-            LOGs.sendLog("Token OpenAI chargé", DefaultLogType.FILE_LOADING);
-        }
-
         //Load discord token
         LOGs.sendLog("Chargement du token Discord...", DefaultLogType.FILE_LOADING);
         tokenDiscord = dotenv.get("DISCORD_TOKEN");
@@ -47,24 +36,24 @@ public class SettingsLoader {
             LOGs.sendLog("Token Discord chargé", DefaultLogType.FILE_LOADING);
         }
 
-        //load reddit clien id
-        LOGs.sendLog("Chargement du client id Reddit...", DefaultLogType.FILE_LOADING);
-        redditClientId = dotenv.get("REDDIT_CLIENT_ID");
-        if (redditClientId == null || redditClientId.isEmpty()) {
-            LOGs.sendLog("Client id Reddit non trouvé dans le fichier .env", DefaultLogType.ERROR);
+        //Load ChatGPT api key
+        LOGs.sendLog("Chargement du token ChatGPT...", DefaultLogType.FILE_LOADING);
+        tokenOpenAI = dotenv.get("OPENAI_TOKEN");
+        if (tokenOpenAI == null || tokenOpenAI.isEmpty()) {
+            LOGs.sendLog("Clé API OpenAI non trouvé dans le fichier .env", DefaultLogType.ERROR);
             return false;
         } else {
-            LOGs.sendLog("Client id Reddit chargé", DefaultLogType.FILE_LOADING);
+            LOGs.sendLog("Token OpenAI chargé", DefaultLogType.FILE_LOADING);
         }
 
-        //load reddit clien secret
-        LOGs.sendLog("Chargement du client secret Reddit...", DefaultLogType.FILE_LOADING);
-        redditClientSecret = dotenv.get("REDDIT_CLIENT_SECRET");
-        if (redditClientSecret == null || redditClientSecret.isEmpty()) {
-            LOGs.sendLog("Client secret Reddit non trouvé dans le fichier .env", DefaultLogType.ERROR);
+        //Load Gemini api key
+        LOGs.sendLog("Chargement du token Gemini...", DefaultLogType.FILE_LOADING);
+        tokenGemini = dotenv.get("GEMINI_TOKEN");
+        if (tokenGemini == null || tokenGemini.isEmpty()) {
+            LOGs.sendLog("Clé API Gemini non trouvé dans le fichier .env", DefaultLogType.ERROR);
             return false;
         } else {
-            LOGs.sendLog("Client secret Reddit chargé", DefaultLogType.FILE_LOADING);
+            LOGs.sendLog("Token Gemini chargé", DefaultLogType.FILE_LOADING);
         }
 
         //load Youtube API Key
@@ -130,12 +119,8 @@ public class SettingsLoader {
     public static String getTokenOpenAI() {
         return tokenOpenAI;
     }
-
-    public static String getRedditClientId() {
-        return redditClientId;
-    }
-    public static String getRedditClientSecret() {
-        return redditClientSecret;
+    public static String getTokenGemini() {
+        return tokenGemini;
     }
 
     public static String getYoutubeApiKey() {

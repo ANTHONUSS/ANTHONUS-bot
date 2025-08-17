@@ -34,12 +34,10 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.13.1'
 
     // https://mvnrepository.com/artifact/com.openai/openai-java
-    implementation 'com.openai:openai-java:2.20.0'
+    implementation 'com.openai:openai-java:3.0.3'
 
     // https://mvnrepository.com/artifact/org.xerial/sqlite-jdbc
     implementation 'org.xerial:sqlite-jdbc:3.50.3.0'
-
-    implementation 'com.github.masecla22:Reddit4J:master-SNAPSHOT'
 
 
     testImplementation platform('org.junit:junit-bom:5.10.0')
