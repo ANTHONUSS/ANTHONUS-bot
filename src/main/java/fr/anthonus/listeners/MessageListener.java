@@ -12,21 +12,39 @@ import net.dv8tion.jda.api.entities.MessageReference;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MessageListener extends ListenerAdapter {
+    private static final List<String> messageHistory = new ArrayList<>();
 
     @Override
     public void onMessageReceived(MessageReceivedEvent event) {
+        Message message = event.getMessage();
+        String messageString = message.getContentRaw();
+
+        String messageToAdd = "[MESSAGE DE " + message.getAuthor().getEffectiveName() + "] " + messageString;
+        MessageReference ref = message.getMessageReference();
+        if (ref != null) {
+            String referencedMessageContent = ref.getMessage().getContentRaw();
+            messageToAdd+= "\n[REFERENCING " + ref.getMessage().getAuthor().getEffectiveName() + "] " + referencedMessageContent;
+        }
+        messageToAdd = Utils.replaceIDsByNickname(event.getGuild(), messageToAdd);
+
+        messageHistory.add(messageToAdd);
+        if (messageHistory.size() > 20) {
+            messageHistory.remove(0);
+        }
+
         if (event.getAuthor().isBot()) return;
         if (!event.isFromGuild()) return;
 
-        String message = event.getMessage().getContentRaw();
-
-        if (message.toLowerCase().matches(".*\\bquoi\\s?\\p{Punct}*$")) {
+        if (messageString.toLowerCase().matches(".*\\bquoi\\s?\\p{Punct}*$")) {
             handleFeur(event);
         }
 
         String botPing = event.getJDA().getSelfUser().getAsMention();
-        if (message.startsWith(botPing)) {
+        if (messageString.startsWith(botPing)) {
             handleFastTalk(event);
         }
     }
@@ -48,26 +66,17 @@ public class MessageListener extends ListenerAdapter {
     private void handleFastTalk(MessageReceivedEvent event) {
         event.getChannel().sendTyping().queue();
 
-        Message message = event.getMessage();
-
-        String rawMessage = message.getContentRaw();
-        Guild guild = event.getGuild();
-        rawMessage = Utils.replaceIDsByNickname(guild, rawMessage);
-
-        String messageContent = "[MESSAGE PRINCIPAL] Message de " + message.getAuthor().getEffectiveName() + " : " + rawMessage;
-
-        MessageReference ref = message.getMessageReference();
-        if (ref != null) {
-            String referencedMessageContent = ref.getMessage().getContentRaw();
-            messageContent += "\n[CITATION RAJOUTÉE] Message de " + ref.getMessage().getAuthor().getEffectiveName() + " : " + referencedMessageContent;
-        }
-
         String personality = SettingsLoader.getFastTalkPersonnality();
 
         event.getChannel().sendTyping().queue();
-        String response = OpenAIAPI.getChatGPTResponse(personality, messageContent);
+        String response = OpenAIAPI.getChatGPTResponse(personality, messageHistory);
 
-        message.reply(response).queue();
+        if (response.length() > 2000) {
+            String ending = "\n-#(Message tronqué car trop long)";
+            response = response.substring(0, 2000 - ending.length()) + ending;
+        }
+
+        event.getMessage().reply(response).queue();
     }
 
 }

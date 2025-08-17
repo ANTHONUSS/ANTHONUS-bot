@@ -18,13 +18,11 @@ public class Utils {
         Pattern mentionPattern = Pattern.compile("<@!?(\\d+)>");
         Matcher matcher = mentionPattern.matcher(message);
 
-        LOGs.sendLog("Recherche des IDs dans le message : " + message, DefaultLogType.DEFAULT);
         Set<String> ids = new HashSet<>();
         while (matcher.find()) {
             ids.add(matcher.group(1));
         }
 
-        LOGs.sendLog("Remplacement des IDs par les noms d'utilisateur", DefaultLogType.DEFAULT);
         Map<String, String> idToName = new HashMap<>();
         for (String id : ids) {
             try {
