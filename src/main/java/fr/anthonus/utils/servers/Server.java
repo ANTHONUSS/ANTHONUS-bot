@@ -6,7 +6,9 @@ import fr.anthonus.logs.logTypes.DefaultLogType;
 import fr.anthonus.utils.music.PlayerManager;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Server {
     private final long guildId;
@@ -16,7 +18,7 @@ public class Server {
     private PlayerManager playerManager;
     private boolean looping;
 
-    private final List<String> messageHistory = new ArrayList<>();
+    private final Map<Long, List<String>> messageHistory = new HashMap<>();
 
     public Server(long guildId, String serverName, boolean allowFeur, boolean looping) {
         this.guildId = guildId;
@@ -65,13 +67,14 @@ public class Server {
         this.looping = looping;
     }
 
-    public List<String> getMessageHistory() {
+    public Map<Long, List<String>> getMessageHistory() {
         return messageHistory;
     }
-    public void addMessageToHistory(String message) {
-        messageHistory.add(message);
-        if (messageHistory.size() > 20) {
-            messageHistory.remove(0);
+    public void addMessageToHistory(long channelId, String message) {
+        messageHistory.putIfAbsent(channelId, new ArrayList<>());
+        messageHistory.get(channelId).add(message);
+        if (messageHistory.get(channelId).size() > 20) {
+            messageHistory.get(channelId).remove(0);
         }
     }
 
