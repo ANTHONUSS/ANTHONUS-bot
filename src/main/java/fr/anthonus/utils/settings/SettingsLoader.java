@@ -14,7 +14,6 @@ public class SettingsLoader {
     private static String tokenDiscord;
 
     private static String tokenOpenAI;
-    private static String tokenGemini;
 
     private static String youtubeApiKey;
 
@@ -44,16 +43,6 @@ public class SettingsLoader {
             return false;
         } else {
             LOGs.sendLog("Token OpenAI chargé", DefaultLogType.FILE_LOADING);
-        }
-
-        //Load Gemini api key
-        LOGs.sendLog("Chargement du token Gemini...", DefaultLogType.FILE_LOADING);
-        tokenGemini = dotenv.get("GEMINI_TOKEN");
-        if (tokenGemini == null || tokenGemini.isEmpty()) {
-            LOGs.sendLog("Clé API Gemini non trouvé dans le fichier .env", DefaultLogType.ERROR);
-            return false;
-        } else {
-            LOGs.sendLog("Token Gemini chargé", DefaultLogType.FILE_LOADING);
         }
 
         //load Youtube API Key
@@ -118,9 +107,6 @@ public class SettingsLoader {
 
     public static String getTokenOpenAI() {
         return tokenOpenAI;
-    }
-    public static String getTokenGemini() {
-        return tokenGemini;
     }
 
     public static String getYoutubeApiKey() {
