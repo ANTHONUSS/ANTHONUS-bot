@@ -72,10 +72,6 @@ public class MessageListener extends ListenerAdapter {
 
         List<String> messageHistory = server.getMessageHistory().get(channelId);
 
-        for (String message : messageHistory) {
-            LOGs.sendLog(message, DefaultLogType.DEBUG);
-        }
-
         String response = OpenAIAPI.getChatGPTResponse(personality, messageHistory);
 
         if (response.length() > 2000) {

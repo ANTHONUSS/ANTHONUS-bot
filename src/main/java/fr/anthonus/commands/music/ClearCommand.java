@@ -9,6 +9,7 @@ import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEve
 
 import java.awt.*;
 
+//TODO: [BUG] clear ne fonctionne pas quand le bot ne joue pas de musique si un next a été effectué à la dernière chanson
 public class ClearCommand extends Command {
 
     public ClearCommand(SlashCommandInteractionEvent event) {
