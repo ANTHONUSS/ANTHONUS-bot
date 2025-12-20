@@ -32,13 +32,13 @@ public class Main {
         while (true) {
             String input = scanner.nextLine();
             switch (input) {
-                case "exit" -> {
+                case "stop" -> {
                     LOGs.sendLog("Arrêt du bot...", DefaultLogType.LOADING);
                     jda.shutdownNow();
 
                     System.exit(0);
                 }
-                case "reload" -> {
+                case "restart" -> {
                     LOGs.sendLog("Rechargement du bot...", DefaultLogType.LOADING);
                     jda.shutdown();
 
