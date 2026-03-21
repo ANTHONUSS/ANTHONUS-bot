@@ -9,4 +9,5 @@ interface CommandNode {
     val options: List<OptionData> get() = emptyList()
 
     fun execute(event: SlashCommandInteractionEvent)
+    fun executeBody(event: SlashCommandInteractionEvent)
 }

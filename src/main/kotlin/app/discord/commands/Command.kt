@@ -1,11 +1,13 @@
 package app.discord.commands
 
+import app.helpers.EmbedHelper
+import app.helpers.LogsHelper
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent
 import net.dv8tion.jda.api.interactions.commands.DefaultMemberPermissions
 import net.dv8tion.jda.api.interactions.commands.build.Commands
 import net.dv8tion.jda.api.interactions.commands.build.SlashCommandData
 
-abstract class Command: CommandNode {
+abstract class Command : CommandNode {
     open val subCommands: List<SubCommand> = emptyList()
     open val defaultPermissions: DefaultMemberPermissions? = null
 
@@ -24,7 +26,7 @@ abstract class Command: CommandNode {
         return data
     }
 
-    override fun execute(event: SlashCommandInteractionEvent) {
+    final override fun execute(event: SlashCommandInteractionEvent) {
         val subcommandName = event.subcommandName
 
         if (subcommandName != null) {
@@ -42,7 +44,18 @@ abstract class Command: CommandNode {
         }
     }
 
-    open fun executeBody(event: SlashCommandInteractionEvent) {
-        event.reply("Cette commande nécessite une sous-commande.").setEphemeral(true).queue()
+    override fun executeBody(event: SlashCommandInteractionEvent) {
+        event.replyEmbeds(
+            EmbedHelper.createEmbed(
+                type = EmbedHelper.Type.ERROR,
+                title = "Commande non-implémenté"
+            )
+        ).setEphemeral(true)
+            .queue()
+
+        LogsHelper.log.error(
+            "Non-implemented function ran",
+            NotImplementedError("The command ${this.name} Does not have an override of executeBody")
+        )
     }
 }
