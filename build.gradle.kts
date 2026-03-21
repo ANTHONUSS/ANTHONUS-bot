@@ -1,5 +1,10 @@
 plugins {
     kotlin("jvm") version "2.3.10"
+    application
+}
+
+application {
+    mainClass.set("MainKt")
 }
 
 group = "fr.anthonus"
@@ -7,6 +12,11 @@ version = file("src/main/resources/version.txt").readText().trim()
 
 repositories {
     mavenCentral()
+
+    maven {
+        name = "Lavalink"
+        url = uri("https://maven.lavalink.dev/releases")
+    }
 }
 
 dependencies {
@@ -27,9 +37,12 @@ dependencies {
     implementation("com.squareup.okhttp3:okhttp:5.3.2")
     // Source: https://mvnrepository.com/artifact/com.google.code.gson/gson
     implementation("com.google.code.gson:gson:2.13.2")
-
 }
 
 kotlin {
     jvmToolchain(25)
+}
+
+tasks.named<JavaExec>("run") {
+    standardInput = System.`in`
 }
