@@ -4,7 +4,7 @@ import app.discord.commands.CommandRegistry
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent
 import net.dv8tion.jda.api.hooks.ListenerAdapter
 
-class SlashCommandListener: ListenerAdapter(){
+class SlashCommandListener: ListenerAdapter() {
 
     override fun onSlashCommandInteraction(event: SlashCommandInteractionEvent) {
         if (!event.isFromGuild) {

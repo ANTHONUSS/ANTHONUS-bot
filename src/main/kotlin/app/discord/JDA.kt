@@ -1,6 +1,7 @@
 package app.discord
 
 import app.discord.commands.CommandRegistry
+import app.discord.listeners.MessageListener
 import app.helpers.LogsHelper.log
 import app.helpers.SettingsHelper
 import app.discord.listeners.SlashCommandListener
@@ -25,7 +26,8 @@ object JDA {
                 GatewayIntent.GUILD_MESSAGES
             )
             .addEventListeners(
-                SlashCommandListener()
+                SlashCommandListener(),
+                MessageListener()
             )
             .build()
 

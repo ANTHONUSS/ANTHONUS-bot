@@ -1,6 +1,7 @@
 package app.discord.commands
 
 import app.helpers.EmbedHelper
+import app.helpers.LogsHelper
 import app.helpers.LogsHelper.log
 import app.helpers.SettingsHelper
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent
@@ -21,8 +22,8 @@ class InfoCommand : Command {
         )
 
         event.replyEmbeds(embed).setEphemeral(true).queue(
-            { log.info("Info message sent successfully") },
-            { err -> log.error("An error occurred while sending info message", err) }
+            { LogsHelper.success(event, "Info message sent successfully") },
+            { err -> LogsHelper.failure(event, "An error occurred while sending info message", err) }
         )
     }
 }
