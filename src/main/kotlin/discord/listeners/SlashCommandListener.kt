@@ -19,7 +19,7 @@ class SlashCommandListener: ListenerAdapter() {
         if (command == null) {
             event.replyEmbeds(EmbedHelper.createEmbed(
                 type = EmbedHelper.Type.WARNING,
-                title = "Commande inconnue"
+                description = "Commande inconnue"
             )).setEphemeral(true)
                 .queue()
             return

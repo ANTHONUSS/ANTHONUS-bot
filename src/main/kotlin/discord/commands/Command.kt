@@ -48,7 +48,7 @@ abstract class Command : CommandNode {
         event.replyEmbeds(
             EmbedHelper.createEmbed(
                 type = EmbedHelper.Type.ERROR,
-                title = "Commande non-implémenté"
+                description = "Commande non-implémenté"
             )
         ).setEphemeral(true)
             .queue()

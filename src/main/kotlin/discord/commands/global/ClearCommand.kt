@@ -43,7 +43,7 @@ class ClearCommand : Command() {
             if (recentMessages.isEmpty()) {
                 event.replyEmbeds(EmbedHelper.createEmbed(
                     type = EmbedHelper.Type.WARNING,
-                    title = "Aucun message récent (moins de 2 semaines) à supprimer."
+                    description = "Aucun message récent (moins de 2 semaines) à supprimer."
                 )).setEphemeral(true)
                     .queue()
                 return@queue
@@ -59,7 +59,6 @@ class ClearCommand : Command() {
 
                     val embed = EmbedHelper.createEmbed(
                         type = EmbedHelper.Type.SUCCESS,
-                        title = "Nettoyage terminé",
                         description = msg
                     )
                     event.replyEmbeds(embed)
@@ -71,8 +70,7 @@ class ClearCommand : Command() {
                 { err ->
                     val embed = EmbedHelper.createEmbed(
                         type = EmbedHelper.Type.ERROR,
-                        title = "Erreur lors de la suppression",
-                        description = "cause : ${err.message}"
+                        description = "Erreur lors de la suppression : ${err.message}"
                     )
                     event.replyEmbeds(embed)
                         .setEphemeral(true)

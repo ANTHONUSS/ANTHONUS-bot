@@ -20,7 +20,7 @@ class CursedCommand : Command() {
             event.hook.editOriginalEmbeds(
                 EmbedHelper.createEmbed(
                     type = EmbedHelper.Type.ERROR,
-                    title = "une erreur est survenue lors de la récupération de l'URL"
+                    description = "une erreur est survenue lors de la récupération de l'URL"
                 )
             ).queue()
 

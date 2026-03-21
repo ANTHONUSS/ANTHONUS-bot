@@ -23,7 +23,7 @@ class SendCommand : Command() {
             event.replyEmbeds(
                 EmbedHelper.createEmbed(
                     type = EmbedHelper.Type.ERROR,
-                    title = "Aucun utilisateur n'a été trouvé"
+                    description = "Aucun utilisateur n'a été trouvé"
                 )
             ).setEphemeral(true)
                 .queue()
@@ -42,7 +42,7 @@ class SendCommand : Command() {
             event.replyEmbeds(
                 EmbedHelper.createEmbed(
                     type = EmbedHelper.Type.WARNING,
-                    title = "Vous devez spécifier soit un message, soit un fichier, soit les deux."
+                    description = "Vous devez spécifier soit un message, soit un fichier, soit les deux."
                 )
             ).setEphemeral(true)
                 .queue()
@@ -68,7 +68,7 @@ class SendCommand : Command() {
                             event.hook.editOriginalEmbeds(
                                 EmbedHelper.createEmbed(
                                     type = EmbedHelper.Type.SUCCESS,
-                                    title = "Message envoyé avec succès à ${userId.name}"
+                                    description = "Message envoyé avec succès à ${userId.name}"
                                 )
                             ).queue()
                             LogsHelper.success(event, "Message sent successfully")
@@ -77,8 +77,7 @@ class SendCommand : Command() {
                             event.hook.editOriginalEmbeds(
                                 EmbedHelper.createEmbed(
                                     type = EmbedHelper.Type.ERROR,
-                                    title = "Impossible d'envoyer le message",
-                                    description = "L'utilisateur a probablement bloqué ses MP."
+                                    description = "Impossible d'envoyer le message, l'utilisateur a probablement bloqué ses MP."
                                 )
                             ).queue()
                             LogsHelper.failure(event, "Can't send message to user", err)
@@ -88,7 +87,7 @@ class SendCommand : Command() {
                     event.hook.editOriginalEmbeds(
                         EmbedHelper.createEmbed(
                             type = EmbedHelper.Type.ERROR,
-                            title = "Erreur lors du téléchargement du fichier"
+                            description = "Erreur lors du téléchargement du fichier"
                         )
                     ).queue()
                     LogsHelper.failure(event, "File download failed", e)

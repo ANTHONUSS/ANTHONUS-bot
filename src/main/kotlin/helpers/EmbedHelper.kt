@@ -15,17 +15,16 @@ object EmbedHelper {
     private const val CREDITS_TITLE = "Bot développé par ANTHONUS -> /info"
     private const val CREDITS_URL = "https://avatar-cyan.vercel.app/api/pfp/722086214949404682/smallimage"
 
-    enum class Type(val color: Color, val emoji: String) {
-        SUCCESS(Color.GREEN, ":white_check_mark:"),
-        WARNING(Color.YELLOW, ":warning:"),
-        ERROR(Color.RED, ":x:"),
-        INFO(Color.BLUE, ":information_source:")
+    enum class Type(val color: Color, val emoji: String, val title: String) {
+        SUCCESS(Color.GREEN, ":white_check_mark:", "SUCCES"),
+        WARNING(Color.YELLOW, ":warning:", "ATTENTION"),
+        ERROR(Color.RED, ":x:", "ERREUR"),
+        INFO(Color.BLUE, ":information_source:", "INFO")
     }
 
     fun createEmbed(
         type: Type,
-        title: String,
-        description: String? = null,
+        description: String,
         thumbnailUrl: String? = null,
         imageUrl: String? = null,
         authorName: String? = null,
@@ -34,11 +33,12 @@ object EmbedHelper {
         timestamp: Instant? = null,
         fields: List<Field> = emptyList()
     ): MessageEmbed {
-        val themedTitle = "${type.emoji} $title ${type.emoji}"
+        val themedTitle = "${type.emoji} ${type.title} ${type.emoji}"
 
         return createEmbed(
             title = themedTitle,
             color = type.color,
+
             description = description,
             thumbnailUrl = thumbnailUrl,
             imageUrl = imageUrl,
