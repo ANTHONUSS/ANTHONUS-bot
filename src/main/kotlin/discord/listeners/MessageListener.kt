@@ -1,6 +1,6 @@
-package app.discord.listeners
+package discord.listeners
 
-import app.helpers.LogsHelper
+import helpers.LogsHelper
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent
 import net.dv8tion.jda.api.hooks.ListenerAdapter
 import kotlin.random.Random

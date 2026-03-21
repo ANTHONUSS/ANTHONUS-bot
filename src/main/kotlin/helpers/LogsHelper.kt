@@ -1,4 +1,4 @@
-package app.helpers
+package helpers
 
 import net.dv8tion.jda.api.events.GenericEvent
 import net.dv8tion.jda.api.events.interaction.command.GenericCommandInteractionEvent

@@ -1,4 +1,4 @@
-package app.helpers
+package helpers
 
 import io.github.cdimascio.dotenv.Dotenv
 import java.io.IOException

@@ -1,6 +1,6 @@
-import app.helpers.LogsHelper.log
-import app.helpers.SettingsHelper
-import app.discord.JDA
+import helpers.LogsHelper.log
+import helpers.SettingsHelper
+import discord.JDA
 import java.util.Scanner
 import kotlin.system.exitProcess
 

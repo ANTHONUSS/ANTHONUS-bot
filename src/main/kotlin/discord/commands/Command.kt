@@ -1,7 +1,7 @@
-package app.discord.commands
+package discord.commands
 
-import app.helpers.EmbedHelper
-import app.helpers.LogsHelper
+import helpers.EmbedHelper
+import helpers.LogsHelper
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent
 import net.dv8tion.jda.api.interactions.commands.DefaultMemberPermissions
 import net.dv8tion.jda.api.interactions.commands.build.Commands

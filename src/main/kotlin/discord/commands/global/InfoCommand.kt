@@ -1,10 +1,9 @@
-package app.discord.commands.global
+package discord.commands.global
 
-import app.discord.commands.Command
-import app.discord.commands.CommandNode
-import app.helpers.EmbedHelper
-import app.helpers.LogsHelper
-import app.helpers.SettingsHelper
+import discord.commands.Command
+import helpers.EmbedHelper
+import helpers.LogsHelper
+import helpers.SettingsHelper
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent
 
 class InfoCommand : Command() {

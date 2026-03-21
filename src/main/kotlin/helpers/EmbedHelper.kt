@@ -1,4 +1,4 @@
-package app.helpers
+package helpers
 
 import net.dv8tion.jda.api.EmbedBuilder
 import net.dv8tion.jda.api.entities.MessageEmbed

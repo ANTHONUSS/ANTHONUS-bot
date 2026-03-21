@@ -1,14 +1,13 @@
-package app.discord.commands
+package discord.commands
 
-import app.discord.commands.global.ClearCommand
-import app.discord.commands.global.InfoCommand
-import app.discord.commands.global.SendCommand
+import discord.commands.global.*
 
 object CommandRegistry {
     private val commands: List<Command> = listOf(
         InfoCommand(),
         ClearCommand(),
-        SendCommand()
+        SendCommand(),
+        CursedCommand()
     )
 
     fun all(): List<Command> = commands

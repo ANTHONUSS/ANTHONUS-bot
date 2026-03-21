@@ -1,7 +1,7 @@
-package app.discord.listeners
+package discord.listeners
 
-import app.discord.commands.CommandRegistry
-import app.helpers.EmbedHelper
+import discord.commands.CommandRegistry
+import helpers.EmbedHelper
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent
 import net.dv8tion.jda.api.hooks.ListenerAdapter
 

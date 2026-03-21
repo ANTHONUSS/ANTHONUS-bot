@@ -1,12 +1,11 @@
-package app.discord
+package discord
 
-import app.discord.commands.CommandRegistry
-import app.discord.listeners.MessageListener
-import app.helpers.LogsHelper.log
-import app.helpers.SettingsHelper
-import app.discord.listeners.SlashCommandListener
+import discord.commands.CommandRegistry
+import discord.listeners.MessageListener
+import helpers.LogsHelper.log
+import helpers.SettingsHelper
+import discord.listeners.SlashCommandListener
 import net.dv8tion.jda.api.JDABuilder
-import net.dv8tion.jda.api.interactions.commands.build.Commands
 import net.dv8tion.jda.api.requests.GatewayIntent
 import java.time.Duration
 
