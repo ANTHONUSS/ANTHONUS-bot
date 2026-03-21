@@ -13,10 +13,6 @@ import java.time.Duration
 object JDA {
     lateinit var jda: net.dv8tion.jda.api.JDA
 
-    fun init() {
-        //TODO : init json settings
-    }
-
     fun start() {
         log.info("Initializing the bot...")
 
@@ -39,7 +35,7 @@ object JDA {
         val updater = jda.updateCommands()
         updater.addCommands(
             CommandRegistry.all().map {
-                Commands.slash(it.name, it.description)
+                it.toSlashCommandData()
             }
         )
 

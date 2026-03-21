@@ -6,7 +6,6 @@ import kotlin.system.exitProcess
 
 fun main() {
     SettingsHelper.loadEnv()
-    JDA.init()
     JDA.start()
 
     val scanner = Scanner(System.`in`)

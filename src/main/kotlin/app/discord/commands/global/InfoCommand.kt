@@ -1,17 +1,17 @@
-package app.discord.commands
+package app.discord.commands.global
 
+import app.discord.commands.Command
+import app.discord.commands.CommandNode
 import app.helpers.EmbedHelper
 import app.helpers.LogsHelper
-import app.helpers.LogsHelper.log
 import app.helpers.SettingsHelper
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent
 
+class InfoCommand : Command() {
+    override val name = "info"
+    override val description = "Affiche les informations relatives au bot"
 
-class InfoCommand : Command {
-    override val name: String = "info"
-    override val description: String = "Affiche les informations relatives au bot"
-
-    override fun execute(event: SlashCommandInteractionEvent) {
+    override fun executeBody(event: SlashCommandInteractionEvent) {
         val embed = EmbedHelper.createEmbed(
             title = "ANTHONUS-bot",
             thumbnailUrl = event.jda.selfUser.avatarUrl,
