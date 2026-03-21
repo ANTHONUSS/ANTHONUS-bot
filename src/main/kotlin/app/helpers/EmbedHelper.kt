@@ -12,11 +12,43 @@ object EmbedHelper {
         val inline: Boolean = false
     )
 
-    private const val CREDITS_TITLE = "Credits du bot"
-    private val CREDITS_VALUE = """
-        Developpe par ANTHONUS, (je pense que c'est assez evident)
-        [Mon site web](https://anthonus.fr)
-    """.trimIndent()
+    private const val CREDITS_TITLE = "Bot développé par ANTHONUS -> /info"
+    private const val CREDITS_URL = "https://avatar-cyan.vercel.app/api/pfp/722086214949404682/smallimage"
+
+    enum class Type(val color: Color, val emoji: String) {
+        SUCCESS(Color.GREEN, ":white_check_mark:"),
+        WARNING(Color.YELLOW, ":warning:"),
+        ERROR(Color.RED, ":x:"),
+        INFO(Color.BLUE, ":information_source:")
+    }
+
+    fun createEmbed(
+        type: Type,
+        title: String,
+        description: String? = null,
+        thumbnailUrl: String? = null,
+        imageUrl: String? = null,
+        authorName: String? = null,
+        authorUrl: String? = null,
+        authorIconUrl: String? = null,
+        timestamp: Instant? = null,
+        fields: List<Field> = emptyList()
+    ): MessageEmbed {
+        val themedTitle = "${type.emoji} $title ${type.emoji}"
+
+        return createEmbed(
+            title = themedTitle,
+            color = type.color,
+            description = description,
+            thumbnailUrl = thumbnailUrl,
+            imageUrl = imageUrl,
+            authorName = authorName,
+            authorUrl = authorUrl,
+            authorIconUrl = authorIconUrl,
+            timestamp = timestamp,
+            fields = fields
+        )
+    }
 
     fun createEmbed(
         title: String? = null,
@@ -24,8 +56,6 @@ object EmbedHelper {
         color: Color? = null,
         thumbnailUrl: String? = null,
         imageUrl: String? = null,
-        footerText: String? = null,
-        footerIconUrl: String? = null,
         authorName: String? = null,
         authorUrl: String? = null,
         authorIconUrl: String? = null,
@@ -39,7 +69,6 @@ object EmbedHelper {
         if (color != null) embed.setColor(color)
         if (thumbnailUrl != null) embed.setThumbnail(thumbnailUrl)
         if (imageUrl != null) embed.setImage(imageUrl)
-        if (footerText != null) embed.setFooter(footerText, footerIconUrl)
         if (authorName != null) embed.setAuthor(authorName, authorUrl, authorIconUrl)
         if (timestamp != null) embed.setTimestamp(timestamp)
 
@@ -47,7 +76,7 @@ object EmbedHelper {
             embed.addField(field.name, field.value, field.inline)
         }
 
-        embed.addField(CREDITS_TITLE, CREDITS_VALUE, false)
+        embed.setFooter(CREDITS_TITLE, CREDITS_URL)
 
         return embed.build()
     }

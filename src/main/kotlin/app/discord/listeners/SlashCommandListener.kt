@@ -1,6 +1,7 @@
 package app.discord.listeners
 
 import app.discord.commands.CommandRegistry
+import app.helpers.EmbedHelper
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent
 import net.dv8tion.jda.api.hooks.ListenerAdapter
 
@@ -16,8 +17,10 @@ class SlashCommandListener: ListenerAdapter() {
 
         val command = CommandRegistry.find(event.name)
         if (command == null) {
-            event.reply("Commande inconnue")
-                .setEphemeral(true)
+            event.replyEmbeds(EmbedHelper.createEmbed(
+                type = EmbedHelper.Type.WARNING,
+                title = "Commande inconnue"
+            )).setEphemeral(true)
                 .queue()
             return
         }

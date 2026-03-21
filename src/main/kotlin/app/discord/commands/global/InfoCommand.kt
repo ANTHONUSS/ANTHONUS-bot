@@ -17,7 +17,11 @@ class InfoCommand : Command() {
             thumbnailUrl = event.jda.selfUser.avatarUrl,
             fields = listOf(
                 EmbedHelper.Field("Ping", "${event.jda.gatewayPing} ms", true),
-                EmbedHelper.Field("Version", SettingsHelper.version, true)
+                EmbedHelper.Field("Version", SettingsHelper.version, true),
+                EmbedHelper.Field(
+                    "Crédits",
+                    "Developpe par ANTHONUS, (je pense que c'est assez evident)\n[Mon site web](https://anthonus.fr)"
+                )
             )
         )
 
