@@ -88,8 +88,4 @@ class TrackScheduler(
     fun isTrackPlaying(): Boolean {
         return audioPlayer.playingTrack != null
     }
-
-    fun getPlayingTrack(): AudioTrack? {
-        return audioPlayer.playingTrack
-    }
 }

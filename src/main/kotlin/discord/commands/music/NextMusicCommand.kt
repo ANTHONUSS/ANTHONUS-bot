@@ -28,11 +28,23 @@ class NextMusicCommand : SubCommand() {
         if (scheduler.isTrackPlaying()) scheduler.play()
 
         val track = scheduler.getCurrentTrack()
+        if (track == null) {
+            event.replyEmbeds(
+                EmbedHelper.createEmbed(
+                    type = EmbedHelper.Type.ERROR,
+                    description = "Impossible de récupérer la prochaine musique"
+                )
+            ).setEphemeral(true)
+                .queue()
+
+            return
+        }
+
         event.replyEmbeds(
             EmbedHelper.createEmbed(
                 type = EmbedHelper.Type.SUCCESS,
-                description = "Lecture de `${scheduler.getCurrentTrack()?.info?.title ?: "Titre inconnu"}`",
-                thumbnailUrl = track?.info?.artworkUrl ?: "https://img.youtube.com/vi/${track?.identifier}/hqdefault.jpg"
+                description = "Lecture de `${track.info?.title ?: "Titre inconnu"}`",
+                thumbnailUrl = track.info?.artworkUrl ?: "https://img.youtube.com/vi/${track.identifier}/hqdefault.jpg"
             )
         ).queue()
 

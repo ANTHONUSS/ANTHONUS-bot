@@ -30,7 +30,7 @@ class PlayMusicCommand: SubCommand() {
             event.replyEmbeds(
                 EmbedHelper.createEmbed(
                     type = EmbedHelper.Type.WARNING,
-                    description = "La musique est déjà en cours d'exécution"
+                    description = "La musique est déjà en cours de lecture"
                 )
             ).setEphemeral(true)
                 .queue()

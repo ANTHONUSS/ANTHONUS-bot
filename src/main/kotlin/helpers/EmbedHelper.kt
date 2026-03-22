@@ -18,8 +18,7 @@ object EmbedHelper {
     enum class Type(val color: Color, val emoji: String, val title: String) {
         SUCCESS(Color.GREEN, ":white_check_mark:", "SUCCES"),
         WARNING(Color.YELLOW, ":warning:", "ATTENTION"),
-        ERROR(Color.RED, ":x:", "ERREUR"),
-        INFO(Color.BLUE, ":information_source:", "INFO")
+        ERROR(Color.RED, ":x:", "ERREUR")
     }
 
     fun createEmbed(
