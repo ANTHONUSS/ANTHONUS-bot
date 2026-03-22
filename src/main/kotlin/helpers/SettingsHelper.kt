@@ -1,6 +1,7 @@
 package helpers
 
 import io.github.cdimascio.dotenv.Dotenv
+import io.github.cdimascio.dotenv.DotenvException
 import java.io.IOException
 import java.nio.charset.StandardCharsets
 
@@ -17,7 +18,7 @@ object SettingsHelper {
 
     var discordToken: String? = null
 
-    fun loadEnv(): Boolean {
+    fun loadEnv() {
         val dotenv = Dotenv.configure()
             .directory("conf")
             .load()
@@ -25,12 +26,9 @@ object SettingsHelper {
         LogsHelper.log.info("Loading discord bot token...")
         discordToken = dotenv.get("DISCORD_TOKEN")
         if (discordToken.isNullOrEmpty()) {
-            LogsHelper.log.error("Discord token not found in .env file")
-            return false
+            throw DotenvException("Discord token not found in .env file")
         } else {
             LogsHelper.log.info("Discord token loaded successfully")
         }
-
-        return true;
     }
 }
