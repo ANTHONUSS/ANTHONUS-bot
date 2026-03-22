@@ -7,7 +7,7 @@ import helpers.LogsHelper
 import music.PlayerManager
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent
 
-class ShuffleCommand: SubCommand() {
+class ShuffleMusicCommand: SubCommand() {
     override val name = "shuffle"
     override val description = "Mélange la playlist"
 
