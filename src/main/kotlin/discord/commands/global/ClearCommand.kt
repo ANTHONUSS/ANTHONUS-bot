@@ -49,36 +49,63 @@ class ClearCommand : Command() {
                 return@queue
             }
 
-            channel.deleteMessages(recentMessages).queue(
-                {
-                    val msg = if (oldMessages.isNotEmpty()) {
-                        "${recentMessages.size} messages supprimés. ${oldMessages.size} messages étaient trop vieux (> 14 jours) pour être supprimés en masse."
-                    } else {
-                        "${recentMessages.size} messages supprimés."
+            if (recentMessages.size == 1) {
+                recentMessages.first().delete().queue(
+                    {
+                        val embed = EmbedHelper.createEmbed(
+                            type = EmbedHelper.Type.SUCCESS,
+                            description = "Message supprimé"
+                        )
+                        event.replyEmbeds(embed)
+                            .setEphemeral(true)
+                            .queue()
+
+                        LogsHelper.success(event, "${recentMessages.size} messages deleted")
+                    },
+                    { err ->
+                        val embed = EmbedHelper.createEmbed(
+                            type = EmbedHelper.Type.ERROR,
+                            description = "Erreur lors de la suppression : ${err.message}"
+                        )
+                        event.replyEmbeds(embed)
+                            .setEphemeral(true)
+                            .queue()
+
+                        LogsHelper.failure(event, "Error deleting messages", err)
                     }
+                )
+            } else {
+                channel.deleteMessages(recentMessages).queue(
+                    {
+                        val msg = if (oldMessages.isNotEmpty()) {
+                            "${recentMessages.size} messages supprimés. ${oldMessages.size} messages étaient trop vieux (> 14 jours) pour être supprimés en masse."
+                        } else {
+                            "${recentMessages.size} messages supprimés."
+                        }
 
-                    val embed = EmbedHelper.createEmbed(
-                        type = EmbedHelper.Type.SUCCESS,
-                        description = msg
-                    )
-                    event.replyEmbeds(embed)
-                        .setEphemeral(true)
-                        .queue()
+                        val embed = EmbedHelper.createEmbed(
+                            type = EmbedHelper.Type.SUCCESS,
+                            description = msg
+                        )
+                        event.replyEmbeds(embed)
+                            .setEphemeral(true)
+                            .queue()
 
-                    LogsHelper.success(event, "${recentMessages.size} messages deleted")
-                },
-                { err ->
-                    val embed = EmbedHelper.createEmbed(
-                        type = EmbedHelper.Type.ERROR,
-                        description = "Erreur lors de la suppression : ${err.message}"
-                    )
-                    event.replyEmbeds(embed)
-                        .setEphemeral(true)
-                        .queue()
+                        LogsHelper.success(event, "${recentMessages.size} messages deleted")
+                    },
+                    { err ->
+                        val embed = EmbedHelper.createEmbed(
+                            type = EmbedHelper.Type.ERROR,
+                            description = "Erreur lors de la suppression : ${err.message}"
+                        )
+                        event.replyEmbeds(embed)
+                            .setEphemeral(true)
+                            .queue()
 
-                    LogsHelper.failure(event, "Error deleting messages", err)
-                }
-            )
+                        LogsHelper.failure(event, "Error deleting messages", err)
+                    }
+                )
+            }
         }
     }
 }

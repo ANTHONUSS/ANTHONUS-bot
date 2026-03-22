@@ -21,7 +21,15 @@ class AddMusicCommand : SubCommand() {
     )
 
     override fun executeBody(event: SlashCommandInteractionEvent) {
-        if (!CommandHelper.isUserInVoiceChannel(event)) return
+        if (!CommandHelper.isUserInVoiceChannel(event)) {
+            event.replyEmbeds(
+                EmbedHelper.createEmbed(
+                    type = EmbedHelper.Type.WARNING,
+                    description = "Vous devez être dans un salon vocal pour utiliser cette commande"
+                )
+            ).setEphemeral(true).queue()
+            return
+        }
 
         val url = event.getOption("url")?.asString
         if (url.isNullOrEmpty()) {

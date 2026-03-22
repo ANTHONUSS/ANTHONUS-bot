@@ -12,7 +12,7 @@ class ListMusicCommand: SubCommand() {
     override val description = "Affiche la liste des pistes audio dans la file d'attente"
 
     override fun executeBody(event: SlashCommandInteractionEvent) {
-        if (CommandHelper.isUserInVoiceChannel(event)) {
+        if (!CommandHelper.isUserInVoiceChannel(event)) {
             event.replyEmbeds(
                 EmbedHelper.createEmbed(
                     type = EmbedHelper.Type.WARNING,

@@ -12,7 +12,7 @@ class PlayMusicCommand: SubCommand() {
     override val description = "Joue la première piste audio de la file d'attente"
 
     override fun executeBody(event: SlashCommandInteractionEvent) {
-        if (CommandHelper.isUserInVoiceChannel(event)) {
+        if (!CommandHelper.isUserInVoiceChannel(event)) {
             event.replyEmbeds(
                 EmbedHelper.createEmbed(
                     type = EmbedHelper.Type.WARNING,
