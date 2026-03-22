@@ -9,7 +9,6 @@ import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEve
 import net.dv8tion.jda.api.interactions.commands.OptionType
 import net.dv8tion.jda.api.interactions.commands.build.OptionData
 
-//TODO: à tester
 class RemoveMusicCommand : SubCommand() {
     override val name = "remove"
     override val description = "Enlève une musique de la playlist"
@@ -65,7 +64,7 @@ class RemoveMusicCommand : SubCommand() {
                 EmbedHelper.createEmbed(
                     type = EmbedHelper.Type.SUCCESS,
                     description = "Musique retirée avec succès",
-                    thumbnailUrl = "https://img.youtube.com/vi/${trackToDelete.identifier}/hqdefault.jpg"
+                    thumbnailUrl = trackToDelete.info.artworkUrl ?: "https://img.youtube.com/vi/${trackToDelete.identifier}/hqdefault.jpg"
                 )
             ).queue()
 

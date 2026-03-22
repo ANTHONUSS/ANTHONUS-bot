@@ -1,12 +1,10 @@
 package api
 
-import com.google.gson.JsonObject
 import com.google.gson.JsonParser
 import helpers.LogsHelper
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import java.io.IOException
-import kotlin.random.Random
 
 object RedditApi {
     private val client = OkHttpClient()

@@ -1,13 +1,15 @@
 package helpers
 
+import discord.JDA
 import net.dv8tion.jda.api.events.GenericEvent
 import net.dv8tion.jda.api.events.interaction.command.GenericCommandInteractionEvent
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
+//TODO: ajouter des logs sur fichier
 object LogsHelper {
-    val log: Logger = LoggerFactory.getLogger(LogsHelper::class.java)
+    val log: Logger = LoggerFactory.getLogger(JDA::class.java)
 
     private fun context(event: GenericEvent): String = when (event) {
         is GenericCommandInteractionEvent -> {

@@ -28,7 +28,8 @@ class SendCommand : Command() {
             ).setEphemeral(true)
                 .queue()
 
-            LogsHelper.log.error(
+            LogsHelper.failure(
+                event,
                 "No user found",
                 Error("No user found for ${event.name} command")
             )

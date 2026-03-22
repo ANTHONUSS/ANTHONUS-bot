@@ -24,7 +24,8 @@ class CursedCommand : Command() {
                 )
             ).queue()
 
-            LogsHelper.log.error(
+            LogsHelper.failure(
+                event,
                 "Error while retrieving reddit image url",
                 Exception("Error while retrieving reddit image url")
             )

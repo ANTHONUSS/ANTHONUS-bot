@@ -53,8 +53,9 @@ abstract class Command : CommandNode {
         ).setEphemeral(true)
             .queue()
 
-        LogsHelper.log.error(
-            "Non-implemented function ran",
+        LogsHelper.failure(
+            event,
+            "Not implemented function executed",
             NotImplementedError("The command ${this.name} Does not have an override of executeBody")
         )
     }

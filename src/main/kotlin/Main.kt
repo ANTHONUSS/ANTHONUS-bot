@@ -1,8 +1,6 @@
 import helpers.LogsHelper.log
 import helpers.SettingsHelper
 import discord.JDA
-import helpers.LogsHelper
-import io.github.cdimascio.dotenv.DotenvException
 import java.util.Scanner
 import kotlin.system.exitProcess
 

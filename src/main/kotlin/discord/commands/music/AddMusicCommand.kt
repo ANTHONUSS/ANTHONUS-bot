@@ -33,25 +33,11 @@ class AddMusicCommand : SubCommand() {
             ).setEphemeral(true)
                 .queue()
 
-            LogsHelper.log.error(
+            LogsHelper.failure(
+                event,
                 "No url in parameters",
                 Error("no url for ${event.subcommandName} command")
             )
-
-            return
-        }
-
-        val youtubeRegex =
-            "^((?:https?:)?//)?((?:www|m)\\.)?(youtube\\.com|youtu.be)(/(?:[\\w\\-]+\\?v=|embed/|v/)?)([\\w\\-]+)(\\S+)?$"
-                .toRegex()
-        if (!youtubeRegex.matches(url)) {
-            event.replyEmbeds(
-                EmbedHelper.createEmbed(
-                    type = EmbedHelper.Type.WARNING,
-                    description = "L'URL passé n'est pas un lien Youtube"
-                )
-            ).setEphemeral(true)
-                .queue()
 
             return
         }
@@ -60,6 +46,7 @@ class AddMusicCommand : SubCommand() {
 
         if (CommandHelper.isGuildNull(event)) return
         val guildMusicManager = PlayerManager.getGuildMusicManager(event.guild!!)
+
         PlayerManager.playerManager.loadItemOrdered(
             guildMusicManager,
             url,
@@ -69,7 +56,7 @@ class AddMusicCommand : SubCommand() {
                         event.hook.editOriginalEmbeds(
                             EmbedHelper.createEmbed(
                                 type = EmbedHelper.Type.ERROR,
-                                description = "La musique n'a pas été chargée"
+                                description = "Impossible de charger la musique"
                             )
                         ).queue()
 
@@ -80,7 +67,7 @@ class AddMusicCommand : SubCommand() {
                             EmbedHelper.createEmbed(
                                 type = EmbedHelper.Type.SUCCESS,
                                 description = "Musique chargée et ajoutée à la playlist",
-                                thumbnailUrl = "https://img.youtube.com/vi/${track.identifier}/hqdefault.jpg",
+                                thumbnailUrl = track.info.artworkUrl ?: "https://img.youtube.com/vi/${track.identifier}/hqdefault.jpg",
                                 fields = listOf(
                                     EmbedHelper.Field("Titre", track.info.title, true),
                                     EmbedHelper.Field("Auteur", track.info.author, true),
@@ -93,22 +80,27 @@ class AddMusicCommand : SubCommand() {
                     }
                 }
 
-                override fun playlistLoaded(track: AudioPlaylist?) {
-                    //TODO: faire en sorte de charger la vraie musique du lien, et pas la playlist
+                override fun playlistLoaded(playlist: AudioPlaylist?) {
+                    if (playlist == null) {
+                        event.hook.editOriginalEmbeds(
+                            EmbedHelper.createEmbed(
+                                type = EmbedHelper.Type.ERROR,
+                                description = "Impossible de charger la playlist"
+                            )
+                        ).queue()
 
-                    event.hook.editOriginalEmbeds(
-                        EmbedHelper.createEmbed(
-                            type = EmbedHelper.Type.WARNING,
-                            description = "Playlists non prises en charge"
-                        )
-                    ).queue()
+                        return
+                    }
+
+                    val track = playlist.selectedTrack ?: playlist.tracks.firstOrNull()
+                    trackLoaded(track)
                 }
 
                 override fun noMatches() {
                     event.hook.editOriginalEmbeds(
                         EmbedHelper.createEmbed(
                             type = EmbedHelper.Type.WARNING,
-                            description = "Aucune musique n'a été trouvée pour ce lien"
+                            description = "Aucune musique n'a été trouvée pour ce lien (lien non supporté ou invalide)"
                         )
                     ).queue()
                 }
@@ -121,7 +113,7 @@ class AddMusicCommand : SubCommand() {
                         )
                     ).queue()
 
-                    LogsHelper.failure(event, "Une erreur est survenue lors du chargement de la musique", e)
+                    LogsHelper.failure(event, "Error while loading music", e)
                 }
 
             })

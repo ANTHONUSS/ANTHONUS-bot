@@ -26,7 +26,6 @@ class AutoCompleteSlashCommandListener: ListenerAdapter() {
         val musicsQueue = tracks.map { it.info.title }
         val choices = musicsQueue
             .filter { it.contains(userInput, ignoreCase = true) }
-            .distinct()
             .take(25)
             .map { Command.Choice(it, it) }
 

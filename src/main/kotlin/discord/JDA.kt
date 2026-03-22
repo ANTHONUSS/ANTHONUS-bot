@@ -4,7 +4,7 @@ import club.minnced.discord.jdave.interop.JDaveSessionFactory
 import discord.commands.CommandRegistry
 import discord.listeners.AutoCompleteSlashCommandListener
 import discord.listeners.MessageListener
-import helpers.LogsHelper.log
+import helpers.LogsHelper
 import helpers.SettingsHelper
 import discord.listeners.SlashCommandListener
 import net.dv8tion.jda.api.JDABuilder
@@ -16,7 +16,7 @@ object JDA {
     lateinit var jda: net.dv8tion.jda.api.JDA
 
     fun start() {
-        log.info("Initializing the bot...")
+        LogsHelper.log.info("Initializing the bot...")
 
         jda = JDABuilder.createDefault(SettingsHelper.discordToken)
             .enableIntents(
@@ -35,9 +35,9 @@ object JDA {
             .build()
 
         jda.awaitReady()
-        log.info("Bot started")
+        LogsHelper.log.info("Bot started")
 
-        log.info("loading commands...")
+        LogsHelper.log.info("loading commands...")
 
         val updater = jda.updateCommands()
         updater.addCommands(
@@ -47,26 +47,26 @@ object JDA {
         )
 
         updater.queue(
-            { log.info("Commands registered") },
-            { err -> log.error("Failed to register commands", err) }
+            { LogsHelper.log.info("Commands registered") },
+            { err -> LogsHelper.log.error("Failed to register commands", err) }
         )
     }
 
     fun stop() {
         if (!::jda.isInitialized) {
-            log.warn("JDA is not initialized, nothing to stop")
+            LogsHelper.log.warn("JDA is not initialized, nothing to stop")
             return
         }
 
-        log.info("Shutting down the bot...")
+        LogsHelper.log.info("Shutting down the bot...")
         jda.shutdown()
 
         if (!jda.awaitShutdown(Duration.ofSeconds(10))) {
-            log.warn("JDA did not stop in time, forcing shutdown")
+            LogsHelper.log.warn("JDA did not stop in time, forcing shutdown")
             jda.shutdownNow()
         }
 
-        log.info("Bot shutdown successfully")
+        LogsHelper.log.info("Bot shutdown successfully")
     }
 
 }

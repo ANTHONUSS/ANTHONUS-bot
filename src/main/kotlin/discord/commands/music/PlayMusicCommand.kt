@@ -3,6 +3,7 @@ package discord.commands.music
 import discord.commands.SubCommand
 import helpers.CommandHelper
 import helpers.EmbedHelper
+import helpers.LogsHelper
 import music.PlayerManager
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent
 
@@ -43,5 +44,7 @@ class PlayMusicCommand: SubCommand() {
                 description = "Lecture de `${scheduler.getCurrentTrack()?.info?.title ?: "Titre inconnu"}` dans <#${voiceChannel.id}>"
             )
         ).queue()
+
+        LogsHelper.success(event, "Bot connected and track played in ${voiceChannel.name}")
     }
 }

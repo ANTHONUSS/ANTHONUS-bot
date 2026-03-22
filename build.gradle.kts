@@ -37,6 +37,8 @@ dependencies {
     implementation("club.minnced:jdave-api:0.1.7")
     // Source: https://mvnrepository.com/artifact/club.minnced/jdave-native-linux-x86-64
     implementation("club.minnced:jdave-native-linux-x86-64:0.1.7")
+    // Source: https://mvnrepository.com/artifact/club.minnced/jdave-native-win-x86-64
+    implementation("club.minnced:jdave-native-win-x86-64:0.1.7")
 
     // Source: https://mvnrepository.com/artifact/com.squareup.okhttp3/okhttp
     implementation("com.squareup.okhttp3:okhttp:5.3.2")
