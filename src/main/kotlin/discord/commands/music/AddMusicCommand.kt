@@ -5,6 +5,7 @@ import com.sedmelluq.discord.lavaplayer.tools.FriendlyException
 import com.sedmelluq.discord.lavaplayer.track.AudioPlaylist
 import com.sedmelluq.discord.lavaplayer.track.AudioTrack
 import discord.commands.SubCommand
+import helpers.CommandHelper
 import helpers.EmbedHelper
 import helpers.LogsHelper
 import music.PlayerManager
@@ -20,23 +21,6 @@ class AddMusicCommand : SubCommand() {
     )
 
     override fun executeBody(event: SlashCommandInteractionEvent) {
-        if (event.guild == null) {
-            event.replyEmbeds(
-                EmbedHelper.createEmbed(
-                    type = EmbedHelper.Type.ERROR,
-                    description = "Commande exécutée hors-serveur"
-                )
-            ).setEphemeral(true)
-                .queue()
-
-            LogsHelper.log.error(
-                "Command used in DM",
-                Error("Command used in DM for ${event.subcommandName} command")
-            )
-
-            return
-        }
-
         val url = event.getOption("url")?.asString
         if (url.isNullOrEmpty()) {
             event.replyEmbeds(
@@ -55,7 +39,9 @@ class AddMusicCommand : SubCommand() {
             return
         }
 
-        val youtubeRegex = "^((?:https?:)?//)?((?:www|m)\\.)?(youtube\\.com|youtu.be)(/(?:[\\w\\-]+\\?v=|embed/|v/)?)([\\w\\-]+)(\\S+)?$".toRegex()
+        val youtubeRegex =
+            "^((?:https?:)?//)?((?:www|m)\\.)?(youtube\\.com|youtu.be)(/(?:[\\w\\-]+\\?v=|embed/|v/)?)([\\w\\-]+)(\\S+)?$"
+                .toRegex()
         if (!youtubeRegex.matches(url)) {
             event.replyEmbeds(
                 EmbedHelper.createEmbed(
@@ -70,6 +56,7 @@ class AddMusicCommand : SubCommand() {
 
         event.deferReply().queue()
 
+        if (CommandHelper.isGuildNull(event)) return
         val guildMusicManager = PlayerManager.getGuildMusicManager(event.guild!!)
         PlayerManager.playerManager.loadItemOrdered(
             guildMusicManager,

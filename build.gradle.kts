@@ -33,6 +33,11 @@ dependencies {
     // Source: https://mvnrepository.com/artifact/dev.lavalink.youtube/v2
     implementation("dev.lavalink.youtube:v2:1.18.0")
 
+    // Source: https://mvnrepository.com/artifact/club.minnced/jdave-api
+    implementation("club.minnced:jdave-api:0.1.7")
+    // Source: https://mvnrepository.com/artifact/club.minnced/jdave-native-linux-x86-64
+    implementation("club.minnced:jdave-native-linux-x86-64:0.1.7")
+
     // Source: https://mvnrepository.com/artifact/com.squareup.okhttp3/okhttp
     implementation("com.squareup.okhttp3:okhttp:5.3.2")
     // Source: https://mvnrepository.com/artifact/com.google.code.gson/gson
@@ -45,4 +50,5 @@ kotlin {
 
 tasks.named<JavaExec>("run") {
     standardInput = System.`in`
+    jvmArgs = listOf("--enable-native-access=ALL-UNNAMED")
 }

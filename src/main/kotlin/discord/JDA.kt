@@ -1,11 +1,13 @@
 package discord
 
+import club.minnced.discord.jdave.interop.JDaveSessionFactory
 import discord.commands.CommandRegistry
 import discord.listeners.MessageListener
 import helpers.LogsHelper.log
 import helpers.SettingsHelper
 import discord.listeners.SlashCommandListener
 import net.dv8tion.jda.api.JDABuilder
+import net.dv8tion.jda.api.audio.AudioModuleConfig
 import net.dv8tion.jda.api.requests.GatewayIntent
 import java.time.Duration
 
@@ -23,6 +25,10 @@ object JDA {
             .addEventListeners(
                 SlashCommandListener(),
                 MessageListener()
+            )
+            .setAudioModuleConfig(
+                AudioModuleConfig()
+                    .withDaveSessionFactory(JDaveSessionFactory())
             )
             .build()
 
