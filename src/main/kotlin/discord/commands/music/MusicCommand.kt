@@ -7,6 +7,7 @@ class MusicCommand: Command() {
     override val description = "Commandes relatives à la musique"
     override val subCommands = listOf(
         AddMusicCommand(),
-        PlayMusicCommand()
+        PlayMusicCommand(),
+        StopMusicCommand()
     )
 }
