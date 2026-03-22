@@ -5,6 +5,8 @@ import discord.commands.Command
 class MusicCommand: Command() {
     override val name = "music"
     override val description = "Commandes relatives à la musique"
+
+    //TODO: Ajouter shuffle, next, previous, jump, clear, track
     override val subCommands = listOf(
         AddMusicCommand(),
         PlayMusicCommand(),

@@ -47,6 +47,10 @@ class TrackScheduler(
         currentIndex = if (currentIndex - 1 < 0) playlist.size - 1 else currentIndex - 1
     }
 
+    fun jump(index: Int) {
+
+    }
+
     fun shuffle() {
 
     }
