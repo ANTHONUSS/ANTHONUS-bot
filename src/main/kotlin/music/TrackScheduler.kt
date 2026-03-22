@@ -52,7 +52,9 @@ class TrackScheduler(
     }
 
     fun shuffle() {
-
+        val currentTrack = getCurrentTrack()
+        playlist.shuffle()
+        currentIndex = playlist.indexOf(currentTrack)
     }
 
     override fun onTrackEnd(player: AudioPlayer?, track: AudioTrack?, endReason: AudioTrackEndReason?) {
@@ -85,6 +87,4 @@ class TrackScheduler(
     fun getPlayingTrack(): AudioTrack? {
         return audioPlayer.playingTrack
     }
-
-
 }

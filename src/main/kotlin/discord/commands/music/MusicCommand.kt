@@ -12,6 +12,7 @@ class MusicCommand: Command() {
         PlayMusicCommand(),
         StopMusicCommand(),
         RemoveMusicCommand(),
-        ListMusicCommand()
+        ListMusicCommand(),
+        ShuffleCommand()
     )
 }

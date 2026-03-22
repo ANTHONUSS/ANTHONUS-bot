@@ -3,18 +3,19 @@ package discord.commands.music
 import discord.commands.SubCommand
 import helpers.CommandHelper
 import helpers.EmbedHelper
+import helpers.LogsHelper
 import music.PlayerManager
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent
-import java.awt.Color
 
-class ListMusicCommand: SubCommand() {
-    override val name = "list"
-    override val description = "Affiche la liste des pistes audio dans la file d'attente"
+class ShuffleCommand: SubCommand() {
+    override val name = "shuffle"
+    override val description = "Mélange la playlist"
 
     override fun executeBody(event: SlashCommandInteractionEvent) {
         if (!CommandHelper.isUserInVoiceChannel(event)) return
 
         if (CommandHelper.isGuildNull(event)) return
+        // already verified in the statements before
         val guild = event.guild!!
 
         val guildMusicManager = PlayerManager.getGuildMusicManager(guild)
@@ -23,23 +24,17 @@ class ListMusicCommand: SubCommand() {
 
         if (CommandHelper.isPlaylistEmpty(event, scheduler)) return
 
-        val playlist = scheduler.playlist
+        scheduler.shuffle()
 
-        val trackList = StringBuilder()
-        playlist.forEachIndexed { index, track ->
-            if (index == scheduler.currentIndex) {
-                trackList.append(":cd: ")
-            }
-
-            trackList.append("**${index+1}.** `${track.info.title}`\n")
-        }
         event.replyEmbeds(
             EmbedHelper.createEmbed(
-                title = ":scroll: Playlist du serveur :scroll:",
-                description = trackList.toString(),
-                color = Color.CYAN
+                type = EmbedHelper.Type.SUCCESS,
+                description = "Playlist mélangée"
             )
-        ).setEphemeral(true)
-            .queue()
+        ).queue()
+
+        LogsHelper.success(event, "Playlist shuffled")
     }
+
+
 }
