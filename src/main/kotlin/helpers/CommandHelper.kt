@@ -8,53 +8,16 @@ import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEve
 object CommandHelper {
 
     fun isGuildNull(event: SlashCommandInteractionEvent): Boolean {
-        return if (event.guild == null) {
-            event.replyEmbeds(
-                EmbedHelper.createEmbed(
-                    type = EmbedHelper.Type.ERROR,
-                    description = "Commande exécutée hors-serveur"
-                )
-            ).setEphemeral(true)
-                .queue()
-
-            true
-        } else {
-            false
-        }
+        return event.guild == null
     }
 
     fun isUserInVoiceChannel(event: SlashCommandInteractionEvent): Boolean {
         val voiceChannel: AudioChannelUnion? = event.member?.voiceState?.channel
 
-        return if (voiceChannel == null) {
-
-            event.replyEmbeds(
-                EmbedHelper.createEmbed(
-                    type = EmbedHelper.Type.WARNING,
-                    description = "Vous devez être dans un salon vocal pour utiliser cette commande"
-                )
-            ).setEphemeral(true)
-                .queue()
-
-            false
-        } else {
-            true
-        }
+        return voiceChannel == null
     }
 
-    fun isPlaylistEmpty(event: SlashCommandInteractionEvent, scheduler: TrackScheduler): Boolean {
-        return if (scheduler.isPlaylistEmpty()) {
-            event.replyEmbeds(
-                EmbedHelper.createEmbed(
-                    type = EmbedHelper.Type.WARNING,
-                    description = "La playlist est vide"
-                )
-            ).setEphemeral(true)
-                .queue()
-
-            true
-        } else {
-            false
-        }
+    fun isPlaylistEmpty(scheduler: TrackScheduler): Boolean {
+        return scheduler.isPlaylistEmpty()
     }
 }
