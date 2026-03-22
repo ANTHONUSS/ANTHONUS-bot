@@ -9,13 +9,11 @@ import java.util.Queue
 
 class TrackScheduler(
     val audioPlayer: AudioPlayer
-): AudioEventAdapter() {
+) : AudioEventAdapter() {
     val queue: Queue<AudioTrack> = LinkedList()
 
     fun queue(track: AudioTrack) {
-        if (!audioPlayer.startTrack(track, true)) {
-            queue.offer(track)
-        }
+        queue.offer(track)
     }
 
     override fun onTrackEnd(player: AudioPlayer?, track: AudioTrack?, endReason: AudioTrackEndReason?) {
