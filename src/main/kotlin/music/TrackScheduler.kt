@@ -54,6 +54,7 @@ class TrackScheduler(
     override fun onTrackEnd(player: AudioPlayer?, track: AudioTrack?, endReason: AudioTrackEndReason?) {
         if (endReason?.mayStartNext == true) {
             next()
+            play()
         }
     }
 
