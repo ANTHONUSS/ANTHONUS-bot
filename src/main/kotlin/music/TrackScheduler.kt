@@ -51,6 +51,11 @@ class TrackScheduler(
 
     }
 
+    fun clear() {
+        playlist.clear()
+        currentIndex = -1
+    }
+
     fun shuffle() {
         val currentTrack = getCurrentTrack()
         playlist.shuffle()

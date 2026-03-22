@@ -23,7 +23,6 @@ class PreviousMusicCommand: SubCommand() {
         val scheduler = guildMusicManager.scheduler
 
         if (CommandHelper.isPlaylistEmpty(event, scheduler)) return
-        if (!CommandHelper.isThereSelectedMusic(event, scheduler)) return
 
         scheduler.previous()
         scheduler.play()

@@ -7,9 +7,9 @@ import helpers.LogsHelper
 import music.PlayerManager
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent
 
-class PlayMusicCommand: SubCommand() {
-    override val name = "play"
-    override val description = "Joue la première piste audio de la file d'attente"
+class ClearMusicCommand: SubCommand() {
+    override val name = "clear"
+    override val description = "Vide la playlist"
 
     override fun executeBody(event: SlashCommandInteractionEvent) {
         if (!CommandHelper.isUserInVoiceChannel(event)) return
@@ -17,11 +17,8 @@ class PlayMusicCommand: SubCommand() {
         if (CommandHelper.isGuildNull(event)) return
         // already verified in the statements before
         val guild = event.guild!!
-        val member = event.member!!
-        val voiceChannel = member.voiceState!!.channel!!
 
         val guildMusicManager = PlayerManager.getGuildMusicManager(guild)
-        val audioManager = guild.audioManager
 
         val scheduler = guildMusicManager.scheduler
 
@@ -30,7 +27,7 @@ class PlayMusicCommand: SubCommand() {
             event.replyEmbeds(
                 EmbedHelper.createEmbed(
                     type = EmbedHelper.Type.WARNING,
-                    description = "La musique est déjà en cours d'exécution"
+                    description = "Une musique est déjà en cours d'exécution"
                 )
             ).setEphemeral(true)
                 .queue()
@@ -38,22 +35,15 @@ class PlayMusicCommand: SubCommand() {
             return
         }
 
-        event.deferReply().queue()
+        scheduler.clear()
 
-        if (!audioManager.isConnected) {
-            audioManager.sendingHandler = guildMusicManager.sendHandler
-            audioManager.openAudioConnection(voiceChannel)
-        }
-
-        scheduler.play()
-
-        event.hook.editOriginalEmbeds(
+        event.replyEmbeds(
             EmbedHelper.createEmbed(
                 type = EmbedHelper.Type.SUCCESS,
-                description = "Lecture de `${scheduler.getCurrentTrack()?.info?.title ?: "Titre inconnu"}` dans <#${voiceChannel.id}>"
+                description = "Playlist vidée"
             )
         ).queue()
 
-        LogsHelper.success(event, "Bot connected and track played in ${voiceChannel.name}")
+        LogsHelper.success(event, "Playlist cleared")
     }
 }

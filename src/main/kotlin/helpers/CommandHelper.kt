@@ -57,37 +57,4 @@ object CommandHelper {
             false
         }
     }
-
-    fun isTrackPlaying(event: SlashCommandInteractionEvent, scheduler: TrackScheduler): Boolean {
-        return if (scheduler.isTrackPlaying()) {
-            event.replyEmbeds(
-                EmbedHelper.createEmbed(
-                    type = EmbedHelper.Type.WARNING,
-                    description = "La musique est déjà en cours d'exécution"
-                )
-            ).setEphemeral(true)
-                .queue()
-
-            true
-        } else {
-            false
-        }
-    }
-
-    fun isThereSelectedMusic(event: SlashCommandInteractionEvent, scheduler: TrackScheduler): Boolean {
-        val currentTrack = scheduler.getCurrentTrack()
-        return if (currentTrack == null) {
-            event.replyEmbeds(
-                EmbedHelper.createEmbed(
-                    type = EmbedHelper.Type.WARNING,
-                    description = "Aucune musique n'est sélectionnée"
-                )
-            ).setEphemeral(true)
-                .queue()
-
-            false
-        } else {
-            true
-        }
-    }
 }

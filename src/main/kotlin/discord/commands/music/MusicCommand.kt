@@ -15,6 +15,7 @@ class MusicCommand: Command() {
         ListMusicCommand(),
         ShuffleMusicCommand(),
         NextMusicCommand(),
-        PreviousMusicCommand()
+        PreviousMusicCommand(),
+        ClearMusicCommand()
     )
 }
