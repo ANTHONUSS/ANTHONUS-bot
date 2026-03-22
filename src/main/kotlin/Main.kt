@@ -1,7 +1,7 @@
-import helpers.LogsHelper.log
-import helpers.SettingsHelper
 import discord.JDA
-import java.util.Scanner
+import helpers.LogsHelper
+import helpers.SettingsHelper
+import java.util.*
 import kotlin.system.exitProcess
 
 fun main() {
@@ -9,19 +9,30 @@ fun main() {
     JDA.start()
 
     val scanner = Scanner(System.`in`)
-    while (scanner.hasNextLine()) {
-        val input = scanner.nextLine()
+    if (System.console() != null) {
+        while (scanner.hasNextLine()) {
+            val input = scanner.nextLine()
 
-        when (input) {
-            "stop" -> {
-                JDA.stop()
-                exitProcess(0)
+            when (input) {
+                "stop" -> {
+                    JDA.stop()
+                    exitProcess(0)
+                }
+
+                "restart" -> {
+                    JDA.stop()
+                    JDA.start()
+                }
+
+                else -> LogsHelper.log.info("Unrecognized command.")
             }
-            "restart" -> {
-                JDA.stop()
-                JDA.start()
-            }
-            else -> log.info("Unrecognized command.")
+        }
+
+    } else {
+        try {
+            Thread.currentThread().join()
+        } catch (e: InterruptedException) {
+            Thread.currentThread().interrupt()
         }
     }
 }

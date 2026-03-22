@@ -15,7 +15,7 @@ class ListMusicCommand: SubCommand() {
         if (!CommandHelper.isUserInVoiceChannel(event)) return
 
         if (CommandHelper.isGuildNull(event)) return
-        val guild = event.guild!!
+        val guild = event.guild ?: return
 
         val guildMusicManager = PlayerManager.getGuildMusicManager(guild)
 

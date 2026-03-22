@@ -15,7 +15,7 @@ class StopMusicCommand: SubCommand() {
 
 
         if (CommandHelper.isGuildNull(event)) return
-        val guild = event.guild!!
+        val guild = event.guild ?: return
         val audioManager = guild.audioManager
 
         val guildMusicManager = music.PlayerManager.getGuildMusicManager(guild)

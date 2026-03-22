@@ -4,7 +4,7 @@ import okhttp3.OkHttpClient
 import okhttp3.Request
 
 object NetHelper {
-    private val client = OkHttpClient()
+    val client = OkHttpClient()
 
     fun downloadImage(url: String): ByteArray {
         val request = Request.Builder().url(url).build()

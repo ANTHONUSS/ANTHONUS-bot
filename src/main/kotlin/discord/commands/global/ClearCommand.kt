@@ -19,7 +19,7 @@ class ClearCommand : Command() {
     override val defaultPermissions = DefaultMemberPermissions.enabledFor(Permission.MESSAGE_MANAGE)
     override val options = listOf(
         OptionData(OptionType.INTEGER, "nombre", "Nombre de messages (1-100)", true)
-            .setRequiredRange(1, 100)
+            .setRequiredRange(2, 100)
     )
 
     override fun executeBody(event: SlashCommandInteractionEvent) {

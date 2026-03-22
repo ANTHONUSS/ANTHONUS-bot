@@ -34,10 +34,12 @@ class JumpMusicCommand : SubCommand() {
                 )
             ).setEphemeral(true)
                 .queue()
+
+            return
         }
 
         if (CommandHelper.isGuildNull(event)) return
-        val guild = event.guild!!
+        val guild = event.guild ?: return
 
         val guildMusicManager = PlayerManager.getGuildMusicManager(guild)
 

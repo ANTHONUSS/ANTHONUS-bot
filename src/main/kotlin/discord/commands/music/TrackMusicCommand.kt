@@ -27,8 +27,7 @@ class TrackMusicCommand: SubCommand() {
         if (!CommandHelper.isUserInVoiceChannel(event)) return
 
         if (CommandHelper.isGuildNull(event)) return
-        // already verified in the statements before
-        val guild = event.guild!!
+        val guild = event.guild ?: return
 
         val guildMusicManager = PlayerManager.getGuildMusicManager(guild)
 

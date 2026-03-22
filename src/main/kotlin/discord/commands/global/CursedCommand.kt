@@ -34,16 +34,26 @@ class CursedCommand : Command() {
         }
 
         val fileName = imageUrl.substring(imageUrl.lastIndexOf("/") + 1)
-        val imageData = FileUpload.fromData(NetHelper.downloadImage(imageUrl), fileName)
+        try {
+            val imageData = FileUpload.fromData(NetHelper.downloadImage(imageUrl), fileName)
+            event.hook.sendFiles(imageData)
+                .queue(
+                    {
+                        LogsHelper.success(event, "Cursed reddit image sent successfully")
+                    },
+                    { err ->
+                        LogsHelper.failure(event, "Cursed reddit image not sent", err)
+                    }
+                )
+        } catch (e: Exception) {
+            event.hook.editOriginalEmbeds(
+                EmbedHelper.createEmbed(
+                    type = EmbedHelper.Type.ERROR,
+                    description = "Impossible de télécharger l'image."
+                )
+            ).queue()
 
-        event.hook.sendFiles(imageData)
-            .queue(
-                {
-                    LogsHelper.success(event, "Cursed reddit image sent successfully")
-                },
-                { err ->
-                    LogsHelper.failure(event, "Cursed reddit image not sent", err)
-                }
-            )
+            LogsHelper.failure(event, "Impossible to download image", e)
+        }
     }
 }

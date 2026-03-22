@@ -2,12 +2,13 @@ package api
 
 import com.google.gson.JsonParser
 import helpers.LogsHelper
+import helpers.NetHelper
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import java.io.IOException
 
 object RedditApi {
-    private val client = OkHttpClient()
+    private val client = NetHelper.client
 
     private const val HEADER_NAME = "user-agent"
     private const val HEADER_VALUE = "ANTHONUS-Bot (https://github.com/ANTHONUSS/ANTHONUS-bot) by /u/Darkcp_YTB"

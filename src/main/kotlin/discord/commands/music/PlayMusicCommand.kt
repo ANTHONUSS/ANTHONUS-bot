@@ -15,10 +15,9 @@ class PlayMusicCommand: SubCommand() {
         if (!CommandHelper.isUserInVoiceChannel(event)) return
 
         if (CommandHelper.isGuildNull(event)) return
-        // already verified in the statements before
-        val guild = event.guild!!
-        val member = event.member!!
-        val voiceChannel = member.voiceState!!.channel!!
+        val guild = event.guild ?: return
+        val member = event.member ?: return
+        val voiceChannel = member.voiceState?.channel ?: return
 
         val guildMusicManager = PlayerManager.getGuildMusicManager(guild)
         val audioManager = guild.audioManager
