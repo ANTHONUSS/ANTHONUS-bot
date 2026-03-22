@@ -9,6 +9,7 @@ class MusicCommand: Command() {
         AddMusicCommand(),
         PlayMusicCommand(),
         StopMusicCommand(),
-        RemoveMusicCommand()
+        RemoveMusicCommand(),
+        ListMusicCommand()
     )
 }

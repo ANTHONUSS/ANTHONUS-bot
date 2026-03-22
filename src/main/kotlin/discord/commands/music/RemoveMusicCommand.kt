@@ -46,20 +46,17 @@ class RemoveMusicCommand : SubCommand() {
 
         if (CommandHelper.isPlaylistEmpty(event, scheduler)) return
 
-        val currentTrack = scheduler.getCurrentTrack()
-        if (scheduler.isTrackPlaying() && currentTrack == scheduler.getPlayingTrack()) {
+        val index = scheduler.playlist.indexOfFirst { it.info.title.equals(musicName, ignoreCase = false) }
+
+        if (scheduler.isTrackPlaying() && index == scheduler.currentIndex) {
             event.replyEmbeds(
                 EmbedHelper.createEmbed(
                     type = EmbedHelper.Type.WARNING,
                     description = "Impossible de retirer la musique en cours de lecture"
                 )
-            ).setEphemeral(true)
-                .queue()
-
+            ).setEphemeral(true).queue()
             return
         }
-
-        val index = scheduler.playlist.indexOfFirst { it.info.title.equals(musicName, ignoreCase = false) }
 
         if (index != -1) {
             val trackToDelete = scheduler.playlist[index]

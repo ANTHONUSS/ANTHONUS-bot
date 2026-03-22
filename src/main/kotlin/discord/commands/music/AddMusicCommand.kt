@@ -76,14 +76,11 @@ class AddMusicCommand : SubCommand() {
                     } else {
                         guildMusicManager.scheduler.add(track)
 
-                        val videoId = youtubeRegex.matchEntire(url)?.groups[5]?.value
-                        val thumbnailUrl = "https://img.youtube.com/vi/$videoId/hqdefault.jpg"
-
                         event.hook.editOriginalEmbeds(
                             EmbedHelper.createEmbed(
                                 type = EmbedHelper.Type.SUCCESS,
                                 description = "Musique chargée et ajoutée à la playlist",
-                                thumbnailUrl = thumbnailUrl,
+                                thumbnailUrl = "https://img.youtube.com/vi/${track.identifier}/hqdefault.jpg",
                                 fields = listOf(
                                     EmbedHelper.Field("Titre", track.info.title, true),
                                     EmbedHelper.Field("Auteur", track.info.author, true),

@@ -40,7 +40,7 @@ class PlayMusicCommand: SubCommand() {
         event.hook.editOriginalEmbeds(
             EmbedHelper.createEmbed(
                 type = EmbedHelper.Type.SUCCESS,
-                description = "Lecture de `${currentTrack.info.title}` dans <#${voiceChannel.id}>"
+                description = "Lecture de `${scheduler.getCurrentTrack()?.info?.title ?: "Titre inconnu"}` dans <#${voiceChannel.id}>"
             )
         ).queue()
     }
