@@ -14,7 +14,7 @@ object CommandHelper {
     fun isUserInVoiceChannel(event: SlashCommandInteractionEvent): Boolean {
         val voiceChannel: AudioChannelUnion? = event.member?.voiceState?.channel
 
-        return voiceChannel == null
+        return voiceChannel != null
     }
 
     fun isPlaylistEmpty(scheduler: TrackScheduler): Boolean {

@@ -12,7 +12,7 @@ class PreviousMusicCommand: SubCommand() {
     override val description = "Passe à la musique précédente de la playlist"
 
     override fun executeBody(event: SlashCommandInteractionEvent) {
-        if (CommandHelper.isUserInVoiceChannel(event)) {
+        if (!CommandHelper.isUserInVoiceChannel(event)) {
             event.replyEmbeds(
                 EmbedHelper.createEmbed(
                     type = EmbedHelper.Type.WARNING,

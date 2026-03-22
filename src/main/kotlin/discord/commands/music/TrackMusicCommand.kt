@@ -24,7 +24,7 @@ class TrackMusicCommand: SubCommand() {
     )
 
     override fun executeBody(event: SlashCommandInteractionEvent) {
-        if (CommandHelper.isUserInVoiceChannel(event)) {
+        if (!CommandHelper.isUserInVoiceChannel(event)) {
             event.replyEmbeds(
                 EmbedHelper.createEmbed(
                     type = EmbedHelper.Type.WARNING,

@@ -11,10 +11,25 @@ class StopMusicCommand: SubCommand() {
     override val description = "Arrête la musique et déconnecte le bot"
 
     override fun executeBody(event: SlashCommandInteractionEvent) {
-        if (!CommandHelper.isUserInVoiceChannel(event)) return
+        if (CommandHelper.isUserInVoiceChannel(event)) {
+            event.replyEmbeds(
+                EmbedHelper.createEmbed(
+                    type = EmbedHelper.Type.WARNING,
+                    description = "Vous devez être dans un salon vocal pour utiliser cette commande"
+                )
+            ).setEphemeral(true).queue()
+            return
+        }
 
-
-        if (CommandHelper.isGuildNull(event)) return
+        if (CommandHelper.isGuildNull(event)) {
+            event.replyEmbeds(
+                EmbedHelper.createEmbed(
+                    type = EmbedHelper.Type.ERROR,
+                    description = "Commande exécutée hors-serveur"
+                )
+            ).setEphemeral(true).queue()
+            return
+        }
         val guild = event.guild ?: return
         val audioManager = guild.audioManager
 

@@ -12,16 +12,39 @@ class NextMusicCommand : SubCommand() {
     override val description = "Passe à la prochaine musique de la playlist"
 
     override fun executeBody(event: SlashCommandInteractionEvent) {
-        if (!CommandHelper.isUserInVoiceChannel(event)) return
+        if (CommandHelper.isUserInVoiceChannel(event)) {
+            event.replyEmbeds(
+                EmbedHelper.createEmbed(
+                    type = EmbedHelper.Type.WARNING,
+                    description = "Vous devez être dans un salon vocal pour utiliser cette commande"
+                )
+            ).setEphemeral(true).queue()
+            return
+        }
 
-        if (CommandHelper.isGuildNull(event)) return
+        if (CommandHelper.isGuildNull(event)) {
+            event.replyEmbeds(
+                EmbedHelper.createEmbed(
+                    type = EmbedHelper.Type.ERROR,
+                    description = "Commande exécutée hors-serveur"
+                )
+            ).setEphemeral(true).queue()
+            return
+        }
         val guild = event.guild ?: return
 
         val guildMusicManager = PlayerManager.getGuildMusicManager(guild)
-
         val scheduler = guildMusicManager.scheduler
 
-        if (CommandHelper.isPlaylistEmpty(event, scheduler)) return
+        if (CommandHelper.isPlaylistEmpty(scheduler)) {
+            event.replyEmbeds(
+                EmbedHelper.createEmbed(
+                    type = EmbedHelper.Type.WARNING,
+                    description = "La playlist est vide"
+                )
+            ).setEphemeral(true).queue()
+            return
+        }
 
         scheduler.next()
         if (scheduler.isTrackPlaying()) scheduler.play()

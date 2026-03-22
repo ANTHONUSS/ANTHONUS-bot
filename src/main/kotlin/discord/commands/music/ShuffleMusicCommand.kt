@@ -12,7 +12,7 @@ class ShuffleMusicCommand: SubCommand() {
     override val description = "Mélange la playlist"
 
     override fun executeBody(event: SlashCommandInteractionEvent) {
-        if (CommandHelper.isUserInVoiceChannel(event)) {
+        if (!CommandHelper.isUserInVoiceChannel(event)) {
             event.replyEmbeds(
                 EmbedHelper.createEmbed(
                     type = EmbedHelper.Type.WARNING,
