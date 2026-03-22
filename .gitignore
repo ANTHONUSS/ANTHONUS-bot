@@ -43,3 +43,4 @@ bin/
 
 ### OTHER ###
 /conf/.env
+/logs/

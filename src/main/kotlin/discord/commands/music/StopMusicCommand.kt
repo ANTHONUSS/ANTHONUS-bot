@@ -3,6 +3,7 @@ package discord.commands.music
 import discord.commands.SubCommand
 import helpers.CommandHelper
 import helpers.EmbedHelper
+import helpers.LogsHelper
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent
 
 class StopMusicCommand: SubCommand() {
@@ -46,5 +47,7 @@ class StopMusicCommand: SubCommand() {
                 description = "Le bot a été déconnecté du salon"
             )
         ).queue()
+
+        LogsHelper.success(event, "Bot disconnected and track stopped")
     }
 }
