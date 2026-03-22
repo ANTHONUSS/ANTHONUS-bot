@@ -7,7 +7,7 @@ import helpers.LogsHelper
 import music.PlayerManager
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent
 
-class NextMusicCommand: SubCommand() {
+class NextMusicCommand : SubCommand() {
     override val name = "next"
     override val description = "Passe à la prochaine musique de la playlist"
 
@@ -25,12 +25,14 @@ class NextMusicCommand: SubCommand() {
         if (CommandHelper.isPlaylistEmpty(event, scheduler)) return
 
         scheduler.next()
-        scheduler.play()
+        if (scheduler.isTrackPlaying()) scheduler.play()
 
+        val track = scheduler.getCurrentTrack()
         event.replyEmbeds(
             EmbedHelper.createEmbed(
                 type = EmbedHelper.Type.SUCCESS,
-                description = "Lecture de `${scheduler.getCurrentTrack()?.info?.title ?: "Titre inconnu"}`"
+                description = "Lecture de `${scheduler.getCurrentTrack()?.info?.title ?: "Titre inconnu"}`",
+                thumbnailUrl = track?.info?.artworkUrl ?: "https://img.youtube.com/vi/${track?.identifier}/hqdefault.jpg"
             )
         ).queue()
 

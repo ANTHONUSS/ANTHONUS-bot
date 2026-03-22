@@ -9,14 +9,14 @@ import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEve
 import net.dv8tion.jda.api.interactions.commands.OptionType
 import net.dv8tion.jda.api.interactions.commands.build.OptionData
 
-class RemoveMusicCommand : SubCommand() {
-    override val name = "remove"
-    override val description = "Enlève une musique de la playlist"
+class JumpMusicCommand : SubCommand() {
+    override val name = "jump"
+    override val description = "Joue directement à une musique de la playlist"
     override val options = listOf(
         OptionData(
             OptionType.STRING,
             "music",
-            "Nom de la musique à supprimer",
+            "Nom de la musique à jouer",
             true,
             true
         )
@@ -47,30 +47,21 @@ class RemoveMusicCommand : SubCommand() {
 
         val index = scheduler.playlist.indexOfFirst { it.info.title.equals(musicName, ignoreCase = false) }
 
-        if (scheduler.isTrackPlaying() && index == scheduler.currentIndex) {
-            event.replyEmbeds(
-                EmbedHelper.createEmbed(
-                    type = EmbedHelper.Type.WARNING,
-                    description = "Impossible de retirer la musique en cours de lecture"
-                )
-            ).setEphemeral(true).queue()
-            return
-        }
-
         if (index != -1) {
-            val trackToDelete = scheduler.playlist[index]
+            val track = scheduler.playlist[index]
 
-            scheduler.removeAt(index)
+            scheduler.jump(index)
+            if (scheduler.isTrackPlaying()) scheduler.play()
 
             event.replyEmbeds(
                 EmbedHelper.createEmbed(
                     type = EmbedHelper.Type.SUCCESS,
-                    description = "Musique retirée avec succès",
-                    thumbnailUrl = trackToDelete.info.artworkUrl ?: "https://img.youtube.com/vi/${trackToDelete.identifier}/hqdefault.jpg"
+                    description = "Lecture de `${scheduler.getCurrentTrack()?.info?.title ?: "Titre inconnu"}",
+                    thumbnailUrl = track.info.artworkUrl ?: "https://img.youtube.com/vi/${track.identifier}/hqdefault.jpg"
                 )
             ).queue()
 
-            LogsHelper.success(event, "Track removed from playlist")
+            LogsHelper.success(event, "Track jumped to ${track.info.title}")
 
             return
         }

@@ -25,15 +25,17 @@ class PreviousMusicCommand: SubCommand() {
         if (CommandHelper.isPlaylistEmpty(event, scheduler)) return
 
         scheduler.previous()
-        scheduler.play()
+        if (scheduler.isTrackPlaying()) scheduler.play()
 
+        val track = scheduler.getCurrentTrack()
         event.replyEmbeds(
             EmbedHelper.createEmbed(
                 type = EmbedHelper.Type.SUCCESS,
-                description = "Lecture de `${scheduler.getCurrentTrack()?.info?.title ?: "Titre inconnu"}`"
+                description = "Lecture de `${scheduler.getCurrentTrack()?.info?.title ?: "Titre inconnu"}`",
+                thumbnailUrl = track?.info?.artworkUrl ?: "https://img.youtube.com/vi/${track?.identifier}/hqdefault.jpg"
             )
         ).queue()
 
-        LogsHelper.success(event, "Next track played")
+        LogsHelper.success(event, "Previous track played")
     }
 }

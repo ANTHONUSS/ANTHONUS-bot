@@ -48,7 +48,7 @@ class TrackScheduler(
     }
 
     fun jump(index: Int) {
-
+        currentIndex = index
     }
 
     fun clear() {

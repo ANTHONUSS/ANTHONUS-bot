@@ -6,7 +6,7 @@ class MusicCommand: Command() {
     override val name = "music"
     override val description = "Commandes relatives à la musique"
 
-    //TODO: Ajouter jump, clear, track
+    //TODO: Ajouter track
     override val subCommands = listOf(
         AddMusicCommand(),
         PlayMusicCommand(),
@@ -16,6 +16,7 @@ class MusicCommand: Command() {
         ShuffleMusicCommand(),
         NextMusicCommand(),
         PreviousMusicCommand(),
-        ClearMusicCommand()
+        ClearMusicCommand(),
+        JumpMusicCommand()
     )
 }
