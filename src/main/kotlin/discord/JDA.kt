@@ -2,6 +2,7 @@ package discord
 
 import club.minnced.discord.jdave.interop.JDaveSessionFactory
 import discord.commands.CommandRegistry
+import discord.listeners.AutoCompleteSlashCommandListener
 import discord.listeners.MessageListener
 import helpers.LogsHelper.log
 import helpers.SettingsHelper
@@ -24,7 +25,8 @@ object JDA {
             )
             .addEventListeners(
                 SlashCommandListener(),
-                MessageListener()
+                MessageListener(),
+                AutoCompleteSlashCommandListener()
             )
             .setAudioModuleConfig(
                 AudioModuleConfig()

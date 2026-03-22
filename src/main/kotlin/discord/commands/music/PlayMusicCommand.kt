@@ -13,8 +13,6 @@ class PlayMusicCommand: SubCommand() {
     override fun executeBody(event: SlashCommandInteractionEvent) {
         if (!CommandHelper.isUserInVoiceChannel(event)) return
 
-        event.deferReply().queue()
-
         if (CommandHelper.isGuildNull(event)) return
         // already verified in the statements before
         val guild = event.guild!!
@@ -24,30 +22,25 @@ class PlayMusicCommand: SubCommand() {
         val guildMusicManager = PlayerManager.getGuildMusicManager(guild)
         val audioManager = guild.audioManager
 
+        val scheduler = guildMusicManager.scheduler
+
+        if (CommandHelper.isPlaylistEmpty(event, scheduler)) return
+        if (CommandHelper.isTrackPlaying(event, scheduler)) return
+        if (!CommandHelper.isThereSelectedMusic(event, scheduler)) return
+
+        event.deferReply().queue()
+
         if (!audioManager.isConnected) {
             audioManager.sendingHandler = guildMusicManager.sendHandler
             audioManager.openAudioConnection(voiceChannel)
         }
 
-        val firstTrack = guildMusicManager.scheduler.queue.poll()
-        if (firstTrack == null) {
-            event.hook.editOriginalEmbeds(
-                EmbedHelper.createEmbed(
-                    type = EmbedHelper.Type.WARNING,
-                    description = "La file d'attente est vide"
-                )
-            ).queue()
-
-            return
-        }
-
-        guildMusicManager.player.volume = 50
-        guildMusicManager.player.startTrack(firstTrack.makeClone(), false)
+        scheduler.play()
 
         event.hook.editOriginalEmbeds(
             EmbedHelper.createEmbed(
                 type = EmbedHelper.Type.SUCCESS,
-                description = "Lecture de `${firstTrack.info.title}` dans `${voiceChannel.name}`"
+                description = "Lecture de `${currentTrack.info.title}` dans <#${voiceChannel.id}>"
             )
         ).queue()
     }

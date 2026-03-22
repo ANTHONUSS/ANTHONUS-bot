@@ -21,6 +21,8 @@ class AddMusicCommand : SubCommand() {
     )
 
     override fun executeBody(event: SlashCommandInteractionEvent) {
+        if (!CommandHelper.isUserInVoiceChannel(event)) return
+
         val url = event.getOption("url")?.asString
         if (url.isNullOrEmpty()) {
             event.replyEmbeds(
@@ -72,7 +74,7 @@ class AddMusicCommand : SubCommand() {
                         ).queue()
 
                     } else {
-                        guildMusicManager.scheduler.queue(track)
+                        guildMusicManager.scheduler.add(track)
 
                         val videoId = youtubeRegex.matchEntire(url)?.groups[5]?.value
                         val thumbnailUrl = "https://img.youtube.com/vi/$videoId/hqdefault.jpg"
@@ -95,6 +97,8 @@ class AddMusicCommand : SubCommand() {
                 }
 
                 override fun playlistLoaded(track: AudioPlaylist?) {
+                    //TODO: faire en sorte de charger la vraie musique du lien, et pas la playlist
+
                     event.hook.editOriginalEmbeds(
                         EmbedHelper.createEmbed(
                             type = EmbedHelper.Type.WARNING,
@@ -112,7 +116,7 @@ class AddMusicCommand : SubCommand() {
                     ).queue()
                 }
 
-                override fun loadFailed(e: FriendlyException?) {
+                override fun loadFailed(e: FriendlyException) {
                     event.hook.editOriginalEmbeds(
                         EmbedHelper.createEmbed(
                             type = EmbedHelper.Type.ERROR,
@@ -120,7 +124,7 @@ class AddMusicCommand : SubCommand() {
                         )
                     ).queue()
 
-                    LogsHelper.log.error("Une erreur est survenue lors du chargement de la musique", e)
+                    LogsHelper.failure(event, "Une erreur est survenue lors du chargement de la musique", e)
                 }
 
             })
